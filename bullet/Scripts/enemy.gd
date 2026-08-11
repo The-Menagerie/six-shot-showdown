@@ -139,6 +139,7 @@ func _play_death_sound():
 	death_audio.stream = DEATH_SOUND
 	death_audio.bus = "sfx"
 	owner.add_child(death_audio)
+	_configure_audio_for_bullet_time(death_audio)
 	death_audio.finished.connect(death_audio.queue_free)
 	death_audio.play()
 
@@ -428,3 +429,8 @@ func _check_crush_overlaps() -> void:
 
 func _on_hit_timer_timeout() -> void:
 	knockedback = false
+
+func _configure_audio_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
+	var game_manager := get_tree().root.find_child("MainGame", true, false)
+	if game_manager != null and game_manager.has_method("configure_audio_player_for_bullet_time"):
+		game_manager.configure_audio_player_for_bullet_time(audio_player)

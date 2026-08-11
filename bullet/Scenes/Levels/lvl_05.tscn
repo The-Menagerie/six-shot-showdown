@@ -37,6 +37,66 @@ hframes = 4
 vframes = 3
 frame = 1
 
+[node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
+position = Vector2(0, -16)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Decorations" unique_id=71187166]
+position = Vector2(44, 0)
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="Sprite2D6" type="Sprite2D" parent="Decorations" unique_id=975257825]
+position = Vector2(59, 0)
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="Decorations" unique_id=2104142843]
+position = Vector2(-198, 0)
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+frame = 9
+
+[node name="Sprite2D5" type="Sprite2D" parent="Decorations" unique_id=1546119912]
+position = Vector2(48, 0)
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+
+[node name="Sprite2D8" type="Sprite2D" parent="Decorations" unique_id=381150691]
+position = Vector2(-72, 0)
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=913544977]
+z_index = -1
+position = Vector2(-62, 95)
+rotation = -3.1415925
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="Sprite2D9" type="Sprite2D" parent="Decorations" unique_id=1811461474]
+position = Vector2(142, 1)
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+frame = 6
+
+[node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=1672493909]
+position = Vector2(-88, 160)
+texture = ExtResource("3_x3kly")
+hframes = 4
+vframes = 3
+frame = 6
+
 [node name="Rope1" parent="." unique_id=602890189 instance=ExtResource("2_kdy2g")]
 tile_map_data = PackedByteArray("AAALAPT/AAABAAMAAAALAPb/AAABAAIAAAALAPf/AAABAAIAAAALAPj/AAABAAIAAAALAPn/AAABAAIAAAALAPr/AAABAAIAAAALAPv/AAABAAIAAAALAPz/AAABAAIAAAALAP3/AAABAAIAAAALAP7/AAABAAIAAAALAP//AAABAAIAAAALAAAAAAABAAIAAAALAAEAAAABAAIAAAALAAIAAAABAAIAAAALAAMAAAADAAEAAAAJAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAFAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAADAAMAAAAAAAEAAAACAAMAAAAAAAEAAAABAAMAAAAAAAEAAAAAAAMAAAAAAAEAAAD//wMAAAAAAAEAAAD+/wMAAAABAAEAAAD+/wUAAAADAAAAAAA=")
 
@@ -97,65 +157,6 @@ limit_bottom = 247
 
 [node name="Chamber" parent="CanvasLayer" unique_id=1884226542 instance=ExtResource("6_055q5")]
 bullet_pattern = Array[int]([5, 4, 5, 5, 5, 5])
-
-[node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
-position = Vector2(0, -16)
-
-[node name="Sprite2D7" type="Sprite2D" parent="Decorations" unique_id=71187166]
-position = Vector2(44, 0)
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-frame = 1
-
-[node name="Sprite2D6" type="Sprite2D" parent="Decorations" unique_id=975257825]
-position = Vector2(59, 0)
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-frame = 1
-
-[node name="Sprite2D4" type="Sprite2D" parent="Decorations" unique_id=2104142843]
-position = Vector2(-198, 0)
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-frame = 9
-
-[node name="Sprite2D5" type="Sprite2D" parent="Decorations" unique_id=1546119912]
-position = Vector2(48, 0)
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-
-[node name="Sprite2D8" type="Sprite2D" parent="Decorations" unique_id=381150691]
-position = Vector2(-72, 0)
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-frame = 4
-
-[node name="Sprite2D8" type="Sprite2D" parent="Decorations/Sprite2D8" unique_id=913544977]
-position = Vector2(10, 95)
-rotation = 3.1415927
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-frame = 4
-
-[node name="Sprite2D9" type="Sprite2D" parent="Decorations" unique_id=1811461474]
-position = Vector2(142, 1)
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-frame = 6
-
-[node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=1672493909]
-position = Vector2(-88, 160)
-texture = ExtResource("3_x3kly")
-hframes = 4
-vframes = 3
-frame = 6
 
 [node name="Key" parent="." unique_id=1777878280 instance=ExtResource("8_bsl40")]
 position = Vector2(160, 140)

@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" format=3 uid="uid://i28d0rfrfnfq"]
 
 [ext_resource type="Texture2D" uid="uid://cndsupk77ayys" path="res://Assets/Tilesets/StrangeCowboy/Tilemap/GroundTilemap.png" id="1_o1kib"]
-[ext_resource type="Texture2D" uid="uid://s2yeyj2f7j87" path="res://Assets/Tilesets/abyss_spritesheet.png" id="2_33n15"]
 [ext_resource type="Texture2D" uid="uid://oldu4ui5smrs" path="res://Assets/Tilesets/StrangeCowboy/Tilemap/BackTilemap.png" id="2_htlyi"]
+[ext_resource type="Texture2D" uid="uid://s2yeyj2f7j87" path="res://Assets/Images/Abyss/abyss_spritesheet.png" id="2_xaitd"]
 [ext_resource type="Texture2D" uid="uid://bqj4uv01j3lss" path="res://Assets/Tilesets/wood_tileset.png" id="4_xaitd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htlyi"]
@@ -48,7 +48,7 @@ texture = ExtResource("1_o1kib")
 4:4/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xaitd"]
-texture = ExtResource("2_33n15")
+texture = ExtResource("2_xaitd")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

@@ -80,6 +80,7 @@ func _play_ricochet():
 	ricochet_audio.stream = RICOCHET_SOUND
 	ricochet_audio.bus = "sfx"
 	parent.add_child(ricochet_audio)
+	_configure_audio_for_bullet_time(ricochet_audio)
 	ricochet_audio.finished.connect(ricochet_audio.queue_free)
 	ricochet_audio.play()
 
@@ -99,3 +100,8 @@ func _try_cut_rope_between(segment_start: Vector2, segment_end: Vector2) -> bool
 			return true
 
 	return false
+
+func _configure_audio_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
+	var game_manager := get_tree().root.find_child("MainGame", true, false)
+	if game_manager != null and game_manager.has_method("configure_audio_player_for_bullet_time"):
+		game_manager.configure_audio_player_for_bullet_time(audio_player)

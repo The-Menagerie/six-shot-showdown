@@ -60,6 +60,7 @@ _data = {
 
 [node name="EnemyShotgun" type="Node2D" unique_id=266090207]
 script = ExtResource("2_3t2qx")
+dropped_lifetime = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105423134]
 position = Vector2(6, -5)

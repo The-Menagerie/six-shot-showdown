@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://k56aqm7nswkl"]
 
 [ext_resource type="PackedScene" uid="uid://b3wausjj6n1mb" path="res://Scenes/UI/Controls/Control.tscn" id="1_koyxj"]
-[ext_resource type="Texture2D" uid="uid://b1xyyia0feuht" path="res://Assets/Images/UI/keyboard/vertical_animation/escape.png" id="2_5gwn4"]
+[ext_resource type="Texture2D" uid="uid://b1xyyia0feuht" path="res://Assets/Tilesets/KeyboardAndMouse/keyboard/vertical_animation/escape.png" id="2_5gwn4"]
 
 [node name="Escape" unique_id=941366614 instance=ExtResource("1_koyxj")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=692627604]
 texture = ExtResource("2_5gwn4")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1190402093]
+autoplay = &"Press"

@@ -92,7 +92,7 @@ func update_revolver_recoil(delta):
 	recoil_offset = recoil_offset.move_toward(Vector2.ZERO, recoil_return_speed * delta)
 
 func fire_bullet(bullet_scene: PackedScene):
-	#if Input.is_action_just_pressed("left_click"):
+	#if Input.is_action_just_pressed("shoot"):
 	var bullet = bullet_scene.instantiate()
 	bullet.shooter = self
 	ScoreBus.player_fired_shot()

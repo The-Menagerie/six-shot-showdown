@@ -4,15 +4,24 @@ signal level_changed(level_path: String)
 
 @export var current_level: Node
 @export var anim_player: Node
+@export var tutorial_level_scene: PackedScene
+@export var first_level_scene: PackedScene
 @export_range(0.05, 1.0, 0.05) var bullet_time_scale: float = 0.35
-@export_range(0.0, 3.0, 0.05) var level_fade_in_duration: float = 0.45
-@export var transition_text_start_scale: Vector2 = Vector2(1.0, 1.0)
-@export var transition_text_end_scale: Vector2 = Vector2(1.2, 1.2)
+@export_range(0.05, 1.0, 0.05) var bullet_time_music_scale: float = 0.75
+@export_range(0.05, 1.0, 0.05) var bullet_time_sfx_scale: float = 0.35
+@export_range(0.0, 1.0, 0.05) var bullet_time_overlay_intensity: float = 0.7
+@export_range(0.5, 1.5, 0.05) var bullet_time_overlay_contrast: float = 1.0
+@export_range(0.0, 1.0, 0.05) var bullet_time_overlay_fade_duration: float = 0.18
+@export_range(0.0, 3.0, 0.05) var level_fade_in_duration: float = 1.75
+@export var transition_text_start_scale: Vector2 = Vector2(2.0, 2.0)
+@export var transition_text_end_scale: Vector2 = Vector2(3.0, 3.0)
 
 var is_bullet_time_active := false
 var is_level_reset_queued := false
 var is_level_transition_active := false
+var bullet_time_overlay_tween: Tween
 @onready var music_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var bullet_time_overlay: ColorRect = $CanvasLayer/BulletTimeOverlay
 @onready var transition_overlay: ColorRect = $CanvasLayer/TransitionOverlay
 @onready var transition_text: Label = $CanvasLayer/TransitionOverlay/TransitionText
 #@onready var score_label: Label = $CanvasLayer/ScoreLabel
@@ -22,15 +31,38 @@ var is_level_transition_active := false
 
 func _ready():
 	Engine.time_scale = 1.0
+	_apply_initial_level_selection()
 	if is_instance_valid(music_player):
 		music_player.finished.connect(_on_music_finished)
 		if not music_player.playing:
 			music_player.play()
+	_configure_bullet_time_overlay()
+	_apply_audio_pitch_scale_to_subtree(self)
 	_emit_level_changed()
 	call_deferred("_play_initial_level_intro")
 
 func _process(_delta):
 	_update_bullet_time()
+
+func _apply_initial_level_selection() -> void:
+	if current_level == null:
+		return
+
+	if SettingsManager.skip_tutorial:
+		if first_level_scene != null and current_level.scene_file_path.get_file() != first_level_scene.resource_path.get_file():
+			change_level(first_level_scene)
+			return
+	elif tutorial_level_scene != null and current_level.scene_file_path.get_file() != tutorial_level_scene.resource_path.get_file():
+		change_level(tutorial_level_scene)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if get_tree().paused:
+		return
+	if is_level_transition_active or is_level_reset_queued:
+		return
+	if event.is_action_pressed("restart") and not event.is_echo():
+		reset_current_level()
+		get_viewport().set_input_as_handled()
 
 func change_level(level: PackedScene) -> void:
 	var new_level = level.instantiate()
@@ -54,6 +86,7 @@ func reset_current_level() -> void:
 	if current_level.scene_file_path.is_empty():
 		return
 
+	ScoreBus.register_level_reset()
 	is_level_reset_queued = true
 	call_deferred("_deferred_reset_current_level")
 
@@ -72,26 +105,105 @@ func _deferred_reset_current_level() -> void:
 	current_level.queue_free()
 	current_level = new_level
 	is_level_reset_queued = false
+	_apply_audio_pitch_scale_to_subtree(new_level)
 	_emit_level_changed()
 
 
 func _update_bullet_time():
-	var should_enable_bullet_time = Input.is_action_pressed("right_click") or Input.is_action_pressed("bullet_time")
+	var should_enable_bullet_time = Input.is_action_pressed("bullet_time")
 	if should_enable_bullet_time == is_bullet_time_active:
 		return
 
 	is_bullet_time_active = should_enable_bullet_time
 	Engine.time_scale = bullet_time_scale if is_bullet_time_active else 1.0
+	_apply_audio_pitch_scale_to_subtree(self)
+	_update_bullet_time_overlay()
 
 
 func _exit_tree():
 	Engine.time_scale = 1.0
+	is_bullet_time_active = false
+	_apply_audio_pitch_scale_to_subtree(self)
+	_set_bullet_time_overlay_intensity(0.0)
 
 func _emit_level_changed() -> void:
 	if current_level == null:
 		return
 
+	_apply_audio_pitch_scale_to_subtree(current_level)
 	level_changed.emit(current_level.scene_file_path)
+
+func configure_audio_player_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
+	if not is_instance_valid(audio_player):
+		return
+
+	audio_player.pitch_scale = _get_pitch_scale_for_bus(audio_player.bus)
+
+func _apply_audio_pitch_scale_to_subtree(root: Node) -> void:
+	if root == null or not is_instance_valid(root):
+		return
+
+	if root is AudioStreamPlayer:
+		configure_audio_player_for_bullet_time(root as AudioStreamPlayer)
+
+	for child in root.get_children():
+		_apply_audio_pitch_scale_to_subtree(child)
+
+func _get_pitch_scale_for_bus(bus_name: StringName) -> float:
+	if not is_bullet_time_active:
+		return 1.0
+
+	if bus_name == &"music":
+		return bullet_time_music_scale
+	if bus_name == &"sfx":
+		return bullet_time_sfx_scale
+	return 1.0
+
+func _configure_bullet_time_overlay() -> void:
+	if not is_instance_valid(bullet_time_overlay):
+		return
+
+	var overlay_material := bullet_time_overlay.material as ShaderMaterial
+	if overlay_material == null:
+		return
+
+	overlay_material.set_shader_parameter("contrast", bullet_time_overlay_contrast)
+	overlay_material.set_shader_parameter("intensity", 0.0)
+
+func _update_bullet_time_overlay() -> void:
+	if not is_instance_valid(bullet_time_overlay):
+		return
+
+	var target_intensity := bullet_time_overlay_intensity if is_bullet_time_active else 0.0
+	if is_instance_valid(bullet_time_overlay_tween):
+		bullet_time_overlay_tween.kill()
+
+	if is_zero_approx(bullet_time_overlay_fade_duration):
+		_set_bullet_time_overlay_intensity(target_intensity)
+		return
+
+	bullet_time_overlay_tween = create_tween()
+	bullet_time_overlay_tween.tween_method(_set_bullet_time_overlay_intensity, _get_bullet_time_overlay_intensity(), target_intensity, bullet_time_overlay_fade_duration)
+
+func _set_bullet_time_overlay_intensity(value: float) -> void:
+	if not is_instance_valid(bullet_time_overlay):
+		return
+
+	var overlay_material := bullet_time_overlay.material as ShaderMaterial
+	if overlay_material == null:
+		return
+
+	overlay_material.set_shader_parameter("intensity", value)
+
+func _get_bullet_time_overlay_intensity() -> float:
+	if not is_instance_valid(bullet_time_overlay):
+		return 0.0
+
+	var overlay_material := bullet_time_overlay.material as ShaderMaterial
+	if overlay_material == null:
+		return 0.0
+
+	return float(overlay_material.get_shader_parameter("intensity"))
 
 func _on_music_finished() -> void:
 	if is_instance_valid(music_player):

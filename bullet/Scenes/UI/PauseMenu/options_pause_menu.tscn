@@ -5,8 +5,10 @@
 [ext_resource type="Shader" uid="uid://j1l3yjp2w3gm" path="res://Assets/Shaders/Menu/pause_menu.gdshader" id="2_jaofs"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="3_jnjun"]
 [ext_resource type="PackedScene" uid="uid://wxi0vtp7n3m5" path="res://Scenes/UI/MainMenu/Options/volumeSlider.tscn" id="4_11u27"]
-[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Images/UI/PauseMenu.png" id="4_jnjun"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/MainMenu/Options/aimSpeedSlider.tscn" id="5_aimsp"]
+[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png" id="4_jnjun"]
 [ext_resource type="Script" uid="uid://b1y7s1vtwwtpp" path="res://Scripts/MainMenu/Options/chamber_scale_option.gd" id="6_jnjun"]
+[ext_resource type="Script" uid="uid://e2vlnvg1m203" path="res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd" id="7_skipt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3nwl"]
 shader = ExtResource("2_jaofs")
@@ -108,9 +110,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -119.5
-offset_top = -230.5
+offset_top = -276.5
 offset_right = 180.5
-offset_bottom = 269.5
+offset_bottom = 315.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -184,6 +186,20 @@ layout_mode = 2
 size_flags_horizontal = 4
 bus_name = "sfx"
 
+[node name="AimSpeedLabel" type="Label" parent="OptionsContainer/ButtonContainer" unique_id=2139041199]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jnjun")
+theme_override_font_sizes/font_size = 30
+text = "Aim Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AimSpeedSlider" parent="OptionsContainer/ButtonContainer" unique_id=2104128258 instance=ExtResource("5_aimsp")]
+custom_minimum_size = Vector2(240, 0)
+custom_maximum_size = Vector2(240, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+
 [node name="ChamberScaleLabel" type="Label" parent="OptionsContainer/ButtonContainer" unique_id=1102121990]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jnjun")
@@ -210,6 +226,15 @@ popup/item_2/id = 2
 popup/item_3/text = "4x"
 popup/item_3/id = 3
 script = ExtResource("6_jnjun")
+
+[node name="SkipTutorialToggle" type="CheckButton" parent="OptionsContainer/ButtonContainer" unique_id=1515151515]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jnjun")
+theme_override_font_sizes/font_size = 24
+text = "Skip Tutorial"
+alignment = 1
+script = ExtResource("7_skipt")
 
 [node name="Back" type="Button" parent="OptionsContainer/ButtonContainer" unique_id=33279039]
 process_mode = 3

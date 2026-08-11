@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://5nqw2v1dr8b2"]
+
+[ext_resource type="PackedScene" uid="uid://b3wausjj6n1mb" path="res://Scenes/UI/Controls/Control.tscn" id="1_m4b6h"]
+[ext_resource type="Texture2D" uid="uid://bu6to8fhgqjj" path="res://Assets/Tilesets/KeyboardAndMouse/keyboard/vertical_animation/r.png" id="2_cvne7"]
+
+[node name="R" unique_id=871972327 instance=ExtResource("1_m4b6h")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=692627604]
+texture = ExtResource("2_cvne7")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1190402093]
+autoplay = &"Press"

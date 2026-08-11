@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c8ye048soxl2i"]
 
-[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Images/UI/PauseMenu.png" id="1_0euh8"]
+[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png" id="1_0euh8"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="1_48pco"]
-[ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Images/UI/MainMenuBackground.png" id="1_w06ly"]
+[ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png" id="1_w06ly"]
 [ext_resource type="Script" uid="uid://v5j06idmehc1" path="res://Scenes/UI/score_board.gd" id="2_0euh8"]
+[ext_resource type="PackedScene" uid="uid://cpm2dcaaq5bod" path="res://Scenes/Levels/tut_01.tscn" id="3_tut01"]
 [ext_resource type="PackedScene" uid="uid://bwvlgeuqlgfu" path="res://Scenes/Levels/lvl_01.tscn" id="5_6jp05"]
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="5_y3xw1"]
 
@@ -80,7 +81,7 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Panel/Container" unique_id=1703278290]
 layout_mode = 2
 
-[node name="Score" type="Label" parent="CanvasLayer/Panel/Container" unique_id=845003210 node_paths=PackedStringArray("sayin_label")]
+[node name="Score" type="Label" parent="CanvasLayer/Panel/Container" unique_id=845003210 node_paths=PackedStringArray("sayin_label", "stats_label")]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_48pco")
@@ -89,7 +90,17 @@ text = "0 Reputation"
 horizontal_alignment = 1
 script = ExtResource("2_0euh8")
 reset_level = ExtResource("5_6jp05")
+tutorial_level = ExtResource("3_tut01")
 sayin_label = NodePath("../SayinLabel")
+stats_label = NodePath("../StatsLabel")
+
+[node name="StatsLabel" type="Label" parent="CanvasLayer/Panel/Container" unique_id=284110003]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_48pco")
+theme_override_font_sizes/font_size = 24
+text = "Shots: 0 | Resets: 0 | Deaths: 0 | Time: 00:00"
+horizontal_alignment = 1
 
 [node name="SayinLabel" type="Label" parent="CanvasLayer/Panel/Container" unique_id=241886752]
 layout_mode = 2

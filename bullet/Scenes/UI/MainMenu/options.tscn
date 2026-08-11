@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://s4yejtxjejiq" path="res://Scripts/MainMenu/menu.gd" id="1_xct24"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="2_0aapc"]
 [ext_resource type="PackedScene" uid="uid://wxi0vtp7n3m5" path="res://Scenes/UI/MainMenu/Options/volumeSlider.tscn" id="3_fql3x"]
-[ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Images/UI/MainMenuBackground.png" id="3_v8wv4"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/MainMenu/Options/aimSpeedSlider.tscn" id="4_aimsp"]
+[ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png" id="3_v8wv4"]
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="4_4om0b"]
+[ext_resource type="Script" uid="uid://e2vlnvg1m203" path="res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd" id="5_skipt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4osx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -79,9 +81,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -22.0
+offset_top = -70.0
 offset_right = 20.0
-offset_bottom = 18.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -121,5 +123,24 @@ vertical_alignment = 1
 [node name="SFXVolumeSlider" parent="SliderContainer" unique_id=172500918 instance=ExtResource("3_fql3x")]
 layout_mode = 2
 bus_name = "sfx"
+
+[node name="AimSpeedLabel" type="Label" parent="SliderContainer" unique_id=1656105932]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0aapc")
+theme_override_font_sizes/font_size = 30
+text = "Aim Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AimSpeedSlider" parent="SliderContainer" unique_id=1123919283 instance=ExtResource("4_aimsp")]
+layout_mode = 2
+
+[node name="SkipTutorialToggle" type="CheckButton" parent="SliderContainer" unique_id=1414141415]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0aapc")
+theme_override_font_sizes/font_size = 24
+text = "Skip Tutorial"
+alignment = 1
+script = ExtResource("5_skipt")
 
 [connection signal="pressed" from="Back" to="." method="back_button_pressed"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://s4yejtxjejiq" path="res://Scripts/MainMenu/menu.gd" id="1_yv36r"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="2_fxewk"]
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="3_748jn"]
-[ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Images/UI/MainMenuBackground.png" id="3_y6gmb"]
+[ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png" id="3_y6gmb"]
 [ext_resource type="AudioStream" uid="uid://b3y3f71hn07jt" path="res://Assets/Music/CowboyMenuSong.mp3" id="4_7udck"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4osx"]
@@ -43,6 +43,9 @@ offset_bottom = 190.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.45490196, 0.24313726, 0.10980392, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("2_fxewk")
 theme_override_font_sizes/font_size = 60
 text = "Six Shot Showdown"

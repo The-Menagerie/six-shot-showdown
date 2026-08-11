@@ -21,7 +21,7 @@ func open_menu() -> void:
 	await $AnimationPlayer.animation_finished
 
 func _input(event) -> void:
-	if event.is_action_pressed("Escape"):
+	if event.is_action_pressed("menu"):
 		if visible:
 			close_menu()
 		else:

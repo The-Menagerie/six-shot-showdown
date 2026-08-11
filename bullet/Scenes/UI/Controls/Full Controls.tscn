@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bgt3mhqrf24b1" path="res://Scenes/UI/Controls/Space.tscn" id="6_sn7tf"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="7_ie1kc"]
 [ext_resource type="PackedScene" uid="uid://smkvi17rdgy2" path="res://Scenes/UI/Controls/E.tscn" id="8_rnbr0"]
+[ext_resource type="PackedScene" uid="uid://5nqw2v1dr8b2" path="res://Scenes/UI/Controls/R.tscn" id="9_20mvd"]
+[ext_resource type="PackedScene" uid="uid://cna414avtqqvk" path="res://Scenes/UI/Controls/W.tscn" id="10_dte07"]
 
 [node name="FullControls" type="Control" unique_id=1208426789]
 layout_mode = 3
@@ -31,14 +33,14 @@ offset_top = 1021.0
 offset_right = 971.0
 offset_bottom = 1021.0
 
-[node name="Escape" parent="." unique_id=101214939 instance=ExtResource("3_rnbr0")]
+[node name="Esc" parent="." unique_id=101214939 instance=ExtResource("3_rnbr0")]
 layout_mode = 0
 offset_left = 63.0
 offset_top = 62.999992
 offset_right = 63.0
 offset_bottom = 62.999992
 
-[node name="Left Click" parent="." unique_id=376884533 instance=ExtResource("4_20mvd")]
+[node name="Shoot" parent="." unique_id=376884533 instance=ExtResource("4_20mvd")]
 layout_mode = 0
 offset_left = 1571.0
 offset_top = 1021.0
@@ -54,65 +56,80 @@ offset_bottom = 1021.0
 
 [node name="Space" parent="." unique_id=2047244580 instance=ExtResource("6_sn7tf")]
 layout_mode = 0
-offset_left = 1271.0
+offset_left = 1352.0
 offset_top = 1021.0
-offset_right = 1271.0
+offset_right = 1352.0
 offset_bottom = 1021.0
 
-[node name="Label" type="Label" parent="." unique_id=1146087841]
+[node name="Left" type="Label" parent="." unique_id=1146087841]
 layout_mode = 0
 offset_left = 696.0
 offset_top = 897.0
 offset_right = 843.057
 offset_bottom = 981.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("7_ie1kc")
 theme_override_font_sizes/font_size = 60
 text = "Left"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=190336454]
+[node name="Right" type="Label" parent="." unique_id=190336454]
 layout_mode = 0
 offset_left = 885.0
 offset_top = 896.0
 offset_right = 1054.0
 offset_bottom = 980.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("7_ie1kc")
 theme_override_font_sizes/font_size = 60
 text = "Right"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="." unique_id=359225964]
+[node name="Jump" type="Label" parent="." unique_id=359225964]
 layout_mode = 0
 offset_left = 1176.0
 offset_top = 897.0
 offset_right = 1353.0
 offset_bottom = 981.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("7_ie1kc")
 theme_override_font_sizes/font_size = 60
 text = "Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="." unique_id=1284345912]
+[node name="Shoot2" type="Label" parent="." unique_id=1284345912]
 layout_mode = 0
 offset_left = 1475.0
 offset_top = 890.0
 offset_right = 1659.0
 offset_bottom = 974.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("7_ie1kc")
 theme_override_font_sizes/font_size = 60
 text = "Shoot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="." unique_id=2081310159]
+[node name="Bullet Time" type="Label" parent="." unique_id=2081310159]
 layout_mode = 0
-offset_left = 1677.0
-offset_top = 825.0
-offset_right = 1867.0
-offset_bottom = 980.0
+offset_left = 1679.0
+offset_top = 777.0
+offset_right = 1878.0
+offset_bottom = 1011.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("7_ie1kc")
 theme_override_font_sizes/font_size = 60
 text = "Bullet
@@ -120,15 +137,33 @@ Time"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="." unique_id=1148230974]
+[node name="Menu" type="Label" parent="." unique_id=1148230974]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 26.0
 offset_right = 319.0
 offset_bottom = 110.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("7_ie1kc")
 theme_override_font_sizes/font_size = 60
 text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Label" parent="." unique_id=1659356455]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 115.0
+offset_right = 405.0
+offset_bottom = 199.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("7_ie1kc")
+theme_override_font_sizes/font_size = 60
+text = "Restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -137,4 +172,18 @@ layout_mode = 0
 offset_left = 1823.0
 offset_top = 1021.0
 offset_right = 1823.0
+offset_bottom = 1021.0
+
+[node name="R" parent="." unique_id=2015351186 instance=ExtResource("9_20mvd")]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 160.0
+offset_right = 63.0
+offset_bottom = 160.0
+
+[node name="Control2" parent="." unique_id=902795783 instance=ExtResource("10_dte07")]
+layout_mode = 0
+offset_left = 1151.0
+offset_top = 1021.0
+offset_right = 1151.0
 offset_bottom = 1021.0

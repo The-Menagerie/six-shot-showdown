@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bjavlvrmxi754" path="res://Scripts/Menus/PauseMenu/pause_menu.gd" id="1_t3nwl"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="1_wtndc"]
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="2_bkcxk"]
-[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Images/UI/PauseMenu.png" id="4_2mkgl"]
+[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png" id="4_2mkgl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3nwl"]
 shader = ExtResource("1_2ts85")
@@ -140,8 +140,11 @@ theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="PauseContainer/ButtonContainer" unique_id=890038342]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_fonts/font = ExtResource("1_wtndc")
 theme_override_font_sizes/font_size = 40
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -149,10 +152,15 @@ vertical_alignment = 1
 [node name="Resume" type="Button" parent="PauseContainer/ButtonContainer" unique_id=1650983899]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
 theme_override_colors/font_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
 theme_override_colors/font_hover_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_fonts/font = ExtResource("1_wtndc")
 theme_override_font_sizes/font_size = 30
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtndc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2ts85")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t3nwl")
@@ -163,10 +171,15 @@ text = "Resume"
 [node name="Options" type="Button" parent="PauseContainer/ButtonContainer" unique_id=34978331]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
 theme_override_colors/font_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
 theme_override_colors/font_hover_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_fonts/font = ExtResource("1_wtndc")
 theme_override_font_sizes/font_size = 30
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtndc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2ts85")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t3nwl")
@@ -178,10 +191,15 @@ text = "Options
 [node name="Restart" type="Button" parent="PauseContainer/ButtonContainer" unique_id=506704426]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
 theme_override_colors/font_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
 theme_override_colors/font_hover_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_fonts/font = ExtResource("1_wtndc")
 theme_override_font_sizes/font_size = 30
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtndc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2ts85")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t3nwl")
@@ -193,10 +211,15 @@ text = "Restart
 [node name="Quit" type="Button" parent="PauseContainer/ButtonContainer" unique_id=61746616]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
 theme_override_colors/font_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
 theme_override_colors/font_hover_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_fonts/font = ExtResource("1_wtndc")
 theme_override_font_sizes/font_size = 30
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtndc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2ts85")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t3nwl")

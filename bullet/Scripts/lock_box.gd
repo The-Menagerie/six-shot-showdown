@@ -52,5 +52,11 @@ func _play_unlock_sound() -> void:
 	detached_audio.stream = unlock_audio.stream
 	detached_audio.bus = unlock_audio.bus
 	parent_node.add_child(detached_audio)
+	_configure_audio_for_bullet_time(detached_audio)
 	detached_audio.finished.connect(detached_audio.queue_free)
 	detached_audio.play()
+
+func _configure_audio_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
+	var game_manager := get_tree().root.find_child("MainGame", true, false)
+	if game_manager != null and game_manager.has_method("configure_audio_player_for_bullet_time"):
+		game_manager.configure_audio_player_for_bullet_time(audio_player)

@@ -57,6 +57,17 @@ tile_set = ExtResource("2_iv6jo")
 z_index = -20
 tile_set = ExtResource("2_iv6jo")
 
+[node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
+z_index = -1
+position = Vector2(0, -16)
+
+[node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=1152511261]
+position = Vector2(-174, 0)
+texture = ExtResource("8_ryyof")
+hframes = 4
+vframes = 3
+frame = 3
+
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("3_b7kal")]
 position = Vector2(-158, -20)
 vertical_recoil_scale = 0.45
@@ -73,16 +84,6 @@ limit_bottom = 100
 
 [node name="Chamber" parent="CanvasLayer" unique_id=1884226542 instance=ExtResource("4_wv221")]
 bullet_pattern = Array[int]([1, 2, 1, 2, 2, 2])
-
-[node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
-position = Vector2(0, -16)
-
-[node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=1152511261]
-position = Vector2(-174, 0)
-texture = ExtResource("8_ryyof")
-hframes = 4
-vframes = 3
-frame = 3
 
 [node name="Target3" parent="." unique_id=2076365285 instance=ExtResource("5_6i15v")]
 position = Vector2(191, 38)

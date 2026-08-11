@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://c81gae00aibtk"]
 
 [ext_resource type="PackedScene" uid="uid://b3wausjj6n1mb" path="res://Scenes/UI/Controls/Control.tscn" id="1_i2tdf"]
-[ext_resource type="Texture2D" uid="uid://vmbaflubhodm" path="res://Assets/Images/UI/mouse/vertical_animation/right.png" id="2_f665q"]
+[ext_resource type="Texture2D" uid="uid://vmbaflubhodm" path="res://Assets/Tilesets/KeyboardAndMouse/mouse/vertical_animation/right.png" id="2_f665q"]
 
 [node name="Right Click" unique_id=941366614 instance=ExtResource("1_i2tdf")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=692627604]
 texture = ExtResource("2_f665q")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1190402093]
+autoplay = &"Press"
+speed_scale = 0.25

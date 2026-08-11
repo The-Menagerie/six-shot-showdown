@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cxn5m714xg0j3"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu/Options/aim_speed_slider.gd" id="1_aimsp"]
+
+[node name="AimSpeedSlider" type="HSlider"]
+custom_minimum_size = Vector2(240, 0)
+max_value = 2200.0
+value = 900.0
+step = 10.0
+script = ExtResource("1_aimsp")

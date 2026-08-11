@@ -3,9 +3,13 @@ extends Node2D
 @export var drop_gravity : float = 900.0
 @export var floor_snap_distance : float = 6.0
 @export var muzzle_distance : float = 12.0
+@export var dropped_lifetime : float = 6.0
+@export var fade_duration : float = 1.25
 
 var drop_velocity : Vector2 = Vector2.ZERO
 var is_dropping := false
+var despawn_timer := 0.0
+var is_despawning := false
 
 const ENEMY_BULLET_SCENE = preload("res://Scenes/Objects/Enemies/EnemyBullet.tscn")
 
@@ -13,10 +17,16 @@ const ENEMY_BULLET_SCENE = preload("res://Scenes/Objects/Enemies/EnemyBullet.tsc
 @onready var gunshot_audio: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready():
+	modulate.a = 1.0
 	if is_instance_valid(animation_player):
 		animation_player.play("Idle")
 
 func _physics_process(delta):
+	if is_despawning:
+		_update_despawn(delta)
+		if not is_inside_tree():
+			return
+
 	if not is_dropping:
 		return
 
@@ -41,6 +51,9 @@ func _physics_process(delta):
 func drop(initial_velocity: Vector2 = Vector2.ZERO):
 	drop_velocity = initial_velocity
 	is_dropping = true
+	is_despawning = true
+	despawn_timer = dropped_lifetime
+	modulate.a = 1.0
 
 func fire(direction: Vector2, parent: Node):
 	if is_dropping or parent == null or direction == Vector2.ZERO:
@@ -57,3 +70,12 @@ func fire(direction: Vector2, parent: Node):
 	bullet.global_position = global_position + direction.normalized() * muzzle_distance
 	if bullet.has_method("set_direction"):
 		bullet.set_direction(direction)
+
+func _update_despawn(delta: float) -> void:
+	despawn_timer = max(despawn_timer - delta, 0.0)
+
+	if fade_duration > 0.0 and despawn_timer <= fade_duration:
+		modulate.a = clamp(despawn_timer / fade_duration, 0.0, 1.0)
+
+	if despawn_timer <= 0.0:
+		queue_free()

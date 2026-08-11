@@ -2,24 +2,42 @@
 
 [ext_resource type="Script" uid="uid://ega4e5xi5xcp" path="res://Scripts/game_manager.gd" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://cpm2dcaaq5bod" path="res://Scenes/Levels/tut_01.tscn" id="2_bb2iq"]
+[ext_resource type="PackedScene" uid="uid://bwvlgeuqlgfu" path="res://Scenes/Levels/lvl_01.tscn" id="2_g4i5f"]
 [ext_resource type="PackedScene" uid="uid://6d6cx2lf8bsy" path="res://Scenes/UI/PauseMenu/pause_menu.tscn" id="3_0e3vx"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="3_8q2ri"]
-[ext_resource type="Script" uid="uid://bhfjhwi6okwue" path="res://Scenes/score_label.gd" id="4_6j5ir"]
+[ext_resource type="Script" uid="uid://bhfjhwi6okwue" path="res://Scripts/score_label.gd" id="4_6j5ir"]
+[ext_resource type="Script" uid="uid://dc361j5m1c0ti" path="res://Scripts/restart_hint.gd" id="5_hint"]
 [ext_resource type="PackedScene" uid="uid://bfesun4rqhiis" path="res://Scenes/UI/PauseMenu/options_pause_menu.tscn" id="6_bb2iq"]
 [ext_resource type="AudioStream" uid="uid://ckagh2jekbnkq" path="res://Assets/Music/CowboyGameSong.mp3" id="7_18r40"]
+[ext_resource type="Shader" uid="uid://d1x73avjrfi0i" path="res://Assets/Shaders/bullet_time_border.gdshader" id="8_btfx"]
+[ext_resource type="PackedScene" uid="uid://5nqw2v1dr8b2" path="res://Scenes/UI/Controls/R.tscn" id="9_r0mdn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btfx"]
+shader = ExtResource("8_btfx")
+shader_parameter/intensity = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/sepia_bias = Vector3(1.06, 1, 0.82)
 
 [node name="MainGame" type="Node2D" unique_id=2137632005 node_paths=PackedStringArray("current_level", "anim_player")]
 script = ExtResource("1_l756w")
 current_level = NodePath("Tut01")
 anim_player = NodePath("AnimationPlayer")
-level_fade_in_duration = 1.75
-transition_text_start_scale = Vector2(2, 2)
-transition_text_end_scale = Vector2(3, 3)
+tutorial_level_scene = ExtResource("2_bb2iq")
+first_level_scene = ExtResource("2_g4i5f")
 
 [node name="Tut01" parent="." unique_id=718201387 instance=ExtResource("2_bb2iq")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1763990367]
 layer = 10
+
+[node name="BulletTimeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1049037811]
+material = SubResource("ShaderMaterial_btfx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="TransitionOverlay" type="ColorRect" parent="CanvasLayer" unique_id=643156338]
 visible = false
@@ -46,6 +64,9 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.97, 0.9, 0.78, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("3_8q2ri")
 theme_override_font_sizes/font_size = 40
 text = "12 Minutes til Showdown"
@@ -57,8 +78,11 @@ offset_left = 16.0
 offset_top = 12.0
 offset_right = 175.0
 offset_bottom = 52.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("3_8q2ri")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 38
 text = "Score: 1000"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -68,6 +92,35 @@ script = ExtResource("4_6j5ir")
 
 [node name="OptionsPauseMenu" parent="CanvasLayer" unique_id=1607701552 instance=ExtResource("6_bb2iq")]
 size_flags_vertical = 3
+
+[node name="RestartHint" type="Label" parent="CanvasLayer" unique_id=1252689156]
+modulate = Color(1, 1, 1, 0)
+z_index = -5
+offset_left = 5.0
+offset_right = 150.0
+offset_bottom = 52.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_8q2ri")
+theme_override_font_sizes/font_size = 24
+text = "Restart"
+vertical_alignment = 1
+script = ExtResource("5_hint")
+show_delay = 2.0
+follow_offset = Vector2(0, -44)
+key_gap = 5.0
+key_visual_width = 104.0
+key_horizontal_offset = 50.0
+key_vertical_offset = 50.0
+
+[node name="R" parent="CanvasLayer/RestartHint" unique_id=871972327 instance=ExtResource("9_r0mdn")]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 18.0
+offset_right = -24.0
+offset_bottom = 18.0
+scale = Vector2(3.8, 3.8)
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=185333735]
 layout_mode = 3

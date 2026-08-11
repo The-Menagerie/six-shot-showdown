@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bwvlgeuqlgfu"]
 
-[ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_lxh78"]
+[ext_resource type="Script" uid="uid://cf312iha47sj7" path="res://Scripts/Levels/lvl_01.gd" id="1_lxh78"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="2_ervr4"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="2_sav4y"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="3_0hn83"]
@@ -10,9 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/Key.tscn" id="6_ervr4"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="7_0hn83"]
 [ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="8_7re2w"]
+[ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="9_40jae"]
 
 [node name="Lvl01" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_lxh78")
+key_node = NodePath("Key")
+key_hint_label = NodePath("CanvasLayer/KeyHintLabel")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/Levels/lvl_02.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
@@ -54,6 +57,23 @@ z_index = -20
 tile_map_data = PackedByteArray("AADi//T/BAACAAEAAADi//X/BAACAAEAAADi//b/BAACAAEAAADj//T/BAADAAEAAADj//X/BAADAAEAAADj//b/BAADAAEAAADk//T/BAAEAAEAAADk//X/BAAEAAEAAADk//b/BAAEAAEAAADw//n/BAAGAAEAAADw//r/BAAGAAEAAADw//v/BAAGAAEAAADw//z/BAAGAAEAAADw//3/BAAGAAEAAADw//7/BAAGAAEAAADw////BAAGAAEAAADx//n/BAACAAEAAADx//r/BAACAAEAAADx//v/BAACAAEAAADx//z/BAACAAEAAADx//3/BAACAAEAAADx//7/BAACAAEAAADx////BAACAAEAAADs//n/BAACAAEAAADs//r/BAACAAEAAADs//v/BAACAAEAAADs//z/BAACAAEAAADs//3/BAACAAEAAADs//7/BAACAAEAAADs////BAACAAEAAADt//n/BAADAAEAAADt//r/BAADAAEAAADt//v/BAADAAEAAADt//z/BAADAAEAAADt//3/BAADAAEAAADt//7/BAADAAEAAADt////BAADAAEAAADu//n/BAAEAAEAAADu//r/BAAEAAEAAADu//v/BAAEAAEAAADu//z/BAAEAAEAAADu//3/BAAEAAEAAADu//7/BAAEAAEAAADu////BAAEAAEAAADv//n/BAAFAAEAAADv//r/BAAFAAEAAADv//v/BAAFAAEAAADv//z/BAAFAAEAAADv//3/BAAFAAEAAADv//7/BAAFAAEAAADv////BAAFAAEAAAAIAP7/BAABAAEAAAAIAP//BAABAAEAAAAJAP7/BAACAAEAAAAJAP//BAACAAEAAAAKAP7/BAADAAEAAAAKAP//BAADAAEAAAALAP7/BAAEAAEAAAALAP//BAAEAAEAAAAMAPz/BAADAAEAAAAMAP3/BAADAAEAAAAMAP7/BAADAAEAAAAMAP//BAADAAEAAAANAPz/BAAEAAEAAAANAP3/BAAEAAEAAAANAP7/BAAEAAEAAAANAP//BAAEAAEAAAAOAPz/BAAFAAEAAAAOAP3/BAAFAAEAAAAOAP7/BAAFAAEAAAAOAP//BAAFAAEAAAAPAPz/BAAGAAEAAAAPAP3/BAAGAAEAAAAPAP7/BAAGAAEAAAAPAP//BAAGAAEAAAAQAPz/BAACAAEAAAAQAP3/BAACAAEAAAAQAP7/BAACAAEAAAAQAP//BAACAAEAAAARAPz/BAADAAEAAAARAP3/BAADAAEAAAARAP7/BAADAAEAAAARAP//BAADAAEAAAASAPz/BAAEAAEAAAASAP3/BAAEAAEAAAASAP7/BAAEAAEAAAASAP//BAAEAAEAAAATAPz/BAAFAAEAAAATAP3/BAAFAAEAAAATAP7/BAAFAAEAAAATAP//BAAFAAEAAAAIAPz/BAADAAEAAAAIAP3/BAADAAEAAAAJAPz/BAAEAAEAAAAJAP3/BAAEAAEAAAAKAPz/BAAFAAEAAAAKAP3/BAAFAAEAAAALAPz/BAAGAAEAAAALAP3/BAAGAAEAAAA=")
 tile_set = ExtResource("3_0hn83")
 
+[node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
+z_index = -1
+position = Vector2(0, -16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=1027136876]
+position = Vector2(60, 0)
+texture = ExtResource("8_7re2w")
+hframes = 4
+vframes = 3
+frame = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=739064222]
+position = Vector2(-154, 0)
+texture = ExtResource("8_7re2w")
+hframes = 4
+vframes = 3
+
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("4_jbxq0")]
 position = Vector2(1, -19)
 vertical_recoil_scale = 0.75
@@ -69,21 +89,20 @@ limit_right = 432
 
 [node name="Chamber" parent="CanvasLayer" unique_id=1884226542 instance=ExtResource("5_si253")]
 
-[node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
-position = Vector2(0, -16)
-
-[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=1027136876]
-position = Vector2(60, 0)
-texture = ExtResource("8_7re2w")
-hframes = 4
-vframes = 3
-frame = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=739064222]
-position = Vector2(-154, 0)
-texture = ExtResource("8_7re2w")
-hframes = 4
-vframes = 3
+[node name="KeyHintLabel" type="Label" parent="CanvasLayer" unique_id=2001458306]
+visible = false
+offset_left = 848.0
+offset_top = 72.0
+offset_right = 1468.0
+offset_bottom = 152.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_fonts/font = ExtResource("9_40jae")
+theme_override_font_sizes/font_size = 28
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+text = "Hint: Jump and Shoot to go higher"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Key" parent="." unique_id=1777878280 instance=ExtResource("6_ervr4")]
 position = Vector2(-69, -105)

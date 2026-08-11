@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgt3mhqrf24b1"]
 
 [ext_resource type="PackedScene" uid="uid://b3wausjj6n1mb" path="res://Scenes/UI/Controls/Control.tscn" id="1_c7gjs"]
-[ext_resource type="Texture2D" uid="uid://chgw5by0dto86" path="res://Assets/Images/UI/keyboard/vertical_animation/space.png" id="2_agag2"]
+[ext_resource type="Texture2D" uid="uid://chgw5by0dto86" path="res://Assets/Tilesets/KeyboardAndMouse/keyboard/vertical_animation/space.png" id="2_agag2"]
 
 [node name="Space" unique_id=941366614 instance=ExtResource("1_c7gjs")]
 

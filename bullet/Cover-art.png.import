@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnnsc8gaj8cvp"
-valid=false
+uid="uid://bo0pfjicsq3j7"
+path="res://.godot/imported/Cover-art.png-747c4d986649e9c36afa0c8b525b76a8.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Cover-art.png"
+dest_files=["res://.godot/imported/Cover-art.png-747c4d986649e9c36afa0c8b525b76a8.ctex"]
 
 [params]
 
