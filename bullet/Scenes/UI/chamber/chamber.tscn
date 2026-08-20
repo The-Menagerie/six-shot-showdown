@@ -9,6 +9,18 @@
 atlas = ExtResource("2_cqkxi")
 region = Rect2(0, 0, 128, 128)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sh608"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_bh58u"]
+offsets = PackedFloat32Array(0, 0.5421687)
+colors = PackedColorArray(0.38928655, 0.38928664, 0.3892865, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qd85e"]
+gradient = SubResource("Gradient_bh58u")
+fill_from = Vector2(0.5347826, 1)
+fill_to = Vector2(0.523913, 0.002173913)
+
 [sub_resource type="Animation" id="Animation_vkusv"]
 length = 0.001
 tracks/0/type = "value"
@@ -73,6 +85,42 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("alignment/VBoxContainer:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("alignment/mask:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("alignment/mask/TextureRect:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_xceaa"]
 resource_name = "revolve"
@@ -84,10 +132,10 @@ tracks/0/path = NodePath("alignment/VBoxContainer/TextureRect:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333, 0.0667, 0.1, 0.1333, 0.1667, 0.2, 0.2333, 0.2667, 0.3, 0.3333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 0.2333, 0.2667, 0.3, 0.3333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(0, 0, 128, 128), Rect2(128, 0, 128, 128), Rect2(256, 0, 128, 128), Rect2(384, 0, 128, 128), Rect2(512, 0, 128, 128), Rect2(640, 0, 128, 128), Rect2(768, 0, 128, 128), Rect2(896, 0, 128, 128), Rect2(1024, 0, 128, 128), Rect2(1152, 0, 128, 128), Rect2(0, 0, 128, 128)]
+"values": [Rect2(768, 0, 128, 128), Rect2(896, 0, 128, 128), Rect2(1024, 0, 128, 128), Rect2(1152, 0, 128, 128), Rect2(0, 0, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -141,7 +189,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "method"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -191,6 +239,42 @@ tracks/6/keys = {
 "method": &"change_bullet_name"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("alignment/VBoxContainer:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.09599310885968812, 0.4363323129985824, 0.6632251157578453, 0.8569566627292162, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("alignment/mask:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.09599310885968812, 0.4363323129985824, 0.6632251157578453, 0.8569566627292162, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("alignment/mask/TextureRect:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -0.09599310885968812, -0.4363323129985824, -0.6632251157578453, -0.8569566627292162, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5q38y"]
 _data = {
@@ -209,7 +293,7 @@ mouse_filter = 2
 script = ExtResource("1_cqkxi")
 bullet_pattern = Array[int]([5, 5, 5, 5, 5, 5])
 bullets = [NodePath("alignment/BulletHolder/Bullet1"), NodePath("alignment/BulletHolder/Bullet2"), NodePath("alignment/BulletHolder/Bullet3"), NodePath("alignment/BulletHolder/Bullet4"), NodePath("alignment/BulletHolder/Bullet5"), NodePath("alignment/BulletHolder/Bullet6")]
-anim_player = NodePath("AnimationPlayer")
+anim_player = NodePath("AnimationPlayer2")
 cylinder_rotator = NodePath("alignment/BulletHolder")
 score_cost = 0
 bullet_name_offset = Vector2(0, 14)
@@ -246,7 +330,30 @@ offset_bottom = -192.0
 grow_vertical = 0
 scale = Vector2(4, 4)
 
+[node name="mask" type="TextureRect" parent="alignment" unique_id=1381785059]
+clip_children = 1
+z_index = 10
+use_parent_material = true
+layout_mode = 0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = SubResource("AtlasTexture_sh608")
+
+[node name="TextureRect" type="TextureRect" parent="alignment/mask" unique_id=59381189]
+material = SubResource("CanvasItemMaterial_sh608")
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+texture = SubResource("GradientTexture2D_qd85e")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="alignment" unique_id=48513386]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -254,10 +361,13 @@ anchor_bottom = 1.0
 offset_top = -128.0
 offset_right = 128.0
 grow_vertical = 0
+pivot_offset = Vector2(64, 64)
 mouse_filter = 2
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/VBoxContainer" unique_id=582802623]
+clip_children = 2
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -266,6 +376,7 @@ texture = SubResource("AtlasTexture_sh608")
 
 [node name="BulletHolder" type="Control" parent="alignment" unique_id=1442032783]
 z_index = 1
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -275,12 +386,15 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 
 [node name="Bullet1" type="Control" parent="alignment/BulletHolder" unique_id=489449024]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet1" unique_id=476545073]
+clip_children = 2
+use_parent_material = true
 layout_mode = 0
 offset_left = -22.0
 offset_top = -82.0
@@ -289,7 +403,18 @@ scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet1" unique_id=92303595]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -26.0
+offset_top = -84.0
+offset_right = 0.25
+offset_bottom = -59.25
+color = Color(0, 0, 0, 1)
+
 [node name="Bullet2" type="Control" parent="alignment/BulletHolder" unique_id=695322400]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -297,6 +422,7 @@ rotation = 5.2359877
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=88354555]
+use_parent_material = true
 layout_mode = 0
 offset_left = -22.0
 offset_top = -82.0
@@ -305,7 +431,18 @@ scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet2/TextureRect" unique_id=1429532265]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
 [node name="Bullet3" type="Control" parent="alignment/BulletHolder" unique_id=1482254428]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -313,6 +450,7 @@ rotation = 4.1887903
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=1562214214]
+use_parent_material = true
 layout_mode = 0
 offset_left = -22.0
 offset_top = -82.0
@@ -321,7 +459,18 @@ scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet3/TextureRect" unique_id=1598000879]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
 [node name="Bullet4" type="Control" parent="alignment/BulletHolder" unique_id=1693514312]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -329,6 +478,7 @@ rotation = 3.1415927
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet4" unique_id=179314295]
+use_parent_material = true
 layout_mode = 0
 offset_left = -22.0
 offset_top = -82.0
@@ -337,7 +487,18 @@ scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet4/TextureRect" unique_id=9660595]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
 [node name="Bullet5" type="Control" parent="alignment/BulletHolder" unique_id=1702721078]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -345,6 +506,7 @@ rotation = 2.0943952
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=968059669]
+use_parent_material = true
 layout_mode = 0
 offset_left = -22.0
 offset_top = -82.0
@@ -353,7 +515,18 @@ scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet5/TextureRect" unique_id=1343292948]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
 [node name="Bullet6" type="Control" parent="alignment/BulletHolder" unique_id=1889825491]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -361,6 +534,7 @@ rotation = 1.0471976
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=1103581667]
+use_parent_material = true
 layout_mode = 0
 offset_left = -22.0
 offset_top = -82.0
@@ -369,7 +543,18 @@ scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet6/TextureRect" unique_id=895608684]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
 [node name="TextHolder" type="Control" parent="alignment" unique_id=738260933]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -378,6 +563,7 @@ grow_horizontal = 0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="alignment/TextHolder" unique_id=663071892]
+use_parent_material = true
 layout_mode = 0
 offset_left = -100.0
 offset_top = -75.0
@@ -387,6 +573,7 @@ mouse_filter = 2
 
 [node name="BulletName" type="Label" parent="alignment/TextHolder/VBoxContainer" unique_id=508208996]
 visible = false
+use_parent_material = true
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 2
@@ -449,5 +636,5 @@ rotation = -1.5707964
 scale = Vector2(0.34957296, 0.043478563)
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=456355537]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=21578799]
 libraries/ = SubResource("AnimationLibrary_5q38y")
