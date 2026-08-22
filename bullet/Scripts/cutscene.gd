@@ -44,7 +44,7 @@ func adjust() -> void:
 	
 	if self.size.x != last_known_size_x:
 		last_known_size_x = self.size.x
-		print(last_known_size_x)
+		#print(last_known_size_x)
 		adjustment_distance_x = (self.size.x - last_known_size_x)/2
 	
 	

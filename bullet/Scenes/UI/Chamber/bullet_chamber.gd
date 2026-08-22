@@ -8,6 +8,15 @@ const CHAMBER_BASE_SIZE := 64.0
 const BULLET_NAME_HORIZONTAL_PADDING := 12.0
 const BULLET_NAME_MIN_HEIGHT := 24.0
 
+var bullet_change_animation_dictionary = {
+	"Bullet1": "bullet_one_change",
+	"Bullet2": "bullet_two_change",
+	"Bullet3": "bullet_three_change",
+	"Bullet4": "bullet_four_change",
+	"Bullet5": "bullet_five_change",
+	"Bullet6": "bullet_six_change",
+}
+
 var bullet_dictionary = {
 	5:  {
 		bullet_name = "Regular Bullet",
@@ -44,10 +53,13 @@ var bullet_dictionary = {
 var chambered_bullet_scenes: Array[PackedScene]
 var chambered_bullet_names: Array[String]
 
+
 @export var bullet_pattern: Array[BULLET_TYPE]
 @export var bullets: Array[Node]
 
 @export var anim_player: Node
+@export var name_changer: Node
+@export var bullet_changer: Node
 @export var cylinder_rotator: Node
 
 @export var score_cost: int = 100
@@ -58,13 +70,22 @@ var scale_modifier := 1.0
 var chamber_scale_setting := 3.0
 var base_alignment_position := Vector2.ZERO
 var base_alignment_scale := Vector2.ONE
+var bullet_name_changed = false
+
+var to_change_image: Array[String]
+var to_change_name:= ""
+var original_bullets: Array[Node]
 
 @onready var bullet_name_holder: Control = $BulletNameHolder
 @onready var bullet_name_text: Label = $BulletNameHolder/BulletName
 @onready var cylinder_container = $alignment/VBoxContainer
 @onready var alignment: Control = $alignment
+@onready var bullet_holder: Control = $alignment/BulletHolder
 
 func _ready() -> void:
+	BulletBus.bullet_swap.connect(_change_current_bullet)
+	BulletBus.chamber_swap.connect(_change_chamber)
+	original_bullets = bullets
 	#var screen_dimensions = get_viewport().get_visible_rect()
 	#var screen_x = screen_dimensions.size.x
 	#var screen_y = screen_dimensions.size.y
@@ -110,7 +131,7 @@ func _physics_process(delta: float) -> void:
 			bullets[0].queue_free()
 			if anim_player.is_playing():
 				anim_player.stop()
-				if not chambered_bullet_names.is_empty():
+				if not chambered_bullet_names.is_empty() && not bullet_name_changed:
 					chambered_bullet_names.remove_at(0)
 				var distance_partial_rotated = fmod(cylinder_rotator.rotation_degrees,60.0)
 				rotate_chamber(60 - distance_partial_rotated)
@@ -158,8 +179,11 @@ func rescale_to(new_scale:float) -> void:
 
 func change_bullet_name() -> void:
 	if not chambered_bullet_names.is_empty():
+		print(chambered_bullet_names)
+		print(chambered_bullet_names[0])
 		bullet_name_text.text = chambered_bullet_names[0]
 		chambered_bullet_names.remove_at(0)
+		bullet_name_changed = true
 	else:
 		bullet_name_text.text = ""
 	_refresh_bullet_name_layout()
@@ -196,3 +220,47 @@ func _refresh_bullet_name_layout() -> void:
 	bullet_name_holder.size = holder_size
 	bullet_name_text.position = Vector2.ZERO
 	bullet_name_text.size = holder_size
+
+func _change_current_bullet(new_bullet_type: int) -> void:
+	var bullet_values = bullet_dictionary[new_bullet_type]
+	var chambered_bullet_node = bullets[0]
+	var animation_to_play = bullet_change_animation_dictionary[chambered_bullet_node.name]
+	#bullet_image_node.texture = load(bullet_values.chamber_scene)
+	to_change_image.append(bullet_values.chamber_scene)
+	to_change_name = bullet_values.bullet_name
+	var chambered_bullet_scene = bullet_values.combat_scene
+	chambered_bullet_scenes[0] = chambered_bullet_scene
+	#print(animation_to_play)
+	bullet_changer.play_section(animation_to_play)
+	#print(chambered_bullet_names)
+	name_changer.play_section("name_fade_slow")
+
+func _change_bullet_image_during_animation(chambered_bullet_node_name: String) -> void:
+	var bullet_node = bullet_holder.find_child(chambered_bullet_node_name)
+	if bullet_node:
+		var bullet_image_node = bullet_node.get_child(0)
+		#print("attempted to change image")
+		bullet_image_node.texture = load(to_change_image[0])
+		to_change_image.remove_at(0)
+
+func _change_chamber(new_bullet_type: int) -> void:
+	var bullet_values = bullet_dictionary[new_bullet_type]
+	to_change_name = bullet_values.bullet_name
+	for i in bullets:
+		var id = bullets.find(i)
+		to_change_image.append(bullet_values.chamber_scene)
+		var chambered_bullet_scene = bullet_values.combat_scene
+		chambered_bullet_scenes[id] = chambered_bullet_scene
+		if id != 0:
+			chambered_bullet_names[id-1] = bullet_values.bullet_name
+	bullet_changer.play_section("chamber_change")
+	name_changer.play_section("name_fade_slow")
+	pass
+
+func set_bullet() -> void:
+	if to_change_name != "":
+		chambered_bullet_names.push_front(to_change_name)
+		to_change_name = ""
+
+func animation_completed() -> void:
+	bullet_name_changed = false

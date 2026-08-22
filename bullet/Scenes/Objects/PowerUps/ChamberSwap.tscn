@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://yxar26ilb0ew"]
+
+[ext_resource type="Shader" uid="uid://drex8tjdbkolf" path="res://Assets/Shaders/outline.gdshader" id="1_vbpir"]
+[ext_resource type="Script" uid="uid://b6ombtrkjfi7n" path="res://Scripts/PowerUps/chamber_swap.gd" id="2_vbpir"]
+[ext_resource type="Texture2D" uid="uid://nd67cyetes3d" path="res://Assets/Images/PowerUps/ammo_crate.png" id="3_vbpir"]
+[ext_resource type="AudioStream" uid="uid://cppvur77kbn36" path="res://Assets/SoundEffects/Key Pick Up.wav" id="4_05cvg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0krc1"]
+shader = ExtResource("1_vbpir")
+shader_parameter/outline_color = Color(0.11729889, 0.17114839, 0.7660787, 1)
+shader_parameter/outline_width = 2.000000095
+
+[sub_resource type="Animation" id="Animation_c40qh"]
+resource_name = "Idle"
+length = 1.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 2), Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PickupArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 2), Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hqtop"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PickupArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nffe2"]
+_data = {
+&"Idle": SubResource("Animation_c40qh"),
+&"RESET": SubResource("Animation_hqtop")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3w8b"]
+
+[node name="ChamberSwap" type="Node2D" unique_id=661340299]
+material = SubResource("ShaderMaterial_0krc1")
+script = ExtResource("2_vbpir")
+metadata/_custom_type_script = "uid://du4c56u86mjxg"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=806142777]
+use_parent_material = true
+texture = ExtResource("3_vbpir")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=568134107]
+libraries/ = SubResource("AnimationLibrary_nffe2")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=900457312]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1783227940]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_v3w8b")
+
+[node name="PickUp" type="AudioStreamPlayer" parent="." unique_id=1084724284]
+stream = ExtResource("4_05cvg")
+volume_db = 15.0
+bus = &"sfx"

@@ -24,6 +24,10 @@ retrograde_image/configs={
 retrograde_image/selected_config_path="res://addons/retrograde_image/retrograde-image.json"
 retrograde_image/h_split_offsets=PackedInt32Array()
 
+[animation]
+
+warnings/check_invalid_track_paths=false
+
 [application]
 
 config/name="Bullet"

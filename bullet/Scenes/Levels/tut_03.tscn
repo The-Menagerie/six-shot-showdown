@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="6_4sdw7"]
 [ext_resource type="PackedScene" uid="uid://dteab80jwc6fh" path="res://Scenes/UI/Controls/Full Controls.tscn" id="6_jg8sc"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="7_1n6dr"]
-[ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/Key.tscn" id="8_jg8sc"]
+[ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="8_jg8sc"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="9_1n6dr"]
 
 [node name="Tut03" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]

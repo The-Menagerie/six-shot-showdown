@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://briqjcg1lmprf" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_4.png" id="3_7re2w"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_jbxq0"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="5_si253"]
-[ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/Key.tscn" id="6_ervr4"]
+[ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="6_ervr4"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="7_0hn83"]
 [ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="8_7re2w"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="9_40jae"]
@@ -96,10 +96,10 @@ offset_top = 72.0
 offset_right = 1468.0
 offset_bottom = 152.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
-theme_override_fonts/font = ExtResource("9_40jae")
-theme_override_font_sizes/font_size = 28
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("9_40jae")
+theme_override_font_sizes/font_size = 28
 text = "Hint: Jump and Shoot to go higher"
 horizontal_alignment = 1
 vertical_alignment = 1
