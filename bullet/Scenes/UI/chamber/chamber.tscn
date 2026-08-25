@@ -4,10 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://dsqqd7jct0e4u" path="res://Assets/Images/chamber_sheet.png" id="2_cqkxi"]
 [ext_resource type="Texture2D" uid="uid://23djn2ulf8mo" path="res://Assets/Images/ChamberBullets/regular_bullet.png" id="3_ka4g4"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="4_bh58u"]
+[ext_resource type="Texture2D" uid="uid://brvm8yl0g20dl" path="res://Assets/Images/ChamberBullets/change_bullet.png" id="5_a7ea7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sh608"]
 atlas = ExtResource("2_cqkxi")
 region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sh608"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_bh58u"]
+offsets = PackedFloat32Array(0, 0.5421687)
+colors = PackedColorArray(0.38928655, 0.38928664, 0.3892865, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qd85e"]
+gradient = SubResource("Gradient_bh58u")
+fill_from = Vector2(0.5347826, 1)
+fill_to = Vector2(0.523913, 0.002173913)
 
 [sub_resource type="Animation" id="Animation_vkusv"]
 length = 0.001
@@ -73,6 +86,848 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("alignment/VBoxContainer:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("alignment/mask:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("alignment/mask/TextureRect:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("alignment/BulletHolder/Bullet1/TextureRect:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("alignment/BulletHolder/Bullet1/SwirlOverlay:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("alignment/BulletHolder/Bullet1/SwirlOverlay:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BulletNameHolder/BulletName:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("alignment/BulletHolder/Bullet2/TextureRect:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.566371]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("alignment/BulletHolder/Bullet3/TextureRect:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.566371]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("alignment/BulletHolder/Bullet4/TextureRect:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.566371]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("alignment/BulletHolder/Bullet5/TextureRect:rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.566371]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("alignment/BulletHolder/Bullet6/TextureRect:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.566371]
+}
+
+[sub_resource type="Animation" id="Animation_3htl0"]
+resource_name = "bullet_five_change"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Bullet5"],
+"method": &"_change_bullet_image_during_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alignment/BulletHolder/Bullet5/TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+
+[sub_resource type="Animation" id="Animation_n313f"]
+resource_name = "bullet_four_change"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Bullet4"],
+"method": &"_change_bullet_image_during_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alignment/BulletHolder/Bullet4/TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sxjv4"]
+resource_name = "bullet_one_change"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alignment/BulletHolder/Bullet1/TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alignment/BulletHolder/Bullet1/SwirlOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alignment/BulletHolder/Bullet1/SwirlOverlay:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("BulletNameHolder/BulletName:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.06666667, 0.13333334, 0.2, 0.23333333, 0.26666665, 0.3, 0.3333333, 0.36666667, 0.4, 0.46666667, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 0.039215688), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.33333334), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Bullet1"],
+"method": &"_change_bullet_image_during_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sijnx"]
+resource_name = "bullet_six_change"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Bullet6"],
+"method": &"_change_bullet_image_during_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alignment/BulletHolder/Bullet6/TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+
+[sub_resource type="Animation" id="Animation_uftls"]
+resource_name = "bullet_three_change"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Bullet3"],
+"method": &"_change_bullet_image_during_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alignment/BulletHolder/Bullet3/TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+
+[sub_resource type="Animation" id="Animation_53qv3"]
+resource_name = "bullet_two_change"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Bullet2"],
+"method": &"_change_bullet_image_during_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alignment/BulletHolder/Bullet2/TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172, -12.566371]
+}
+
+[sub_resource type="Animation" id="Animation_80tj5"]
+resource_name = "chamber_change"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alignment/BulletHolder/Bullet1/TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alignment/BulletHolder/Bullet1/SwirlOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alignment/BulletHolder/Bullet1/SwirlOverlay:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["Bullet1"],
+"method": &"_change_bullet_image_during_animation"
+}, {
+"args": ["Bullet2"],
+"method": &"_change_bullet_image_during_animation"
+}, {
+"args": ["Bullet3"],
+"method": &"_change_bullet_image_during_animation"
+}, {
+"args": ["Bullet4"],
+"method": &"_change_bullet_image_during_animation"
+}, {
+"args": ["Bullet5"],
+"method": &"_change_bullet_image_during_animation"
+}, {
+"args": ["Bullet6"],
+"method": &"_change_bullet_image_during_animation"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("alignment/BulletHolder/Bullet2/TextureRect:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 0.2333333, 0.4333333, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0333333, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("alignment/BulletHolder/Bullet3/TextureRect:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.06666666, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.06666666, 0.26666665, 0.46666667, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.06666666, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("alignment/BulletHolder/Bullet4/TextureRect:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.1, 0.70000005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.1, 0.29999998, 0.5, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.1, 0.70000005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("alignment/BulletHolder/Bullet5/TextureRect:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.13333334, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.13333334, 0.3333333, 0.53333336, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.13333334, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("alignment/BulletHolder/Bullet6/TextureRect:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.16666667, 0.7666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.16666667, 0.36666664, 0.5666667, 0.7666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.16666667, 0.7666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.566370614359172]
+}
 
 [sub_resource type="Animation" id="Animation_xceaa"]
 resource_name = "revolve"
@@ -84,10 +939,10 @@ tracks/0/path = NodePath("alignment/VBoxContainer/TextureRect:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333, 0.0667, 0.1, 0.1333, 0.1667, 0.2, 0.2333, 0.2667, 0.3, 0.3333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 0.2333, 0.2667, 0.3, 0.3333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(0, 0, 128, 128), Rect2(128, 0, 128, 128), Rect2(256, 0, 128, 128), Rect2(384, 0, 128, 128), Rect2(512, 0, 128, 128), Rect2(640, 0, 128, 128), Rect2(768, 0, 128, 128), Rect2(896, 0, 128, 128), Rect2(1024, 0, 128, 128), Rect2(1152, 0, 128, 128), Rect2(0, 0, 128, 128)]
+"values": [Rect2(768, 0, 128, 128), Rect2(896, 0, 128, 128), Rect2(1024, 0, 128, 128), Rect2(1152, 0, 128, 128), Rect2(0, 0, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -141,7 +996,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "method"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -184,21 +1039,297 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.16666667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.16666667, 0.34516215),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"change_bullet_name"
+}, {
+"args": [],
+"method": &"animation_completed"
 }]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("alignment/VBoxContainer:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.09599310885968812, 0.4363323129985824, 0.6632251157578453, 0.8569566627292162, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("alignment/mask:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.09599310885968812, 0.4363323129985824, 0.6632251157578453, 0.8569566627292162, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("alignment/mask/TextureRect:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -0.09599310885968812, -0.4363323129985824, -0.6632251157578453, -0.8569566627292162, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bh58u"]
+resource_name = "revolve_backwards"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alignment/VBoxContainer/TextureRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.2333, 0.2667, 0.3, 0.3333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(768, 0, 128, 128), Rect2(896, 0, 128, 128), Rect2(1024, 0, 128, 128), Rect2(1152, 0, 128, 128), Rect2(0, 0, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("alignment/BulletHolder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.0667, 0.1, 0.1333, 0.1667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.09599311, 0.43633232, 0.6632251, 0.85695666, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("alignment/BulletHolder:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(64, 0), Vector2(62.5, -0.5), Vector2(63, -0.5), Vector2(62.5, -1), Vector2(62.5, -1.75), Vector2(64, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.03333333, 0.06666667, 0.1, 0.13333334, 0.1667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [-5.5],
+"method": &"rotate_chamber"
+}, {
+"args": [-19.5],
+"method": &"rotate_chamber"
+}, {
+"args": [-13.0],
+"method": &"rotate_chamber"
+}, {
+"args": [-11.1],
+"method": &"rotate_chamber"
+}, {
+"args": [-10.9],
+"method": &"rotate_chamber"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [-1.5, -0.5],
+"method": &"shift_chamber_pos"
+}, {
+"args": [0.5, 0.0],
+"method": &"shift_chamber_pos"
+}, {
+"args": [-0.5, -0.5],
+"method": &"shift_chamber_pos"
+}, {
+"args": [0.0, -0.75],
+"method": &"shift_chamber_pos"
+}, {
+"args": [],
+"method": &"reset_chamber_pos"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BulletNameHolder/BulletName:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 0.039215688), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.33333334), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.16666667, 0.3436416),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"change_bullet_name"
+}, {
+"args": [],
+"method": &"animation_completed"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("alignment/VBoxContainer:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -0.09599310885968812, -0.4363323129985824, -0.6632251157578453, -0.8569566627292162, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("alignment/mask:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -0.09599310885968812, -0.4363323129985824, -0.6632251157578453, -0.8569566627292162, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("alignment/mask/TextureRect:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.09599310885968812, 0.4363323129985824, 0.6632251157578453, 0.8569566627292162, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5q38y"]
 _data = {
 &"RESET": SubResource("Animation_vkusv"),
-&"revolve": SubResource("Animation_xceaa")
+&"bullet_five_change": SubResource("Animation_3htl0"),
+&"bullet_four_change": SubResource("Animation_n313f"),
+&"bullet_one_change": SubResource("Animation_sxjv4"),
+&"bullet_six_change": SubResource("Animation_sijnx"),
+&"bullet_three_change": SubResource("Animation_uftls"),
+&"bullet_two_change": SubResource("Animation_53qv3"),
+&"chamber_change": SubResource("Animation_80tj5"),
+&"revolve": SubResource("Animation_xceaa"),
+&"revolve_backwards": SubResource("Animation_bh58u")
 }
 
-[node name="Chamber" type="Control" unique_id=1884226542 node_paths=PackedStringArray("bullets", "anim_player", "cylinder_rotator")]
+[sub_resource type="Animation" id="Animation_a7ea7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletNameHolder/BulletName:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vn0df"]
+resource_name = "name_fade_fast"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletNameHolder/BulletName:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 0.039215688), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.33333334), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_it00n"]
+resource_name = "name_fade_slow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletNameHolder/BulletName:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.19999999, 0.23333332, 0.26666665, 0.3, 0.3333333, 0.36666667, 0.4, 0.46666667, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 0.039215688), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.33333334), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 0.36666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"set_bullet"
+}, {
+"args": [],
+"method": &"change_bullet_name"
+}, {
+"args": [],
+"method": &"animation_completed"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3htl0"]
+_data = {
+&"RESET": SubResource("Animation_a7ea7"),
+&"name_fade_fast": SubResource("Animation_vn0df"),
+&"name_fade_slow": SubResource("Animation_it00n")
+}
+
+[node name="Chamber" type="Control" unique_id=1884226542 node_paths=PackedStringArray("bullets", "anim_player", "name_changer", "bullet_changer", "cylinder_rotator")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -209,7 +1340,9 @@ mouse_filter = 2
 script = ExtResource("1_cqkxi")
 bullet_pattern = Array[int]([5, 5, 5, 5, 5, 5])
 bullets = [NodePath("alignment/BulletHolder/Bullet1"), NodePath("alignment/BulletHolder/Bullet2"), NodePath("alignment/BulletHolder/Bullet3"), NodePath("alignment/BulletHolder/Bullet4"), NodePath("alignment/BulletHolder/Bullet5"), NodePath("alignment/BulletHolder/Bullet6")]
-anim_player = NodePath("AnimationPlayer")
+anim_player = NodePath("AnimationPlayer2")
+name_changer = NodePath("NameFader")
+bullet_changer = NodePath("BulletChanger")
 cylinder_rotator = NodePath("alignment/BulletHolder")
 score_cost = 0
 bullet_name_offset = Vector2(0, 14)
@@ -246,7 +1379,30 @@ offset_bottom = -192.0
 grow_vertical = 0
 scale = Vector2(4, 4)
 
+[node name="mask" type="TextureRect" parent="alignment" unique_id=1381785059]
+clip_children = 1
+z_index = 10
+use_parent_material = true
+layout_mode = 0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = SubResource("AtlasTexture_sh608")
+
+[node name="TextureRect" type="TextureRect" parent="alignment/mask" unique_id=59381189]
+material = SubResource("CanvasItemMaterial_sh608")
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+texture = SubResource("GradientTexture2D_qd85e")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="alignment" unique_id=48513386]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -254,10 +1410,13 @@ anchor_bottom = 1.0
 offset_top = -128.0
 offset_right = 128.0
 grow_vertical = 0
+pivot_offset = Vector2(64, 64)
 mouse_filter = 2
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/VBoxContainer" unique_id=582802623]
+clip_children = 2
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -266,6 +1425,7 @@ texture = SubResource("AtlasTexture_sh608")
 
 [node name="BulletHolder" type="Control" parent="alignment" unique_id=1442032783]
 z_index = 1
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -275,21 +1435,51 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 
 [node name="Bullet1" type="Control" parent="alignment/BulletHolder" unique_id=489449024]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet1" unique_id=476545073]
+clip_children = 2
+use_parent_material = true
 layout_mode = 0
-offset_left = -22.0
-offset_top = -82.0
-offset_bottom = -60.0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet1" unique_id=1271801217]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+use_parent_material = true
+layout_mode = 0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
+mouse_filter = 2
+texture = ExtResource("5_a7ea7")
+
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet1" unique_id=92303595]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -26.0
+offset_top = -84.0
+offset_right = 0.25
+offset_bottom = -59.25
+color = Color(0, 0, 0, 1)
+
 [node name="Bullet2" type="Control" parent="alignment/BulletHolder" unique_id=695322400]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -297,15 +1487,44 @@ rotation = 5.2359877
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=88354555]
+use_parent_material = true
 layout_mode = 0
-offset_left = -22.0
-offset_top = -82.0
-offset_bottom = -60.0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet2/TextureRect" unique_id=1429532265]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=1266610672]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+use_parent_material = true
+layout_mode = 0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
+rotation = -12.566371
+scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
+mouse_filter = 2
+texture = ExtResource("5_a7ea7")
+
 [node name="Bullet3" type="Control" parent="alignment/BulletHolder" unique_id=1482254428]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -313,15 +1532,44 @@ rotation = 4.1887903
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=1562214214]
+use_parent_material = true
 layout_mode = 0
-offset_left = -22.0
-offset_top = -82.0
-offset_bottom = -60.0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet3/TextureRect" unique_id=1598000879]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=551674437]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+use_parent_material = true
+layout_mode = 0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
+rotation = -12.566371
+scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
+mouse_filter = 2
+texture = ExtResource("5_a7ea7")
+
 [node name="Bullet4" type="Control" parent="alignment/BulletHolder" unique_id=1693514312]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -329,15 +1577,44 @@ rotation = 3.1415927
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet4" unique_id=179314295]
+use_parent_material = true
 layout_mode = 0
-offset_left = -22.0
-offset_top = -82.0
-offset_bottom = -60.0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet4/TextureRect" unique_id=9660595]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet4" unique_id=356999323]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+use_parent_material = true
+layout_mode = 0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
+rotation = -12.566371
+scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
+mouse_filter = 2
+texture = ExtResource("5_a7ea7")
+
 [node name="Bullet5" type="Control" parent="alignment/BulletHolder" unique_id=1702721078]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -345,15 +1622,44 @@ rotation = 2.0943952
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=968059669]
+use_parent_material = true
 layout_mode = 0
-offset_left = -22.0
-offset_top = -82.0
-offset_bottom = -60.0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet5/TextureRect" unique_id=1343292948]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=1758253384]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+use_parent_material = true
+layout_mode = 0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
+rotation = -12.566371
+scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
+mouse_filter = 2
+texture = ExtResource("5_a7ea7")
+
 [node name="Bullet6" type="Control" parent="alignment/BulletHolder" unique_id=1889825491]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -361,15 +1667,44 @@ rotation = 1.0471976
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=1103581667]
+use_parent_material = true
 layout_mode = 0
-offset_left = -22.0
-offset_top = -82.0
-offset_bottom = -60.0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ka4g4")
 
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet6/TextureRect" unique_id=895608684]
+visible = false
+z_index = -10
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.75
+color = Color(0, 0, 0, 1)
+
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=1663149258]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+use_parent_material = true
+layout_mode = 0
+offset_left = -11.0
+offset_top = -71.0
+offset_right = 11.0
+offset_bottom = -49.0
+rotation = -12.566371
+scale = Vector2(2, 2)
+pivot_offset = Vector2(11, 11)
+mouse_filter = 2
+texture = ExtResource("5_a7ea7")
+
 [node name="TextHolder" type="Control" parent="alignment" unique_id=738260933]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -378,6 +1713,7 @@ grow_horizontal = 0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="alignment/TextHolder" unique_id=663071892]
+use_parent_material = true
 layout_mode = 0
 offset_left = -100.0
 offset_top = -75.0
@@ -387,6 +1723,7 @@ mouse_filter = 2
 
 [node name="BulletName" type="Label" parent="alignment/TextHolder/VBoxContainer" unique_id=508208996]
 visible = false
+use_parent_material = true
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 2
@@ -449,5 +1786,11 @@ rotation = -1.5707964
 scale = Vector2(0.34957296, 0.043478563)
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=456355537]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=21578799]
 libraries/ = SubResource("AnimationLibrary_5q38y")
+
+[node name="BulletChanger" type="AnimationPlayer" parent="." unique_id=1272790122]
+libraries/ = SubResource("AnimationLibrary_5q38y")
+
+[node name="NameFader" type="AnimationPlayer" parent="." unique_id=630718089]
+libraries/ = SubResource("AnimationLibrary_3htl0")
