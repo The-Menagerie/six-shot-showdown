@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var pickup_group: StringName = &"player"
+@export var second_pickup_group: StringName = &"key_bullet"
 @export var fade_duration := 0.2
 
 @onready var unlock_area: Area2D = $UnlockArea
@@ -11,16 +12,20 @@ extends Node2D
 var is_unlocked := false
 
 func _ready() -> void:
+	add_to_group("lock")
 	unlock_area.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
 	if is_unlocked:
 		return
-	if not body.is_in_group(pickup_group):
+	if not body.is_in_group(pickup_group) and not body.is_in_group(second_pickup_group):
 		return
 	if body.get("has_key") != true:
 		return
 
+	if body.is_in_group(second_pickup_group):
+		if body.single_use == true:
+			body.queue_free()
 	is_unlocked = true
 	_disable_collisions()
 	_play_unlock_sound()

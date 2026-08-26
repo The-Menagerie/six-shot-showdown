@@ -1,7 +1,7 @@
 @tool
 extends Control
 
-enum BULLET_TYPE {REGULAR = 5, RUBBER = 4, PIERCING = 3, FLY = 2, SWAP = 1, SAD = 99}
+enum BULLET_TYPE {REGULAR = 5, RUBBER = 4, PIERCING = 3, FLY = 2, SWAP = 1, SAD = 99, KEY = 7}
 
 const BULLET_NAME_BASE_FONT_SIZE := 14
 const CHAMBER_BASE_SIZE := 64.0
@@ -42,6 +42,11 @@ var bullet_dictionary = {
 		bullet_name = "Swap Bullet",
 		chamber_scene = "res://Assets/Images/ChamberBullets/swap_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/swap_bullet.tscn"),
+	},
+	7: {
+		bullet_name = "Key Bullet",
+		chamber_scene = "res://Assets/Images/ChamberBullets/key_bullet.png",
+		combat_scene = preload("res://Scenes/Objects/Bullets/key_bullet.tscn"),
 	},
 	99: {
 		bullet_name = "Sad Bullet",
@@ -172,8 +177,8 @@ func rescale_to(new_scale:float) -> void:
 
 func change_bullet_name() -> void:
 	if not chambered_bullet_names.is_empty():
-		print(chambered_bullet_names)
-		print(chambered_bullet_names[0])
+		#print(chambered_bullet_names)
+		#print(chambered_bullet_names[0])
 		bullet_name_text.text = chambered_bullet_names[0]
 		chambered_bullet_names.remove_at(0)
 		bullet_name_changed = true

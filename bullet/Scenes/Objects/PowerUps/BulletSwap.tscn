@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0krc1"]
 shader = ExtResource("1_pykhx")
-shader_parameter/outline_color = Color(0.11729889, 0.17114839, 0.7660787, 1)
+shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 2.000000095
 
 [sub_resource type="Animation" id="Animation_c40qh"]
