@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://lfvtdrmytoa0"]
+
+[ext_resource type="Script" uid="uid://b3kwb04himbyy" path="res://Scripts/Environmental/flame_field.gd" id="1_ehi7u"]
+[ext_resource type="Texture2D" uid="uid://drytkabnpgvn0" path="res://Assets/Images/SceneBullets/flame_field-Sheet.png" id="2_ehi7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]
+size = Vector2(16, 7)
+
+[sub_resource type="Animation" id="Animation_up1t4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_td3fy"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4g6j"]
+_data = {
+&"RESET": SubResource("Animation_up1t4"),
+&"idle": SubResource("Animation_td3fy")
+}
+
+[node name="FlameField" type="Node2D" unique_id=758327182 node_paths=PackedStringArray("anim_player")]
+script = ExtResource("1_ehi7u")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=246771891]
+texture = ExtResource("2_ehi7u")
+hframes = 4
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1561303659]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=598943673]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_fb7ps")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=663667614]
+libraries/ = SubResource("AnimationLibrary_u4g6j")
+speed_scale = 1.5

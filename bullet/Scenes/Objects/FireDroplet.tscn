@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bsd4prserw07"]
+
+[ext_resource type="Texture2D" uid="uid://dpyiahce47bfe" path="res://Assets/Images/SceneBullets/falling_flames-Sheet.png" id="1_h0sw2"]
+[ext_resource type="Script" uid="uid://b6w385h8p6k12" path="res://Scripts/Bullets/fire_droplet.gd" id="1_okxna"]
+
+[sub_resource type="Animation" id="Animation_okxna"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_67k4u"]
+resource_name = "falling"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ism7"]
+_data = {
+&"RESET": SubResource("Animation_okxna"),
+&"falling": SubResource("Animation_67k4u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40fn5"]
+size = Vector2(2, 1)
+
+[node name="FireDroplet" type="RigidBody2D" unique_id=1854558099 node_paths=PackedStringArray("anim_player")]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_okxna")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1781168031]
+texture = ExtResource("1_h0sw2")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=237262373]
+libraries/ = SubResource("AnimationLibrary_8ism7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1615522110]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_40fn5")

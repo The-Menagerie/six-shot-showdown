@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://8mkwc4rn6jr8"]
+[gd_scene format=3 uid="uid://pbj1mvfn84ca"]
 
-[ext_resource type="Script" uid="uid://45ajcvmmk46h" path="res://Scripts/Bullets/key_bullet.gd" id="1_ux2wb"]
-[ext_resource type="Texture2D" uid="uid://bfjegeug31j2p" path="res://Assets/Images/SceneBullets/key_bullet.png" id="2_ux2wb"]
-[ext_resource type="AudioStream" uid="uid://gey7ps3en5cw" path="res://Assets/SoundEffects/ricochet.wav" id="3_0tbtl"]
+[ext_resource type="Script" uid="uid://dmdoaktdbl4lh" path="res://Scripts/Bullets/fire_bullet.gd" id="1_m0p4l"]
+[ext_resource type="Texture2D" uid="uid://cbviiojt5ynmt" path="res://Assets/Images/SceneBullets/fire_bullet.png" id="2_if8r3"]
+[ext_resource type="AudioStream" uid="uid://gey7ps3en5cw" path="res://Assets/SoundEffects/ricochet.wav" id="3_dx0ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]
 size = Vector2(4, 2)
 
 [node name="Bullet" type="CharacterBody2D" unique_id=485634604]
 collision_mask = 17
-script = ExtResource("1_ux2wb")
+script = ExtResource("1_m0p4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359081898]
-texture = ExtResource("2_ux2wb")
+texture = ExtResource("2_if8r3")
 hframes = 2
 
 [node name="MovementCollision" type="CollisionShape2D" parent="." unique_id=420006511]
@@ -26,5 +26,5 @@ collision_mask = 65537
 shape = SubResource("RectangleShape2D_fb7ps")
 
 [node name="RicochetAudio" type="AudioStreamPlayer" parent="." unique_id=91885689]
-stream = ExtResource("3_0tbtl")
+stream = ExtResource("3_dx0ql")
 bus = &"sfx"

@@ -1,7 +1,7 @@
 @tool
 extends Control
 
-enum BULLET_TYPE {REGULAR = 5, RUBBER = 4, PIERCING = 3, FLY = 2, SWAP = 1, SAD = 99, KEY = 7}
+enum BULLET_TYPE {REGULAR = 5, RUBBER = 4, PIERCING = 3, FLY = 2, SWAP = 1, SAD = 99, FIRE = 6, KEY = 7, ICE = 8}
 
 const BULLET_NAME_BASE_FONT_SIZE := 14
 const CHAMBER_BASE_SIZE := 64.0
@@ -43,10 +43,20 @@ var bullet_dictionary = {
 		chamber_scene = "res://Assets/Images/ChamberBullets/swap_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/swap_bullet.tscn"),
 	},
+	6: {
+		bullet_name = "Fire Bullet",
+		chamber_scene = "res://Assets/Images/ChamberBullets/fire_bullet.png",
+		combat_scene = preload("res://Scenes/Objects/Bullets/fire_bullet.tscn"),
+	},
 	7: {
 		bullet_name = "Key Bullet",
 		chamber_scene = "res://Assets/Images/ChamberBullets/key_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/key_bullet.tscn"),
+	},
+	8: {
+		bullet_name = "Ice Bullet",
+		chamber_scene = "res://Assets/Images/ChamberBullets/ice_bullet.png",
+		combat_scene = preload("res://Scenes/Objects/Bullets/ice_bullet.tscn"),
 	},
 	99: {
 		bullet_name = "Sad Bullet",
