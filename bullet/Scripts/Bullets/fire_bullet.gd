@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+#TO ADD
+# MELTS ICE BLOCKS
+# SLOW BURN ROPES
+
 @export var speed : float = 500.0
 @export var damage : float = 10.0
 @export var max_bounces : int = 3
