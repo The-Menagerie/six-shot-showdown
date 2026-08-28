@@ -80,7 +80,6 @@ func _try_damage_hitbox(area: Area2D) -> bool:
 			knock_back_target.knockedback = true
 			kb_timer.start()
 	
-	
 	var attack = Attack.new()
 	attack.attack_damage = damage
 	area.damage(attack)
@@ -111,6 +110,8 @@ func _confirm_bounce(collision: KinematicCollision2D) -> bool:
 		if data != null:
 			if not data.get_custom_data("bullets_bounce"):
 				return false
+	if collider.has_method("ice_cube_rubber_knockback"):
+		collider.ice_cube_rubber_knockback(direction)
 	return true
 
 func _try_cut_rope_between(segment_start: Vector2, segment_end: Vector2) -> bool:

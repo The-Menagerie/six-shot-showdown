@@ -4,6 +4,8 @@ enum BULLET_TYPE {REGULAR = 5, RUBBER = 4, PIERCING = 3, FLY = 2, SWAP = 1, SAD 
 
 @export var chamber_swap_target: BULLET_TYPE
 
+var shader_dupe
+
 var bullet_color_dict = {
 	5: Vector4(0.832, 0.85, 0.0, 0.0),
 	4: Vector4(0.188, 0.616, 0.314,0.0),

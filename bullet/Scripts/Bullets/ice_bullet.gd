@@ -11,12 +11,16 @@ var area_2d: Area2D
 var bounce_count : int = 0
 var shooter: Node
 
+var ice_cube_scene_path = preload("res://Scenes/Objects/IceCube.tscn")
+var ice_cube_scene
+
 @onready var ricochet_audio: AudioStreamPlayer = $RicochetAudio
 
 func _ready():
 	area_2d = $Area2D
 	area_2d.area_entered.connect(_on_area_entered)
 	area_2d.add_to_group("bullet")
+	ice_cube_scene = ice_cube_scene_path.instantiate()
 
 func _physics_process(delta):
 	velocity = direction * speed
@@ -69,12 +73,35 @@ func _try_damage_collider(collider: Node) -> bool:
 func _try_damage_hitbox(area: Area2D) -> bool:
 	if not area.is_in_group("hitbox"):
 		return false
-
-	var attack = Attack.new()
-	attack.attack_damage = damage
-	area.damage(attack)
+	
+	var parent = area.get_parent()
+	freeze_em(parent)
+	#var attack = Attack.new()
+	#attack.attack_damage = damage
+	#area.damage(attack)
+	#parent.queue_free()
 	return true
 
+func freeze_em(entity:Node) -> void:
+	var world_parent = get_parent()
+	if world_parent:
+		world_parent.add_child(ice_cube_scene)
+		var entity_sprite = entity.find_children("*","Sprite2D")[0]
+		ice_cube_scene.global_position = entity.global_position
+		ice_cube_scene.frozen_texture.texture = entity_sprite.texture
+		ice_cube_scene.frozen_texture.hframes = entity_sprite.hframes
+		ice_cube_scene.frozen_texture.vframes = entity_sprite.vframes
+		ice_cube_scene.frozen_texture.frame = entity_sprite.frame
+		var h_dimensions = entity_sprite.texture.get_width()/entity_sprite.hframes
+		var v_dimensions = entity_sprite.texture.get_height()/entity_sprite.vframes
+		
+		if h_dimensions > 32.0:
+			ice_cube_scene.scale.x = h_dimensions/32.0
+		if v_dimensions > 32.0:
+			ice_cube_scene.scale.y = v_dimensions/32.0
+	entity.target_destroyed.emit(entity)
+	entity.queue_free()
+	pass
 func _confirm_bounce(collision: KinematicCollision2D) -> bool:
 	var collider = collision.get_collider()
 	var collision_pos = collision.get_position()
