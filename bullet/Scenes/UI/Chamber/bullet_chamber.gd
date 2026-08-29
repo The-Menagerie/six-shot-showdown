@@ -74,7 +74,9 @@ var bullet_name_changed = false
 
 var to_change_image: Array[String]
 var to_change_name:= ""
-var original_bullets: Array[Node]
+var original_bullet_templates: Array[Node]
+var refill_bullet_pattern: Array[int] = []
+var is_refilling := false
 
 @onready var bullet_name_holder: Control = $BulletNameHolder
 @onready var bullet_name_text: Label = $BulletNameHolder/BulletName
@@ -85,7 +87,6 @@ var original_bullets: Array[Node]
 func _ready() -> void:
 	BulletBus.bullet_swap.connect(_change_current_bullet)
 	BulletBus.chamber_swap.connect(_change_chamber)
-	original_bullets = bullets
 	#var screen_dimensions = get_viewport().get_visible_rect()
 	#var screen_x = screen_dimensions.size.x
 	#var screen_y = screen_dimensions.size.y
@@ -101,19 +102,9 @@ func _ready() -> void:
 	if not Engine.is_editor_hint() and not BulletBus.force_rescale.is_connected(rescale_to):
 		BulletBus.force_rescale.connect(rescale_to)
 	anim_player.play_section("RESET")
-	for i in range(bullet_pattern.size()):
-		var bullet_values = bullet_dictionary[bullet_pattern[i]]
-		var chambered_bullet_node = bullets[i]
-		var bullet_image_node = chambered_bullet_node.get_child(0)
-		bullet_image_node.texture = load(bullet_values.chamber_scene)
-		var chambered_bullet_name = bullet_values.bullet_name
-		var chambered_bullet_scene = bullet_values.combat_scene
-		chambered_bullet_names.append(chambered_bullet_name)
-		chambered_bullet_scenes.append(chambered_bullet_scene)
-		
-		if i == 5:
-			break
-		
+	refill_bullet_pattern = bullet_pattern.duplicate()
+	_load_bullet_pattern()
+	_cache_original_bullet_templates()
 	change_bullet_name()
 	if not Engine.is_editor_hint():
 		_emit_out_of_ammo_state()
@@ -122,6 +113,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		_refresh_bullet_name_layout()
+		return
+	if is_refilling:
 		return
 
 	if Input.is_action_just_pressed("shoot"):
@@ -222,11 +215,16 @@ func _refresh_bullet_name_layout() -> void:
 	bullet_name_text.size = holder_size
 
 func _change_current_bullet(new_bullet_type: int) -> void:
+	if not refill_bullet_pattern.is_empty():
+		refill_bullet_pattern[0] = new_bullet_type
+	if bullets.is_empty():
+		return
+
 	var bullet_values = bullet_dictionary[new_bullet_type]
 	var chambered_bullet_node = bullets[0]
 	var animation_to_play = bullet_change_animation_dictionary[chambered_bullet_node.name]
-	#bullet_image_node.texture = load(bullet_values.chamber_scene)
-	to_change_image.append(bullet_values.chamber_scene)
+	to_change_image.clear()
+	_set_bullet_image(chambered_bullet_node, bullet_values.chamber_scene)
 	to_change_name = bullet_values.bullet_name
 	var chambered_bullet_scene = bullet_values.combat_scene
 	chambered_bullet_scenes[0] = chambered_bullet_scene
@@ -236,19 +234,26 @@ func _change_current_bullet(new_bullet_type: int) -> void:
 	name_changer.play_section("name_fade_slow")
 
 func _change_bullet_image_during_animation(chambered_bullet_node_name: String) -> void:
+	if to_change_image.is_empty():
+		return
+
 	var bullet_node = bullet_holder.find_child(chambered_bullet_node_name)
 	if bullet_node:
-		var bullet_image_node = bullet_node.get_child(0)
-		#print("attempted to change image")
-		bullet_image_node.texture = load(to_change_image[0])
+		_set_bullet_image(bullet_node, to_change_image[0])
 		to_change_image.remove_at(0)
 
 func _change_chamber(new_bullet_type: int) -> void:
+	if not refill_bullet_pattern.is_empty():
+		refill_bullet_pattern.fill(new_bullet_type)
+	if bullets.is_empty():
+		return
+
 	var bullet_values = bullet_dictionary[new_bullet_type]
+	to_change_image.clear()
 	to_change_name = bullet_values.bullet_name
 	for i in bullets:
 		var id = bullets.find(i)
-		to_change_image.append(bullet_values.chamber_scene)
+		_set_bullet_image(i, bullet_values.chamber_scene)
 		var chambered_bullet_scene = bullet_values.combat_scene
 		chambered_bullet_scenes[id] = chambered_bullet_scene
 		if id != 0:
@@ -264,3 +269,69 @@ func set_bullet() -> void:
 
 func animation_completed() -> void:
 	bullet_name_changed = false
+
+
+func _set_bullet_image(bullet_node: Node, texture_path: String) -> void:
+	var bullet_image_node := bullet_node.get_child(0) as TextureRect
+	if bullet_image_node != null:
+		bullet_image_node.texture = load(texture_path)
+
+func refill_bullets() -> void:
+	if Engine.is_editor_hint():
+		return
+	if is_refilling:
+		return
+
+	is_refilling = true
+
+	if anim_player.is_playing():
+		anim_player.stop()
+	if name_changer.is_playing():
+		name_changer.stop()
+	if bullet_changer.is_playing():
+		bullet_changer.stop()
+
+	for bullet_node in bullets:
+		if is_instance_valid(bullet_node):
+			bullet_node.queue_free()
+
+	await get_tree().process_frame
+
+	bullets.clear()
+	for template in original_bullet_templates:
+		var bullet_node := template.duplicate()
+		bullet_holder.add_child(bullet_node)
+		bullets.append(bullet_node)
+
+	chambered_bullet_scenes.clear()
+	chambered_bullet_names.clear()
+	to_change_image.clear()
+	to_change_name = ""
+	bullet_name_changed = false
+	cylinder_rotator.rotation_degrees = 0.0
+	reset_chamber_pos()
+	anim_player.play_section("RESET")
+	bullet_changer.play_section("RESET")
+	name_changer.play_section("RESET")
+	_load_bullet_pattern()
+	change_bullet_name()
+	_emit_out_of_ammo_state()
+	is_refilling = false
+
+func _cache_original_bullet_templates() -> void:
+	original_bullet_templates.clear()
+	for bullet_node in bullets:
+		if is_instance_valid(bullet_node):
+			original_bullet_templates.append(bullet_node.duplicate())
+
+func _load_bullet_pattern() -> void:
+	for i in range(refill_bullet_pattern.size()):
+		if i >= bullets.size():
+			break
+
+		var bullet_values = bullet_dictionary[refill_bullet_pattern[i]]
+		var chambered_bullet_node = bullets[i]
+		var bullet_image_node = chambered_bullet_node.get_child(0)
+		bullet_image_node.texture = load(bullet_values.chamber_scene)
+		chambered_bullet_names.append(bullet_values.bullet_name)
+		chambered_bullet_scenes.append(bullet_values.combat_scene)
