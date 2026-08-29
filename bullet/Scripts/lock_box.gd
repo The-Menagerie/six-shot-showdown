@@ -5,6 +5,7 @@ extends Node2D
 @export var fade_duration := 0.2
 
 @onready var unlock_area: Area2D = $UnlockArea
+@onready var bullet_unlock: Area2D = $BulletUnlockArea
 @onready var unlock_collision: CollisionShape2D = $UnlockArea/CollisionShape2D
 @onready var wall_collision: CollisionShape2D = $WallBody/CollisionShape2D
 @onready var unlock_audio: AudioStreamPlayer = get_node_or_null("Unlock")
@@ -14,18 +15,34 @@ var is_unlocked := false
 func _ready() -> void:
 	add_to_group("lock")
 	unlock_area.body_entered.connect(_on_body_entered)
+	bullet_unlock.body_entered.connect(_bullet_entered_check)
 
 func _on_body_entered(body: Node2D) -> void:
+	
 	if is_unlocked:
 		return
-	if not body.is_in_group(pickup_group) and not body.is_in_group(second_pickup_group):
+	if not body.is_in_group(pickup_group):
 		return
 	if body.get("has_key") != true:
 		return
+	unlock()
 
+func _bullet_entered_check(body:Node2D) ->void:
+	if body.get("single_use") == true:
+		print('yeeted')
+		body.global_position.y -= 10000
+	if is_unlocked:
+		return
+	if not body.is_in_group(second_pickup_group):
+		return
+	if body.get("has_key") != true:
+		return
 	if body.is_in_group(second_pickup_group):
 		if body.single_use == true:
 			body.queue_free()
+	unlock()
+	
+func unlock()->void:
 	is_unlocked = true
 	_disable_collisions()
 	_play_unlock_sound()

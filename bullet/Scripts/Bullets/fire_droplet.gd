@@ -19,9 +19,9 @@ func _physics_process(delta: float) -> void:
 		var collision_pos = collision.get_position()
 		if collider is TileMapLayer:
 			var collision_cell_pos = collider.local_to_map(collision_pos)
-			print(collision_cell_pos)
+			#print(collision_cell_pos)
 			var direct_above_pos = Vector2i(collision_cell_pos.x,collision_cell_pos.y-1)
-			print(direct_above_pos)
+			#print(direct_above_pos)
 			if collider.get_cell_source_id(direct_above_pos) == -1:
 				var new_pos = collider.map_to_local(direct_above_pos)
 				flame_field_scene = flame_field_path.instantiate()
@@ -35,5 +35,6 @@ func _physics_process(delta: float) -> void:
 	
 func _on_area_entered(body: Node) -> void:
 	if body is TileMapLayer:
-		print("fire hit tile")
+		#print("fire hit tile")
+		pass
 	pass

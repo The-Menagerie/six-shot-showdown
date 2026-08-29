@@ -63,7 +63,7 @@ func player_died_to_crush() -> void:
 
 func player_burning() -> void:
 	burn_time += 1
-	if burn_time >= score_on_burn:
+	if burn_time >= abs(score_on_burn):
 		apply_score_change(score_on_burn)
 		burn_time = 0
 

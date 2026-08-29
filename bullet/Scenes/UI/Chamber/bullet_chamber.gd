@@ -244,6 +244,11 @@ func _change_current_bullet(new_bullet_type: int) -> void:
 	var chambered_bullet_scene = bullet_values.combat_scene
 	chambered_bullet_scenes[0] = chambered_bullet_scene
 	#print(animation_to_play)
+	if bullet_changer.is_playing():
+		#print("Hey I was workin' here")
+		to_change_image = []
+		bullet_changer.stop()
+	to_change_image.append(bullet_values.chamber_scene)
 	bullet_changer.play_section(animation_to_play)
 	#print(chambered_bullet_names)
 	name_changer.play_section("name_fade_slow")
@@ -266,6 +271,9 @@ func _change_chamber(new_bullet_type: int) -> void:
 	var bullet_values = bullet_dictionary[new_bullet_type]
 	to_change_image.clear()
 	to_change_name = bullet_values.bullet_name
+	if bullet_changer.is_playing():
+		bullet_changer.stop()
+		to_change_image = []
 	for i in bullets:
 		var id = bullets.find(i)
 		_set_bullet_image(i, bullet_values.chamber_scene)

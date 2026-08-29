@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://dxn0j0dwyhvrt" path="res://Scripts/lock_box.gd" id="2_r11gc"]
 [ext_resource type="AudioStream" uid="uid://byunsa87tfq0s" path="res://Assets/SoundEffects/Unlock.wav" id="3_ss5et"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40fn5"]
+size = Vector2(54, 54)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oplb8"]
 size = Vector2(32, 32)
 
@@ -12,6 +15,11 @@ size = Vector2(40, 40)
 
 [node name="LockBox" type="Node2D" unique_id=1504117620]
 script = ExtResource("2_r11gc")
+
+[node name="BulletUnlockArea" type="Area2D" parent="." unique_id=662654348]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletUnlockArea" unique_id=1135291285]
+shape = SubResource("RectangleShape2D_40fn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1603533871]
 texture = ExtResource("1_ntf47")
@@ -26,7 +34,6 @@ debug_color = Color(0.997045, 0, 0.18383858, 0.41960785)
 [node name="UnlockArea" type="Area2D" parent="." unique_id=372261367]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UnlockArea" unique_id=415124043]
-visible = false
 shape = SubResource("RectangleShape2D_y0wvc")
 
 [node name="Unlock" type="AudioStreamPlayer" parent="." unique_id=1136772308]
