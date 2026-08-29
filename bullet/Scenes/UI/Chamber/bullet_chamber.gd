@@ -274,9 +274,12 @@ func _change_chamber(new_bullet_type: int) -> void:
 	if bullet_changer.is_playing():
 		bullet_changer.stop()
 		to_change_image = []
+	if name_changer.is_playing():
+		name_changer.stop()
 	for i in bullets:
 		var id = bullets.find(i)
-		_set_bullet_image(i, bullet_values.chamber_scene)
+		#_set_bullet_image(i, bullet_values.chamber_scene)
+		to_change_image.append(bullet_values.chamber_scene)
 		var chambered_bullet_scene = bullet_values.combat_scene
 		chambered_bullet_scenes[id] = chambered_bullet_scene
 		if id != 0:

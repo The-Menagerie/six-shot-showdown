@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="7_0hn83"]
 [ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="8_7re2w"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="9_40jae"]
-[ext_resource type="PackedScene" uid="uid://yxar26ilb0ew" path="res://Scenes/Objects/PowerUps/ChamberSwap.tscn" id="12_mmxxn"]
 
 [node name="Lvl01" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_lxh78")
@@ -110,19 +109,3 @@ position = Vector2(-69, -105)
 
 [node name="LockBox" parent="." unique_id=1504117620 instance=ExtResource("7_0hn83")]
 position = Vector2(136, -16)
-
-[node name="ChamberSwap" parent="." unique_id=661340299 instance=ExtResource("12_mmxxn")]
-position = Vector2(-246, -14)
-chamber_swap_target = 4
-
-[node name="ChamberSwap2" parent="." unique_id=771274570 instance=ExtResource("12_mmxxn")]
-position = Vector2(-205, -13)
-chamber_swap_target = 8
-
-[node name="ChamberSwap3" parent="." unique_id=1124185035 instance=ExtResource("12_mmxxn")]
-position = Vector2(-122, -14)
-chamber_swap_target = 7
-
-[node name="ChamberSwap4" parent="." unique_id=594250922 instance=ExtResource("12_mmxxn")]
-position = Vector2(-165, -11)
-chamber_swap_target = 6
