@@ -14,7 +14,9 @@ var bullet_color_dict = {
 }
 
 func additional_ready_steps() -> void:
-	self.get_material().set_shader_parameter("outline_color", bullet_color_dict[chamber_swap_target])
+	var outline_material := material.duplicate() as ShaderMaterial
+	material = outline_material
+	outline_material.set_shader_parameter("outline_color", bullet_color_dict[chamber_swap_target])
 	
 func collected(body:Node2D) -> void:
 	BulletBus.chamber_swap.emit(chamber_swap_target)

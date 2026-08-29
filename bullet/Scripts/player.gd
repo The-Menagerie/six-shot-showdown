@@ -11,6 +11,9 @@ extends CharacterBody2D
 @export var recoil_velocity_decay : float = 700.0
 @export var vertical_recoil_scale : float = 0.45
 const BULLET_SCENE = preload("res://Scenes/Objects/Bullets/bullet.tscn")
+const DROP_THROUGH_KEY := KEY_S
+const DROP_THROUGH_DURATION := 0.2
+const DROP_THROUGH_SPEED := 100.0
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"]
@@ -25,6 +28,7 @@ var recoil_velocity : Vector2 = Vector2.ZERO
 var has_key := false
 var flying := false
 var just_shot := false
+var is_dropping_through_platforms := false
 
 func _ready():
 	add_to_group("player")
@@ -43,6 +47,8 @@ func _physics_process(delta):
 		velocity.y = -jump_force
 	elif not is_on_floor():
 		velocity.y += gravity * delta
+	elif Input.is_key_pressed(DROP_THROUGH_KEY):
+		_drop_through_platforms()
 	
 	if just_shot:
 		velocity.y += recoil_velocity.y*2
@@ -64,6 +70,23 @@ func _physics_process(delta):
 	update_revolver_recoil(delta)
 	#fire_bullet()
 	pick_new_state()
+
+
+func _drop_through_platforms() -> void:
+	if is_dropping_through_platforms:
+		return
+
+	is_dropping_through_platforms = true
+	velocity.y = maxf(velocity.y, DROP_THROUGH_SPEED)
+	for platform in get_tree().get_nodes_in_group("one_way_platform"):
+		if platform is CollisionObject2D:
+			add_collision_exception_with(platform)
+
+	await get_tree().create_timer(DROP_THROUGH_DURATION).timeout
+	for platform in get_tree().get_nodes_in_group("one_way_platform"):
+		if platform is CollisionObject2D:
+			remove_collision_exception_with(platform)
+	is_dropping_through_platforms = false
 
 func update_animation_parameters():
 	var mouse_position = get_global_mouse_position()
