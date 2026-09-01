@@ -258,9 +258,16 @@ func _change_bullet_image_during_animation(chambered_bullet_node_name: String) -
 		return
 
 	var bullet_node = bullet_holder.find_child(chambered_bullet_node_name)
+	#print(bullet_node)
 	if bullet_node:
 		_set_bullet_image(bullet_node, to_change_image[0])
 		to_change_image.remove_at(0)
+	if not bullet_node:
+		var bullet_children = bullet_holder.get_children()
+		for i in bullet_children:
+			if i.name == chambered_bullet_node_name:
+				_set_bullet_image(i, to_change_image[0])
+		
 
 func _change_chamber(new_bullet_type: int) -> void:
 	if not refill_bullet_pattern.is_empty():
@@ -322,6 +329,7 @@ func refill_bullets() -> void:
 			bullet_node.queue_free()
 
 	await get_tree().process_frame
+	await get_tree().process_frame 
 
 	bullets.clear()
 	for template in original_bullet_templates:
