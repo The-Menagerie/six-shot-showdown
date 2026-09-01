@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxyncv5q6w7w6"]
 
-[ext_resource type="Texture2D" uid="uid://dmoqd3xlabhd8" path="res://Assets/Images/Key.png" id="1_f5qjs"]
+[ext_resource type="Texture2D" uid="uid://8a0143eg1fn2" path="res://Assets/Images/PowerUps/Key.png" id="1_f5qjs"]
 [ext_resource type="Script" uid="uid://hxsguhcsg4vq" path="res://Scripts/key.gd" id="2_f0p0g"]
 [ext_resource type="AudioStream" uid="uid://cppvur77kbn36" path="res://Assets/SoundEffects/Key Pick Up.wav" id="3_hqtop"]
 

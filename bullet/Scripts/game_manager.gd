@@ -131,6 +131,7 @@ func _emit_level_changed() -> void:
 		return
 
 	_apply_audio_pitch_scale_to_subtree(current_level)
+	BulletBus.player_key_changed.emit(false, false)
 	level_changed.emit(current_level.scene_file_path)
 
 func configure_audio_player_for_bullet_time(audio_player: AudioStreamPlayer) -> void:

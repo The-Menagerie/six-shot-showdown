@@ -25,7 +25,10 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if body.get("has_key") != true:
 		return
+	var consumes_key: bool = body.get("has_single_use_key") == true
 	unlock()
+	if consumes_key and body.has_method("consume_key"):
+		body.consume_key()
 
 func _bullet_entered_check(body:Node2D) ->void:
 	if body.get("single_use") == true:

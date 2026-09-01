@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bop5vof288sg6"]
+
+[ext_resource type="Script" uid="uid://c3xqvjp4k877u" path="res://Scripts/key_indicator.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://8a0143eg1fn2" path="res://Assets/Images/PowerUps/Key.png" id="2_key"]
+[ext_resource type="Texture2D" uid="uid://dfcjpqnivx0q4" path="res://Assets/Images/PowerUps/GhostKey.png" id="3_ghost_key"]
+
+[node name="KeyIndicator" type="Control" unique_id=1290417318]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(5, 5)
+mouse_filter = 2
+script = ExtResource("1_script")
+regular_key_texture = ExtResource("2_key")
+single_use_key_texture = ExtResource("3_ghost_key")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=839383894]
+position = Vector2(16, 16)
+texture = ExtResource("2_key")
+vframes = 3

@@ -5,6 +5,7 @@ signal force_rescale(scale: float)
 signal out_of_ammo_changed(is_out_of_ammo: bool)
 signal bullet_swap(new_bullet_type: int)
 signal chamber_swap(new_bullet_type: int)
+signal player_key_changed(has_key: bool, is_single_use: bool)
 
 var current_chamber_scale: float = 3.0
 

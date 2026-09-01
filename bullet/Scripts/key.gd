@@ -3,6 +3,7 @@ extends Node2D
 signal picked_up(by: Node2D)
 
 @export var pickup_group: StringName = &"player"
+@export var single_use := false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pickup_area: Area2D = $PickupArea
@@ -26,7 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 	is_collected = true
 	if body.has_method("collect_key"):
-		body.collect_key()
+		body.collect_key(single_use)
 	picked_up.emit(body)
 	_play_pickup_sound()
 	queue_free()
