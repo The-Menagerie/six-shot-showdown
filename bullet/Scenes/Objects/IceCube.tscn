@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b3nc0qlpy08pi"]
+
+[ext_resource type="Script" uid="uid://c6cuvf1pcts82" path="res://Scripts/Bullets/ice_cube.gd" id="1_6hi5v"]
+[ext_resource type="Shader" uid="uid://b7avylse2dfe5" path="res://Scenes/Objects/IceCubeFrozen.gdshader" id="1_ey3lv"]
+[ext_resource type="Texture2D" uid="uid://w0ohoqj15rq7" path="res://Assets/Images/SceneBullets/ice_cube.png" id="1_rt44v"]
+[ext_resource type="Texture2D" uid="uid://bs4mo4sohlpyi" path="res://Assets/Tilesets/StrangeCowboy/Character/Outlaw/Outlaw.png" id="2_6hi5v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6hi5v"]
+friction = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40fn5"]
+shader = ExtResource("1_ey3lv")
+shader_parameter/intensity = 0.5600000266
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40fn5"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hi5v"]
+size = Vector2(30, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd85e"]
+size = Vector2(9, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hegiw"]
+size = Vector2(9, 30)
+
+[node name="IceCube" type="RigidBody2D" unique_id=1034607920 node_paths=PackedStringArray("frozen_texture")]
+physics_material_override = SubResource("PhysicsMaterial_6hi5v")
+center_of_mass_mode = 1
+inertia = 10.0
+script = ExtResource("1_6hi5v")
+frozen_texture = NodePath("FrozenDude")
+bullet_knockback = 300.0
+
+[node name="FrozenDude" type="Sprite2D" parent="." unique_id=656612792]
+material = SubResource("ShaderMaterial_40fn5")
+position = Vector2(0, -1)
+texture = ExtResource("2_6hi5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1210805055]
+texture = ExtResource("1_rt44v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1979901223]
+shape = SubResource("RectangleShape2D_40fn5")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=2067482420]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1557628312]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_6hi5v")
+
+[node name="LeftCrushArea" type="Area2D" parent="." unique_id=1860592144]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCrushArea" unique_id=442108750]
+position = Vector2(-18.5, 0)
+shape = SubResource("RectangleShape2D_qd85e")
+
+[node name="RightCrushArea" type="Area2D" parent="." unique_id=774581518]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCrushArea" unique_id=638598695]
+position = Vector2(18.5, 0)
+shape = SubResource("RectangleShape2D_hegiw")

@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var speed : float = 500.0
 @export var damage : float = 10.0
 @export var max_bounces : int = 3
-@export var knock_back: float = 15.0
 @export var recoil_multiplier: float = 1.0
 @export var rope_pass_through_distance : float = 6.0
 
@@ -11,6 +10,8 @@ var direction : Vector2 = Vector2.RIGHT
 var area_2d: Area2D
 var bounce_count : int = 0
 var shooter: Node
+var has_key := true
+var single_use := true
 
 @onready var ricochet_audio: AudioStreamPlayer = $RicochetAudio
 
@@ -18,6 +19,8 @@ func _ready():
 	area_2d = $Area2D
 	area_2d.area_entered.connect(_on_area_entered)
 	area_2d.add_to_group("bullet")
+	add_to_group("key_bullet")
+	area_2d.add_to_group("key_bullet")
 
 func _physics_process(delta):
 	velocity = direction * speed
@@ -30,8 +33,8 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		if _try_damage_collider(collision.get_collider()):
-			#queue_free()
-			pass
+			queue_free()
+			return
 		if bounce_count >= max_bounces:
 			ricochet_audio.play()
 			queue_free()
@@ -44,10 +47,10 @@ func _physics_process(delta):
 		rotation = direction.angle()
 		ricochet_audio.play()
 
+
 func _on_area_entered(area: Area2D):
 	if _try_damage_hitbox(area):
-		pass
-		#queue_free()
+		queue_free()
 
 func set_direction(new_direction: Vector2):
 	direction = new_direction.normalized()
@@ -57,6 +60,9 @@ func set_direction(new_direction: Vector2):
 func _try_damage_collider(collider: Node) -> bool:
 	if collider is Area2D:
 		return _try_damage_hitbox(collider)
+
+	if collider.has_method("apply_bullet_knockback"):
+		collider.apply_bullet_knockback(direction)
 
 	for child in collider.get_children():
 		if child is Area2D and _try_damage_hitbox(child):
@@ -68,18 +74,6 @@ func _try_damage_hitbox(area: Area2D) -> bool:
 	if not area.is_in_group("hitbox"):
 		return false
 
-	var knock_back_target = area.get_parent()
-	if knock_back_target is CharacterBody2D:
-		var kb_timer = knock_back_target.find_child("HitTimer")
-		#print(kb_timer.is_stopped())
-		if kb_timer.is_stopped():
-			#print(direction)
-			knock_back_target.velocity.x += direction.x*knock_back
-			knock_back_target.velocity.y += direction.y*knock_back
-			#print("New velocity is " + str(knock_back_target.velocity))
-			knock_back_target.knockedback = true
-			kb_timer.start()
-	
 	var attack = Attack.new()
 	attack.attack_damage = damage
 	area.damage(attack)
@@ -110,8 +104,6 @@ func _confirm_bounce(collision: KinematicCollision2D) -> bool:
 		if data != null:
 			if not data.get_custom_data("bullets_bounce"):
 				return false
-	if collider.has_method("ice_cube_rubber_knockback"):
-		collider.ice_cube_rubber_knockback(direction)
 	return true
 
 func _try_cut_rope_between(segment_start: Vector2, segment_end: Vector2) -> bool:

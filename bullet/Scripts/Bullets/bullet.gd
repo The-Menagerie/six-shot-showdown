@@ -92,10 +92,10 @@ func _confirm_bounce(collision: KinematicCollision2D) -> bool:
 					else:
 						nearby_bounce_count -= 1
 			if nearby_bounce_count < 0:
-				print(nearby_bounce_count)
+				#print(nearby_bounce_count)
 				return false
 			else:
-				print(nearby_bounce_count)
+				#print(nearby_bounce_count)
 				return true
 		if data != null:
 			if not data.get_custom_data("bullets_bounce"):

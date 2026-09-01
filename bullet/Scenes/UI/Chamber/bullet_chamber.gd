@@ -1,7 +1,7 @@
 @tool
 extends Control
 
-enum BULLET_TYPE {REGULAR = 5, RUBBER = 4, PIERCING = 3, FLY = 2, SWAP = 1, SAD = 99}
+enum BULLET_TYPE {REGULAR = 5, RUBBER = 4, PIERCING = 3, FLY = 2, SWAP = 1, SAD = 99, FIRE = 6, KEY = 7, ICE = 8}
 
 const BULLET_NAME_BASE_FONT_SIZE := 14
 const CHAMBER_BASE_SIZE := 64.0
@@ -42,6 +42,21 @@ var bullet_dictionary = {
 		bullet_name = "Swap Bullet",
 		chamber_scene = "res://Assets/Images/ChamberBullets/swap_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/swap_bullet.tscn"),
+	},
+	6: {
+		bullet_name = "Fire Bullet",
+		chamber_scene = "res://Assets/Images/ChamberBullets/fire_bullet.png",
+		combat_scene = preload("res://Scenes/Objects/Bullets/fire_bullet.tscn"),
+	},
+	7: {
+		bullet_name = "Key Bullet",
+		chamber_scene = "res://Assets/Images/ChamberBullets/key_bullet.png",
+		combat_scene = preload("res://Scenes/Objects/Bullets/key_bullet.tscn"),
+	},
+	8: {
+		bullet_name = "Ice Bullet",
+		chamber_scene = "res://Assets/Images/ChamberBullets/ice_bullet.png",
+		combat_scene = preload("res://Scenes/Objects/Bullets/ice_bullet.tscn"),
 	},
 	99: {
 		bullet_name = "Sad Bullet",
@@ -172,8 +187,8 @@ func rescale_to(new_scale:float) -> void:
 
 func change_bullet_name() -> void:
 	if not chambered_bullet_names.is_empty():
-		print(chambered_bullet_names)
-		print(chambered_bullet_names[0])
+		#print(chambered_bullet_names)
+		#print(chambered_bullet_names[0])
 		bullet_name_text.text = chambered_bullet_names[0]
 		chambered_bullet_names.remove_at(0)
 		bullet_name_changed = true
@@ -229,6 +244,11 @@ func _change_current_bullet(new_bullet_type: int) -> void:
 	var chambered_bullet_scene = bullet_values.combat_scene
 	chambered_bullet_scenes[0] = chambered_bullet_scene
 	#print(animation_to_play)
+	if bullet_changer.is_playing():
+		#print("Hey I was workin' here")
+		to_change_image = []
+		bullet_changer.stop()
+	to_change_image.append(bullet_values.chamber_scene)
 	bullet_changer.play_section(animation_to_play)
 	#print(chambered_bullet_names)
 	name_changer.play_section("name_fade_slow")
@@ -251,9 +271,15 @@ func _change_chamber(new_bullet_type: int) -> void:
 	var bullet_values = bullet_dictionary[new_bullet_type]
 	to_change_image.clear()
 	to_change_name = bullet_values.bullet_name
+	if bullet_changer.is_playing():
+		bullet_changer.stop()
+		to_change_image = []
+	if name_changer.is_playing():
+		name_changer.stop()
 	for i in bullets:
 		var id = bullets.find(i)
-		_set_bullet_image(i, bullet_values.chamber_scene)
+		#_set_bullet_image(i, bullet_values.chamber_scene)
+		to_change_image.append(bullet_values.chamber_scene)
 		var chambered_bullet_scene = bullet_values.combat_scene
 		chambered_bullet_scenes[id] = chambered_bullet_scene
 		if id != 0:

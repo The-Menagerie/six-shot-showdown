@@ -8,6 +8,8 @@ var score_per_shot: int = -250
 var score_on_enemy_bullet_hit: int = -100
 var score_on_spike_death: int = -500
 var score_on_crush_death: int = -500
+var score_on_burn: int = -30
+var burn_time: int = 0
 var passive_score_loss_per_second: int = 1
 var shots_taken: int = 0
 var reset_count: int = 0
@@ -58,6 +60,12 @@ func player_died_to_spikes() -> void:
 func player_died_to_crush() -> void:
 	register_player_death()
 	apply_score_change(score_on_crush_death)
+
+func player_burning() -> void:
+	burn_time += 1
+	if burn_time >= abs(score_on_burn):
+		apply_score_change(score_on_burn)
+		burn_time = 0
 
 func spend_score(amount: int) -> void:
 	apply_score_change(-abs(amount))

@@ -15,6 +15,8 @@ const DROP_THROUGH_KEY := KEY_S
 const DROP_THROUGH_DURATION := 0.2
 const DROP_THROUGH_SPEED := 100.0
 
+@export var push_force: float = 20
+
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"]
 @onready var revolver: Node2D = $Revolver
