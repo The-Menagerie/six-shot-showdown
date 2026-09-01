@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bfesun4rqhiis" path="res://Scenes/UI/PauseMenu/options_pause_menu.tscn" id="9_options_pause"]
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="10_6hjy0"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_key"]
+[ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="11_73bjl"]
 
 [node name="Playground" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("powerups", "targets")]
 script = ExtResource("1_dq30c")
@@ -121,6 +122,10 @@ bullet_swap_target = 2
 [node name="ChamberSwap4" parent="." unique_id=1734874672 instance=ExtResource("7_wqftc")]
 position = Vector2(5, 179)
 chamber_swap_target = 2
+
+[node name="Fuse2" parent="." unique_id=1488789529 instance=ExtResource("11_73bjl")]
+position = Vector2(179, -37)
+tile_map_data = PackedByteArray("AAAEAPv/AAABAAEAAAAEAPz/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAACAAIAAAAEAPr/AAABAAIAAAA=")
 
 [connection signal="hide_options" from="CanvasLayer/PauseMenu" to="CanvasLayer/OptionsPauseMenu" method="hide_options"]
 [connection signal="show_options" from="CanvasLayer/PauseMenu" to="CanvasLayer/OptionsPauseMenu" method="show_options"]

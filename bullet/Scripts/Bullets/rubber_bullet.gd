@@ -22,6 +22,7 @@ func _ready():
 func _physics_process(delta):
 	velocity = direction * speed
 	var next_position: Vector2 = global_position + velocity * delta
+	_try_ignite_fuse_between(global_position, next_position)
 	if _try_cut_rope_between(global_position, next_position):
 		global_position = next_position
 		rotation = direction.angle()
@@ -121,3 +122,9 @@ func _try_cut_rope_between(segment_start: Vector2, segment_end: Vector2) -> bool
 			return true
 
 	return false
+
+func _try_ignite_fuse_between(segment_start: Vector2, segment_end: Vector2) -> void:
+	var fuses: Array[Node] = get_tree().get_nodes_in_group("fuse")
+	for fuse: Node in fuses:
+		if fuse.has_method("ignite_along_segment"):
+			fuse.ignite_along_segment(segment_start, segment_end, rope_pass_through_distance)

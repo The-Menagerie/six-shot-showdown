@@ -10,7 +10,7 @@ radius = 8.062258
 [sub_resource type="CircleShape2D" id="CircleShape2D_gauf2"]
 radius = 8.062258
 
-[node name="Target" unique_id=1501267980 instance=ExtResource("1_ulmfv")]
+[node name="Target" unique_id=1501267980 groups=["target"] instance=ExtResource("1_ulmfv")]
 gravity_scale = 0.0
 player_push_impulse = 0.0
 player_bottom_push_impulse = 0.0

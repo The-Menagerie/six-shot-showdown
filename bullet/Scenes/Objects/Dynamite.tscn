@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://w2icp313ke2c"]
+
+[ext_resource type="Script" uid="uid://b5tdp50dtxoch" path="res://Scripts/dynamite.gd" id="1_dynamite_script"]
+[ext_resource type="Texture2D" uid="uid://bcyff32hv46pt" path="res://Assets/Images/Dynamite.png" id="2_dynamite_texture"]
+[ext_resource type="Texture2D" uid="uid://b61qsweuojgkf" path="res://Assets/Images/Explosion [size64] [frames16].png" id="3_explosion_texture"]
+[ext_resource type="AudioStream" uid="uid://middqatfar0f" path="res://Assets/SoundEffects/Explosion.wav" id="4_explosion_audio"]
+[ext_resource type="Script" uid="uid://mtwrh6gg85wt" path="res://Scripts/hitbox_component.gd" id="5_hitbox_script"]
+[ext_resource type="Script" uid="uid://uy1kipra5x2k" path="res://Scripts/Classes/health_component.gd" id="6_health_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(15, 17)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
+radius = 48.0
+
+[node name="Dynamite" type="RigidBody2D" unique_id=1520705311]
+can_sleep = false
+script = ExtResource("1_dynamite_script")
+explosion_start_radius = 24.0
+
+[node name="DynamiteSprite" type="Sprite2D" parent="." unique_id=101794639]
+texture = ExtResource("2_dynamite_texture")
+hframes = 4
+vframes = 4
+frame = 13
+
+[node name="ExplosionSprite" type="Sprite2D" parent="." unique_id=1365855466]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_explosion_texture")
+hframes = 16
+frame = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1597547268]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=202754362 node_paths=PackedStringArray("health_component")]
+script = ExtResource("5_hitbox_script")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1325422774]
+shape = SubResource("CircleShape2D_hitbox")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1160501760]
+script = ExtResource("6_health_script")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=7860766]
+stream = ExtResource("4_explosion_audio")
+bus = &"sfx"
