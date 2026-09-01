@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="7_1n6dr"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="8_jg8sc"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="9_1n6dr"]
-[ext_resource type="PackedScene" uid="uid://c05ebcchwffnk" path="res://Scenes/Objects/PowerUps/BulletSwap.tscn" id="11_4sdw7"]
 
 [node name="Tut03" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_67b6s")
@@ -82,7 +81,3 @@ tile_map_data = PackedByteArray("AADy//3/AAABAAIAAADy//v/AAABAAMAAADy//7/AAADAAA
 [node name="LockBox2" parent="." unique_id=472484745 instance=ExtResource("2_omknl")]
 z_index = -1
 position = Vector2(256, -16)
-
-[node name="BulletSwap" parent="." unique_id=661340299 instance=ExtResource("11_4sdw7")]
-position = Vector2(60, 14)
-bullet_swap_target = 7
