@@ -302,6 +302,20 @@ texture = ExtResource("4_xaitd")
 10:3/0 = 0
 10:3/0/modulate = Color(0.6915552, 0.5666087, 0.6915552, 1)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtf61"]
+resource_name = "noclip_abyss"
+texture = ExtResource("2_xaitd")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 15
 physics_layer_0/collision_mask = 15
@@ -312,3 +326,4 @@ sources/2 = SubResource("TileSetAtlasSource_33n15")
 sources/1 = SubResource("TileSetAtlasSource_xaitd")
 sources/3 = SubResource("TileSetAtlasSource_2blnn")
 sources/4 = SubResource("TileSetAtlasSource_bpfff")
+sources/5 = SubResource("TileSetAtlasSource_jtf61")
