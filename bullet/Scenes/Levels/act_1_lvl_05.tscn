@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="8_y06kk"]
 [ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/EnemyBlocker.tscn" id="10_ui44a"]
 
-[node name="Lvl03" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
+[node name="Act1Lvl05" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_flvps")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Target")]
-next_level_path = "res://Scenes/Levels/lvl_04.tscn"
+next_level_path = "res://Scenes/Levels/act_1_lvl_06.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]

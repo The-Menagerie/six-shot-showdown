@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ega4e5xi5xcp" path="res://Scripts/game_manager.gd" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://cpm2dcaaq5bod" path="res://Scenes/Levels/tut_01.tscn" id="2_bb2iq"]
-[ext_resource type="PackedScene" uid="uid://bwvlgeuqlgfu" path="res://Scenes/Levels/lvl_01.tscn" id="2_g4i5f"]
 [ext_resource type="PackedScene" uid="uid://6d6cx2lf8bsy" path="res://Scenes/UI/PauseMenu/pause_menu.tscn" id="3_0e3vx"]
+[ext_resource type="PackedScene" uid="uid://ygbu7hwam3p2" path="res://Scenes/Levels/act_1_lvl_01.tscn" id="3_0xqxu"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="3_8q2ri"]
 [ext_resource type="Script" uid="uid://bhfjhwi6okwue" path="res://Scripts/score_label.gd" id="4_6j5ir"]
 [ext_resource type="Script" uid="uid://dc361j5m1c0ti" path="res://Scripts/restart_hint.gd" id="5_hint"]
@@ -23,7 +23,7 @@ script = ExtResource("1_l756w")
 current_level = NodePath("Tut01")
 anim_player = NodePath("AnimationPlayer")
 tutorial_level_scene = ExtResource("2_bb2iq")
-first_level_scene = ExtResource("2_g4i5f")
+first_level_scene = ExtResource("3_0xqxu")
 
 [node name="Tut01" parent="." unique_id=718201387 instance=ExtResource("2_bb2iq")]
 

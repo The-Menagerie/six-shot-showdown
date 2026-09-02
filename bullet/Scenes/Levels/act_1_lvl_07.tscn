@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="6_055q5"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="8_bsl40"]
 
-[node name="Lvl05" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
+[node name="Act1Lvl07" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_kdy2g")
 targets = [NodePath("Enemy5"), NodePath("Enemy6"), NodePath("Enemy3"), NodePath("Enemy4")]
-next_level_path = "res://Scenes/Levels/lvl_06.tscn"
+next_level_path = "res://Scenes/Levels/act_1_lvl_08.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=725583110]

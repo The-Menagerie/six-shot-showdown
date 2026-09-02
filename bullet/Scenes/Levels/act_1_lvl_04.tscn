@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="9_7sn0k"]
 [ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/EnemyBlocker.tscn" id="12_6qgyk"]
 
-[node name="Lvl02" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
+[node name="Act1Lvl04" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_lxh78")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
-next_level_path = "res://Scenes/Levels/lvl_03.tscn"
+next_level_path = "res://Scenes/Levels/act_1_lvl_05.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=1102731299]

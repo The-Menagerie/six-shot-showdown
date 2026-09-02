@@ -11,7 +11,7 @@ size = Vector2(4, 2)
 script = ExtResource("1_euibr")
 damage = 0.0
 max_bounces = 10
-knock_back = 650.0
+knock_back = 800.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359081898]
 texture = ExtResource("2_euibr")

@@ -66,7 +66,7 @@ func _on_level_changed(level_path: String) -> void:
 	var level_name := level_path.get_file()
 	current_level_number = _get_level_number(level_name)
 
-	if level_name == "lvl_01.tscn":
+	if level_name == "act_1_lvl_01.tscn":
 		if not ScoreBus.is_run_active():
 			ScoreBus.start_run()
 			score = ScoreBus.starting_score
@@ -75,7 +75,7 @@ func _on_level_changed(level_path: String) -> void:
 		text = "Score: %d" % score
 		return
 
-	if level_name.begins_with("lvl_"):
+	if level_name.begins_with("act_"):
 		score_enabled = true
 		show()
 		text = "Score: %d" % score
