@@ -19,6 +19,7 @@ script = ExtResource("2_r11gc")
 [node name="BulletUnlockArea" type="Area2D" parent="." unique_id=662654348]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletUnlockArea" unique_id=1135291285]
+visible = false
 shape = SubResource("RectangleShape2D_40fn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1603533871]
@@ -34,6 +35,7 @@ debug_color = Color(0.997045, 0, 0.18383858, 0.41960785)
 [node name="UnlockArea" type="Area2D" parent="." unique_id=372261367]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UnlockArea" unique_id=415124043]
+visible = false
 shape = SubResource("RectangleShape2D_y0wvc")
 
 [node name="Unlock" type="AudioStreamPlayer" parent="." unique_id=1136772308]
