@@ -10,7 +10,7 @@
 [node name="Lvl01" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_fh4hf")
 key_hint_label = NodePath("CanvasLayer/KeyHintLabel")
-targets = [NodePath("Enemy"), null, null]
+targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/Levels/lvl_02.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
