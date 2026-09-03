@@ -15,7 +15,7 @@
 script = ExtResource("1_dq30c")
 powerups = [NodePath("Key"), NodePath("BulletSwap"), NodePath("ChamberSwap"), NodePath("BulletSwap2"), NodePath("ChamberSwap2"), NodePath("BulletSwap3"), NodePath("ChamberSwap3"), NodePath("BulletSwap4"), NodePath("ChamberSwap4")]
 targets = [null, null, null]
-next_level_path = "res://Scenes/Levels/tut_02.tscn"
+next_level_path = "res://Scenes/Levels/Tutorial/tut_02.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=288009827]
 zoom = Vector2(3, 3)

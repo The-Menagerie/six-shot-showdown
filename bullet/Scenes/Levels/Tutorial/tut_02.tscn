@@ -12,7 +12,7 @@
 [node name="Tut02" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_axfoi")
 targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4")]
-next_level_path = "res://Scenes/Levels/tut_03.tscn"
+next_level_path = "res://Scenes/Levels/Tutorial/tut_03.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=288009827]
