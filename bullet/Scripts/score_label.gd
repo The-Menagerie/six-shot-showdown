@@ -4,6 +4,7 @@ var score: int = 0
 var score_enabled := false
 var popup_parent: Node
 var current_level_number := 0
+var game_manager: Node
 
 const LOSS_POPUP_RISE_DISTANCE: float = 28.0
 const LOSS_POPUP_DURATION: float = 0.7
@@ -18,7 +19,7 @@ func _ready() -> void:
 	hide()
 	text = "Score: %d" % score
 
-	var game_manager := get_tree().root.find_child("MainGame", true, false)
+	game_manager = get_tree().root.find_child("MainGame", true, false)
 	if game_manager != null and game_manager.has_signal("level_changed"):
 		game_manager.level_changed.connect(_on_level_changed)
 		_on_level_changed(game_manager.current_level.scene_file_path)
@@ -66,7 +67,7 @@ func _on_level_changed(level_path: String) -> void:
 	var level_name := level_path.get_file()
 	current_level_number = _get_level_number(level_name)
 
-	if level_name == "lvl_01.tscn":
+	if _is_first_gameplay_level(level_path):
 		if not ScoreBus.is_run_active():
 			ScoreBus.start_run()
 			score = ScoreBus.starting_score
@@ -75,7 +76,7 @@ func _on_level_changed(level_path: String) -> void:
 		text = "Score: %d" % score
 		return
 
-	if level_name.begins_with("lvl_"):
+	if _is_gameplay_level(level_path):
 		score_enabled = true
 		show()
 		text = "Score: %d" % score
@@ -89,6 +90,12 @@ func _get_level_number(level_name: String) -> int:
 		return 0
 
 	return int(level_name.trim_prefix("lvl_").trim_suffix(".tscn"))
+
+func _is_first_gameplay_level(level_path: String) -> bool:
+	return game_manager != null and game_manager.has_method("is_first_gameplay_level_path") and game_manager.is_first_gameplay_level_path(level_path)
+
+func _is_gameplay_level(level_path: String) -> bool:
+	return game_manager != null and game_manager.has_method("is_gameplay_level_path") and game_manager.is_gameplay_level_path(level_path)
 
 func _apply_level_score_layout() -> void:
 	if not score_enabled:
