@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bfesun4rqhiis" path="res://Scenes/UI/PauseMenu/options_pause_menu.tscn" id="9_options_pause"]
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="10_6hjy0"]
 [ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="11_73bjl"]
+[ext_resource type="PackedScene" uid="uid://b3okgeyvtrpnw" path="res://Scenes/Objects/PowerUps/ghost_key.tscn" id="11_v5c3b"]
 
 [node name="Playground" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("powerups", "targets")]
 script = ExtResource("1_dq30c")
@@ -178,6 +179,9 @@ position = Vector2(-100, 312)
 
 [node name="Platform19" parent="." unique_id=2045134246 instance=ExtResource("10_6hjy0")]
 position = Vector2(-71, 312)
+
+[node name="GhostKey" parent="." unique_id=1777878280 instance=ExtResource("11_v5c3b")]
+position = Vector2(-156, 16)
 
 [connection signal="hide_options" from="CanvasLayer/PauseMenu" to="CanvasLayer/OptionsPauseMenu" method="hide_options"]
 [connection signal="show_options" from="CanvasLayer/PauseMenu" to="CanvasLayer/OptionsPauseMenu" method="show_options"]
