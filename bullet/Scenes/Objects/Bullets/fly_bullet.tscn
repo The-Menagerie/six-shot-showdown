@@ -1,27 +1,16 @@
 [gd_scene format=3 uid="uid://dvbopc57nqhg2"]
 
-[ext_resource type="Script" uid="uid://gmjqjgftep7l" path="res://Scripts/Bullets/fly_bullet.gd" id="1_vw4cr"]
-[ext_resource type="Texture2D" uid="uid://bbgfgu5bw3tyd" path="res://Assets/Images/SceneBullets/fly_bullet.png" id="2_vw4cr"]
-[ext_resource type="AudioStream" uid="uid://gey7ps3en5cw" path="res://Assets/SoundEffects/ricochet.wav" id="3_frq5r"]
+[ext_resource type="PackedScene" uid="uid://btadkvwru6byt" path="res://Scenes/Objects/Bullets/bullet.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://gmjqjgftep7l" path="res://Scripts/Bullets/fly_bullet.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://bbgfgu5bw3tyd" path="res://Assets/Images/SceneBullets/fly_bullet.png" id="3_texture"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]
-size = Vector2(4, 2)
+[node name="FlyBullet" unique_id=729225113 instance=ExtResource("1_base")]
+collision_mask = 1
+script = ExtResource("2_script")
 
-[node name="Bullet" type="CharacterBody2D" unique_id=485634604]
-script = ExtResource("1_vw4cr")
+[node name="Sprite2D" parent="." index="0" unique_id=1359081898]
+texture = ExtResource("3_texture")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359081898]
-texture = ExtResource("2_vw4cr")
-hframes = 2
-
-[node name="MovementCollision" type="CollisionShape2D" parent="." unique_id=420006511]
-shape = SubResource("RectangleShape2D_fb7ps")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=81985079]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=65202082]
-shape = SubResource("RectangleShape2D_fb7ps")
-
-[node name="RicochetAudio" type="AudioStreamPlayer" parent="." unique_id=91885689]
-stream = ExtResource("3_frq5r")
-bus = &"sfx"
+[node name="Area2D" parent="." index="2" unique_id=81985079]
+collision_layer = 1
+collision_mask = 1

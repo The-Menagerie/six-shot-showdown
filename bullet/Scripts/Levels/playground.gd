@@ -14,6 +14,7 @@ const KEY_SCENE := preload("res://Scenes/Objects/PowerUps/Key.tscn")
 const LOCK_BOX_SCENE := preload("res://Scenes/Objects/LockBox.tscn")
 const SPIKES_SCENE := preload("res://Scenes/Objects/Spikes.tscn")
 const PLATFORM_SCENE := preload("res://Scenes/Objects/Platform.tscn")
+const DYNAMITE_SCENE := preload("res://Scenes/Objects/Dynamite.tscn")
 
 @export var powerups: Array[Node] = []
 
@@ -71,6 +72,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_8:
 			spawn_object(PLATFORM_SCENE)
+			get_viewport().set_input_as_handled()
+		elif event.keycode == KEY_9:
+			spawn_object(DYNAMITE_SCENE)
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_X:
 			remove_spawned_object_at_mouse()

@@ -1,0 +1,58 @@
+[gd_resource type="TileSet" format=3 uid="uid://5emy81j6lkuk"]
+
+[ext_resource type="Texture2D" uid="uid://bcyff32hv46pt" path="res://Assets/Images/Dynamite.png" id="1_fuse"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuse"]
+resource_name = "Fuse"
+texture = ExtResource("1_fuse")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/terrains_peering_bit/top_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/right_side = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/terrains_peering_bit/left_side = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[resource]
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Fuse"
+terrain_set_0/terrain_0/color = Color(0.82, 0.58, 0.18, 1)
+custom_data_layer_0/name = "bullets_bounce"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_fuse")

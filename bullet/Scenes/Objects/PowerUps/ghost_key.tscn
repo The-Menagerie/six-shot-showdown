@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b3okgeyvtrpnw"]
+
+[ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="1_vjsup"]
+[ext_resource type="Texture2D" uid="uid://dfcjpqnivx0q4" path="res://Assets/Images/PowerUps/GhostKey.png" id="2_w5q2j"]
+
+[node name="GhostKey" unique_id=1777878280 instance=ExtResource("1_vjsup")]
+single_use = true
+
+[node name="Sprite2D" parent="." index="0" unique_id=806142777]
+texture = ExtResource("2_w5q2j")

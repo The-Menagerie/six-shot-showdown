@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b2vv5n4xe5yrp"]
 
 [ext_resource type="Script" uid="uid://ega4e5xi5xcp" path="res://Scripts/game_manager.gd" id="1_l756w"]
-[ext_resource type="PackedScene" uid="uid://cpm2dcaaq5bod" path="res://Scenes/Levels/tut_01.tscn" id="2_bb2iq"]
-[ext_resource type="PackedScene" uid="uid://bwvlgeuqlgfu" path="res://Scenes/Levels/lvl_01.tscn" id="2_g4i5f"]
+[ext_resource type="PackedScene" uid="uid://cpm2dcaaq5bod" path="res://Scenes/Levels/Tutorial/tut_01.tscn" id="2_bb2iq"]
+[ext_resource type="PackedScene" uid="uid://ygbu7hwam3p2" path="res://Scenes/Levels/Act 1/act1_lvl1.tscn" id="2_g4i5f"]
 [ext_resource type="PackedScene" uid="uid://6d6cx2lf8bsy" path="res://Scenes/UI/PauseMenu/pause_menu.tscn" id="3_0e3vx"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="3_8q2ri"]
 [ext_resource type="Script" uid="uid://bhfjhwi6okwue" path="res://Scripts/score_label.gd" id="4_6j5ir"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ckagh2jekbnkq" path="res://Assets/Music/CowboyGameSong.mp3" id="7_18r40"]
 [ext_resource type="Shader" uid="uid://d1x73avjrfi0i" path="res://Assets/Shaders/bullet_time_border.gdshader" id="8_btfx"]
 [ext_resource type="PackedScene" uid="uid://5nqw2v1dr8b2" path="res://Scenes/UI/Controls/R.tscn" id="9_r0mdn"]
+[ext_resource type="PackedScene" uid="uid://bop5vof288sg6" path="res://Scenes/UI/KeyIndicator/key_indicator.tscn" id="10_keyhud"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_btfx"]
 shader = ExtResource("8_btfx")
@@ -41,6 +42,7 @@ mouse_filter = 2
 
 [node name="TransitionOverlay" type="ColorRect" parent="CanvasLayer" unique_id=643156338]
 visible = false
+z_index = 100
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -129,6 +131,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="KeyIndicator" parent="CanvasLayer" unique_id=1457186040 instance=ExtResource("10_keyhud")]
+offset_left = 1.0000019
+offset_top = 200.99998
+offset_right = 33.0
+offset_bottom = 232.99998
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2079942157]
 

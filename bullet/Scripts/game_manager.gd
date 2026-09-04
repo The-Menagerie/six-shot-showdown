@@ -16,6 +16,11 @@ signal level_changed(level_path: String)
 @export var transition_text_start_scale: Vector2 = Vector2(2.0, 2.0)
 @export var transition_text_end_scale: Vector2 = Vector2(3.0, 3.0)
 
+const TUTORIAL_LEVEL_DIRECTORY := "res://Scenes/Levels/Tutorial/"
+const GAME_LEVEL_DIRECTORY := "res://Scenes/Levels/"
+const SCOREBOARD_SCENE_PATH := "res://Scenes/UI/temp_score_scene.tscn"
+const MAX_LEVEL_CHAIN_DEPTH := 64
+
 var is_bullet_time_active := false
 var is_level_reset_queued := false
 var is_level_transition_active := false
@@ -131,6 +136,7 @@ func _emit_level_changed() -> void:
 		return
 
 	_apply_audio_pitch_scale_to_subtree(current_level)
+	BulletBus.player_key_changed.emit(false, false)
 	level_changed.emit(current_level.scene_file_path)
 
 func configure_audio_player_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
@@ -254,13 +260,11 @@ func _update_transition_text_for_path(level_path: String) -> void:
 		transition_text.text = "Tutorial 3"
 		transition_text.show()
 		return
-	if not level_name.begins_with("lvl_"):
+	if not is_gameplay_level_path(level_path):
 		transition_text.hide()
 		return
 
-	var level_number_text: String = level_name.trim_prefix("lvl_").trim_suffix(".tscn")
-	var level_number: int = int(level_number_text)
-	var minutes_until_showdown: int = 13 - level_number
+	var minutes_until_showdown := _get_remaining_gameplay_level_count(level_path)
 	if minutes_until_showdown < 1:
 		transition_text.hide()
 		return
@@ -300,3 +304,49 @@ func _play_transition_fade_in(level_path: String) -> void:
 	transition_overlay.hide()
 	if is_instance_valid(transition_text):
 		transition_text.hide()
+
+func is_tutorial_level_path(level_path: String) -> bool:
+	return level_path.begins_with(TUTORIAL_LEVEL_DIRECTORY)
+
+func is_gameplay_level_path(level_path: String) -> bool:
+	return level_path.begins_with(GAME_LEVEL_DIRECTORY) and not is_tutorial_level_path(level_path)
+
+func is_first_gameplay_level_path(level_path: String) -> bool:
+	return first_level_scene != null and level_path == first_level_scene.resource_path
+
+func _get_remaining_gameplay_level_count(level_path: String) -> int:
+	if not is_gameplay_level_path(level_path):
+		return 0
+
+	var visited_paths: Dictionary = {}
+	var current_path := level_path
+	var remaining_count := 0
+
+	while is_gameplay_level_path(current_path) and not visited_paths.has(current_path) and remaining_count < MAX_LEVEL_CHAIN_DEPTH:
+		visited_paths[current_path] = true
+		remaining_count += 1
+
+		var next_path := _get_next_level_path_for_scene(current_path)
+		if next_path.is_empty() or next_path == SCOREBOARD_SCENE_PATH:
+			break
+		current_path = next_path
+
+	return remaining_count
+
+func _get_next_level_path_for_scene(level_path: String) -> String:
+	var scene := load(level_path) as PackedScene
+	if scene == null:
+		return ""
+
+	var level_instance := scene.instantiate()
+	if level_instance == null:
+		return ""
+
+	var next_path := ""
+	if level_instance is LevelRoot:
+		next_path = (level_instance as LevelRoot).next_level_path
+	elif level_instance.has_method("get"):
+		next_path = str(level_instance.get("next_level_path"))
+
+	level_instance.free()
+	return next_path

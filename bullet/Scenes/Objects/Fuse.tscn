@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://v0kr3c1tx4aj"]
+
+[ext_resource type="Script" uid="uid://o80qwjsth6uj" path="res://Scripts/fuse_tilemap.gd" id="1_fuse_script"]
+[ext_resource type="TileSet" uid="uid://5emy81j6lkuk" path="res://Assets/Tilesets/fuse_tileset.tres" id="2_fuse_tileset"]
+[ext_resource type="AudioStream" uid="uid://cl0hhsugnvhr0" path="res://Assets/SoundEffects/RopeBreak.wav" id="3_ignite_audio"]
+
+[node name="Fuse" type="TileMapLayer" unique_id=61583169]
+tile_set = ExtResource("2_fuse_tileset")
+script = ExtResource("1_fuse_script")
+
+[node name="Ignite" type="AudioStreamPlayer" parent="." unique_id=269025611]
+stream = ExtResource("3_ignite_audio")
+volume_db = -5.0
+bus = &"sfx"

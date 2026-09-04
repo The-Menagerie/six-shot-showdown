@@ -28,6 +28,8 @@ var facing_direction : float = 1.0
 var recoil_offset : Vector2 = Vector2.ZERO
 var recoil_velocity : Vector2 = Vector2.ZERO
 var has_key := false
+var has_permanent_key := false
+var has_single_use_key := false
 var flying := false
 var just_shot := false
 var is_dropping_through_platforms := false
@@ -159,8 +161,20 @@ func apply_player_kickback(aim_vector: Vector2, recoil_multiplier: float = 1.0):
 	recoil_velocity += recoil_impulse
 	just_shot = true
 
-func collect_key() -> void:
+func collect_key(single_use := false) -> void:
+	if single_use:
+		has_single_use_key = true
+	else:
+		has_permanent_key = true
 	has_key = true
+	BulletBus.player_key_changed.emit(has_key, has_single_use_key and not has_permanent_key)
+
+func consume_key() -> void:
+	if has_permanent_key:
+		return
+	has_single_use_key = false
+	has_key = has_permanent_key or has_single_use_key
+	BulletBus.player_key_changed.emit(has_key, has_single_use_key)
 
 func _push_boulders() -> void:
 	for collision_index in range(get_slide_collision_count()):

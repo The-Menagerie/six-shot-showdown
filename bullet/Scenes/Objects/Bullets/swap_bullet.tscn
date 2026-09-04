@@ -1,29 +1,19 @@
 [gd_scene format=3 uid="uid://d2nqmfh8adm2t"]
 
-[ext_resource type="Script" uid="uid://dfn8vv4g1yfgm" path="res://Scripts/Bullets/swap_bullet.gd" id="1_k0dgy"]
-[ext_resource type="Texture2D" uid="uid://cx44ymm3avme8" path="res://Assets/Images/SceneBullets/swap_bullet.png" id="2_0u3o6"]
-[ext_resource type="AudioStream" uid="uid://gey7ps3en5cw" path="res://Assets/SoundEffects/ricochet.wav" id="3_dwm2n"]
+[ext_resource type="PackedScene" uid="uid://btadkvwru6byt" path="res://Scenes/Objects/Bullets/bullet.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://dfn8vv4g1yfgm" path="res://Scripts/Bullets/swap_bullet.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://cx44ymm3avme8" path="res://Assets/Images/SceneBullets/swap_bullet.png" id="3_texture"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]
-size = Vector2(4, 2)
-
-[node name="Bullet" type="CharacterBody2D" unique_id=485634604]
-script = ExtResource("1_k0dgy")
+[node name="SwapBullet" unique_id=2050122366 instance=ExtResource("1_base")]
+collision_mask = 1
+script = ExtResource("2_script")
+post_hit_cleanup_delay = 0.05
 damage = 0.0
 recoil_multiplier = 0.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359081898]
-texture = ExtResource("2_0u3o6")
-hframes = 2
+[node name="Sprite2D" parent="." index="0" unique_id=1359081898]
+texture = ExtResource("3_texture")
 
-[node name="MovementCollision" type="CollisionShape2D" parent="." unique_id=420006511]
-shape = SubResource("RectangleShape2D_fb7ps")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=81985079]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=65202082]
-shape = SubResource("RectangleShape2D_fb7ps")
-
-[node name="RicochetAudio" type="AudioStreamPlayer" parent="." unique_id=91885689]
-stream = ExtResource("3_dwm2n")
-bus = &"sfx"
+[node name="Area2D" parent="." index="2" unique_id=81985079]
+collision_layer = 1
+collision_mask = 1
