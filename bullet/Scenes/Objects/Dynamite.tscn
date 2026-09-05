@@ -21,7 +21,7 @@ explosion_start_radius = 24.0
 [node name="DynamiteSprite" type="Sprite2D" parent="." unique_id=101794639]
 texture = ExtResource("2_dynamite_texture")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 13
 
 [node name="ExplosionSprite" type="Sprite2D" parent="." unique_id=1365855466]

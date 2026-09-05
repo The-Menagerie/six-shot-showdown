@@ -3,44 +3,166 @@ extends TileMapLayer
 @export var default_ignite_tolerance: float = 6.0
 @export var connected_dynamites: Array[NodePath] = []
 @export var dynamite_tile_atlas_coords: Array[Vector2i] = [
-	Vector2i(2, 2),
-	Vector2i(3, 2),
+	Vector2i(0, 3),
 	Vector2i(1, 3),
 ]
 @export var dynamite_connection_distance: float = 24.0
+@export var trigger_tile_atlas_coords: Array[Vector2i] = [
+	Vector2i(0, 4),
+]
+@export var trigger_outline_atlas_coords := Vector2i(2, 4)
+@export var spent_trigger_atlas_coords := Vector2i(1, 4)
+@export var trigger_interaction_size := Vector2(24, 24)
 
 @onready var ignite_audio: AudioStreamPlayer = $Ignite
+@onready var connector_layer: TileMapLayer = get_node_or_null("Connectors")
 
 const DYNAMITE_SCENE := preload("res://Scenes/Objects/Dynamite.tscn")
 
 var has_ignited := false
+var trigger_areas: Dictionary[Vector2i, Area2D] = {}
+var trigger_outlines: Dictionary[Vector2i, Sprite2D] = {}
 
 func _ready() -> void:
 	add_to_group("fuse")
+	_create_trigger_interactions()
+
+# Both painting layers share the same grid and form one fuse network.
+func _get_fuse_layers() -> Array[TileMapLayer]:
+	var layers: Array[TileMapLayer] = [self]
+	if is_instance_valid(connector_layer):
+		layers.append(connector_layer)
+	return layers
+
+func _get_used_fuse_cells() -> Array[Vector2i]:
+	var cells: Array[Vector2i] = get_used_cells()
+	if is_instance_valid(connector_layer):
+		for cell: Vector2i in connector_layer.get_used_cells():
+			if not cells.has(cell):
+				cells.append(cell)
+	return cells
+
+func _has_fuse_cell(cell: Vector2i) -> bool:
+	for layer: TileMapLayer in _get_fuse_layers():
+		if layer.get_cell_source_id(cell) != -1:
+			return true
+	return false
+
+func _create_trigger_interactions() -> void:
+	for cell: Vector2i in get_used_cells():
+		if not trigger_tile_atlas_coords.has(get_cell_atlas_coords(cell)):
+			continue
+		var source := tile_set.get_source(get_cell_source_id(cell)) as TileSetAtlasSource
+		if source == null:
+			continue
+
+		var area := Area2D.new()
+		area.position = map_to_local(cell)
+		area.collision_layer = 0
+		area.collision_mask = 1
+		area.monitorable = false
+		var shape := RectangleShape2D.new()
+		shape.size = trigger_interaction_size
+		var collision := CollisionShape2D.new()
+		collision.shape = shape
+		area.add_child(collision)
+		add_child(area)
+		trigger_areas[cell] = area
+
+		var outline_texture := AtlasTexture.new()
+		outline_texture.atlas = source.texture
+		outline_texture.region = Rect2(
+			Vector2(source.margins + trigger_outline_atlas_coords * (source.texture_region_size + source.separation)),
+			Vector2(source.texture_region_size)
+		)
+		var outline := Sprite2D.new()
+		outline.texture = outline_texture
+		outline.z_index = 4
+		outline.visible = false
+		area.add_child(outline)
+		trigger_outlines[cell] = outline
+
+func _physics_process(_delta: float) -> void:
+	if has_ignited:
+		return
+	for cell: Vector2i in trigger_areas:
+		trigger_outlines[cell].visible = _can_interact_with_trigger(cell)
+
+func _can_interact_with_trigger(cell: Vector2i) -> bool:
+	if has_ignited or not is_visible_in_tree():
+		return false
+	for body: Node2D in trigger_areas[cell].get_overlapping_bodies():
+		if body.is_in_group("player"):
+			return true
+	return false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_action_pressed("interact") or event.is_echo():
+		return
+	for cell: Vector2i in trigger_areas:
+		if _can_interact_with_trigger(cell):
+			get_viewport().set_input_as_handled()
+			_ignite_all_fuses(cell)
+			return
 
 func ignite_by_bullet(hit_position: Vector2, ignite_tolerance: float = default_ignite_tolerance) -> bool:
+	if has_ignited:
+		return false
 	var cell: Vector2i = local_to_map(to_local(hit_position))
-	if get_cell_source_id(cell) == -1:
+	if not _has_fuse_cell(cell):
 		cell = _find_ignite_cell_for_point(hit_position, ignite_tolerance)
-		if get_cell_source_id(cell) == -1:
+		if not _has_fuse_cell(cell):
 			return false
 
 	_ignite_all_fuses(cell)
 	return true
 
 func ignite_along_segment(segment_start: Vector2, segment_end: Vector2, ignite_tolerance: float = default_ignite_tolerance) -> bool:
+	if has_ignited:
+		return false
 	var ignite_cell: Vector2i = _find_ignite_cell_along_segment(segment_start, segment_end, ignite_tolerance)
-	if get_cell_source_id(ignite_cell) == -1:
+	if not _has_fuse_cell(ignite_cell):
 		return false
 
 	_ignite_all_fuses(ignite_cell)
 	return true
+
+func ignite_by_explosion(explosion_position: Vector2, explosion_radius: float) -> bool:
+	if has_ignited or explosion_radius < 0.0:
+		return false
+	for cell: Vector2i in _get_used_fuse_cells():
+		var rect := _get_fuse_connection_rect(cell)
+		# Check in world space so rotated and scaled Fuse instances use the blast radius correctly.
+		var corners := PackedVector2Array([
+			to_global(rect.position),
+			to_global(Vector2(rect.end.x, rect.position.y)),
+			to_global(rect.end),
+			to_global(Vector2(rect.position.x, rect.end.y)),
+		])
+		var touches_blast := Geometry2D.is_point_in_polygon(explosion_position, corners)
+		for edge in range(4):
+			var closest := Geometry2D.get_closest_point_to_segment(explosion_position, corners[edge], corners[(edge + 1) % 4])
+			if explosion_position.distance_squared_to(closest) <= explosion_radius * explosion_radius:
+				touches_blast = true
+				break
+		if touches_blast:
+			_ignite_all_fuses(cell)
+			return true
+	return false
 
 func _ignite_all_fuses(ignite_cell: Vector2i) -> void:
 	if has_ignited:
 		return
 
 	has_ignited = true
+	remove_from_group("fuse")
+	set_physics_process(false)
+	set_process_unhandled_input(false)
+	for area: Area2D in trigger_areas.values():
+		area.hide()
+		area.queue_free()
+	trigger_areas.clear()
+	trigger_outlines.clear()
 	var parent_node: Node = get_parent()
 	var connected_cells := _get_connected_cells(ignite_cell)
 	var dynamite_tile_positions := _get_dynamite_tile_positions(connected_cells)
@@ -48,8 +170,12 @@ func _ignite_all_fuses(ignite_cell: Vector2i) -> void:
 
 	_play_ignite_sound(parent_node)
 
-	for cell: Vector2i in get_used_cells():
-		erase_cell(cell)
+	for layer: TileMapLayer in _get_fuse_layers():
+		for cell: Vector2i in layer.get_used_cells():
+			if trigger_tile_atlas_coords.has(layer.get_cell_atlas_coords(cell)):
+				layer.set_cell(cell, layer.get_cell_source_id(cell), spent_trigger_atlas_coords, layer.get_cell_alternative_tile(cell))
+			else:
+				layer.erase_cell(cell)
 
 	for dynamite_path: NodePath in connected_dynamites:
 		var dynamite := get_node_or_null(dynamite_path)
@@ -66,35 +192,64 @@ func _ignite_all_fuses(ignite_cell: Vector2i) -> void:
 func _get_connected_cells(start_cell: Vector2i) -> Array[Vector2i]:
 	var connected_cells: Array[Vector2i] = []
 	var pending_cells: Array[Vector2i] = [start_cell]
+	var cell_rects: Dictionary[Vector2i, Rect2] = {}
+	for cell: Vector2i in _get_used_fuse_cells():
+		cell_rects[cell] = _get_fuse_connection_rect(cell)
 
 	while not pending_cells.is_empty():
 		var cell: Vector2i = pending_cells.pop_front()
 		if connected_cells.has(cell):
 			continue
-		if get_cell_source_id(cell) == -1:
+		if not _has_fuse_cell(cell):
 			continue
 
 		connected_cells.append(cell)
-		for neighbor: Vector2i in [
-			cell + Vector2i.LEFT,
-			cell + Vector2i.RIGHT,
-			cell + Vector2i.UP,
-			cell + Vector2i.DOWN,
-		]:
-			if connected_cells.has(neighbor):
+		for neighbor: Vector2i in cell_rects:
+			if connected_cells.has(neighbor) or pending_cells.has(neighbor):
 				continue
-			if get_cell_source_id(neighbor) == -1:
+			var rect: Rect2 = cell_rects[cell]
+			var neighbor_rect: Rect2 = cell_rects[neighbor]
+			var overlap := rect.end.min(neighbor_rect.end) - rect.position.max(neighbor_rect.position)
+			# Follow overlapping or edge-touching artwork, even on a smaller tile grid.
+			# A corner alone does not connect two fuse pieces.
+			if overlap.x < 0.0 or overlap.y < 0.0 or overlap == Vector2.ZERO:
 				continue
 			pending_cells.append(neighbor)
 
 	return connected_cells
 
+func _get_fuse_connection_rect(cell: Vector2i) -> Rect2:
+	var rect := Rect2()
+	var has_rect := false
+	for layer: TileMapLayer in _get_fuse_layers():
+		if layer.get_cell_source_id(cell) == -1:
+			continue
+		var layer_rect := _get_layer_connection_rect(layer, cell)
+		rect = rect.merge(layer_rect) if has_rect else layer_rect
+		has_rect = true
+	return rect
+
+func _get_layer_connection_rect(layer: TileMapLayer, cell: Vector2i) -> Rect2:
+	var size := _get_cell_size_local()
+	var center := map_to_local(cell)
+	var source := layer.tile_set.get_source(layer.get_cell_source_id(cell)) as TileSetAtlasSource
+	if source != null:
+		var atlas_coords := layer.get_cell_atlas_coords(cell)
+		size = Vector2(source.texture_region_size * source.get_tile_size_in_atlas(atlas_coords))
+		var tile_data := layer.get_cell_tile_data(cell)
+		if tile_data != null:
+			if tile_data.transpose:
+				size = Vector2(size.y, size.x)
+			center -= Vector2(tile_data.texture_origin)
+	return Rect2(center - size * 0.5, size)
+
 func _get_dynamite_tile_positions(cells: Array[Vector2i]) -> Array[Vector2]:
 	var positions: Array[Vector2] = []
 	for cell: Vector2i in cells:
-		if not dynamite_tile_atlas_coords.has(get_cell_atlas_coords(cell)):
-			continue
-		positions.append(to_global(map_to_local(cell)))
+		for layer: TileMapLayer in _get_fuse_layers():
+			if dynamite_tile_atlas_coords.has(layer.get_cell_atlas_coords(cell)):
+				positions.append(to_global(map_to_local(cell)))
+				break
 
 	return positions
 
@@ -127,7 +282,7 @@ func _get_nearby_dynamites(dynamite_tile_positions: Array[Vector2]) -> Array[Nod
 	return nearby_dynamites
 
 func _find_ignite_cell_for_point(hit_position: Vector2, ignite_tolerance: float) -> Vector2i:
-	for cell: Vector2i in get_used_cells():
+	for cell: Vector2i in _get_used_fuse_cells():
 		if _point_intersects_cell(to_local(hit_position), cell, ignite_tolerance):
 			return cell
 
@@ -139,7 +294,7 @@ func _find_ignite_cell_along_segment(segment_start: Vector2, segment_end: Vector
 	var best_cell: Vector2i = Vector2i(-1, -1)
 	var best_distance: float = INF
 
-	for cell: Vector2i in get_used_cells():
+	for cell: Vector2i in _get_used_fuse_cells():
 		if not _segment_intersects_cell(local_start, local_end, cell, ignite_tolerance):
 			continue
 

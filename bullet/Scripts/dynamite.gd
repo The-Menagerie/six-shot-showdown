@@ -70,6 +70,10 @@ func _expand_explosion_hitbox() -> void:
 	_damage_nearby_targets(explosion_radius, damaged_nodes, shoved_nodes)
 
 func _damage_nearby_targets(current_radius: float, damaged_nodes: Array[Node], shoved_nodes: Array[Node]) -> void:
+	for fuse: Node in get_tree().get_nodes_in_group("fuse"):
+		if is_instance_valid(fuse) and fuse.has_method("ignite_by_explosion"):
+			fuse.ignite_by_explosion(global_position, current_radius)
+
 	var shape := CircleShape2D.new()
 	shape.radius = maxf(current_radius, 0.0)
 
