@@ -34,7 +34,11 @@ func start_button_pressed() -> void:
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
 	ScoreBus.reset_run_stats()
-	get_tree().change_scene_to_file("res://Scenes/Cutscene.tscn")
+	if SettingsManager.skip_cutscenes:
+		MusicManager.stop_music()
+		get_tree().change_scene_to_file("res://Scenes/main_game.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Cutscene.tscn")
 
 func options_button_pressed() -> void:
 	$WoodenBlock.play()

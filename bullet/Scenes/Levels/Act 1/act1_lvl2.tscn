@@ -125,7 +125,7 @@ position = Vector2(115, -47)
 position = Vector2(115, 17)
 
 [node name="LockBox21" parent="." unique_id=1429813272 instance=ExtResource("7_ko1dd")]
-position = Vector2(-13, 47)
+position = Vector2(-13, 48)
 
 [node name="LockBox22" parent="." unique_id=809993853 instance=ExtResource("7_ko1dd")]
 position = Vector2(123, -79)
