@@ -257,6 +257,12 @@ func _spawn_dynamite_explosion(parent_node: Node, spawn_position: Vector2) -> vo
 	if parent_node == null:
 		return
 
+	call_deferred("_finish_spawn_dynamite_explosion", parent_node, spawn_position)
+
+func _finish_spawn_dynamite_explosion(parent_node: Node, spawn_position: Vector2) -> void:
+	if not is_instance_valid(parent_node):
+		return
+
 	var dynamite := DYNAMITE_SCENE.instantiate()
 	parent_node.add_child(dynamite)
 	if dynamite is Node2D:
