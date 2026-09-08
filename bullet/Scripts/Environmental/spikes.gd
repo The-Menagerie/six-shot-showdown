@@ -24,3 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 	if body.is_in_group("enemy") and body.has_method("handle_death"):
 		body.handle_death()
+		return
+
+	if body.is_in_group("breakable") and body.has_method("handle_death"):
+		body.handle_death()

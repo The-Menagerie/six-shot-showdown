@@ -304,6 +304,7 @@ z_index = 3
 script = ExtResource("1_4qkr3")
 player_recoil_force = 195.0
 vertical_recoil_scale = 0.3
+explosion_jump_combo_window = 0.3
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1735660247]
 texture = ExtResource("2_kvv6r")

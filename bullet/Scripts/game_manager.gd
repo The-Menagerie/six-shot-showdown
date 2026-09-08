@@ -20,6 +20,8 @@ const TUTORIAL_LEVEL_DIRECTORY := "res://Scenes/Levels/Tutorial/"
 const GAME_LEVEL_DIRECTORY := "res://Scenes/Levels/"
 const SCOREBOARD_SCENE_PATH := "res://Scenes/UI/temp_score_scene.tscn"
 const MAX_LEVEL_CHAIN_DEPTH := 64
+const DEBUG_PREVIOUS_LEVEL_KEY := KEY_F1
+const DEBUG_NEXT_LEVEL_KEY := KEY_F2
 
 var is_bullet_time_active := false
 var is_level_reset_queued := false
@@ -65,6 +67,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if is_level_transition_active or is_level_reset_queued:
 		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == DEBUG_PREVIOUS_LEVEL_KEY:
+			_debug_change_relative_level(-1)
+			get_viewport().set_input_as_handled()
+			return
+		if event.keycode == DEBUG_NEXT_LEVEL_KEY:
+			_debug_change_relative_level(1)
+			get_viewport().set_input_as_handled()
+			return
 	if event.is_action_pressed("restart") and not event.is_echo():
 		reset_current_level()
 		get_viewport().set_input_as_handled()
@@ -350,3 +361,55 @@ func _get_next_level_path_for_scene(level_path: String) -> String:
 
 	level_instance.free()
 	return next_path
+
+func _debug_change_relative_level(direction: int) -> void:
+	if current_level == null or current_level.scene_file_path.is_empty():
+		return
+
+	var target_path := ""
+	if direction > 0:
+		target_path = _get_next_level_path_for_scene(current_level.scene_file_path)
+	elif direction < 0:
+		target_path = _get_previous_level_path_for_scene(current_level.scene_file_path)
+
+	if target_path.is_empty():
+		return
+
+	var target_scene := load(target_path) as PackedScene
+	if target_scene == null:
+		return
+
+	change_level(target_scene)
+
+func _get_previous_level_path_for_scene(level_path: String) -> String:
+	for candidate_path: String in _get_debug_level_scene_paths():
+		if candidate_path == level_path:
+			continue
+		if _get_next_level_path_for_scene(candidate_path) == level_path:
+			return candidate_path
+
+	return ""
+
+func _get_debug_level_scene_paths() -> Array[String]:
+	var paths: Array[String] = []
+	_collect_debug_level_scene_paths(TUTORIAL_LEVEL_DIRECTORY, paths)
+	_collect_debug_level_scene_paths(GAME_LEVEL_DIRECTORY, paths)
+	return paths
+
+func _collect_debug_level_scene_paths(directory_path: String, paths: Array[String]) -> void:
+	var directory := DirAccess.open(directory_path)
+	if directory == null:
+		return
+
+	directory.list_dir_begin()
+	var file_name := directory.get_next()
+	while not file_name.is_empty():
+		if directory.current_is_dir():
+			if not file_name.begins_with("."):
+				_collect_debug_level_scene_paths(directory_path.path_join(file_name), paths)
+		elif file_name.ends_with(".tscn"):
+			var scene_path := directory_path.path_join(file_name)
+			if not paths.has(scene_path):
+				paths.append(scene_path)
+		file_name = directory.get_next()
+	directory.list_dir_end()

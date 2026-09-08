@@ -10,6 +10,8 @@ extends CharacterBody2D
 @export var player_recoil_force : float = 260.0
 @export var recoil_velocity_decay : float = 700.0
 @export var vertical_recoil_scale : float = 0.45
+@export var explosion_jump_combo_window: float = 0.12
+@export var explosion_jump_combo_vertical_multiplier: float = 1.5
 const BULLET_SCENE = preload("res://Scenes/Objects/Bullets/bullet.tscn")
 const DROP_THROUGH_KEY := KEY_S
 const DROP_THROUGH_DURATION := 0.2
@@ -33,6 +35,13 @@ var has_single_use_key := false
 var flying := false
 var just_shot := false
 var is_dropping_through_platforms := false
+var last_explosion_knockback_frame := -1
+var last_explosion_knockback_impulse := Vector2.ZERO
+var pending_explosion_knockback := Vector2.ZERO
+var last_jump_input_time := -999.0
+var last_applied_explosion_knockback_time := -999.0
+var last_applied_explosion_knockback_impulse := Vector2.ZERO
+var last_explosion_jump_combo_time := -999.0
 
 func _ready():
 	add_to_group("player")
@@ -46,6 +55,9 @@ func _ready():
 func _physics_process(delta):
 	var move_input = Input.get_axis("left", "right")
 	var jump_pressed = Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("ui_accept")
+	var current_time := Time.get_ticks_msec() / 1000.0
+	if jump_pressed:
+		last_jump_input_time = current_time
 
 	if jump_pressed and is_on_floor():
 		velocity.y = -jump_force
@@ -53,6 +65,10 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	elif Input.is_key_pressed(DROP_THROUGH_KEY):
 		_drop_through_platforms()
+
+	if jump_pressed:
+		_apply_recent_explosion_jump_combo(current_time)
+	_apply_pending_explosion_knockback(current_time)
 	
 	if just_shot:
 		velocity.y += recoil_velocity.y*2
@@ -165,8 +181,44 @@ func apply_explosion_knockback(impulse: Vector2) -> void:
 	if impulse == Vector2.ZERO:
 		return
 
-	recoil_velocity += impulse
+	var current_frame := Engine.get_physics_frames()
+	if last_explosion_knockback_frame == current_frame:
+		if impulse.length_squared() < last_explosion_knockback_impulse.length_squared():
+			impulse = last_explosion_knockback_impulse
+
+	pending_explosion_knockback = impulse
+	last_explosion_knockback_frame = current_frame
+	last_explosion_knockback_impulse = impulse
+
+func _apply_pending_explosion_knockback(current_time: float) -> void:
+	if pending_explosion_knockback == Vector2.ZERO:
+		return
+
+	var impulse := pending_explosion_knockback
+	if _has_recent_jump_input(current_time):
+		impulse.y *= explosion_jump_combo_vertical_multiplier
+		last_explosion_jump_combo_time = current_time
+
+	recoil_velocity += Vector2(impulse.x, 0.0)
 	velocity.y += impulse.y
+	last_applied_explosion_knockback_time = current_time
+	last_applied_explosion_knockback_impulse = impulse
+	pending_explosion_knockback = Vector2.ZERO
+
+func _apply_recent_explosion_jump_combo(current_time: float) -> void:
+	if last_explosion_jump_combo_time == last_applied_explosion_knockback_time:
+		return
+	if current_time - last_applied_explosion_knockback_time > explosion_jump_combo_window:
+		return
+	if last_applied_explosion_knockback_impulse.y >= 0.0:
+		return
+
+	var bonus_y := last_applied_explosion_knockback_impulse.y * (explosion_jump_combo_vertical_multiplier - 1.0)
+	velocity.y += bonus_y
+	last_explosion_jump_combo_time = last_applied_explosion_knockback_time
+
+func _has_recent_jump_input(current_time: float) -> bool:
+	return current_time - last_jump_input_time <= explosion_jump_combo_window
 
 func collect_key(single_use := false) -> void:
 	if single_use:

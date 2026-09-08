@@ -7,6 +7,7 @@ extends RigidBody2D
 @export var explosion_damage: float = 10.0
 @export var explosion_impulse: float = 150.0
 @export var player_explosion_impulse: float = 150.0
+@export var player_explosion_radius: float = 48.0
 @export var player_explosion_horizontal_scale: float = 0.25
 @export var player_explosion_upward_bias: float = 0.85
 @export var chain_radius: float = 56.0
@@ -145,6 +146,8 @@ func _damage_nearby_targets(current_radius: float, damaged_nodes: Array[Node], s
 		if is_instance_valid(fuse) and fuse.has_method("ignite_by_explosion"):
 			fuse.ignite_by_explosion(global_position, current_radius)
 
+	_knockback_players_in_radius(current_radius, shoved_nodes)
+
 	var shape := CircleShape2D.new()
 	shape.radius = maxf(current_radius, 0.0)
 
@@ -173,6 +176,20 @@ func _damage_nearby_targets(current_radius: float, damaged_nodes: Array[Node], s
 			var attack := Attack.new()
 			attack.attack_damage = explosion_damage
 			collider.damage(attack)
+
+func _knockback_players_in_radius(current_radius: float, shoved_nodes: Array[Node]) -> void:
+	var effective_radius := maxf(current_radius, player_explosion_radius)
+	var radius_squared := effective_radius * effective_radius
+	for player in get_tree().get_nodes_in_group("player"):
+		if not (player is Node2D):
+			continue
+		if shoved_nodes.has(player):
+			continue
+		if global_position.distance_squared_to((player as Node2D).global_position) > radius_squared:
+			continue
+
+		shoved_nodes.append(player)
+		_apply_explosion_impulse(player)
 
 func _get_impulse_body(collider: Node) -> Node:
 	var body := collider

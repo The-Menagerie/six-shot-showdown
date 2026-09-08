@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cr812kit1c5dp" path="res://Scenes/Objects/Enemies/EnemyShotgun.tscn" id="4_ohpq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luu1d"]
-size = Vector2(11, 16)
+size = Vector2(11, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohpq4"]
 size = Vector2(13, 30)
@@ -393,7 +393,7 @@ hframes = 6
 vframes = 5
 
 [node name="MovementCollision" parent="." index="1" unique_id=432735664]
-position = Vector2(-0.5, 4)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_luu1d")
 
 [node name="CollisionShape2D2" parent="HitboxComponent" parent_id_path=PackedInt32Array(474203754) index="0" unique_id=1667441814]

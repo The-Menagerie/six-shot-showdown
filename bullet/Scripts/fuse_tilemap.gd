@@ -13,6 +13,11 @@ extends TileMapLayer
 @export var trigger_outline_atlas_coords := Vector2i(2, 4)
 @export var spent_trigger_atlas_coords := Vector2i(1, 4)
 @export var trigger_interaction_size := Vector2(24, 24)
+@export var dynamite_player_explosion_impulse: float = 150.0
+@export var dynamite_player_explosion_radius: float = 96.0
+@export var dynamite_player_explosion_horizontal_scale: float = 0.25
+@export var dynamite_player_explosion_upward_bias: float = 0.85
+@export var trigger_player_launch_radius: float = 96.0
 
 @onready var ignite_audio: AudioStreamPlayer = $Ignite
 @onready var connector_layer: TileMapLayer = get_node_or_null("Connectors")
@@ -102,6 +107,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	for cell: Vector2i in trigger_areas:
 		if _can_interact_with_trigger(cell):
 			get_viewport().set_input_as_handled()
+			_launch_players_from_trigger(cell)
 			_ignite_all_fuses(cell)
 			return
 
@@ -184,10 +190,12 @@ func _ignite_all_fuses(ignite_cell: Vector2i) -> void:
 	for dynamite_path: NodePath in connected_dynamites:
 		var dynamite := get_node_or_null(dynamite_path)
 		if dynamite != null and dynamite.has_method("explode"):
+			_configure_dynamite_player_launch(dynamite)
 			dynamite.explode()
 
 	for dynamite: Node in nearby_dynamites:
 		if dynamite != null and dynamite.has_method("explode"):
+			_configure_dynamite_player_launch(dynamite)
 			dynamite.explode()
 
 	for tile_position: Vector2 in dynamite_tile_positions:
@@ -260,6 +268,39 @@ func _get_dynamite_tile_positions(cells: Array[Vector2i]) -> Array[Vector2]:
 func _is_trigger_cell(cell: Vector2i) -> bool:
 	return trigger_tile_atlas_coords.has(get_cell_atlas_coords(cell))
 
+func _configure_dynamite_player_launch(dynamite: Node) -> void:
+	if "player_explosion_impulse" in dynamite:
+		dynamite.player_explosion_impulse = dynamite_player_explosion_impulse
+	if "player_explosion_radius" in dynamite:
+		dynamite.player_explosion_radius = dynamite_player_explosion_radius
+	if "player_explosion_horizontal_scale" in dynamite:
+		dynamite.player_explosion_horizontal_scale = dynamite_player_explosion_horizontal_scale
+	if "player_explosion_upward_bias" in dynamite:
+		dynamite.player_explosion_upward_bias = dynamite_player_explosion_upward_bias
+
+func _launch_players_from_trigger(cell: Vector2i) -> void:
+	var launch_origin := to_global(map_to_local(cell))
+	var radius_squared := trigger_player_launch_radius * trigger_player_launch_radius
+	for player in get_tree().get_nodes_in_group("player"):
+		if not (player is Node2D):
+			continue
+		if launch_origin.distance_squared_to((player as Node2D).global_position) > radius_squared:
+			continue
+
+		var impulse := _get_player_launch_impulse(launch_origin, (player as Node2D).global_position)
+		if player.has_method("apply_explosion_knockback"):
+			player.apply_explosion_knockback(impulse)
+
+func _get_player_launch_impulse(launch_origin: Vector2, player_position: Vector2) -> Vector2:
+	var launch_direction := player_position - launch_origin
+	if launch_direction == Vector2.ZERO:
+		launch_direction = Vector2.UP
+
+	launch_direction = launch_direction.normalized()
+	launch_direction.x *= dynamite_player_explosion_horizontal_scale
+	launch_direction.y = minf(launch_direction.y, -dynamite_player_explosion_upward_bias)
+	return launch_direction.normalized() * dynamite_player_explosion_impulse
+
 func _spawn_dynamite_explosion(parent_node: Node, spawn_position: Vector2) -> void:
 	if parent_node == null:
 		return
@@ -274,6 +315,7 @@ func _finish_spawn_dynamite_explosion(parent_node: Node, spawn_position: Vector2
 	parent_node.add_child(dynamite)
 	if dynamite is Node2D:
 		(dynamite as Node2D).global_position = spawn_position
+	_configure_dynamite_player_launch(dynamite)
 	if dynamite.has_method("explode"):
 		dynamite.explode()
 
