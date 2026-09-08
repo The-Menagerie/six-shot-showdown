@@ -17,6 +17,7 @@ size = Vector2(40, 40)
 script = ExtResource("2_r11gc")
 
 [node name="BulletUnlockArea" type="Area2D" parent="." unique_id=662654348]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletUnlockArea" unique_id=1135291285]
 shape = SubResource("RectangleShape2D_40fn5")
@@ -25,13 +26,14 @@ shape = SubResource("RectangleShape2D_40fn5")
 texture = ExtResource("1_ntf47")
 
 [node name="WallBody" type="StaticBody2D" parent="." unique_id=1870970775]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallBody" unique_id=1606951475]
-visible = false
 shape = SubResource("RectangleShape2D_oplb8")
 debug_color = Color(0.997045, 0, 0.18383858, 0.41960785)
 
 [node name="UnlockArea" type="Area2D" parent="." unique_id=372261367]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UnlockArea" unique_id=415124043]
 shape = SubResource("RectangleShape2D_y0wvc")

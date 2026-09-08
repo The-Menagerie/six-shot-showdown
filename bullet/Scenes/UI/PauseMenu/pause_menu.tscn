@@ -100,6 +100,9 @@ script = ExtResource("1_t3nwl")
 stream = ExtResource("2_bkcxk")
 bus = &"sfx"
 
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=990261767]
 material = SubResource("ShaderMaterial_t3nwl")
 layout_mode = 1

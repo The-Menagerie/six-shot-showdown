@@ -91,8 +91,10 @@ vertical_alignment = 1
 script = ExtResource("4_6j5ir")
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1627349778 instance=ExtResource("3_0e3vx")]
+z_index = 101
 
 [node name="OptionsPauseMenu" parent="CanvasLayer" unique_id=1607701552 instance=ExtResource("6_bb2iq")]
+z_index = 101
 size_flags_vertical = 3
 
 [node name="RestartHint" type="Label" parent="CanvasLayer" unique_id=1252689156]

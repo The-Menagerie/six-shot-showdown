@@ -29,7 +29,7 @@ func handle_death() -> void:
 		return
 
 	is_dying = true
-	freeze = true
+	set_deferred("freeze", true)
 	_disable_collisions()
 	_play_break_sound()
 	target_destroyed.emit(self)
