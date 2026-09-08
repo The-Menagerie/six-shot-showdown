@@ -143,25 +143,28 @@ position = Vector2(-136, 144)
 [node name="EnemyBlocker" parent="." unique_id=191764089 instance=ExtResource("7_vdio1")]
 position = Vector2(-227, 112)
 
+[node name="EnemyBlocker2" parent="." unique_id=1848201128 instance=ExtResource("7_vdio1")]
+position = Vector2(-57, 144)
+
 [node name="Enemy4" parent="." unique_id=1186645333 instance=ExtResource("8_syp8u")]
-position = Vector2(-39, 128)
+position = Vector2(-26, 128)
 
 [node name="Key" parent="Enemy4" unique_id=330578796 instance=ExtResource("7_7wmos")]
-position = Vector2(1, 7)
+position = Vector2(0, 10)
 
 [node name="Fuse" parent="." unique_id=61583169 instance=ExtResource("9_qhdc2")]
 position = Vector2(6, -2)
 tile_map_data = PackedByteArray("AAANAPf/AAAAAAQAAAALAPf/AAAAAAAAAAAIAPf/AAABAAMAAAAKAPf/AAAAAAAAAAA=")
 
 [node name="Connectors" parent="Fuse" index="0" unique_id=2144048916]
-tile_map_data = PackedByteArray("AAANAPf/AAADAAMAAAAIAPf/AAADAAIAADANAP3/AAACAAIAADA=")
+tile_map_data = PackedByteArray("AAANAPf/AAADAAMAAAAIAPf/AAADAAIAADA=")
 
 [node name="Fuse2" parent="." unique_id=548874060 instance=ExtResource("9_qhdc2")]
 position = Vector2(6, -2)
-tile_map_data = PackedByteArray("AAANAP3/AAAAAAQAAAANAP//AAABAAEAAAANAAEAAAABAAEAAAANAAMAAAABAAEAAAANAAUAAAABAAEAAAANAAcAAAADAAAAAAALAAcAAAABAAAAAAALAAkAAAADAAAAAAAJAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAADAAkAAAAAAAAAAAABAAkAAAAAAAAAAAD//wkAAAAAAAAAAAD9/wkAAAAAAAAAAAD7/wkAAAAAAAAAAAD5/wkAAAAAAAEAAAD5/wgAAAAAAAMAADA=")
+tile_map_data = PackedByteArray("AAANAAEAAAABAAEAAAANAAMAAAABAAEAAAANAAUAAAABAAEAAAANAAcAAAADAAAAAAALAAcAAAABAAAAAAALAAkAAAADAAAAAAAJAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAADAAkAAAAAAAAAAAABAAkAAAAAAAAAAAD//wkAAAAAAAAAAAD9/wkAAAAAAAAAAAD7/wkAAAAAAAAAAAD5/wkAAAAAAAEAAAD5/wgAAAAAAAMAADALAP7/AAAAAAEAAAANAP7/AAACAAAAAAANAAAAAAABAAEAAAALAP3/AAAAAAQAAAA=")
 
 [node name="Connectors" parent="Fuse2" index="0" unique_id=2144048916]
-tile_map_data = PackedByteArray("AAANAP3/AAACAAIAADANAAUAAAABAAMAAAA=")
+tile_map_data = PackedByteArray("AAANAAUAAAABAAMAAAA=")
 
 [node name="Crate4" parent="." unique_id=1627909713 instance=ExtResource("11_o4r6v")]
 position = Vector2(-79, 112)
