@@ -67,15 +67,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if is_level_transition_active or is_level_reset_queued:
 		return
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == DEBUG_PREVIOUS_LEVEL_KEY:
-			_debug_change_relative_level(-1)
-			get_viewport().set_input_as_handled()
-			return
-		if event.keycode == DEBUG_NEXT_LEVEL_KEY:
-			_debug_change_relative_level(1)
-			get_viewport().set_input_as_handled()
-			return
+	#if event is InputEventKey and event.pressed and not event.echo:
+		#if event.keycode == DEBUG_PREVIOUS_LEVEL_KEY:
+			#_debug_change_relative_level(-1)
+			#get_viewport().set_input_as_handled()
+			#return
+		#if event.keycode == DEBUG_NEXT_LEVEL_KEY:
+			#_debug_change_relative_level(1)
+			#get_viewport().set_input_as_handled()
+			#return
 	if event.is_action_pressed("restart") and not event.is_echo():
 		reset_current_level()
 		get_viewport().set_input_as_handled()
