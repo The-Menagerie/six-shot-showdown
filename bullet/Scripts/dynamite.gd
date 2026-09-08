@@ -6,6 +6,9 @@ extends RigidBody2D
 @export var explosion_expand_duration: float = 0.2
 @export var explosion_damage: float = 10.0
 @export var explosion_impulse: float = 150.0
+@export var player_explosion_impulse: float = 150.0
+@export var player_explosion_horizontal_scale: float = 0.25
+@export var player_explosion_upward_bias: float = 0.85
 @export var chain_radius: float = 56.0
 @export var connected_dynamites: Array[NodePath] = []
 @export var cleanup_delay: float = 0.35
@@ -13,17 +16,29 @@ extends RigidBody2D
 signal target_destroyed(target)
 
 var has_exploded := false
+var is_carried := false
+var default_gravity_scale := 1.0
 
 @onready var dynamite_sprite: Sprite2D = $DynamiteSprite
 @onready var explosion_sprite: Sprite2D = $ExplosionSprite
 @onready var explosion_audio: AudioStreamPlayer = $Explosion
 
 func _ready() -> void:
+	default_gravity_scale = gravity_scale
+	if _is_child_of_enemy():
+		is_carried = true
+		visible = false
+
 	add_to_group("dynamite")
 	add_to_group("explosive")
 	if is_instance_valid(explosion_sprite):
 		explosion_sprite.visible = false
 		explosion_sprite.frame = 0
+	_update_carried_state(true)
+	_refresh_character_collision_exceptions()
+	call_deferred("_refresh_character_collision_exceptions")
+	if not get_tree().node_added.is_connected(_on_scene_tree_node_added):
+		get_tree().node_added.connect(_on_scene_tree_node_added)
 
 func explode() -> void:
 	if has_exploded:
@@ -42,6 +57,62 @@ func explode() -> void:
 
 func handle_death() -> void:
 	explode()
+
+func set_carried_state(carried: bool) -> void:
+	is_carried = carried
+	visible = not carried
+	_update_carried_state(carried)
+
+func drop_from_carrier() -> void:
+	is_carried = false
+	visible = true
+	_update_carried_state()
+	_refresh_character_collision_exceptions()
+
+func _is_child_of_enemy() -> bool:
+	var parent := get_parent()
+	return parent is CharacterBody2D and parent.has_method("handle_death") and parent.has_signal("target_destroyed")
+
+func _update_carried_state(immediate := false) -> void:
+	freeze = is_carried
+	sleeping = is_carried
+	gravity_scale = 0.0 if is_carried else default_gravity_scale
+
+	for collision_shape in find_children("*", "CollisionShape2D", true, false):
+		if collision_shape is CollisionShape2D:
+			if immediate:
+				collision_shape.disabled = is_carried
+			else:
+				collision_shape.set_deferred("disabled", is_carried)
+
+	for area in find_children("*", "Area2D", true, false):
+		if area is Area2D:
+			if immediate:
+				area.monitoring = not is_carried
+				area.monitorable = not is_carried
+			else:
+				area.set_deferred("monitoring", not is_carried)
+				area.set_deferred("monitorable", not is_carried)
+
+func _refresh_character_collision_exceptions() -> void:
+	for player in get_tree().get_nodes_in_group("player"):
+		_add_character_collision_exception(player)
+
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		_add_character_collision_exception(enemy)
+
+func _on_scene_tree_node_added(node: Node) -> void:
+	call_deferred("_add_character_collision_exception", node)
+
+func _add_character_collision_exception(node: Node) -> void:
+	if not is_instance_valid(node):
+		return
+	if not (node is PhysicsBody2D):
+		return
+	if not node.is_in_group("player") and not node.is_in_group("enemy"):
+		return
+
+	add_collision_exception_with(node as PhysicsBody2D)
 
 func _stop_physics() -> void:
 	set_deferred("freeze", true)
@@ -128,7 +199,14 @@ func _apply_explosion_impulse(collider: Node) -> void:
 		var shove_direction := character.global_position - global_position
 		if shove_direction == Vector2.ZERO:
 			shove_direction = Vector2.UP
-		character.velocity += shove_direction.normalized() * explosion_impulse
+		var impulse_direction := shove_direction.normalized()
+		impulse_direction.x *= player_explosion_horizontal_scale
+		impulse_direction.y = minf(impulse_direction.y, -player_explosion_upward_bias)
+		var impulse := impulse_direction.normalized() * player_explosion_impulse
+		if character.has_method("apply_explosion_knockback"):
+			character.apply_explosion_knockback(impulse)
+		else:
+			character.velocity += impulse
 
 func _chain_connected_dynamite() -> void:
 	for dynamite_path: NodePath in connected_dynamites:

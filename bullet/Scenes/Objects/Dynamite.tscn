@@ -17,6 +17,8 @@ radius = 48.0
 can_sleep = false
 script = ExtResource("1_dynamite_script")
 explosion_start_radius = 24.0
+player_explosion_impulse = 100.0
+player_explosion_horizontal_scale = 0.5
 
 [node name="DynamiteSprite" type="Sprite2D" parent="." unique_id=101794639]
 texture = ExtResource("2_dynamite_texture")

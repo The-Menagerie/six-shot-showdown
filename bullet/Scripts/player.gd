@@ -161,6 +161,13 @@ func apply_player_kickback(aim_vector: Vector2, recoil_multiplier: float = 1.0):
 	recoil_velocity += recoil_impulse
 	just_shot = true
 
+func apply_explosion_knockback(impulse: Vector2) -> void:
+	if impulse == Vector2.ZERO:
+		return
+
+	recoil_velocity += impulse
+	velocity.y += impulse.y
+
 func collect_key(single_use := false) -> void:
 	if single_use:
 		has_single_use_key = true

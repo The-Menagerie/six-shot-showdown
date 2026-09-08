@@ -113,6 +113,8 @@ func ignite_by_bullet(hit_position: Vector2, ignite_tolerance: float = default_i
 		cell = _find_ignite_cell_for_point(hit_position, ignite_tolerance)
 		if not _has_fuse_cell(cell):
 			return false
+	if _is_trigger_cell(cell):
+		return false
 
 	_ignite_all_fuses(cell)
 	return true
@@ -122,6 +124,8 @@ func ignite_along_segment(segment_start: Vector2, segment_end: Vector2, ignite_t
 		return false
 	var ignite_cell: Vector2i = _find_ignite_cell_along_segment(segment_start, segment_end, ignite_tolerance)
 	if not _has_fuse_cell(ignite_cell):
+		return false
+	if _is_trigger_cell(ignite_cell):
 		return false
 
 	_ignite_all_fuses(ignite_cell)
@@ -252,6 +256,9 @@ func _get_dynamite_tile_positions(cells: Array[Vector2i]) -> Array[Vector2]:
 				break
 
 	return positions
+
+func _is_trigger_cell(cell: Vector2i) -> bool:
+	return trigger_tile_atlas_coords.has(get_cell_atlas_coords(cell))
 
 func _spawn_dynamite_explosion(parent_node: Node, spawn_position: Vector2) -> void:
 	if parent_node == null:
