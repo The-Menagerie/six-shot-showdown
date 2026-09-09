@@ -10,17 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_4mkqr"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_hx4dl"]
 
-<<<<<<<< HEAD:bullet/Scenes/Levels/Act 2/act2_lvl8.tscn
 [node name="Lvl07" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_jix2o")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl1.tscn"
-========
-[node name="Act1Lvl04" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
-script = ExtResource("1_lxh78")
-targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
-next_level_path = "res://Scenes/Levels/act_1_lvl_05.tscn"
->>>>>>>> f7d8b89 (changing naming schemes for existing act 1 levels and creation of act 1 level 8):bullet/Scenes/Levels/act_1_lvl_04.tscn
+
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=1224316472]
