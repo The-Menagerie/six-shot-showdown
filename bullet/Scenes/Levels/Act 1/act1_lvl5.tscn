@@ -12,18 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_ndunn"]
 [ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/EnemyBlocker.tscn" id="11_v1csl"]
 
-<<<<<<<< HEAD:bullet/Scenes/Levels/Act 1/act1_lvl5.tscn
 [node name="Lvl03" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_6vt81")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Target")]
 next_level_path = "res://Scenes/Levels/Act 1/act1_lvl6.tscn"
-========
-[node name="Act1Lvl05" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
-script = ExtResource("1_flvps")
-targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Target")]
-next_level_path = "res://Scenes/Levels/act_1_lvl_06.tscn"
->>>>>>>> f7d8b89 (changing naming schemes for existing act 1 levels and creation of act 1 level 8):bullet/Scenes/Levels/act_1_lvl_05.tscn
-metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
 z_index = 5

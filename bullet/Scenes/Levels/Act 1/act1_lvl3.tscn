@@ -9,21 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_6sphm"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="11_qio3d"]
 
-<<<<<<<< HEAD:bullet/Scenes/Levels/Act 1/act1_lvl3.tscn
 [node name="Lvl01" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_acgkm")
 key_node = NodePath("Key")
 key_hint_label = NodePath("CanvasLayer/KeyHintLabel")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/Levels/Act 1/act1_lvl4.tscn"
-========
-[node name="Act1Level03" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
-script = ExtResource("1_lxh78")
-key_node = NodePath("Key")
-key_hint_label = NodePath("CanvasLayer/KeyHintLabel")
-targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
-next_level_path = "res://Scenes/Levels/act_1_lvl_04.tscn"
->>>>>>>> f7d8b89 (changing naming schemes for existing act 1 levels and creation of act 1 level 8):bullet/Scenes/Levels/act_1_lvl_03.tscn
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="Enemy" parent="." unique_id=733749410 instance=ExtResource("4_f1j2g")]
