@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="11_8jhpq"]
 [ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/EnemyBlocker.tscn" id="12_wlrum"]
 
-[node name="Lvl02" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
+[node name="Act1Lvl04" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_em15n")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/Levels/Act 1/act1_lvl5.tscn"

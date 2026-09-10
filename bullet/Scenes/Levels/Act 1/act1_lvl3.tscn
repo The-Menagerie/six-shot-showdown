@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_6sphm"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="11_qio3d"]
 
-[node name="Lvl01" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
+[node name="Act1Lvl03" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_acgkm")
 key_node = NodePath("Key")
 key_hint_label = NodePath("CanvasLayer/KeyHintLabel")
