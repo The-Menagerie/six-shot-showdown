@@ -228,6 +228,8 @@ func collect_key(single_use := false) -> void:
 		has_permanent_key = true
 	has_key = true
 	BulletBus.player_key_changed.emit(has_key, has_single_use_key and not has_permanent_key)
+	# A key can be collected while already inside a door's unlock area.
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_DEFERRED, "lock", "_try_unlock_for_body", self)
 
 func consume_key() -> void:
 	if has_permanent_key:

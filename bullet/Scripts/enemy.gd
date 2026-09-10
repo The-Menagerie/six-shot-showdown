@@ -105,9 +105,9 @@ func _physics_process(delta):
 			velocity.y += gravity/5 * delta
 		else:
 			velocity.y = 0.0
-		if velocity.x > 0:
+		if velocity.x != 0.0:
 			velocity.x = velocity.x * (1-knockback_drag)
-		if velocity.length() < 20:
+		if velocity.length() < knockback_end_velocity:
 			knockedback = false
 			
 	if not is_in_combat and is_on_wall() and is_patrolling:

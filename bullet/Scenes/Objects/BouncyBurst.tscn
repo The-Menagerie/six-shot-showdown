@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c5dxkr8nr6h3m"]
+
+[ext_resource type="Texture2D" path="res://Assets/Images/BouncyBurst [size64] [frames16].png" id="1_ambow"]
+[ext_resource type="Script" path="res://Scripts/bouncy_burst.gd" id="2_p5yux"]
+
+[node name="BouncyBurst" type="Node2D"]
+z_index = 10
+script = ExtResource("2_p5yux")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ambow")
+hframes = 16

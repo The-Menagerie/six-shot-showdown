@@ -26,6 +26,8 @@ func _try_unlock_for_body(body: Node2D) -> void:
 		return
 	if is_unlocked:
 		return
+	if not unlock_area.overlaps_body(body):
+		return
 	if not body.is_in_group(pickup_group):
 		return
 	if body.get("has_key") != true:
@@ -85,10 +87,14 @@ func unlock()->void:
 	is_unlocked = true
 	_disable_collisions()
 	_play_unlock_sound()
+	_on_unlocked()
 	var fade_tween = create_tween()
 	fade_tween.tween_property(self, "modulate:a", 0.0, fade_duration)
 	await fade_tween.finished
 	queue_free()
+
+func _on_unlocked() -> void:
+	pass
 
 func _disable_collisions() -> void:
 	if is_instance_valid(wall_collision):
