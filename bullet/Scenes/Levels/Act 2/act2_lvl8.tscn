@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_4mkqr"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_hx4dl"]
 
-[node name="Lvl07" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
+[node name="Act2Lvl8" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_jix2o")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl1.tscn"
