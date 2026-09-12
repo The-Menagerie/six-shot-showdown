@@ -55,7 +55,7 @@ _data = {
 &"expand_camera": SubResource("Animation_d5g81")
 }
 
-[node name="Lvl12" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
+[node name="Act3Lvl12" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_n67pu")
 targets = [NodePath("Enemy"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/UI/temp_score_scene.tscn"

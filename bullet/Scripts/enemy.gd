@@ -90,7 +90,12 @@ func _physics_process(delta):
 		if is_in_combat:
 			velocity.x = 0.0
 		else:
+			if is_patrolling and _has_hazard_ahead():
+				patrol_direction *= -1.0
+				facing_direction = patrol_direction
 			velocity.x = patrol_direction * patrol_speed if is_patrolling else 0.0
+			if is_patrolling and _has_hazard_ahead():
+				velocity.x = 0.0
 	
 	move_and_slide()
 	_check_crush_overlaps()
@@ -100,15 +105,15 @@ func _physics_process(delta):
 			velocity.y += gravity/5 * delta
 		else:
 			velocity.y = 0.0
-		if velocity.x > 0:
+		if velocity.x != 0.0:
 			velocity.x = velocity.x * (1-knockback_drag)
-		if velocity.length() < 20:
+		if velocity.length() < knockback_end_velocity:
 			knockedback = false
 			
 	if not is_in_combat and is_on_wall() and is_patrolling:
 		patrol_direction = -sign(velocity.x) if velocity.x != 0.0 else -patrol_direction
 		facing_direction = patrol_direction
-	elif not is_in_combat and is_patrolling and is_on_floor() and (not _has_floor_ahead() or _has_hazard_ahead()):
+	elif not is_in_combat and is_patrolling and is_on_floor() and not _has_floor_ahead():
 		patrol_direction *= -1.0
 		facing_direction = patrol_direction
 
@@ -234,25 +239,28 @@ func _has_floor_ahead() -> bool:
 	return not result.is_empty()
 
 func _has_hazard_ahead() -> bool:
-	var start := global_position + Vector2(patrol_direction * ledge_check_forward_distance, -hazard_check_height)
-	var finish := global_position + Vector2(patrol_direction * ledge_check_forward_distance, hazard_check_height)
-	var query := PhysicsRayQueryParameters2D.create(start, finish)
+	# Check the full leading edge, so rotated spikes at any body height count.
+	var body_bounds: Rect2 = movement_collision.global_transform * movement_collision.shape.get_rect()
+	var lookahead := maxf(ledge_check_forward_distance, absf(patrol_speed) * get_physics_process_delta_time() + 1.0)
+	var leading_x := body_bounds.end.x if patrol_direction > 0.0 else body_bounds.position.x
+	var check_shape := RectangleShape2D.new()
+	check_shape.size = Vector2(lookahead, body_bounds.size.y + hazard_check_height * 2.0)
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = check_shape
+	query.transform = Transform2D(0.0, Vector2(leading_x + patrol_direction * lookahead * 0.5, body_bounds.get_center().y))
 	query.exclude = [self]
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
-	var result := get_world_2d().direct_space_state.intersect_ray(query)
-	if result.is_empty():
-		return false
-
-	var collider := result.collider as Node
-	if collider == null:
-		return false
-
-	if collider.is_in_group("enemy_hazard"):
-		return true
-
-	var parent := collider.get_parent()
-	return parent != null and parent.is_in_group("enemy_hazard")
+	for result in get_world_2d().direct_space_state.intersect_shape(query, 64):
+		var collider := result.collider as Node
+		if collider == null:
+			continue
+		if collider.is_in_group("enemy_hazard"):
+			return true
+		var parent := collider.get_parent()
+		if parent != null and parent.is_in_group("enemy_hazard"):
+			return true
+	return false
 
 func _drop_shotgun(initial_velocity: Vector2):
 	if not is_instance_valid(enemy_shotgun):

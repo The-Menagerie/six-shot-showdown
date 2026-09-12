@@ -3,12 +3,12 @@ extends Node
 signal score_update(score_change) ##Positive score change value
 signal score_loss_indicator(amount)
 
-var starting_score: int = 77777
-var score_per_shot: int = -250
-var score_on_enemy_bullet_hit: int = -100
-var score_on_spike_death: int = -500
-var score_on_crush_death: int = -500
-var score_on_burn: int = -30
+var starting_score: int = 777777
+var score_per_shot: int = -500
+var score_on_enemy_bullet_hit: int = -50
+var score_on_spike_death: int = -750
+var score_on_crush_death: int = -750
+var score_on_burn: int = -20
 var burn_time: int = 0
 var passive_score_loss_per_second: int = 1
 var shots_taken: int = 0

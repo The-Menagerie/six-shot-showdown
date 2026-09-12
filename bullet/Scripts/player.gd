@@ -142,13 +142,14 @@ func fire_bullet(bullet_scene: PackedScene):
 	if bullet.has_method("capture_swap_origin"):
 		bullet.capture_swap_origin(self)
 	var aim_vector = get_global_mouse_position() - global_position
-	revolver.add_child(bullet)
-	bullet.position = muzzle.position
 	var world_parent := get_parent()
 	if world_parent != null:
-		revolver.remove_child(bullet)
+		# Position the collision body before it enters the physics world.
+		bullet.position = world_parent.to_local(muzzle.global_position)
 		world_parent.add_child(bullet)
-		bullet.global_position = muzzle.global_position
+	else:
+		bullet.position = muzzle.position
+		revolver.add_child(bullet)
 	bullet.add_collision_exception_with(self)
 	bullet.set_direction(aim_vector)
 	if bullet.has_method("arm"):
@@ -227,6 +228,8 @@ func collect_key(single_use := false) -> void:
 		has_permanent_key = true
 	has_key = true
 	BulletBus.player_key_changed.emit(has_key, has_single_use_key and not has_permanent_key)
+	# A key can be collected while already inside a door's unlock area.
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_DEFERRED, "lock", "_try_unlock_for_body", self)
 
 func consume_key() -> void:
 	if has_permanent_key:
