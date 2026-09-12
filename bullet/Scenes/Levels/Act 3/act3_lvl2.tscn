@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_icxk5"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_ft8vr"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="9_xgedu"]
+[ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="10_53j6n"]
 
 [node name="Act3Lvl2" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_ecjso")
@@ -120,3 +121,7 @@ idle_duration = 100000000.0
 position = Vector2(23, -132)
 idle_duration = 100000000.0
 starting_direction = -1.0
+
+[node name="Spikes" parent="." unique_id=758327182 instance=ExtResource("10_53j6n")]
+position = Vector2(-64.00001, 155)
+scale = Vector2(33.161255, 2.2352211)
