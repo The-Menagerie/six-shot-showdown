@@ -25,6 +25,10 @@ func _try_damage_hitbox(area: Area2D) -> bool:
 		return false
 
 	var knock_back_target = area.get_parent()
+	if knock_back_target != null and knock_back_target.is_in_group("dynamite") and knock_back_target.has_method("explode"):
+		knock_back_target.call_deferred("explode")
+		return true
+
 	if knock_back_target is CharacterBody2D:
 		var kb_timer = knock_back_target.find_child("HitTimer")
 		if kb_timer.is_stopped():

@@ -3,6 +3,7 @@ extends Node
 const SETTINGS_PATH := "user://settings.cfg"
 const SETTINGS_SECTION := "gameplay"
 const SKIP_TUTORIAL_KEY := "skip_tutorial"
+const SKIP_CUTSCENES_KEY := "skip_cutscenes"
 const AIM_SPEED_KEY := "aim_speed"
 const CURSOR_HOTSPOT := Vector2(10, 10)
 const UI_TEXT_SHADOW_COLOR := Color(0.0, 0.0, 0.0, 0.85)
@@ -17,6 +18,7 @@ var reticle = load("res://Assets/Tilesets/StrangeCowboy/Player/reticle_norm.png"
 var reticle_clicked = load("res://Assets/Tilesets/StrangeCowboy/Player/reticle_clicked.png")
 
 var skip_tutorial := false
+var skip_cutscenes := false
 var aim_speed := DEFAULT_AIM_SPEED
 
 func _ready() -> void:
@@ -147,10 +149,12 @@ func load_settings() -> void:
 	var err := config.load(SETTINGS_PATH)
 	if err != OK:
 		skip_tutorial = false
+		skip_cutscenes = false
 		aim_speed = DEFAULT_AIM_SPEED
 		return
 
 	skip_tutorial = bool(config.get_value(SETTINGS_SECTION, SKIP_TUTORIAL_KEY, false))
+	skip_cutscenes = bool(config.get_value(SETTINGS_SECTION, SKIP_CUTSCENES_KEY, false))
 	aim_speed = clampf(
 		float(config.get_value(SETTINGS_SECTION, AIM_SPEED_KEY, DEFAULT_AIM_SPEED)),
 		MIN_AIM_SPEED,
@@ -164,6 +168,13 @@ func set_skip_tutorial(enabled: bool) -> void:
 	skip_tutorial = enabled
 	save_settings()
 
+func set_skip_cutscenes(enabled: bool) -> void:
+	if skip_cutscenes == enabled:
+		return
+
+	skip_cutscenes = enabled
+	save_settings()
+
 func set_aim_speed(value: float) -> void:
 	var clamped_value := clampf(value, MIN_AIM_SPEED, MAX_AIM_SPEED)
 	if is_equal_approx(aim_speed, clamped_value):
@@ -175,5 +186,6 @@ func set_aim_speed(value: float) -> void:
 func save_settings() -> void:
 	var config := ConfigFile.new()
 	config.set_value(SETTINGS_SECTION, SKIP_TUTORIAL_KEY, skip_tutorial)
+	config.set_value(SETTINGS_SECTION, SKIP_CUTSCENES_KEY, skip_cutscenes)
 	config.set_value(SETTINGS_SECTION, AIM_SPEED_KEY, aim_speed)
 	config.save(SETTINGS_PATH)

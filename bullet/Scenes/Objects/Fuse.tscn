@@ -5,8 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://cl0hhsugnvhr0" path="res://Assets/SoundEffects/RopeBreak.wav" id="3_ignite_audio"]
 
 [node name="Fuse" type="TileMapLayer" unique_id=61583169]
+z_index = 1
 tile_set = ExtResource("2_fuse_tileset")
 script = ExtResource("1_fuse_script")
+
+[node name="Connectors" type="TileMapLayer" parent="." unique_id=2144048916]
+tile_set = ExtResource("2_fuse_tileset")
 
 [node name="Ignite" type="AudioStreamPlayer" parent="." unique_id=269025611]
 stream = ExtResource("3_ignite_audio")

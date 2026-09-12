@@ -7,9 +7,10 @@
 [node name="RubberBullet" unique_id=2130642144 instance=ExtResource("1_base")]
 collision_mask = 1
 script = ExtResource("2_script")
-knock_back = 650.0
+knock_back = 800.0
 damage = 0.0
 max_bounces = 10
+
 
 [node name="Sprite2D" parent="." index="0" unique_id=1359081898]
 texture = ExtResource("3_texture")

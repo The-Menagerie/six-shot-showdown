@@ -34,7 +34,7 @@ var is_in_combat := false
 var fire_timer : float = 0.0
 var has_played_alert := false
 var rng := RandomNumberGenerator.new()
-var carried_drop: Node2D
+var carried_drops: Array[Node2D] = []
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"]
@@ -52,9 +52,10 @@ func _ready():
 	rng.randomize()
 	if is_instance_valid(animation_tree):
 		animation_tree.active = true
-	carried_drop = _find_carried_drop()
-	if is_instance_valid(carried_drop) and carried_drop.has_method("set_carried_state"):
-		carried_drop.set_carried_state(true)
+	carried_drops = _find_carried_drops()
+	for carried_drop in carried_drops:
+		if is_instance_valid(carried_drop) and carried_drop.has_method("set_carried_state"):
+			carried_drop.set_carried_state(true)
 	home_position = global_position
 	patrol_direction = starting_direction if starting_direction != 0.0 else 1.0
 	facing_direction = patrol_direction
@@ -125,7 +126,7 @@ func handle_death():
 	_play_death_animation()
 	_play_death_sound()
 	_drop_shotgun(death_velocity)
-	_drop_carried_item()
+	_drop_carried_items()
 	await get_tree().create_timer(DEATH_ANIMATION_DURATION).timeout
 	target_destroyed.emit(self)
 	queue_free()
@@ -271,17 +272,18 @@ func _drop_shotgun(initial_velocity: Vector2):
 	if enemy_shotgun.has_method("drop"):
 		enemy_shotgun.drop(Vector2(initial_velocity.x * 0.35, initial_velocity.y))
 
-func _drop_carried_item() -> void:
-	if not is_instance_valid(carried_drop):
-		return
-
+func _drop_carried_items() -> void:
 	var parent = get_parent()
 	if parent == null:
 		return
 
-	var drop_node: Node2D = carried_drop
-	var drop_global_position: Vector2 = carried_drop.global_position
-	call_deferred("_finish_drop_carried_item", drop_node, parent, drop_global_position)
+	for carried_drop in carried_drops:
+		if not is_instance_valid(carried_drop):
+			continue
+
+		var drop_node: Node2D = carried_drop
+		var drop_global_position: Vector2 = carried_drop.global_position
+		call_deferred("_finish_drop_carried_item", drop_node, parent, drop_global_position)
 
 func _finish_drop_carried_item(drop_node: Node2D, parent: Node, drop_global_position: Vector2) -> void:
 	if not is_instance_valid(drop_node):
@@ -289,8 +291,9 @@ func _finish_drop_carried_item(drop_node: Node2D, parent: Node, drop_global_posi
 	if parent == null or not is_instance_valid(parent):
 		return
 
-	if drop_node.get_parent() == self:
-		remove_child(drop_node)
+	var drop_parent := drop_node.get_parent()
+	if drop_parent != null:
+		drop_parent.remove_child(drop_node)
 	parent.add_child(drop_node)
 	drop_node.global_position = drop_global_position
 
@@ -354,14 +357,15 @@ func _find_player() -> Node2D:
 
 	return null
 
-func _find_carried_drop() -> Node2D:
+func _find_carried_drops() -> Array[Node2D]:
+	var drops: Array[Node2D] = []
 	for child in find_children("*", "Node2D", true, false):
 		if child == self:
 			continue
 		if child.has_method("set_carried_state") and child.has_method("drop_from_carrier"):
-			return child
+			drops.append(child)
 
-	return null
+	return drops
 
 func _has_line_of_sight_to_player() -> bool:
 	if not is_instance_valid(player_target):

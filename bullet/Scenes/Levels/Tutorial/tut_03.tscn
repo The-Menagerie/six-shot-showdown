@@ -14,7 +14,7 @@
 [node name="Tut03" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_vk0sl")
 targets = [NodePath("Enemy"), NodePath("Enemy2")]
-next_level_path = "res://Scenes/Levels/Act 1/act1_lvl3.tscn"
+next_level_path = "res://Scenes/Levels/Act 1/act1_lvl1.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="LockBox" parent="." unique_id=1504117620 instance=ExtResource("2_yskg7")]

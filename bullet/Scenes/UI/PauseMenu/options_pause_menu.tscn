@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxn5m714xg0j3" path="res://Scenes/UI/MainMenu/Options/aimSpeedSlider.tscn" id="5_aimsp"]
 [ext_resource type="Script" uid="uid://b1y7s1vtwwtpp" path="res://Scripts/MainMenu/Options/chamber_scale_option.gd" id="6_jnjun"]
 [ext_resource type="Script" uid="uid://e2vlnvg1m203" path="res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd" id="7_skipt"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/Options/skip_cutscenes_toggle.gd" id="8_skipc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3nwl"]
 shader = ExtResource("2_jaofs")
@@ -91,6 +92,9 @@ script = ExtResource("1_jaofs")
 [node name="WoodenBlock" type="AudioStreamPlayer" parent="." unique_id=1980613560]
 stream = ExtResource("1_ytd0r")
 bus = &"sfx"
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=144945241]
 material = SubResource("ShaderMaterial_t3nwl")
@@ -234,6 +238,15 @@ theme_override_font_sizes/font_size = 24
 text = "Skip Tutorial"
 alignment = 1
 script = ExtResource("7_skipt")
+
+[node name="SkipCutscenesToggle" type="CheckButton" parent="OptionsContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jnjun")
+theme_override_font_sizes/font_size = 24
+text = "Skip Cutscenes"
+alignment = 1
+script = ExtResource("8_skipc")
 
 [node name="Back" type="Button" parent="OptionsContainer/ButtonContainer" unique_id=33279039]
 process_mode = 3

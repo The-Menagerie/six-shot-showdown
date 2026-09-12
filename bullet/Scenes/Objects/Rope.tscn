@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cl0hhsugnvhr0" path="res://Assets/SoundEffects/RopeBreak.wav" id="3_py1n4"]
 
 [node name="Rope" type="TileMapLayer" unique_id=602890189]
+z_index = 1
 tile_set = ExtResource("2_rope_tileset")
 script = ExtResource("1_rope_script")
 
