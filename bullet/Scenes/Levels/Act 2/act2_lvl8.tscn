@@ -14,6 +14,7 @@
 script = ExtResource("1_jix2o")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl1.tscn"
+
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=1224316472]
