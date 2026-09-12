@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png" id="4_vn6m3"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="5_a10g6"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_6rt3r"]
+[ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="7_l45jp"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_ow5yo"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="9_llqqu"]
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="10_64iqm"]
@@ -63,6 +64,10 @@ vertical_recoil_scale = 0.45
 
 [node name="Chamber" parent="CanvasLayer" unique_id=1884226542 instance=ExtResource("8_ow5yo")]
 bullet_pattern = Array[int]([1, 1, 1, 1, 1, 1])
+
+[node name="Spikes" parent="CanvasLayer" unique_id=758327182 instance=ExtResource("7_l45jp")]
+position = Vector2(-32, 255)
+scale = Vector2(31.28, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1768083370]
 position = Vector2(-2.5, -117.5)
