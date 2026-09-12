@@ -10,8 +10,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(15, 17)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
-radius = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hitbox"]
+size = Vector2(15, 17)
 
 [node name="Dynamite" type="RigidBody2D" unique_id=1520705311]
 can_sleep = false
@@ -41,7 +41,8 @@ script = ExtResource("5_hitbox_script")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1325422774]
-shape = SubResource("CircleShape2D_hitbox")
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_hitbox")
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1160501760]
 script = ExtResource("6_health_script")
