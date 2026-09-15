@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="5_xyttf"]
 [ext_resource type="PackedScene" uid="uid://w2icp313ke2c" path="res://Scenes/Objects/Dynamite.tscn" id="6_uhj46"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="7_3vfkf"]
-[ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/EnemyBlocker.tscn" id="8_dvvy8"]
+[ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/Enemies/EnemyBlocker.tscn" id="8_dvvy8"]
 [ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="9_7n25c"]
 [ext_resource type="PackedScene" uid="uid://c05ebcchwffnk" path="res://Scenes/Objects/PowerUps/BulletSwap.tscn" id="10_cbjiy"]
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="11_gcuyb"]

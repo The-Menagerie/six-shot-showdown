@@ -16,15 +16,7 @@ func _ready() -> void:
 	_randomize_idle_animation_start()
 
 func _bullet_entered_check(body: Node2D) -> void:
-	if is_unlocked or body.is_queued_for_deletion():
-		return
-	if not body.is_in_group(second_pickup_group):
-		return
-	if body.get("has_key") != true:
-		return
-
-	_ricochet_key_bullet(body)
-	unlock()
+	try_unlock_key_bullet(body)
 
 func _on_unlocked() -> void:
 	_spawn_bouncy_burst()
@@ -47,12 +39,30 @@ func _randomize_idle_animation_start() -> void:
 	idle_animation_player.play(idle_animation_name)
 	idle_animation_player.seek(rng.randf_range(0.0, animation_length), true)
 
-func _ricochet_key_bullet(body: Node2D) -> void:
+func try_unlock_key_bullet(body: Node2D, bounce_normal := Vector2.ZERO) -> bool:
+	if body == null or body.is_queued_for_deletion():
+		return false
+	if not body.is_in_group(second_pickup_group):
+		return false
+	if body.get("has_key") != true:
+		return false
+	if is_unlocked:
+		return true
+
+	_ricochet_key_bullet(body, bounce_normal)
+	unlock()
+	return true
+
+func try_ricochet_key_bullet(body: Node2D, bounce_normal := Vector2.ZERO) -> bool:
+	return try_unlock_key_bullet(body, bounce_normal)
+
+func _ricochet_key_bullet(body: Node2D, bounce_normal := Vector2.ZERO) -> void:
 	if not ("direction" in body):
 		return
 
 	var bullet_direction: Vector2 = body.get("direction")
-	var bounce_normal := (body.global_position - global_position).normalized()
+	if bounce_normal == Vector2.ZERO:
+		bounce_normal = (body.global_position - global_position).normalized()
 	if bounce_normal == Vector2.ZERO:
 		bounce_normal = -bullet_direction.normalized()
 
@@ -96,7 +106,7 @@ func _apply_bouncy_burst_knockback() -> void:
 		var body := result.get("collider") as Node
 		if body == null or body == self or shoved_bodies.has(body):
 			continue
-		if not body.is_in_group("player") and not body.is_in_group("enemy"):
+		if not body.is_in_group("player") and not body.is_in_group("enemy") and not body.is_in_group("dynamite"):
 			continue
 
 		shoved_bodies.append(body)
@@ -120,6 +130,10 @@ func _apply_bouncy_burst_impulse(body: Node) -> void:
 
 	if body.has_method("apply_explosion_knockback"):
 		body.apply_explosion_knockback(impulse)
+	elif body.has_method("launch_from_bouncy_burst"):
+		body.launch_from_bouncy_burst(impulse)
+	elif body is RigidBody2D:
+		(body as RigidBody2D).apply_central_impulse(impulse)
 	elif body is CharacterBody2D:
 		var character := body as CharacterBody2D
 		character.velocity += impulse

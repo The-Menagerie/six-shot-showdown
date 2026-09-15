@@ -72,17 +72,21 @@ func _standing_priority(body: Node2D) -> int:
 		return 1
 	return 0
 
-func _bullet_entered_check(body:Node2D) ->void:
-	if is_unlocked or body.is_queued_for_deletion():
-		return
+func _bullet_entered_check(body: Node2D) -> void:
+	try_unlock_key_bullet(body)
+
+func try_unlock_key_bullet(body: Node2D, _bounce_normal := Vector2.ZERO) -> bool:
+	if body == null or is_unlocked or body.is_queued_for_deletion():
+		return false
 	if not body.is_in_group(second_pickup_group):
-		return
+		return false
 	if body.get("has_key") != true:
-		return
+		return false
 	if body.get("single_use") == true:
 		body.queue_free()
 	unlock()
-	
+	return true
+
 func unlock()->void:
 	is_unlocked = true
 	_disable_collisions()
