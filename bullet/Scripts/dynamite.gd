@@ -13,12 +13,17 @@ extends RigidBody2D
 @export var chain_radius: float = 56.0
 @export var connected_dynamites: Array[NodePath] = []
 @export var cleanup_delay: float = 0.35
+@export var bouncy_burst_arming_delay: float = 0.08
+@export var bouncy_burst_min_impact_speed: float = 35.0
 
 signal target_destroyed(target)
 
 var has_exploded := false
 var is_carried := false
 var default_gravity_scale := 1.0
+var explodes_on_next_impact := false
+var bouncy_burst_launch_pending := false
+var bouncy_burst_impact_pending := false
 
 @onready var dynamite_sprite: Sprite2D = $DynamiteSprite
 @onready var explosion_sprite: Sprite2D = $ExplosionSprite
@@ -32,6 +37,9 @@ func _ready() -> void:
 
 	add_to_group("dynamite")
 	add_to_group("explosive")
+	contact_monitor = true
+	max_contacts_reported = 8
+	body_entered.connect(_on_body_entered)
 	if is_instance_valid(explosion_sprite):
 		explosion_sprite.visible = false
 		explosion_sprite.frame = 0
@@ -46,6 +54,9 @@ func explode() -> void:
 		return
 
 	has_exploded = true
+	explodes_on_next_impact = false
+	bouncy_burst_launch_pending = false
+	bouncy_burst_impact_pending = false
 	_stop_physics()
 	_disable_collisions()
 	_expand_explosion_hitbox()
@@ -59,8 +70,54 @@ func explode() -> void:
 func handle_death() -> void:
 	explode()
 
+func launch_from_bouncy_burst(impulse: Vector2) -> void:
+	if has_exploded or is_carried:
+		return
+
+	explodes_on_next_impact = false
+	bouncy_burst_launch_pending = true
+	bouncy_burst_impact_pending = false
+	sleeping = false
+	freeze = false
+	apply_central_impulse(impulse)
+	_arm_bouncy_burst_impact()
+
+func _arm_bouncy_burst_impact() -> void:
+	await get_tree().create_timer(maxf(bouncy_burst_arming_delay, 0.0)).timeout
+	if has_exploded or is_carried:
+		return
+
+	bouncy_burst_launch_pending = false
+	if bouncy_burst_impact_pending:
+		bouncy_burst_impact_pending = false
+		call_deferred("explode")
+		return
+
+	explodes_on_next_impact = true
+
+func _on_body_entered(_body: Node) -> void:
+	if has_exploded or is_carried:
+		return
+
+	if bouncy_burst_launch_pending:
+		bouncy_burst_impact_pending = true
+		return
+
+	if not explodes_on_next_impact:
+		return
+	if linear_velocity.length() < bouncy_burst_min_impact_speed:
+		return
+
+	explodes_on_next_impact = false
+	bouncy_burst_impact_pending = false
+	call_deferred("explode")
+
 func set_carried_state(carried: bool) -> void:
 	is_carried = carried
+	if carried:
+		explodes_on_next_impact = false
+		bouncy_burst_launch_pending = false
+		bouncy_burst_impact_pending = false
 	visible = not carried
 	_update_carried_state(carried)
 

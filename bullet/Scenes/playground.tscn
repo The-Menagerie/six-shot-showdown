@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="10_6hjy0"]
 [ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="11_73bjl"]
 [ext_resource type="PackedScene" uid="uid://b3okgeyvtrpnw" path="res://Scenes/Objects/PowerUps/ghost_key.tscn" id="11_v5c3b"]
+[ext_resource type="PackedScene" uid="uid://c1gcl1pjnxvvy" path="res://Scenes/Objects/BouncyLockBox.tscn" id="12_v5c3b"]
 
 [node name="Playground" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("powerups", "targets")]
 script = ExtResource("1_dq30c")
@@ -100,6 +101,10 @@ vertical_recoil_scale = 0.45
 [node name="PauseMenu" parent="CanvasLayer" unique_id=696897630 instance=ExtResource("8_pause")]
 
 [node name="OptionsPauseMenu" parent="CanvasLayer" unique_id=977929884 instance=ExtResource("9_options_pause")]
+offset_left = -9.0
+offset_top = -15.0
+offset_right = -9.0
+offset_bottom = -15.0
 
 [node name="BulletSwap" parent="." unique_id=661340299 instance=ExtResource("6_opmy1")]
 position = Vector2(-142, 99)
@@ -191,6 +196,34 @@ position = Vector2(-71, 312)
 
 [node name="GhostKey" parent="." unique_id=1777878280 instance=ExtResource("11_v5c3b")]
 position = Vector2(-156, 16)
+
+[node name="BouncyLockBox" parent="." unique_id=1504117620 instance=ExtResource("12_v5c3b")]
+position = Vector2(-43, 16)
+bouncy_burst_upward_bias = 0.35
+bouncy_burst_min_force_scale = 0.65
+
+[node name="BouncyLockBox2" parent="." unique_id=667600484 instance=ExtResource("12_v5c3b")]
+position = Vector2(-304, -31)
+bouncy_burst_upward_bias = 0.35
+bouncy_burst_min_force_scale = 0.65
+
+[node name="BouncyLockBox3" parent="." unique_id=45351145 instance=ExtResource("12_v5c3b")]
+position = Vector2(212, 134)
+bouncy_burst_upward_bias = 0.35
+bouncy_burst_min_force_scale = 0.65
+
+[node name="BouncyLockBox4" parent="." unique_id=20712705 instance=ExtResource("12_v5c3b")]
+position = Vector2(244, 134)
+bouncy_burst_upward_bias = 0.35
+bouncy_burst_min_force_scale = 0.65
+
+[node name="BouncyLockBox5" parent="." unique_id=1666063242 instance=ExtResource("12_v5c3b")]
+position = Vector2(276, 134)
+bouncy_burst_upward_bias = 0.35
+
+[node name="BouncyLockBox6" parent="." unique_id=443282315 instance=ExtResource("12_v5c3b")]
+position = Vector2(308, 134)
+bouncy_burst_upward_bias = 0.35
 
 [connection signal="hide_options" from="CanvasLayer/PauseMenu" to="CanvasLayer/OptionsPauseMenu" method="hide_options"]
 [connection signal="show_options" from="CanvasLayer/PauseMenu" to="CanvasLayer/OptionsPauseMenu" method="show_options"]

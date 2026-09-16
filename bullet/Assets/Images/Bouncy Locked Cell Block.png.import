@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oldu4ui5smrs"
-path="res://.godot/imported/BackTilemap.png-505a897dc160a12b16ce71dbc96b1a4c.ctex"
+uid="uid://q87l6fj1dh"
+path="res://.godot/imported/Bouncy Locked Cell Block.png-88d75bfa7c510d058d457af09526bfd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/StrangeCowboy/Tilemap/BackTilemap.png"
-dest_files=["res://.godot/imported/BackTilemap.png-505a897dc160a12b16ce71dbc96b1a4c.ctex"]
+source_file="res://Assets/Images/Bouncy Locked Cell Block.png"
+dest_files=["res://.godot/imported/Bouncy Locked Cell Block.png-88d75bfa7c510d058d457af09526bfd1.ctex"]
 
 [params]
 

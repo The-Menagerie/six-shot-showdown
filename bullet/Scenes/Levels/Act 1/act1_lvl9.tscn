@@ -7,7 +7,7 @@
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="6_qngw4"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_7osfn"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_40uhr"]
-[ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/EnemyBlocker.tscn" id="8_vjupf"]
+[ext_resource type="PackedScene" uid="uid://dknq7nnlqexvf" path="res://Scenes/Objects/Enemies/EnemyBlocker.tscn" id="8_vjupf"]
 [ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="9_flana"]
 [ext_resource type="PackedScene" uid="uid://cji6hd7veljn5" path="res://Scenes/Objects/Breakables/target.tscn" id="10_vjupf"]
 
