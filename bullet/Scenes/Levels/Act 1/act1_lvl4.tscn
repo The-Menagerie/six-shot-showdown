@@ -79,7 +79,7 @@ limit_right = 432
 position = Vector2(189, -17)
 
 [node name="LockBox" parent="." unique_id=1504117620 instance=ExtResource("11_8jhpq")]
-position = Vector2(-164, -16)
+position = Vector2(-160, -16)
 
 [node name="EnemyBlocker" parent="." unique_id=191764089 instance=ExtResource("12_wlrum")]
 position = Vector2(-187, -16)
