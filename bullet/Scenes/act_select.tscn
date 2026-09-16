@@ -1,24 +1,27 @@
-[gd_scene format=3 uid="uid://bgt5m6c8pbwnf"]
+[gd_scene format=3 uid="uid://bh5ngb3vwhpgr"]
 
-[ext_resource type="Script" uid="uid://b481okk6l0ss6" path="res://Scenes/UI/Chamber/bullet_chamber.gd" id="1_cqkxi"]
-[ext_resource type="Texture2D" uid="uid://dsqqd7jct0e4u" path="res://Assets/Images/chamber_sheet.png" id="2_cqkxi"]
-[ext_resource type="Texture2D" uid="uid://23djn2ulf8mo" path="res://Assets/Images/ChamberBullets/regular_bullet.png" id="3_ka4g4"]
-[ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="4_bh58u"]
-[ext_resource type="Texture2D" uid="uid://brvm8yl0g20dl" path="res://Assets/Images/ChamberBullets/change_bullet.png" id="5_a7ea7"]
+[ext_resource type="Script" uid="uid://by0inxveuixkk" path="res://Scripts/Menus/act_select.gd" id="1_t6bsl"]
+[ext_resource type="Texture2D" uid="uid://dsqqd7jct0e4u" path="res://Assets/Images/chamber_sheet.png" id="1_x8fir"]
+[ext_resource type="Texture2D" uid="uid://ddp1isfna7eu3" path="res://Assets/Images/ActSelect/act_1.png" id="2_fgq86"]
+[ext_resource type="Texture2D" uid="uid://brvm8yl0g20dl" path="res://Assets/Images/ChamberBullets/change_bullet.png" id="3_ru711"]
+[ext_resource type="Texture2D" uid="uid://dtakpor1yaflc" path="res://Assets/Images/ActSelect/act_2.png" id="4_fgq86"]
+[ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="5_8sgur"]
+[ext_resource type="Texture2D" uid="uid://sm2vje2pfqh2" path="res://Assets/Images/ActSelect/act_base.png" id="5_ru711"]
+[ext_resource type="Texture2D" uid="uid://oauf5ynnybx2" path="res://Assets/Images/ActSelect/act_3.png" id="5_t6bsl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sh608"]
-atlas = ExtResource("2_cqkxi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v62u"]
+atlas = ExtResource("1_x8fir")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sh608"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hsm2f"]
 blend_mode = 3
 
-[sub_resource type="Gradient" id="Gradient_a7ea7"]
+[sub_resource type="Gradient" id="Gradient_bh58u"]
 offsets = PackedFloat32Array(0, 0.5421687)
 colors = PackedColorArray(0.38928655, 0.38928664, 0.3892865, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qd85e"]
-gradient = SubResource("Gradient_a7ea7")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wbj2"]
+gradient = SubResource("Gradient_bh58u")
 fill_from = Vector2(0.5347826, 1)
 fill_to = Vector2(0.523913, 0.002173913)
 
@@ -1022,7 +1025,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("BulletNameHolder/BulletName:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -1034,7 +1037,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "method"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -1179,7 +1182,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("BulletNameHolder/BulletName:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -1191,7 +1194,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "method"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -1243,7 +1246,7 @@ tracks/9/keys = {
 "values": [0.0, 0.09599310885968812, 0.4363323129985824, 0.6632251157578453, 0.8569566627292162, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5q38y"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sgur"]
 _data = {
 &"RESET": SubResource("Animation_vkusv"),
 &"bullet_five_change": SubResource("Animation_3htl0"),
@@ -1322,108 +1325,95 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3htl0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4v62u"]
 _data = {
 &"RESET": SubResource("Animation_a7ea7"),
 &"name_fade_fast": SubResource("Animation_vn0df"),
 &"name_fade_slow": SubResource("Animation_it00n")
 }
 
-[node name="Chamber" type="Control" unique_id=1884226542 node_paths=PackedStringArray("bullets", "anim_player", "name_changer", "bullet_changer", "cylinder_rotator")]
+[node name="ActSelect" type="Control" unique_id=265526477 node_paths=PackedStringArray("anim_player", "name_changer", "bullet_changer", "cylinder_rotator")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_cqkxi")
-bullet_pattern = Array[int]([5, 5, 5, 5, 5, 5])
-bullets = [NodePath("alignment/BulletHolder/Bullet1"), NodePath("alignment/BulletHolder/Bullet2"), NodePath("alignment/BulletHolder/Bullet3"), NodePath("alignment/BulletHolder/Bullet4"), NodePath("alignment/BulletHolder/Bullet5"), NodePath("alignment/BulletHolder/Bullet6")]
+script = ExtResource("1_t6bsl")
 anim_player = NodePath("AnimationPlayer2")
 name_changer = NodePath("NameFader")
 bullet_changer = NodePath("BulletChanger")
 cylinder_rotator = NodePath("alignment/BulletHolder")
-score_cost = 0
-bullet_name_offset = Vector2(0, 14)
 
-[node name="BulletNameHolder" type="Control" parent="." unique_id=1193342201]
-anchors_preset = 0
-offset_left = 32.0
-offset_top = 528.0
-offset_right = 480.0
-offset_bottom = 624.0
-mouse_filter = 2
-
-[node name="BulletName" type="Label" parent="BulletNameHolder" unique_id=1645041077]
-layout_mode = 0
-offset_right = 448.0
-offset_bottom = 96.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("4_bh58u")
-theme_override_font_sizes/font_size = 56
-text = "Regular Bullet"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="alignment" type="Control" parent="." unique_id=509524339]
+[node name="alignment" type="Control" parent="." unique_id=229077522]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -256.0
-offset_right = 64.0
-offset_bottom = -192.0
-grow_vertical = 0
-scale = Vector2(4, 4)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
 
-[node name="mask" type="TextureRect" parent="alignment" unique_id=1381785059]
+[node name="mask" type="TextureRect" parent="alignment" unique_id=1025478917]
 clip_children = 1
 z_index = 10
 use_parent_material = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
 offset_top = -64.0
-offset_right = 128.0
+offset_right = 64.0
 offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(64, 64)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-texture = SubResource("AtlasTexture_sh608")
+texture = SubResource("AtlasTexture_4v62u")
 
-[node name="TextureRect" type="TextureRect" parent="alignment/mask" unique_id=59381189]
-material = SubResource("CanvasItemMaterial_sh608")
+[node name="TextureRect" type="TextureRect" parent="alignment/mask" unique_id=1732388652]
+material = SubResource("CanvasItemMaterial_hsm2f")
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 pivot_offset = Vector2(64, 64)
-texture = SubResource("GradientTexture2D_qd85e")
+texture = SubResource("GradientTexture2D_1wbj2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="alignment" unique_id=48513386]
+[node name="VBoxContainer" type="VBoxContainer" parent="alignment" unique_id=2006698203]
 use_parent_material = true
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -128.0
-offset_right = 128.0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(64, 64)
 mouse_filter = 2
 alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/VBoxContainer" unique_id=582802623]
+[node name="TextureRect" type="TextureRect" parent="alignment/VBoxContainer" unique_id=2032581670]
 clip_children = 2
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-texture = SubResource("AtlasTexture_sh608")
+texture = SubResource("AtlasTexture_4v62u")
 
-[node name="BulletHolder" type="Control" parent="alignment" unique_id=1442032783]
+[node name="BulletHolder" type="Control" parent="alignment" unique_id=610106939]
 z_index = 1
 use_parent_material = true
 layout_mode = 1
@@ -1434,27 +1424,27 @@ grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 
-[node name="Bullet1" type="Control" parent="alignment/BulletHolder" unique_id=489449024]
+[node name="Bullet1" type="Control" parent="alignment/BulletHolder" unique_id=453397637]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet1" unique_id=476545073]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet1" unique_id=785101803]
 clip_children = 2
 use_parent_material = true
 layout_mode = 0
-offset_left = -11.0
-offset_top = -71.0
-offset_right = 11.0
-offset_bottom = -49.0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(11, 11)
+offset_left = -44.0
+offset_top = -104.0
+offset_right = 44.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(44, 44)
 mouse_filter = 2
-texture = ExtResource("3_ka4g4")
+texture = ExtResource("2_fgq86")
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet1" unique_id=1271801217]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet1" unique_id=676536772]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1466,9 +1456,9 @@ offset_bottom = -49.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(11, 11)
 mouse_filter = 2
-texture = ExtResource("5_a7ea7")
+texture = ExtResource("3_ru711")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet1" unique_id=92303595]
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet1" unique_id=69652521]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1478,7 +1468,7 @@ offset_right = 0.25
 offset_bottom = -59.25
 color = Color(0, 0, 0, 1)
 
-[node name="Bullet2" type="Control" parent="alignment/BulletHolder" unique_id=695322400]
+[node name="Bullet2" type="Control" parent="alignment/BulletHolder" unique_id=2107343635]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1486,19 +1476,19 @@ offset_bottom = 40.0
 rotation = 5.2359877
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=88354555]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=1513087909]
 use_parent_material = true
 layout_mode = 0
-offset_left = -11.0
-offset_top = -71.0
-offset_right = 11.0
-offset_bottom = -49.0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(11, 11)
+offset_left = -44.0
+offset_top = -104.0
+offset_right = 44.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(44, 44)
 mouse_filter = 2
-texture = ExtResource("3_ka4g4")
+texture = ExtResource("4_fgq86")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet2/TextureRect" unique_id=1429532265]
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet2/TextureRect" unique_id=965728754]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1508,7 +1498,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=1266610672]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=479768098]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1521,9 +1511,9 @@ rotation = -12.566371
 scale = Vector2(2, 2)
 pivot_offset = Vector2(11, 11)
 mouse_filter = 2
-texture = ExtResource("5_a7ea7")
+texture = ExtResource("3_ru711")
 
-[node name="Bullet3" type="Control" parent="alignment/BulletHolder" unique_id=1482254428]
+[node name="Bullet3" type="Control" parent="alignment/BulletHolder" unique_id=1943306581]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1531,19 +1521,19 @@ offset_bottom = 40.0
 rotation = 4.1887903
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=1562214214]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=1299463582]
 use_parent_material = true
 layout_mode = 0
-offset_left = -11.0
-offset_top = -71.0
-offset_right = 11.0
-offset_bottom = -49.0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(11, 11)
+offset_left = -44.0
+offset_top = -104.0
+offset_right = 44.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(44, 44)
 mouse_filter = 2
-texture = ExtResource("3_ka4g4")
+texture = ExtResource("5_t6bsl")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet3/TextureRect" unique_id=1598000879]
+[node name="@ColorRect@115805" type="ColorRect" parent="alignment/BulletHolder/Bullet3/TextureRect" unique_id=118843472]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1553,7 +1543,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=551674437]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=1233621530]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1566,9 +1556,9 @@ rotation = -12.566371
 scale = Vector2(2, 2)
 pivot_offset = Vector2(11, 11)
 mouse_filter = 2
-texture = ExtResource("5_a7ea7")
+texture = ExtResource("3_ru711")
 
-[node name="Bullet4" type="Control" parent="alignment/BulletHolder" unique_id=1693514312]
+[node name="Bullet4" type="Control" parent="alignment/BulletHolder" unique_id=1134136272]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1576,19 +1566,19 @@ offset_bottom = 40.0
 rotation = 3.1415927
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet4" unique_id=179314295]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet4" unique_id=256817930]
 use_parent_material = true
 layout_mode = 0
-offset_left = -11.0
-offset_top = -71.0
-offset_right = 11.0
-offset_bottom = -49.0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(11, 11)
+offset_left = -44.0
+offset_top = -104.0
+offset_right = 44.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(44, 44)
 mouse_filter = 2
-texture = ExtResource("3_ka4g4")
+texture = ExtResource("5_ru711")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet4/TextureRect" unique_id=9660595]
+[node name="@ColorRect@117604" type="ColorRect" parent="alignment/BulletHolder/Bullet4/TextureRect" unique_id=843859581]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1598,7 +1588,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet4" unique_id=356999323]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet4" unique_id=1275279724]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1611,9 +1601,9 @@ rotation = -12.566371
 scale = Vector2(2, 2)
 pivot_offset = Vector2(11, 11)
 mouse_filter = 2
-texture = ExtResource("5_a7ea7")
+texture = ExtResource("3_ru711")
 
-[node name="Bullet5" type="Control" parent="alignment/BulletHolder" unique_id=1702721078]
+[node name="Bullet5" type="Control" parent="alignment/BulletHolder" unique_id=31497768]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1621,19 +1611,19 @@ offset_bottom = 40.0
 rotation = 2.0943952
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=968059669]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=1040118350]
 use_parent_material = true
 layout_mode = 0
-offset_left = -11.0
-offset_top = -71.0
-offset_right = 11.0
-offset_bottom = -49.0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(11, 11)
+offset_left = -44.0
+offset_top = -104.0
+offset_right = 44.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(44, 44)
 mouse_filter = 2
-texture = ExtResource("3_ka4g4")
+texture = ExtResource("5_ru711")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet5/TextureRect" unique_id=1343292948]
+[node name="@ColorRect@119403" type="ColorRect" parent="alignment/BulletHolder/Bullet5/TextureRect" unique_id=1287681666]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1643,7 +1633,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=1758253384]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=491164355]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1656,9 +1646,9 @@ rotation = -12.566371
 scale = Vector2(2, 2)
 pivot_offset = Vector2(11, 11)
 mouse_filter = 2
-texture = ExtResource("5_a7ea7")
+texture = ExtResource("3_ru711")
 
-[node name="Bullet6" type="Control" parent="alignment/BulletHolder" unique_id=1889825491]
+[node name="Bullet6" type="Control" parent="alignment/BulletHolder" unique_id=926055492]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1666,19 +1656,19 @@ offset_bottom = 40.0
 rotation = 1.0471976
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=1103581667]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=56896108]
 use_parent_material = true
 layout_mode = 0
-offset_left = -11.0
-offset_top = -71.0
-offset_right = 11.0
-offset_bottom = -49.0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(11, 11)
+offset_left = -44.0
+offset_top = -104.0
+offset_right = 44.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(44, 44)
 mouse_filter = 2
-texture = ExtResource("3_ka4g4")
+texture = ExtResource("5_ru711")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet6/TextureRect" unique_id=895608684]
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet6/TextureRect" unique_id=986571805]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1688,7 +1678,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=1663149258]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=2103737856]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1701,9 +1691,9 @@ rotation = -12.566371
 scale = Vector2(2, 2)
 pivot_offset = Vector2(11, 11)
 mouse_filter = 2
-texture = ExtResource("5_a7ea7")
+texture = ExtResource("3_ru711")
 
-[node name="TextHolder" type="Control" parent="alignment" unique_id=738260933]
+[node name="TextHolder" type="Control" parent="alignment" unique_id=817003225]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 1
@@ -1712,7 +1702,7 @@ anchor_right = 1.0
 grow_horizontal = 0
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="alignment/TextHolder" unique_id=663071892]
+[node name="VBoxContainer" type="VBoxContainer" parent="alignment/TextHolder" unique_id=840746928]
 use_parent_material = true
 layout_mode = 0
 offset_left = -100.0
@@ -1721,7 +1711,7 @@ offset_right = 100.0
 offset_bottom = -35.0
 mouse_filter = 2
 
-[node name="BulletName" type="Label" parent="alignment/TextHolder/VBoxContainer" unique_id=508208996]
+[node name="BulletName" type="Label" parent="alignment/TextHolder/VBoxContainer" unique_id=547092598]
 visible = false
 use_parent_material = true
 layout_mode = 2
@@ -1729,12 +1719,12 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("4_bh58u")
+theme_override_fonts/font = ExtResource("5_8sgur")
 theme_override_font_sizes/font_size = 14
 text = "Regular Bullet"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="alignment/TextHolder" unique_id=880265045]
+[node name="ColorRect" type="ColorRect" parent="alignment/TextHolder" unique_id=416910122]
 visible = false
 layout_mode = 0
 offset_left = -1.0
@@ -1744,7 +1734,7 @@ offset_bottom = -19.25
 scale = Vector2(0.05334854, 0.3202947)
 mouse_filter = 2
 
-[node name="ColorRect2" type="ColorRect" parent="alignment/TextHolder" unique_id=1147854246]
+[node name="ColorRect2" type="ColorRect" parent="alignment/TextHolder" unique_id=719719627]
 visible = false
 layout_mode = 0
 offset_left = 1.0
@@ -1754,7 +1744,7 @@ offset_bottom = -7.75
 scale = Vector2(0.35982212, 0.045308962)
 mouse_filter = 2
 
-[node name="ColorRect3" type="ColorRect" parent="alignment/TextHolder" unique_id=1765009696]
+[node name="ColorRect3" type="ColorRect" parent="alignment/TextHolder" unique_id=1776935691]
 visible = false
 layout_mode = 0
 offset_left = 15.5
@@ -1765,7 +1755,7 @@ rotation = 1.5707964
 scale = Vector2(0.35982212, 0.045308962)
 mouse_filter = 2
 
-[node name="ColorRect4" type="ColorRect" parent="alignment/TextHolder" unique_id=437059476]
+[node name="ColorRect4" type="ColorRect" parent="alignment/TextHolder" unique_id=665543723]
 visible = false
 layout_mode = 0
 offset_left = -15.5
@@ -1775,7 +1765,7 @@ offset_bottom = -8.0
 scale = Vector2(0.35982212, 0.045308962)
 mouse_filter = 2
 
-[node name="ColorRect5" type="ColorRect" parent="alignment/TextHolder" unique_id=444614445]
+[node name="ColorRect5" type="ColorRect" parent="alignment/TextHolder" unique_id=1274702394]
 visible = false
 layout_mode = 0
 offset_left = -14.75
@@ -1786,11 +1776,11 @@ rotation = -1.5707964
 scale = Vector2(0.34957296, 0.043478563)
 mouse_filter = 2
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=21578799]
-libraries/ = SubResource("AnimationLibrary_5q38y")
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1538094154]
+libraries/ = SubResource("AnimationLibrary_8sgur")
 
-[node name="BulletChanger" type="AnimationPlayer" parent="." unique_id=1272790122]
-libraries/ = SubResource("AnimationLibrary_5q38y")
+[node name="BulletChanger" type="AnimationPlayer" parent="." unique_id=997598834]
+libraries/ = SubResource("AnimationLibrary_8sgur")
 
-[node name="NameFader" type="AnimationPlayer" parent="." unique_id=630718089]
-libraries/ = SubResource("AnimationLibrary_3htl0")
+[node name="NameFader" type="AnimationPlayer" parent="." unique_id=1942876473]
+libraries/ = SubResource("AnimationLibrary_4v62u")
