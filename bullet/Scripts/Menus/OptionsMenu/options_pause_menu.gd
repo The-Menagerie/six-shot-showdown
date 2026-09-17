@@ -12,6 +12,8 @@ func show_options() -> void:
 	await $AnimationPlayer.animation_finished
 
 func hide_options() -> void:
+	if $KeyBindings.visible:
+		$KeyBindings.close_page()
 	visible = false
 	$AnimationPlayer.play_backwards("blur")
 	await $AnimationPlayer.animation_finished
@@ -22,3 +24,10 @@ func back_presed() -> void:
 	await $WoodenBlock.finished
 	hide_options()
 	show_pause.emit()
+
+func key_bindings_pressed() -> void:
+	$OptionsContainer.hide()
+	$KeyBindings.open_page()
+
+func key_bindings_closed() -> void:
+	$OptionsContainer.show()

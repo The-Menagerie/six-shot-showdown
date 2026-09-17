@@ -57,6 +57,20 @@ func back_button_pressed() -> void:
 	await $WoodenBlock.finished
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/menu.tscn")
 
+func key_bindings_pressed() -> void:
+	$WoodenBlock.play()
+	$Title.hide()
+	$SliderContainer.hide()
+	$Back.hide()
+	$KeyBindingsButton.hide()
+	$KeyBindings.open_page()
+
+func key_bindings_closed() -> void:
+	$Title.show()
+	$SliderContainer.show()
+	$Back.show()
+	$KeyBindingsButton.show()
+
 
 func _is_options_menu() -> bool:
 	var current_scene := get_tree().current_scene

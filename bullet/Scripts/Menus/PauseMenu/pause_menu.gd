@@ -21,6 +21,11 @@ func open_menu() -> void:
 	await $AnimationPlayer.animation_finished
 
 func _input(event) -> void:
+	if SettingsManager.is_capturing_binding:
+		return
+	var options_menu := get_parent().get_node_or_null("OptionsPauseMenu")
+	if options_menu != null and options_menu.visible:
+		return
 	if event.is_action_pressed("menu"):
 		if visible:
 			close_menu()

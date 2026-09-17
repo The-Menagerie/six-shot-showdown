@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b1y7s1vtwwtpp" path="res://Scripts/MainMenu/Options/chamber_scale_option.gd" id="6_jnjun"]
 [ext_resource type="Script" uid="uid://e2vlnvg1m203" path="res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd" id="7_skipt"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/Options/skip_cutscenes_toggle.gd" id="8_skipc"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/MainMenu/Options/key_bindings.tscn" id="9_keys"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3nwl"]
 shader = ExtResource("2_jaofs")
@@ -263,8 +264,19 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_ox7ag")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ox7ag")
 text = "Back"
 
+[node name="KeyBindingsButton" type="Button" parent="OptionsContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jnjun")
+theme_override_font_sizes/font_size = 26
+text = "Key Bindings"
+
+[node name="KeyBindings" parent="." instance=ExtResource("9_keys")]
+layout_mode = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1232988689]
 libraries/ = SubResource("AnimationLibrary_jaofs")
 
 [connection signal="item_selected" from="OptionsContainer/ButtonContainer/ChamberScale" to="OptionsContainer/ButtonContainer/ChamberScale" method="_on_item_selected"]
 [connection signal="pressed" from="OptionsContainer/ButtonContainer/Back" to="." method="back_presed"]
+[connection signal="pressed" from="OptionsContainer/ButtonContainer/KeyBindingsButton" to="." method="key_bindings_pressed"]
+[connection signal="closed" from="KeyBindings" to="." method="key_bindings_closed"]

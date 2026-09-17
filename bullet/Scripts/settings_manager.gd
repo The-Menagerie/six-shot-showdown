@@ -5,6 +5,8 @@ const SETTINGS_SECTION := "gameplay"
 const SKIP_TUTORIAL_KEY := "skip_tutorial"
 const SKIP_CUTSCENES_KEY := "skip_cutscenes"
 const AIM_SPEED_KEY := "aim_speed"
+const BINDINGS_SECTION := "key_bindings"
+const REBINDABLE_ACTIONS := ["left", "right", "jump", "shoot", "bullet_time", "interact", "restart", "menu", "drop_through"]
 const CURSOR_HOTSPOT := Vector2(10, 10)
 const UI_TEXT_SHADOW_COLOR := Color(0.0, 0.0, 0.0, 0.85)
 const UI_TEXT_SHADOW_OFFSET := Vector2i(3, 3)
@@ -20,6 +22,7 @@ var reticle_clicked = load("res://Assets/Tilesets/StrangeCowboy/Player/reticle_c
 var skip_tutorial := false
 var skip_cutscenes := false
 var aim_speed := DEFAULT_AIM_SPEED
+var is_capturing_binding := false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -61,6 +64,8 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event.is_echo():
+		return
+	if is_capturing_binding:
 		return
 
 	if event.is_action_pressed("jump") or event.is_action_pressed("ui_accept"):
@@ -108,7 +113,7 @@ func _click_hovered_ui_control() -> void:
 	if viewport == null:
 		return
 
-	var hovered_control := viewport.gui_get_hovered_control()
+	var hovered_control: Control = viewport.gui_get_hovered_control()
 	if hovered_control == null:
 		return
 	if not _should_treat_accept_as_click(hovered_control):
@@ -152,6 +157,9 @@ func load_settings() -> void:
 		skip_cutscenes = false
 		aim_speed = DEFAULT_AIM_SPEED
 		return
+	for action in REBINDABLE_ACTIONS:
+		if config.has_section_key(BINDINGS_SECTION, action):
+			set_key_binding(action, int(config.get_value(BINDINGS_SECTION, action)), false)
 
 	skip_tutorial = bool(config.get_value(SETTINGS_SECTION, SKIP_TUTORIAL_KEY, false))
 	skip_cutscenes = bool(config.get_value(SETTINGS_SECTION, SKIP_CUTSCENES_KEY, false))
@@ -185,7 +193,61 @@ func set_aim_speed(value: float) -> void:
 
 func save_settings() -> void:
 	var config := ConfigFile.new()
+	config.load(SETTINGS_PATH)
 	config.set_value(SETTINGS_SECTION, SKIP_TUTORIAL_KEY, skip_tutorial)
 	config.set_value(SETTINGS_SECTION, SKIP_CUTSCENES_KEY, skip_cutscenes)
 	config.set_value(SETTINGS_SECTION, AIM_SPEED_KEY, aim_speed)
+	config.save(SETTINGS_PATH)
+
+func get_key_binding(action: String) -> int:
+	if not REBINDABLE_ACTIONS.has(action):
+		return 0
+	for event in InputMap.action_get_events(action):
+		if event is InputEventKey:
+			return event.physical_keycode if event.physical_keycode != 0 else event.keycode
+	return 0
+
+func action_has_key(action: String, keycode: int) -> bool:
+	for event in InputMap.action_get_events(action):
+		if event is InputEventKey and (event.physical_keycode == keycode or (event.physical_keycode == 0 and event.keycode == keycode)):
+			return true
+	return false
+
+func get_key_binding_text(action: String) -> String:
+	var names := PackedStringArray()
+	for event in InputMap.action_get_events(action):
+		if event is InputEventKey:
+			var code: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
+			names.append(OS.get_keycode_string(code))
+	return " / ".join(names) if not names.is_empty() else "Unbound"
+
+func set_key_binding(action: String, keycode: int, persist: bool = true) -> void:
+	if not REBINDABLE_ACTIONS.has(action):
+		return
+	for event in InputMap.action_get_events(action):
+		if event is InputEventKey:
+			InputMap.action_erase_event(action, event)
+	if keycode != 0:
+		var key_event := InputEventKey.new()
+		key_event.physical_keycode = keycode
+		InputMap.action_add_event(action, key_event)
+	if persist:
+		var config := ConfigFile.new()
+		config.load(SETTINGS_PATH)
+		config.set_value(BINDINGS_SECTION, action, keycode)
+		config.save(SETTINGS_PATH)
+
+func reset_key_bindings() -> void:
+	for action in REBINDABLE_ACTIONS:
+		for event in InputMap.action_get_events(action):
+			if event is InputEventKey:
+				InputMap.action_erase_event(action, event)
+		var defaults: Dictionary = ProjectSettings.get_setting("input/" + action, {})
+		for event in defaults.get("events", []):
+			if event is InputEventKey:
+				InputMap.action_add_event(action, event)
+	var config := ConfigFile.new()
+	config.load(SETTINGS_PATH)
+	if config.has_section(BINDINGS_SECTION):
+		config.erase_section(BINDINGS_SECTION)
 	config.save(SETTINGS_PATH)

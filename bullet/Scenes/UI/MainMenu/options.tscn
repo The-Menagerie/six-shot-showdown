@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="4_4om0b"]
 [ext_resource type="Script" uid="uid://e2vlnvg1m203" path="res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd" id="5_skipt"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/Options/skip_cutscenes_toggle.gd" id="6_skipc"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/MainMenu/Options/key_bindings.tscn" id="7_keys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4osx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -152,4 +153,26 @@ text = "Skip Cutscenes"
 alignment = 1
 script = ExtResource("6_skipc")
 
+[node name="KeyBindingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = 257.0
+offset_right = 135.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_0aapc")
+theme_override_font_sizes/font_size = 28
+text = "Key Bindings"
+
+[node name="KeyBindings" parent="." instance=ExtResource("7_keys")]
+layout_mode = 1
+
 [connection signal="pressed" from="Back" to="." method="back_button_pressed"]
+[connection signal="pressed" from="KeyBindingsButton" to="." method="key_bindings_pressed"]
+[connection signal="closed" from="KeyBindings" to="." method="key_bindings_closed"]
