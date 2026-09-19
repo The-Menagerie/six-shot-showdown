@@ -13,10 +13,11 @@ func play_music(stream: AudioStream, volume_db: float = 0.0, restart: bool = fal
 	if stream == null or not is_instance_valid(music_player):
 		return
 
-	var is_same_stream := current_stream == stream
+	var is_same_stream := current_stream == stream and music_player.stream == stream
 	current_stream = stream
-	music_player.stream = stream
 	music_player.volume_db = volume_db
+	if not is_same_stream:
+		music_player.stream = stream
 
 	if restart or not is_same_stream or not music_player.playing:
 		music_player.play()
