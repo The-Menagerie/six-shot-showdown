@@ -6,13 +6,19 @@ const PLAYGROUND_SCENE_PATH := "res://Scenes/playground.tscn"
 const PLAYGROUND_EASTER_EGG := "play"
 
 var easter_egg_buffer := ""
+var menu_action_in_progress := false
 
 func _ready() -> void:
 	MusicManager.play_music(MENU_MUSIC, -10.0)
+	SettingsManager.focus_first_menu_control(self)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not _is_options_menu():
+		return
+	if SettingsManager.is_menu_back_event(event):
+		get_viewport().set_input_as_handled()
+		back_button_pressed()
 		return
 
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -31,6 +37,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_tree().change_scene_to_file(PLAYGROUND_SCENE_PATH)
 
 func start_button_pressed() -> void:
+	if menu_action_in_progress:
+		return
+	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
 	ScoreBus.reset_run_stats()
@@ -41,11 +50,17 @@ func start_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://Scenes/Cutscene.tscn")
 
 func options_button_pressed() -> void:
+	if menu_action_in_progress:
+		return
+	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/options.tscn")
 
 func exit_button_pressed() -> void:
+	if menu_action_in_progress:
+		return
+	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
 	JavaScriptBridge.eval("window.close()")
@@ -53,23 +68,21 @@ func exit_button_pressed() -> void:
 	
 
 func back_button_pressed() -> void:
+	if menu_action_in_progress:
+		return
+	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/menu.tscn")
 
 func key_bindings_pressed() -> void:
 	$WoodenBlock.play()
-	$Title.hide()
-	$SliderContainer.hide()
-	$Back.hide()
-	$KeyBindingsButton.hide()
+	$OptionsContainer.hide()
 	$KeyBindings.open_page()
 
 func key_bindings_closed() -> void:
-	$Title.show()
-	$SliderContainer.show()
-	$Back.show()
-	$KeyBindingsButton.show()
+	$OptionsContainer.show()
+	SettingsManager.focus_first_menu_control($OptionsContainer)
 
 
 func _is_options_menu() -> bool:

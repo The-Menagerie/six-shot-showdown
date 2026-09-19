@@ -62,7 +62,7 @@ func _physics_process(delta):
 		velocity.y = -jump_force
 	elif not is_on_floor():
 		velocity.y += gravity * delta
-	elif Input.is_action_pressed("drop_through"):
+	elif Input.is_action_pressed("down"):
 		_drop_through_platforms()
 
 	if jump_pressed:
