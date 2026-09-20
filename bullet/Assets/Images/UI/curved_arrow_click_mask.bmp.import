@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://fca44pv7l2oi"
+path="res://.godot/imported/curved_arrow_click_mask.bmp-99fde9f301cb5e221cf049ff995b5ad2.res"
+
+[deps]
+
+source_file="res://Assets/Images/UI/curved_arrow_click_mask.bmp"
+dest_files=["res://.godot/imported/curved_arrow_click_mask.bmp-99fde9f301cb5e221cf049ff995b5ad2.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

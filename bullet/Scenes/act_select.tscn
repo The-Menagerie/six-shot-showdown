@@ -8,6 +8,9 @@
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="5_8sgur"]
 [ext_resource type="Texture2D" uid="uid://sm2vje2pfqh2" path="res://Assets/Images/ActSelect/act_base.png" id="5_ru711"]
 [ext_resource type="Texture2D" uid="uid://oauf5ynnybx2" path="res://Assets/Images/ActSelect/act_3.png" id="5_t6bsl"]
+[ext_resource type="Texture2D" uid="uid://b47kuapp3uyum" path="res://Assets/Images/UI/curved_arrow.png" id="9_4v62u"]
+[ext_resource type="Texture2D" uid="uid://b7x7hesqeconw" path="res://Assets/Images/UI/curved_arrow_pressed.png" id="10_1wbj2"]
+[ext_resource type="Texture2D" uid="uid://csay5vssfluov" path="res://Assets/Images/UI/curved_arrow_hover.png" id="10_hsm2f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v62u"]
 atlas = ExtResource("1_x8fir")
@@ -1386,6 +1389,15 @@ offset_bottom = 128.0
 pivot_offset = Vector2(64, 64)
 texture = SubResource("GradientTexture2D_1wbj2")
 
+[node name="TextureButton" type="TextureButton" parent="alignment/mask" unique_id=65991684]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="alignment" unique_id=2006698203]
 use_parent_material = true
 layout_mode = 1
@@ -1776,6 +1788,52 @@ rotation = -1.5707964
 scale = Vector2(0.34957296, 0.043478563)
 mouse_filter = 2
 
+[node name="mask2" type="TextureRect" parent="alignment" unique_id=1784786496]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 10
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = SubResource("AtlasTexture_4v62u")
+
+[node name="TextureButton" type="TextureButton" parent="alignment/mask2" unique_id=689440164]
+layout_mode = 1
+offset_right = 24.0
+offset_bottom = 13.0
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.2, 0.2)
+texture_normal = ExtResource("9_4v62u")
+texture_pressed = ExtResource("10_1wbj2")
+texture_hover = ExtResource("10_hsm2f")
+flip_h = true
+
+[node name="TextureButton2" type="TextureButton" parent="alignment/mask2" unique_id=1950592507]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = -24.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(-0.2, 0.2)
+texture_normal = ExtResource("9_4v62u")
+texture_pressed = ExtResource("10_1wbj2")
+texture_hover = ExtResource("10_hsm2f")
+
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1538094154]
 libraries/ = SubResource("AnimationLibrary_8sgur")
 
@@ -1784,3 +1842,6 @@ libraries/ = SubResource("AnimationLibrary_8sgur")
 
 [node name="NameFader" type="AnimationPlayer" parent="." unique_id=1942876473]
 libraries/ = SubResource("AnimationLibrary_4v62u")
+
+[connection signal="pressed" from="alignment/mask2/TextureButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="alignment/mask2/TextureButton2" to="." method="_on_right_button_pressed"]
