@@ -27,13 +27,11 @@ func _process(delta: float) -> void:
 		move_left()
 	if Input.is_action_just_pressed("right") and not Input.is_action_just_pressed("left"):
 		move_right()
-	#cylinder_rotator.rotation_degrees = act_bullet_rotation_array[selected_act-1]
+	if not anim_player.is_playing():
+		cylinder_rotator.rotation_degrees = act_bullet_rotation_array[selected_act-1]
 
 func move_left() -> void:
 	#_cut_animation_short() < This has been commented out since by calling this it will cause it to work in parallel, which causes the next animation to start too early
-		selected_act += 1
-		if selected_act > 6:
-			selected_act -= 6
 		print(selected_act)
 		if anim_player.is_playing():
 			#var direction = anim_player.current_animation
@@ -46,13 +44,13 @@ func move_left() -> void:
 			#if direction == "revolve_backwards":
 				#var distance_partial_rotated = fmod(cylinder_rotator.rotation_degrees,60.0)
 				#rotate_chamber(-60 - distance_partial_rotated)
+		selected_act += 1
+		if selected_act > 6:
+			selected_act -= 6
 		anim_player.play_section("revolve")
 
 func move_right() -> void:
 	#_cut_animation_short() < This has been commented out since by calling this it will cause it to work in parallel, which causes the next animation to start too early
-		selected_act -= 1
-		if selected_act < 1:
-			selected_act += 6
 		print(selected_act)
 		if anim_player.is_playing():
 			#var direction = anim_player.current_animation
@@ -66,6 +64,9 @@ func move_right() -> void:
 			#if direction == "revolve_backwards":
 				#var distance_partial_rotated = fmod(cylinder_rotator.rotation_degrees,60.0)
 				#rotate_chamber(-60 - distance_partial_rotated)
+		selected_act -= 1
+		if selected_act < 1:
+			selected_act += 6
 		anim_player.play_section("revolve_backwards")
 
 func _cut_animation_short() -> void:
@@ -82,4 +83,13 @@ func _cut_animation_short() -> void:
 
 func rotate_chamber(rot_deg: float) -> void:
 	cylinder_rotator.rotation_degrees += rot_deg
-	
+
+
+func _on_left_button_pressed() -> void:
+	move_left()
+	pass # Replace with function body.
+
+
+func _on_right_button_pressed() -> void:
+	move_right()
+	pass # Replace with function body.
