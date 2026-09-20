@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://b3wausjj6n1mb" path="res://Scenes/UI/Controls/Control.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://d31nu75q8rhox" path="res://Assets/Tilesets/KeyboardAndMouse/keyboard/vertical_animation/1.png" id="2_texture"]
+
+[node name="1" instance=ExtResource("1_base")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_texture")

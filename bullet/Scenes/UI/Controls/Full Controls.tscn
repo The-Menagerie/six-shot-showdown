@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://k56aqm7nswkl" path="res://Scenes/UI/Controls/Escape.tscn" id="3_rnbr0"]
 [ext_resource type="PackedScene" uid="uid://sfbaqep48qwu" path="res://Scenes/UI/Controls/LeftClick.tscn" id="4_20mvd"]
 [ext_resource type="PackedScene" uid="uid://c81gae00aibtk" path="res://Scenes/UI/Controls/RightClick.tscn" id="5_dte07"]
-[ext_resource type="PackedScene" uid="uid://bgt3mhqrf24b1" path="res://Scenes/UI/Controls/Space.tscn" id="6_sn7tf"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="7_ie1kc"]
 [ext_resource type="PackedScene" uid="uid://smkvi17rdgy2" path="res://Scenes/UI/Controls/E.tscn" id="8_rnbr0"]
 [ext_resource type="PackedScene" uid="uid://5nqw2v1dr8b2" path="res://Scenes/UI/Controls/R.tscn" id="9_20mvd"]
 [ext_resource type="PackedScene" uid="uid://cna414avtqqvk" path="res://Scenes/UI/Controls/W.tscn" id="10_dte07"]
+[ext_resource type="Script" uid="uid://bb5be34dh83jn" path="res://Scripts/full_controls.gd" id="11_full_controls"]
+[ext_resource type="PackedScene" uid="uid://b31x51v7on0e3" path="res://Scenes/UI/Controls/S.tscn" id="11_sn7tf"]
 
 [node name="FullControls" type="Control" unique_id=1208426789]
 layout_mode = 3
@@ -18,55 +19,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("11_full_controls")
 
 [node name="A" parent="." unique_id=941366614 instance=ExtResource("1_lbe8n")]
 layout_mode = 0
-offset_left = 771.0
-offset_top = 1021.0
-offset_right = 771.0
-offset_bottom = 1021.0
+offset_left = 990.0
+offset_top = 775.0
+offset_right = 990.0
+offset_bottom = 775.0
 
 [node name="D" parent="." unique_id=534258186 instance=ExtResource("2_ie1kc")]
 layout_mode = 0
-offset_left = 971.0
-offset_top = 1021.0
-offset_right = 971.0
-offset_bottom = 1021.0
+offset_left = 1290.0
+offset_top = 775.0
+offset_right = 1290.0
+offset_bottom = 775.0
 
 [node name="Esc" parent="." unique_id=101214939 instance=ExtResource("3_rnbr0")]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 62.999992
-offset_right = 63.0
-offset_bottom = 62.999992
+offset_left = 150.0
+offset_top = 63.0
+offset_right = 150.0
+offset_bottom = 63.0
 
 [node name="Shoot" parent="." unique_id=376884533 instance=ExtResource("4_20mvd")]
 layout_mode = 0
 offset_left = 1571.0
-offset_top = 1021.0
+offset_top = 1020.0
 offset_right = 1571.0
-offset_bottom = 1021.0
+offset_bottom = 1020.0
 
 [node name="Right Click" parent="." unique_id=248789459 instance=ExtResource("5_dte07")]
 layout_mode = 0
-offset_left = 1732.0
-offset_top = 1021.0
-offset_right = 1732.0
-offset_bottom = 1021.0
-
-[node name="Space" parent="." unique_id=2047244580 instance=ExtResource("6_sn7tf")]
-layout_mode = 0
-offset_left = 1352.0
-offset_top = 1021.0
-offset_right = 1352.0
-offset_bottom = 1021.0
+offset_left = 1784.0
+offset_top = 1022.0
+offset_right = 1784.0
+offset_bottom = 1022.0
 
 [node name="Left" type="Label" parent="." unique_id=1146087841]
 layout_mode = 0
-offset_left = 696.0
-offset_top = 897.0
-offset_right = 843.057
-offset_bottom = 981.0
+offset_left = 918.0
+offset_top = 620.0
+offset_right = 1065.057
+offset_bottom = 704.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
@@ -78,10 +73,10 @@ vertical_alignment = 1
 
 [node name="Right" type="Label" parent="." unique_id=190336454]
 layout_mode = 0
-offset_left = 885.0
-offset_top = 896.0
-offset_right = 1054.0
-offset_bottom = 980.0
+offset_left = 1200.0
+offset_top = 620.0
+offset_right = 1369.0
+offset_bottom = 704.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
@@ -93,10 +88,10 @@ vertical_alignment = 1
 
 [node name="Jump" type="Label" parent="." unique_id=359225964]
 layout_mode = 0
-offset_left = 1176.0
-offset_top = 897.0
-offset_right = 1353.0
-offset_bottom = 981.0
+offset_left = 1500.0
+offset_top = 620.0
+offset_right = 1677.0
+offset_bottom = 704.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
@@ -139,9 +134,9 @@ vertical_alignment = 1
 
 [node name="Menu" type="Label" parent="." unique_id=1148230974]
 layout_mode = 0
-offset_left = 132.0
+offset_left = 300.0
 offset_top = 26.0
-offset_right = 319.0
+offset_right = 487.0
 offset_bottom = 110.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 3
@@ -154,9 +149,9 @@ vertical_alignment = 1
 
 [node name="Restart" type="Label" parent="." unique_id=1659356455]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 300.0
 offset_top = 115.0
-offset_right = 405.0
+offset_right = 535.0
 offset_bottom = 199.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
 theme_override_constants/shadow_offset_x = 3
@@ -167,23 +162,60 @@ text = "Restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" parent="." unique_id=871972327 instance=ExtResource("8_rnbr0")]
-layout_mode = 0
-offset_left = 1823.0
-offset_top = 1021.0
-offset_right = 1823.0
-offset_bottom = 1021.0
-
 [node name="R" parent="." unique_id=2015351186 instance=ExtResource("9_20mvd")]
 layout_mode = 0
-offset_left = 63.0
+offset_left = 150.0
 offset_top = 160.0
-offset_right = 63.0
+offset_right = 150.0
 offset_bottom = 160.0
 
-[node name="Control2" parent="." unique_id=902795783 instance=ExtResource("10_dte07")]
+[node name="W" parent="." unique_id=902795783 instance=ExtResource("10_dte07")]
 layout_mode = 0
-offset_left = 1151.0
-offset_top = 1021.0
-offset_right = 1151.0
-offset_bottom = 1021.0
+offset_left = 1596.0
+offset_top = 775.0
+offset_right = 1596.0
+offset_bottom = 775.0
+
+[node name="Interact" type="Label" parent="." unique_id=601582920]
+layout_mode = 0
+offset_left = 1167.0
+offset_top = 890.0
+offset_right = 1424.0
+offset_bottom = 974.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("7_ie1kc")
+theme_override_font_sizes/font_size = 60
+text = "Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interact2" type="Label" parent="." unique_id=742508711]
+layout_mode = 0
+offset_left = 857.0
+offset_top = 890.0
+offset_right = 1114.0
+offset_bottom = 974.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("7_ie1kc")
+theme_override_font_sizes/font_size = 60
+text = "Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="E" parent="." unique_id=871972327 instance=ExtResource("8_rnbr0")]
+layout_mode = 0
+offset_left = 1290.0
+offset_top = 1020.0
+offset_right = 1290.0
+offset_bottom = 1020.0
+
+[node name="S" parent="." unique_id=455085509 instance=ExtResource("11_sn7tf")]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 1020.0
+offset_right = 990.0
+offset_bottom = 1020.0

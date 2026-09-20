@@ -126,19 +126,11 @@ offset_right = -24.0
 offset_bottom = 18.0
 scale = Vector2(3.8, 3.8)
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=185333735]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
 [node name="KeyIndicator" parent="CanvasLayer" unique_id=1457186040 instance=ExtResource("10_keyhud")]
-offset_left = 1.0000019
-offset_top = 200.99998
-offset_right = 33.0
-offset_bottom = 232.99998
+offset_left = 71.99999
+offset_top = 203.0
+offset_right = 103.99999
+offset_bottom = 235.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2079942157]
 

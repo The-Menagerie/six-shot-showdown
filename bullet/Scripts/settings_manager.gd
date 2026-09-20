@@ -1,5 +1,8 @@
 extends Node
 
+signal input_bindings_changed
+signal input_device_changed(device_type: String)
+
 const SETTINGS_PATH := "user://settings.cfg"
 const SETTINGS_SECTION := "gameplay"
 const SKIP_TUTORIAL_KEY := "skip_tutorial"
@@ -24,6 +27,7 @@ const MIN_AIM_SPEED := 150.0
 const MAX_AIM_SPEED := 2200.0
 const CONTROLLER_SLIDER_SPEED := 0.75
 const CONTROLLER_SLIDER_DPAD_STEP := 0.1
+const INPUT_DEVICE_AXIS_THRESHOLD := 0.2
 
 @export var reticle_edge_padding : float = 4.0
 
@@ -39,6 +43,7 @@ var invert_move_vertical := false
 var invert_aim_horizontal := false
 var invert_aim_vertical := false
 var is_capturing_binding := false
+var last_input_device := INPUT_DEVICE_KEYBOARD
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -97,6 +102,8 @@ func is_menu_back_event(event: InputEvent) -> bool:
 	return event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE
 
 func _input(event: InputEvent) -> void:
+	_update_last_input_device(event)
+
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		_apply_cursor_texture(reticle_clicked if event.pressed else reticle)
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
@@ -110,6 +117,22 @@ func _input(event: InputEvent) -> void:
 		if _adjust_focused_slider_with_dpad(-1.0 if event.button_index == 13 else 1.0):
 			get_viewport().set_input_as_handled()
 			return
+
+func _update_last_input_device(event: InputEvent) -> void:
+	var next_device := ""
+	if event is InputEventJoypadButton and event.pressed:
+		next_device = INPUT_DEVICE_CONTROLLER
+	elif event is InputEventJoypadMotion and absf(event.axis_value) >= INPUT_DEVICE_AXIS_THRESHOLD:
+		next_device = INPUT_DEVICE_CONTROLLER
+	elif event is InputEventKey and event.pressed and not event.echo:
+		next_device = INPUT_DEVICE_KEYBOARD
+	elif event is InputEventMouseButton and event.pressed:
+		next_device = INPUT_DEVICE_KEYBOARD
+
+	if next_device.is_empty() or next_device == last_input_device:
+		return
+	last_input_device = next_device
+	input_device_changed.emit(last_input_device)
 
 
 func _ensure_controller_ui_actions() -> void:
@@ -341,6 +364,7 @@ func apply_controller_stick_settings(persist: bool = true) -> void:
 	_set_action_joy_axis("aim_down", aim_y_axis, 1.0 * aim_y_sign)
 	if persist:
 		save_settings()
+	input_bindings_changed.emit()
 
 func _set_action_joy_axis(action: String, axis: int, axis_value: float) -> void:
 	if not InputMap.has_action(action):
@@ -511,6 +535,7 @@ func set_input_bindings(action: String, device_type: String, bindings: Array, pe
 			INPUT_DEVICE_CONTROLLER: get_input_bindings(action, INPUT_DEVICE_CONTROLLER),
 		})
 		config.save(SETTINGS_PATH)
+	input_bindings_changed.emit()
 
 func _event_matches_device(event: InputEvent, device_type: String) -> bool:
 	if device_type == INPUT_DEVICE_CONTROLLER:

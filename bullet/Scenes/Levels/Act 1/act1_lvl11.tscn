@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="11_o4r6v"]
 [ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="11_ulybj"]
 [ext_resource type="PackedScene" uid="uid://cji6hd7veljn5" path="res://Scenes/Objects/Breakables/target.tscn" id="13_460rd"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/WorldActionHint.tscn" id="14_interact_hint"]
 
 [node name="Act1Lvl11" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_qfa6o")
@@ -60,6 +61,11 @@ limit_bottom = 179
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]
 
 [node name="Chamber" parent="CanvasLayer" unique_id=1884226542 instance=ExtResource("5_k3qs3")]
+
+[node name="TopRightTriggerHint" parent="." unique_id=104041744 instance=ExtResource("14_interact_hint")]
+position = Vector2(222, -160)
+fuse_path = NodePath("../Fuse")
+trigger_cell = Vector2i(13, -9)
 
 [node name="Rope" parent="." unique_id=602890189 instance=ExtResource("3_460rd")]
 tile_map_data = PackedByteArray("AAD9//j/AAACAAAAAAD9//T/AAABAAIAAAD9//b/AAABAAIAAAD9//P/AAABAAMAAAA=")

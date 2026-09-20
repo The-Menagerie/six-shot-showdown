@@ -42,7 +42,7 @@ func _ready() -> void:
 
 func open_page() -> void:
 	_refresh_bindings()
-	status_label.text = _get_device_prompt()
+	status_label.text = _get_idle_prompt()
 	show()
 	SettingsManager.focus_first_menu_control(self)
 
@@ -141,6 +141,10 @@ func _refresh_bindings() -> void:
 		for slot in buttons.size():
 			buttons[slot].visible = binding_device == SettingsManager.INPUT_DEVICE_KEYBOARD or slot == 0
 			buttons[slot].text = "Press input..." if action == awaiting_action and slot == awaiting_slot else SettingsManager.get_input_binding_text(action, binding_device, slot)
+			if binding_device == SettingsManager.INPUT_DEVICE_KEYBOARD and slot == 1:
+				buttons[slot].tooltip_text = "Select and press Backspace, or right-click, to clear this alternate binding."
+			else:
+				buttons[slot].tooltip_text = "Select to change this binding."
 	if device_toggle != null:
 		device_toggle.text = "Input: Controller" if binding_device == SettingsManager.INPUT_DEVICE_CONTROLLER else "Input: Keyboard & Mouse"
 	_refresh_stick_options()
@@ -153,10 +157,33 @@ func _on_binding_pressed(action: String, slot: int) -> void:
 	status_label.text = "%s for %s. Backspace clears it." % [_get_device_prompt(), _get_action_label(action)]
 	_refresh_bindings()
 
+func _on_binding_gui_input(event: InputEvent, action: String, slot: int, button: Button) -> void:
+	if binding_device != SettingsManager.INPUT_DEVICE_KEYBOARD or slot != 1:
+		return
+	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT):
+		return
+	button.accept_event()
+	_play_button_sound()
+	awaiting_action = ""
+	awaiting_slot = -1
+	SettingsManager.is_capturing_binding = false
+	var bindings := SettingsManager.get_input_bindings(action, binding_device)
+	if slot >= bindings.size():
+		status_label.text = "%s has no alternate binding." % _get_action_label(action)
+		return
+	SettingsManager.set_input_binding(action, binding_device, slot, "", 0)
+	status_label.text = "Alternate binding cleared for %s." % _get_action_label(action)
+	_refresh_bindings()
+
 func _get_device_prompt() -> String:
 	if binding_device == SettingsManager.INPUT_DEVICE_CONTROLLER:
 		return "Press a controller button or move an axis"
 	return "Press a key or mouse button"
+
+func _get_idle_prompt() -> String:
+	if binding_device == SettingsManager.INPUT_DEVICE_CONTROLLER:
+		return "Select a binding to change it."
+	return "Select a binding to change it. Right-click an alternate binding to clear it."
 
 func _on_device_toggle_pressed() -> void:
 	_play_button_sound()
@@ -164,7 +191,7 @@ func _on_device_toggle_pressed() -> void:
 	awaiting_slot = -1
 	SettingsManager.is_capturing_binding = false
 	binding_device = SettingsManager.INPUT_DEVICE_CONTROLLER if binding_device == SettingsManager.INPUT_DEVICE_KEYBOARD else SettingsManager.INPUT_DEVICE_KEYBOARD
-	status_label.text = _get_device_prompt()
+	status_label.text = _get_idle_prompt()
 	_refresh_bindings()
 
 func _refresh_stick_options() -> void:
@@ -270,6 +297,7 @@ func _build_page() -> void:
 			button.custom_minimum_size = Vector2(145, 38)
 			button.add_theme_font_size_override("font_size", 20)
 			button.pressed.connect(_on_binding_pressed.bind(action, slot))
+			button.gui_input.connect(_on_binding_gui_input.bind(action, slot, button))
 			row.add_child(button)
 			buttons.append(button)
 		binding_buttons[action] = buttons
