@@ -416,3 +416,6 @@ parameters/Walk/blend_position = 0.0
 
 [node name="EnemyShotgun" parent="." index="6" unique_id=266090207 instance=ExtResource("4_ohpq4")]
 position = Vector2(1, 4)
+
+[node name="Death" parent="." index="9" unique_id=1885934628]
+volume_db = -5.0

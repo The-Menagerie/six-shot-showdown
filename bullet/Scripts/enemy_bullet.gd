@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var lifetime : float = 2.5
 @export var rope_pass_through_distance : float = 6.0
 
-const RICOCHET_SOUND = preload("res://Assets/SoundEffects/ricochet.wav")
+const RICOCHET_SOUND = preload("res://Assets/SoundEffects/NormalRicochet.wav")
 
 var direction : Vector2 = Vector2.RIGHT
 var time_alive : float = 0.0

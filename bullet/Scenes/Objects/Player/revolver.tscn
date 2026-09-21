@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d2xn2lqrmwgak"]
 
 [ext_resource type="Texture2D" uid="uid://df05whyqa3ncq" path="res://Assets/Tilesets/StrangeCowboy/Player/RevolverSheetAnimated.png" id="1_yoho7"]
-[ext_resource type="AudioStream" uid="uid://10tjwdbys5jj" path="res://Assets/SoundEffects/Gunshot.wav" id="2_sx0yf"]
 
 [node name="Revolver" type="Node2D" unique_id=1451355002]
 
@@ -16,7 +15,3 @@ region_filter_clip_enabled = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=117420901]
 position = Vector2(11, -6)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1239506881]
-stream = ExtResource("2_sx0yf")
-bus = &"sfx"

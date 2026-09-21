@@ -21,6 +21,7 @@ extends CharacterBody2D
 signal target_destroyed(target)
 
 const DEATH_SOUND = preload("res://Assets/SoundEffects/EnemyDeath.wav")
+const PIERCING_DEATH_SOUND = preload("res://Assets/SoundEffects/PiercingEnemyDeath.wav")
 const DEATH_ANIMATION_DURATION := 0.4
 
 var is_dying := false
@@ -143,6 +144,9 @@ func _play_death_sound():
 
 	var death_audio := AudioStreamPlayer.new()
 	death_audio.stream = DEATH_SOUND
+	var health_component: HealthComponent = hitbox_component.health_component
+	if health_component != null and health_component.fatal_attack != null and health_component.fatal_attack.is_piercing:
+		death_audio.stream = PIERCING_DEATH_SOUND
 	death_audio.bus = "sfx"
 	owner.add_child(death_audio)
 	_configure_audio_for_bullet_time(death_audio)

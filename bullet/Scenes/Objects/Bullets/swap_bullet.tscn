@@ -2,7 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://btadkvwru6byt" path="res://Scenes/Objects/Bullets/bullet.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://dfn8vv4g1yfgm" path="res://Scripts/Bullets/swap_bullet.gd" id="2_script"]
-[ext_resource type="Texture2D" uid="uid://cx44ymm3avme8" path="res://Assets/Images/SceneBullets/swap_bullet.png" id="3_texture"]
+[ext_resource type="Texture2D" uid="uid://bvc0ypmun6a5x" path="res://Assets/Images/Bullets/SwapBullet.png" id="3_dwm2n"]
+[ext_resource type="AudioStream" uid="uid://btfnl4vhqsr8n" path="res://Assets/SoundEffects/SwapRicochet.wav" id="4_dwm2n"]
+[ext_resource type="AudioStream" uid="uid://2an0eup8y0pv" path="res://Assets/SoundEffects/SwapShoot.wav" id="4_shoot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uluv7"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k73gj"]
+size = Vector2(4, 4)
 
 [node name="SwapBullet" unique_id=2050122366 instance=ExtResource("1_base")]
 collision_mask = 1
@@ -12,8 +20,20 @@ damage = 0.0
 recoil_multiplier = 0.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1359081898]
-texture = ExtResource("3_texture")
+texture = ExtResource("3_dwm2n")
+
+[node name="MovementCollision" parent="." index="1" unique_id=420006511]
+shape = SubResource("RectangleShape2D_uluv7")
 
 [node name="Area2D" parent="." index="2" unique_id=81985079]
 collision_layer = 1
 collision_mask = 1
+
+[node name="CollisionShape2D" parent="Area2D" index="0" unique_id=65202082]
+shape = SubResource("RectangleShape2D_k73gj")
+
+[node name="RicochetAudio" parent="." index="3" unique_id=91885689]
+stream = ExtResource("4_dwm2n")
+
+[node name="ShootAudio" parent="." index="4" unique_id=633659628]
+stream = ExtResource("4_shoot")
