@@ -17,12 +17,23 @@ func open_menu() -> void:
 	visible = true
 	get_tree().paused = true
 	show()
+	SettingsManager.focus_first_menu_control(self)
 	$AnimationPlayer.play("p_blur")
 	await $AnimationPlayer.animation_finished
 
 func _input(event) -> void:
-	if event.is_action_pressed("menu"):
+	if SettingsManager.is_capturing_binding:
+		return
+	var options_menu := get_parent().get_node_or_null("OptionsPauseMenu")
+	if options_menu != null and options_menu.visible:
+		return
+	var back_pressed := visible and SettingsManager.is_menu_back_event(event)
+	if event.is_action_pressed("menu") or back_pressed:
+		if back_pressed:
+			get_viewport().set_input_as_handled()
 		if visible:
+			if back_pressed:
+				$WoodenBlock.play()
 			close_menu()
 		else:
 			open_menu()

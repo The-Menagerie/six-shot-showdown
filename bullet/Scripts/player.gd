@@ -13,7 +13,6 @@ extends CharacterBody2D
 @export var explosion_jump_combo_window: float = 0.12
 @export var explosion_jump_combo_vertical_multiplier: float = 1.5
 const BULLET_SCENE = preload("res://Scenes/Objects/Bullets/bullet.tscn")
-const DROP_THROUGH_KEY := KEY_S
 const DROP_THROUGH_DURATION := 0.2
 const DROP_THROUGH_SPEED := 100.0
 
@@ -63,7 +62,7 @@ func _physics_process(delta):
 		velocity.y = -jump_force
 	elif not is_on_floor():
 		velocity.y += gravity * delta
-	elif Input.is_key_pressed(DROP_THROUGH_KEY):
+	elif Input.is_action_pressed("down"):
 		_drop_through_platforms()
 
 	if jump_pressed:

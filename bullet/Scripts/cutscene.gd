@@ -10,7 +10,7 @@ var last_known_size_x = 1920
 var to_adjust: Array[Node]
 
 func _ready() -> void:
-	
+	SettingsManager.focus_first_menu_control(self)
 	to_adjust.append(continue_button)
 	to_adjust.append(cutscene)
 	for child in reveal_masks.get_children():

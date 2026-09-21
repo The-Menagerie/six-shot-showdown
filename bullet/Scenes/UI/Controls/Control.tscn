@@ -49,4 +49,6 @@ vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1190402093]
 autoplay = "Press"
-libraries/ = SubResource("AnimationLibrary_frh6k")
+libraries = {
+&"": SubResource("AnimationLibrary_frh6k")
+}
