@@ -22,7 +22,6 @@ const DROP_THROUGH_SPEED := 100.0
 @onready var state_machine = animation_tree["parameters/playback"]
 @onready var revolver: Node2D = $Revolver
 @onready var muzzle: Marker2D = $Revolver/Muzzle
-@onready var gunshot_audio: AudioStreamPlayer = $Revolver/AudioStreamPlayer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 var facing_direction : float = 1.0
@@ -160,7 +159,6 @@ func fire_bullet(bullet_scene: PackedScene):
 			_set_flying_state(true)
 	else:
 		apply_player_kickback(aim_vector)
-	gunshot_audio.play()
 
 func apply_revolver_kickback(aim_vector: Vector2):
 	if aim_vector == Vector2.ZERO:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://chnklo4sb2c18" path="res://Assets/Tilesets/StrangeCowboy/Character/ShotgunSheetAnimated.png" id="1_byq6p"]
 [ext_resource type="Script" uid="uid://bqiy7bden26bh" path="res://Scripts/enemy_shotgun.gd" id="2_3t2qx"]
-[ext_resource type="AudioStream" uid="uid://10tjwdbys5jj" path="res://Assets/SoundEffects/Gunshot.wav" id="3_gb53h"]
+[ext_resource type="AudioStream" uid="uid://10tjwdbys5jj" path="res://Assets/SoundEffects/NormalShoot.wav" id="3_gb53h"]
 
 [sub_resource type="Animation" id="Animation_byq6p"]
 resource_name = "Attack"

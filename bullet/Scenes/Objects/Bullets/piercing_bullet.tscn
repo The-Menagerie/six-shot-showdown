@@ -2,7 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://btadkvwru6byt" path="res://Scenes/Objects/Bullets/bullet.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://bhg8nl3rytoyy" path="res://Scripts/Bullets/piercing_bullet.gd" id="2_script"]
-[ext_resource type="Texture2D" uid="uid://bosbyea7mm171" path="res://Assets/Images/SceneBullets/piercing_bullet.png" id="3_texture"]
+[ext_resource type="Texture2D" uid="uid://dd624cwxkk158" path="res://Assets/Images/Bullets/PiercingBullet.png" id="3_uu1rk"]
+[ext_resource type="AudioStream" uid="uid://w7bexa72y02d" path="res://Assets/SoundEffects/PierceRicochet.wav" id="4_3a744"]
+[ext_resource type="AudioStream" uid="uid://b280feedov6tx" path="res://Assets/SoundEffects/PiercingShoot.wav" id="5_ir8bv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a744"]
+size = Vector2(6, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8bv"]
+size = Vector2(6, 2)
 
 [node name="PiercingBullet" unique_id=2144449557 instance=ExtResource("1_base")]
 collision_mask = 1
@@ -11,8 +19,24 @@ speed = 333.0
 max_bounces = 2
 
 [node name="Sprite2D" parent="." index="0" unique_id=1359081898]
-texture = ExtResource("3_texture")
+rotation = -0.7853982
+texture = ExtResource("3_uu1rk")
+
+[node name="MovementCollision" parent="." index="1" unique_id=420006511]
+shape = SubResource("RectangleShape2D_3a744")
 
 [node name="Area2D" parent="." index="2" unique_id=81985079]
 collision_layer = 1
 collision_mask = 1
+
+[node name="CollisionShape2D" parent="Area2D" index="0" unique_id=65202082]
+shape = SubResource("RectangleShape2D_ir8bv")
+
+[node name="RicochetAudio" parent="." index="3" unique_id=91885689]
+stream = ExtResource("4_3a744")
+volume_db = 5.0
+max_polyphony = 4
+
+[node name="ShootAudio" parent="." index="4" unique_id=633659628]
+stream = ExtResource("5_ir8bv")
+volume_db = 5.0

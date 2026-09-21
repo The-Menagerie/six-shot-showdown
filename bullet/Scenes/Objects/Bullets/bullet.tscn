@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://btadkvwru6byt"]
 
 [ext_resource type="Script" uid="uid://dx7q70gsfxa5w" path="res://Scripts/Bullets/bullet.gd" id="1_7ccgy"]
-[ext_resource type="Texture2D" uid="uid://d11nabp33j16k" path="res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png" id="2_s73nt"]
-[ext_resource type="AudioStream" uid="uid://gey7ps3en5cw" path="res://Assets/SoundEffects/ricochet.wav" id="3_8gx20"]
+[ext_resource type="Texture2D" uid="uid://c24ggrv1ogvql" path="res://Assets/Images/Bullets/Bullet.png" id="2_s73nt"]
+[ext_resource type="AudioStream" uid="uid://gey7ps3en5cw" path="res://Assets/SoundEffects/NormalRicochet.wav" id="3_8gx20"]
+[ext_resource type="AudioStream" uid="uid://10tjwdbys5jj" path="res://Assets/SoundEffects/NormalShoot.wav" id="4_shoot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]
 size = Vector2(4, 2)
@@ -13,8 +14,6 @@ script = ExtResource("1_7ccgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359081898]
 texture = ExtResource("2_s73nt")
-hframes = 2
-region_enabled = true
 region_rect = Rect2(0, 0, 8, 2)
 region_filter_clip_enabled = true
 
@@ -30,4 +29,10 @@ shape = SubResource("RectangleShape2D_fb7ps")
 
 [node name="RicochetAudio" type="AudioStreamPlayer" parent="." unique_id=91885689]
 stream = ExtResource("3_8gx20")
+max_polyphony = 6
+bus = &"sfx"
+
+[node name="ShootAudio" type="AudioStreamPlayer" parent="." unique_id=633659628]
+stream = ExtResource("4_shoot")
+max_polyphony = 6
 bus = &"sfx"

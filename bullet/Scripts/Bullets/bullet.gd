@@ -13,11 +13,13 @@ var bounce_count: int = 0
 var shooter: Node
 
 @onready var ricochet_audio: AudioStreamPlayer = $RicochetAudio
+@onready var shoot_audio: AudioStreamPlayer = $ShootAudio
 
 func _ready() -> void:
 	area_2d = $Area2D
 	area_2d.area_entered.connect(_on_area_entered)
 	area_2d.add_to_group("bullet")
+	_play_shoot_sound()
 	_after_ready()
 
 func _after_ready() -> void:
@@ -98,10 +100,13 @@ func _try_damage_hitbox(area: Area2D) -> bool:
 	if not area.is_in_group("hitbox"):
 		return false
 
+	area.damage(_create_attack())
+	return true
+
+func _create_attack() -> Attack:
 	var attack := Attack.new()
 	attack.attack_damage = damage
-	area.damage(attack)
-	return true
+	return attack
 
 func _confirm_bounce(collision: KinematicCollision2D) -> bool:
 	var collider := collision.get_collider()
@@ -137,6 +142,26 @@ func _try_ignite_fuse_between(segment_start: Vector2, segment_end: Vector2) -> v
 	for fuse: Node in fuses:
 		if fuse.has_method("ignite_along_segment"):
 			fuse.ignite_along_segment(segment_start, segment_end, rope_pass_through_distance)
+
+func _play_shoot_sound() -> void:
+	_play_detached_sound(shoot_audio)
+
+func _play_detached_sound(source_audio: AudioStreamPlayer) -> void:
+	if source_audio.stream == null:
+		return
+
+	# Keep the shot audible even when the bullet is destroyed immediately.
+	var detached_audio := AudioStreamPlayer.new()
+	detached_audio.stream = source_audio.stream
+	detached_audio.bus = source_audio.bus
+	detached_audio.volume_db = source_audio.volume_db
+	detached_audio.pitch_scale = source_audio.pitch_scale
+	get_tree().current_scene.add_child(detached_audio)
+	var game_manager := get_tree().root.find_child("MainGame", true, false)
+	if game_manager != null and game_manager.has_method("configure_audio_player_for_bullet_time"):
+		game_manager.configure_audio_player_for_bullet_time(detached_audio)
+	detached_audio.finished.connect(detached_audio.queue_free)
+	detached_audio.play()
 
 func _play_ricochet() -> void:
 	if is_instance_valid(ricochet_audio):
