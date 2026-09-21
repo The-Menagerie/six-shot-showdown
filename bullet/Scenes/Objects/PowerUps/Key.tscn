@@ -51,6 +51,9 @@ script = ExtResource("2_f0p0g")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=806142777]
 texture = ExtResource("1_f5qjs")
 vframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 96)
+region_filter_clip_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=568134107]
 libraries/ = SubResource("AnimationLibrary_nffe2")

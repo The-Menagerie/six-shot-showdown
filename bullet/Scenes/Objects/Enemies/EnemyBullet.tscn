@@ -50,6 +50,9 @@ script = ExtResource("2_dyma6")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=779335871]
 texture = ExtResource("1_6rdbi")
 hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 2)
+region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631199752]
 shape = SubResource("RectangleShape2D_enemy_bullet")

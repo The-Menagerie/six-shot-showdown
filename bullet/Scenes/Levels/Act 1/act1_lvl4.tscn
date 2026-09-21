@@ -58,6 +58,9 @@ texture = ExtResource("7_aq4yd")
 hframes = 4
 vframes = 3
 frame = 9
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_hd0kn")]
 position = Vector2(1, -19)

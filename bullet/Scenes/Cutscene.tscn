@@ -77,6 +77,9 @@ scale = Vector2(5.2151575, 5.2151575)
 texture = ExtResource("1_1srds")
 hframes = 3
 vframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 324, 384)
+region_filter_clip_enabled = true
 
 [node name="Button" type="Button" parent="Cutscene/ScreenAdjuster" unique_id=640047794]
 layout_mode = 0

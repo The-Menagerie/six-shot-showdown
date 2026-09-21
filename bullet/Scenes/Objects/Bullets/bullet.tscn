@@ -14,6 +14,9 @@ script = ExtResource("1_7ccgy")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359081898]
 texture = ExtResource("2_s73nt")
 hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 2)
+region_filter_clip_enabled = true
 
 [node name="MovementCollision" type="CollisionShape2D" parent="." unique_id=420006511]
 shape = SubResource("RectangleShape2D_fb7ps")

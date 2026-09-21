@@ -61,6 +61,9 @@ script = ExtResource("2_8x9kc")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=740800711]
 texture = ExtResource("1_jc7s7")
 hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 34, 17)
+region_filter_clip_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=344995164]
 libraries/ = SubResource("AnimationLibrary_dw0eu")
