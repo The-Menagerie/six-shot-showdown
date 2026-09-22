@@ -11,6 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://b47kuapp3uyum" path="res://Assets/Images/UI/curved_arrow.png" id="9_4v62u"]
 [ext_resource type="Texture2D" uid="uid://b7x7hesqeconw" path="res://Assets/Images/UI/curved_arrow_pressed.png" id="10_1wbj2"]
 [ext_resource type="Texture2D" uid="uid://csay5vssfluov" path="res://Assets/Images/UI/curved_arrow_hover.png" id="10_hsm2f"]
+[ext_resource type="Texture2D" uid="uid://onyg6bi810fh" path="res://Assets/Images/UI/play_unpressed.png" id="12_v82nv"]
+[ext_resource type="Texture2D" uid="uid://dfbe3ls2hr2si" path="res://Assets/Images/UI/left_arrow_unpressed.png" id="12_xdioi"]
+[ext_resource type="Texture2D" uid="uid://bpbagffio2rqt" path="res://Assets/Images/UI/play_pressed.png" id="13_o5g2v"]
+[ext_resource type="Texture2D" uid="uid://be4c7tw82418d" path="res://Assets/Images/UI/left_arrow_pressed.png" id="13_tx112"]
+[ext_resource type="Texture2D" uid="uid://bm0s0kuem25xu" path="res://Assets/Images/UI/right_arrow_unpressed.png" id="14_ga0gs"]
+[ext_resource type="Texture2D" uid="uid://eudtgnw5ocl4" path="res://Assets/Images/UI/play_hovered.png" id="14_o5g2v"]
+[ext_resource type="Texture2D" uid="uid://1ekgocfx1ik2" path="res://Assets/Images/UI/left_arrow_hovered.png" id="14_xrc8x"]
+[ext_resource type="Texture2D" uid="uid://dtkpjwtwcfnx7" path="res://Assets/Images/UI/right_arrow_pressed.png" id="15_xrc8x"]
+[ext_resource type="Texture2D" uid="uid://bvrnqq08067gn" path="res://Assets/Images/UI/right_arrow_hovered.png" id="16_tx112"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v62u"]
 atlas = ExtResource("1_x8fir")
@@ -1347,14 +1356,14 @@ anim_player = NodePath("AnimationPlayer2")
 name_changer = NodePath("NameFader")
 bullet_changer = NodePath("BulletChanger")
 cylinder_rotator = NodePath("alignment/BulletHolder")
+act_levels = Array[String](["", "", "", "", "", ""])
 
 [node name="alignment" type="Control" parent="." unique_id=229077522]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_left = 0.67
+anchor_top = 0.55
+anchor_right = 0.67
+anchor_bottom = 0.55
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8, 8)
@@ -1789,6 +1798,7 @@ scale = Vector2(0.34957296, 0.043478563)
 mouse_filter = 2
 
 [node name="mask2" type="TextureRect" parent="alignment" unique_id=1784786496]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 z_index = 10
 use_parent_material = true
@@ -1843,5 +1853,93 @@ libraries/ = SubResource("AnimationLibrary_8sgur")
 [node name="NameFader" type="AnimationPlayer" parent="." unique_id=1942876473]
 libraries/ = SubResource("AnimationLibrary_4v62u")
 
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=977105894]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.333
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1557882925]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="ActName" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=171191712]
+custom_minimum_size = Vector2(0, 256)
+custom_maximum_size = Vector2(-1, 256)
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "
+[b]Act 0: Placeholder[/b]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1472773055]
+layout_mode = 2
+
+[node name="ActDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=232282349]
+custom_minimum_size = Vector2(0, 250)
+custom_maximum_size = Vector2(-1, 250)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Lorem Ipsum Dolor Amet"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=638111674]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HighScore" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=187216970]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 48
+bbcode_enabled = true
+text = "[i][b]High Score: Unplayed[/b][/i]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Play" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=623082027]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("12_v82nv")
+texture_pressed = ExtResource("13_o5g2v")
+texture_hover = ExtResource("14_o5g2v")
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=135070211]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="RotLeft" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1557499804]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("12_xdioi")
+texture_pressed = ExtResource("13_tx112")
+texture_hover = ExtResource("14_xrc8x")
+stretch_mode = 0
+
+[node name="RotRight" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1653448788]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("14_ga0gs")
+texture_pressed = ExtResource("15_xrc8x")
+texture_hover = ExtResource("16_tx112")
+stretch_mode = 0
+
 [connection signal="pressed" from="alignment/mask2/TextureButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="alignment/mask2/TextureButton2" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RotLeft" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RotRight" to="." method="_on_right_button_pressed"]
