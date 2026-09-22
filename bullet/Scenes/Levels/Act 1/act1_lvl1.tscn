@@ -12,14 +12,6 @@ targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/Levels/Act 1/act1_lvl2.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=288009827]
-position = Vector2(-193, 31)
-zoom = Vector2(3.5, 3.5)
-limit_left = -275
-limit_top = -175
-limit_right = 160
-limit_bottom = 125
-
 [node name="Enemy" parent="." unique_id=733749410 instance=ExtResource("4_40u1y")]
 position = Vector2(-44, -19)
 
@@ -55,6 +47,14 @@ position = Vector2(0, -16)
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("7_i0alc")]
 position = Vector2(-192, 46)
 vertical_recoil_scale = 0.75
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=288009827]
+position = Vector2(-1, -15)
+zoom = Vector2(3.5, 3.5)
+limit_left = -275
+limit_top = -175
+limit_right = 160
+limit_bottom = 125
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]
 

@@ -71,6 +71,14 @@ region_filter_clip_enabled = true
 position = Vector2(-225, -169)
 vertical_recoil_scale = 0.45
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1768083370]
+position = Vector2(-1, -15)
+zoom = Vector2(2.5, 2.5)
+limit_left = -340
+limit_top = -310
+limit_right = 335
+limit_bottom = 75
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]
 
 [node name="Chamber" parent="CanvasLayer" unique_id=1884226542 instance=ExtResource("5_sda5s")]
@@ -121,14 +129,6 @@ position = Vector2(-283, -170)
 
 [node name="Key" parent="." unique_id=1777878280 instance=ExtResource("10_ndunn")]
 position = Vector2(254, -36)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1768083370]
-position = Vector2(-2.5, -117.5)
-zoom = Vector2(2.5, 2.5)
-limit_left = -340
-limit_top = -310
-limit_right = 335
-limit_bottom = 75
 
 [node name="EnemyBlocker" parent="." unique_id=1149477277 instance=ExtResource("11_v1csl")]
 position = Vector2(-129, -4)

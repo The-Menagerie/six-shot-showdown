@@ -56,14 +56,6 @@ z_index = -30
 position = Vector2(51, -90)
 texture = ExtResource("3_xr8r8")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=288009827]
-position = Vector2(0, -34)
-zoom = Vector2(4, 4)
-limit_left = -416
-limit_top = -200
-limit_right = 432
-limit_bottom = 137
-
 [node name="Enemy3" parent="." unique_id=1321952798 instance=ExtResource("5_33xer")]
 position = Vector2(-36, -64)
 
@@ -118,6 +110,14 @@ region_filter_clip_enabled = true
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_2cr3c")]
 position = Vector2(-158, -20)
 vertical_recoil_scale = 0.45
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=288009827]
+position = Vector2(-1, -15)
+zoom = Vector2(4, 4)
+limit_left = -416
+limit_top = -200
+limit_right = 432
+limit_bottom = 137
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]
 
