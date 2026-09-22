@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cnmfjwqsduuok"]
 
+[ext_resource type="Script" uid="uid://cx2niijh1soug" path="res://Scripts/Environmental/camera_expander.gd" id="11_w2u5i"]
 [ext_resource type="Script" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_n67pu"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="2_c3o7m"]
@@ -11,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="9_c3o7m"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="10_80vj0"]
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="10_w2u5i"]
-[ext_resource type="Script" uid="uid://cx2niijh1soug" path="res://Scripts/Environmental/camera_expander.gd" id="11_w2u5i"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="12_pvl3i"]
 [ext_resource type="Texture2D" uid="uid://briqjcg1lmprf" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_4.png" id="13_lnpyt"]
 [ext_resource type="Texture2D" uid="uid://cmptnlgfim1x5" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_1.png" id="14_kf13l"]
@@ -182,18 +182,6 @@ position = Vector2(-842, -10)
 [node name="Crate4" parent="." unique_id=1419376844 instance=ExtResource("10_w2u5i")]
 position = Vector2(-843, -44)
 
-[node name="Camera_Expander" type="Area2D" parent="." unique_id=1354690788 node_paths=PackedStringArray("cam_node", "anim_player")]
-script = ExtResource("11_w2u5i")
-cam_node = NodePath("../Player/Camera2D")
-anim_player = NodePath("AnimationPlayer")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_Expander" unique_id=811530131]
-position = Vector2(-1112, -154)
-shape = SubResource("RectangleShape2D_40fn5")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera_Expander" unique_id=1189388554]
-libraries/ = SubResource("AnimationLibrary_jkjsh")
-
 [node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.05, 0.05)
 script = ExtResource("99_centered_parallax")
@@ -227,5 +215,17 @@ texture = ExtResource("14_kf13l")
 [node name="Salun" type="Sprite2D" parent="." unique_id=1374504362]
 position = Vector2(-204, -63)
 texture = ExtResource("15_lnpyt")
+
+[node name="Camera_Expander" type="Area2D" parent="." unique_id=1354690788 node_paths=PackedStringArray("cam_node", "anim_player")]
+script = ExtResource("11_w2u5i")
+cam_node = NodePath("../Player/Camera2D")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_Expander" unique_id=811530131]
+position = Vector2(-1112, -154)
+shape = SubResource("RectangleShape2D_40fn5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera_Expander" unique_id=1189388554]
+libraries/ = SubResource("AnimationLibrary_jkjsh")
 
 [connection signal="body_entered" from="Camera_Expander" to="Camera_Expander" method="_on_body_entered"]
