@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="12_wumq8"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="13_0xipj"]
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="14_xcrcw"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 
 [node name="Act3Lvl11" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_yk6ro")
@@ -21,19 +22,30 @@ targets = [NodePath("Target3"), NodePath("Target4"), NodePath("Enemy")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl12.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=594660846]
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=1877119412]
+scroll_scale = Vector2(0.05, 0.05)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="BackgroundParallaxLayer0Scroll" unique_id=594660846]
 z_index = -30
-position = Vector2(122, -62.000008)
-scale = Vector2(3.3533335, 3.3533332)
+position = Vector2(37, -118)
 texture = ExtResource("2_yop3b")
 
-[node name="BackgroundParallaxLayer5" type="Sprite2D" parent="." unique_id=1250594054]
+[node name="BackgroundParallaxLayer5Scroll" type="Parallax2D" parent="." unique_id=261251151]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer5" type="Sprite2D" parent="BackgroundParallaxLayer5Scroll" unique_id=1250594054]
 z_index = -30
-position = Vector2(-3.0000076, 51.999996)
+position = Vector2(21, 37)
 scale = Vector2(1.4133333, 1.4133333)
 texture = ExtResource("3_32dwl")
 
-[node name="BackgroundParallaxLayer2" type="Sprite2D" parent="." unique_id=1194922391]
+[node name="BackgroundParallaxLayer2Scroll" type="Parallax2D" parent="." unique_id=1800364366]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer2" type="Sprite2D" parent="BackgroundParallaxLayer2Scroll" unique_id=1194922391]
 z_index = -30
 position = Vector2(9.999992, -79.00001)
 scale = Vector2(1.54, 1.54)

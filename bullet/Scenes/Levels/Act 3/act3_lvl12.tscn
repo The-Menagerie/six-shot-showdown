@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cnmfjwqsduuok"]
 
+[ext_resource type="Script" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_n67pu"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="2_c3o7m"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="3_80vj0"]
@@ -193,19 +194,31 @@ shape = SubResource("RectangleShape2D_40fn5")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera_Expander" unique_id=1189388554]
 libraries/ = SubResource("AnimationLibrary_jkjsh")
 
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=503752645]
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.05, 0.05)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="BackgroundParallaxLayer0Scroll" unique_id=503752645]
 z_index = -30
-position = Vector2(-670.00006, -55.999996)
-scale = Vector2(6.4999976, 6.499998)
+position = Vector2(-718, 115)
+scale = Vector2(2.589815, 2.589815)
 texture = ExtResource("12_pvl3i")
 
-[node name="BackgroundParallaxLayer4" type="Sprite2D" parent="." unique_id=459394908]
+[node name="BackgroundParallaxLayer4Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer4" type="Sprite2D" parent="BackgroundParallaxLayer4Scroll" unique_id=459394908]
 z_index = -30
 position = Vector2(-821, -32)
 scale = Vector2(6.366667, 6.366667)
 texture = ExtResource("13_lnpyt")
 
-[node name="BackgroundParallaxLayer1" type="Sprite2D" parent="." unique_id=1229516325]
+[node name="BackgroundParallaxLayer1Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer1" type="Sprite2D" parent="BackgroundParallaxLayer1Scroll" unique_id=1229516325]
 z_index = -30
 position = Vector2(-739.00006, -8.000004)
 scale = Vector2(5.34, 5.34)
