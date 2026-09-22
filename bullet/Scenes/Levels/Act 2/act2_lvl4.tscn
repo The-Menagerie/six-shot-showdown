@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="10_jty17"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="12_6ei5d"]
 [ext_resource type="PackedScene" uid="uid://b3okgeyvtrpnw" path="res://Scenes/Objects/PowerUps/ghost_key.tscn" id="13_m83un"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 
 [node name="Act2Lvl4" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_nxelu")
@@ -20,16 +21,23 @@ targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/Levels/Act 2/act2_lvl6.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="BackgroundParallaxLayer3" type="Sprite2D" parent="." unique_id=309395312]
+[node name="BackgroundParallaxLayer3Scroll" type="Parallax2D" parent="." unique_id=142633281]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer3" type="Sprite2D" parent="BackgroundParallaxLayer3Scroll" unique_id=309395312]
 z_index = -30
 position = Vector2(6, -96)
 scale = Vector2(1.7033333, 1.7033333)
 texture = ExtResource("2_djl8y")
 
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=1923555673]
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=417502591]
+scroll_scale = Vector2(0.05, 0.05)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="BackgroundParallaxLayer0Scroll" unique_id=1923555673]
 z_index = -30
-position = Vector2(-15, -137.99998)
-scale = Vector2(2.3266668, 2.3266666)
+position = Vector2(25, -89)
 texture = ExtResource("3_acm3o")
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
@@ -51,7 +59,7 @@ z_index = -2
 position = Vector2(1, -18)
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("6_jty17")]
-position = Vector2(-206, -212)
+position = Vector2(-242, -210)
 player_recoil_force = 205.0
 vertical_recoil_scale = 0.45
 
@@ -395,7 +403,7 @@ position = Vector2(141, -142)
 position = Vector2(46, -142)
 
 [node name="GhostKey" parent="." unique_id=1263556940 instance=ExtResource("13_m83un")]
-position = Vector2(-180, -203)
+position = Vector2(-178, -201)
 
 [node name="GhostKey2" parent="." unique_id=1580874137 instance=ExtResource("13_m83un")]
 position = Vector2(48, -14)

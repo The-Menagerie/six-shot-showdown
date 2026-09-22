@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bvjkply7c8ohf"]
 
+[ext_resource type="Script" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_yssc1"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="2_oec31"]
 [ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png" id="4_vn6m3"]
@@ -17,13 +18,20 @@ targets = [NodePath("Enemy")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl2.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=683981243]
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.05, 0.05)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="BackgroundParallaxLayer0Scroll" unique_id=683981243]
 z_index = -30
-position = Vector2(103.00003, -43)
-scale = Vector2(3.3733335, 3.3733332)
+position = Vector2(-23, 0)
 texture = ExtResource("2_oec31")
 
-[node name="BackgroundParallaxLayer2" type="Sprite2D" parent="." unique_id=387474489]
+[node name="BackgroundParallaxLayer2Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer2" type="Sprite2D" parent="BackgroundParallaxLayer2Scroll" unique_id=387474489]
 z_index = -20
 position = Vector2(-17.000008, 79.00002)
 scale = Vector2(2.2466667, 2.2466667)

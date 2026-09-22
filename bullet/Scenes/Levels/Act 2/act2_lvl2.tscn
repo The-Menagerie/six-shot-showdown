@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="11_y1hp3"]
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="12_vk6jf"]
 [ext_resource type="PackedScene" uid="uid://cji6hd7veljn5" path="res://Scenes/Objects/Breakables/target.tscn" id="13_7kadq"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="18_parallax"]
 
 [node name="Act2Lvl2" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_de41q")
@@ -22,16 +23,26 @@ targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Target"), NodePath("
 next_level_path = "res://Scenes/Levels/Act 2/act2_lvl4.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=1923555673]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=306985885]
+scale = Vector2(4.329114, 3.645)
+scroll_scale = Vector2(0.05, 0.05)
+script = ExtResource("18_parallax")
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="Parallax2D" unique_id=1923555673]
 z_index = -30
-position = Vector2(472, 12)
-scale = Vector2(4.9858336, 4.985833)
+position = Vector2(-3.4649122, -22.770918)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_3sdka")
 
-[node name="BackgroundParallaxLayer3" type="Sprite2D" parent="." unique_id=309395312]
+[node name="DistantSceneryParallax" type="Parallax2D" parent="." unique_id=432971490]
+scale = Vector2(4.329114, 3.645)
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("18_parallax")
+
+[node name="BackgroundParallaxLayer3" type="Sprite2D" parent="DistantSceneryParallax" unique_id=309395312]
 z_index = -30
-position = Vector2(469, -102)
-scale = Vector2(4.5025, 4.5025)
+position = Vector2(64.44737, 1.9204397)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_vr0rt")
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
