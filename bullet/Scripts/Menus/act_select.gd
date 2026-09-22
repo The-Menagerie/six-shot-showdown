@@ -13,6 +13,17 @@ const BULLET_NAME_MIN_HEIGHT := 24.0
 var selected_act = 1
 var act_bullet_rotation_array = [0,60,120,180,240,300]
 
+var act_dictionary = {
+	1: {"name": "[b]Act 1: Cave Escape[/b]",
+	"description":"Yo"},
+	2: {"name": "[b]Act 2: Town Showdown[/b]",
+	"description":"Yo"},
+	3: {"name": "[b]Act 3: The Ravine[/b]",
+	"description":"Yo"}
+}
+
+@export var act_levels: Array[String]
+
 
 # @onready var bullet_name_holder: Control = $BulletNameHolder
 # @onready var bullet_name_text: Label = $BulletNameHolder/BulletName
@@ -20,6 +31,8 @@ var act_bullet_rotation_array = [0,60,120,180,240,300]
 @onready var alignment: Control = $alignment
 @onready var bullet_holder: Control = $alignment/BulletHolder
 @onready var chamber_sprite: Control = $alignment/VBoxContainer/TextureRect
+@onready var act_name: Control = $MarginContainer/VBoxContainer/ActName
+@onready var act_description: Control = $MarginContainer/VBoxContainer/ActDescription
 
 
 func _process(delta: float) -> void:
@@ -48,6 +61,7 @@ func move_left() -> void:
 		if selected_act > 6:
 			selected_act -= 6
 		anim_player.play_section("revolve")
+		change_act_data(selected_act)
 
 func move_right() -> void:
 	#_cut_animation_short() < This has been commented out since by calling this it will cause it to work in parallel, which causes the next animation to start too early
@@ -68,6 +82,7 @@ func move_right() -> void:
 		if selected_act < 1:
 			selected_act += 6
 		anim_player.play_section("revolve_backwards")
+		change_act_data(selected_act)
 
 func _cut_animation_short() -> void:
 	if anim_player.is_playing():
@@ -93,3 +108,9 @@ func _on_left_button_pressed() -> void:
 func _on_right_button_pressed() -> void:
 	move_right()
 	pass # Replace with function body.
+
+func change_act_data(act_num: int) -> void:
+	if act_dictionary.has(act_num):
+		var act_data = act_dictionary[act_num]
+		act_name.text = act_data["name"]
+		act_description.text = act_data["description"]
