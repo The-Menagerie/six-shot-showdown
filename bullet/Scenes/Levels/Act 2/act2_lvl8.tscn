@@ -42,7 +42,8 @@ scroll_scale = Vector2(0.1, 0.067)
 script = ExtResource("99_centered_parallax")
 
 [node name="BackgroundParallaxLayer2" type="Sprite2D" parent="BackgroundParallaxLayer2Scroll" unique_id=894420699]
-position = Vector2(82, -70.00001)
+z_index = -30
+position = Vector2(65.00001, -201)
 scale = Vector2(1.9633332, 1.9633332)
 texture = ExtResource("4_4njeb")
 

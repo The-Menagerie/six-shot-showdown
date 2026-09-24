@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://bvjkply7c8ohf"]
 
-[ext_resource type="Script" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_yssc1"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="2_oec31"]
 [ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png" id="4_vn6m3"]
@@ -11,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="9_llqqu"]
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="10_64iqm"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="11_ljcmm"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 
 [node name="Act3Lvl1" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_yssc1")
@@ -18,7 +18,7 @@ targets = [NodePath("Enemy")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl2.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="."]
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=849658141]
 scroll_scale = Vector2(0.05, 0.05)
 script = ExtResource("99_centered_parallax")
 
@@ -27,13 +27,13 @@ z_index = -30
 position = Vector2(-23, 0)
 texture = ExtResource("2_oec31")
 
-[node name="BackgroundParallaxLayer2Scroll" type="Parallax2D" parent="."]
+[node name="BackgroundParallaxLayer2Scroll" type="Parallax2D" parent="." unique_id=2097896284]
 scroll_scale = Vector2(0.1, 0.067)
 script = ExtResource("99_centered_parallax")
 
 [node name="BackgroundParallaxLayer2" type="Sprite2D" parent="BackgroundParallaxLayer2Scroll" unique_id=387474489]
-z_index = -20
-position = Vector2(-17.000008, 79.00002)
+z_index = -30
+position = Vector2(-108.99999, 20)
 scale = Vector2(2.2466667, 2.2466667)
 texture = ExtResource("4_vn6m3")
 
@@ -69,9 +69,9 @@ position = Vector2(277, 6)
 vertical_recoil_scale = 0.45
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1768083370]
-position = Vector2(-1, -15)
+position = Vector2(2, -16)
 offset = Vector2(0, 22.235)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3, 3)
 limit_left = -382
 limit_top = -241
 limit_right = 356
