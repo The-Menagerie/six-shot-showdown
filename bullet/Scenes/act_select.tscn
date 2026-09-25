@@ -1344,6 +1344,19 @@ _data = {
 &"name_fade_slow": SubResource("Animation_it00n")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5g2v"]
+bg_color = Color(0.3327859, 0.25797874, 0.21324301, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8798556, 0.80480456, 0.42916796, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 1
+
 [node name="ActSelect" type="Control" unique_id=265526477 node_paths=PackedStringArray("anim_player", "name_changer", "bullet_changer", "cylinder_rotator")]
 layout_mode = 3
 anchors_preset = 15
@@ -1356,7 +1369,7 @@ anim_player = NodePath("AnimationPlayer2")
 name_changer = NodePath("NameFader")
 bullet_changer = NodePath("BulletChanger")
 cylinder_rotator = NodePath("alignment/BulletHolder")
-act_levels = Array[String](["", "", "", "", "", ""])
+act_level_paths = Array[String](["res://Scenes/Levels/Act 1/act1_lvl1.tscn", "res://Scenes/Levels/Act 2/act2_lvl6.tscn", "res://Scenes/Levels/Act 3/act3_lvl1.tscn"])
 
 [node name="alignment" type="Control" parent="." unique_id=229077522]
 layout_mode = 1
@@ -1854,22 +1867,46 @@ libraries/ = SubResource("AnimationLibrary_8sgur")
 libraries/ = SubResource("AnimationLibrary_4v62u")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=977105894]
+propagate_maximum_size = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.333
 anchor_bottom = 1.0
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1557882925]
+[node name="ColorRect" type="Panel" parent="MarginContainer" unique_id=173469729]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5g2v")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect" unique_id=1361436126]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -511.0
+offset_right = 275.0
+offset_bottom = 511.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/MarginContainer" unique_id=1557882925]
 propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="ActName" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=171191712]
+[node name="ActName" type="RichTextLabel" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=171191712]
 custom_minimum_size = Vector2(0, 256)
 custom_maximum_size = Vector2(-1, 256)
 layout_mode = 2
@@ -1881,10 +1918,10 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1472773055]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=1472773055]
 layout_mode = 2
 
-[node name="ActDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=232282349]
+[node name="ActDescription" type="RichTextLabel" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=232282349]
 custom_minimum_size = Vector2(0, 250)
 custom_maximum_size = Vector2(-1, 250)
 layout_mode = 2
@@ -1894,12 +1931,12 @@ text = "Lorem Ipsum Dolor Amet"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=638111674]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=638111674]
 layout_mode = 2
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HighScore" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=187216970]
+[node name="HighScore" type="RichTextLabel" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/MarginContainer" unique_id=187216970]
 layout_mode = 2
 theme_override_font_sizes/bold_italics_font_size = 48
 bbcode_enabled = true
@@ -1908,7 +1945,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Play" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=623082027]
+[node name="Play" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=623082027]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1917,13 +1954,13 @@ texture_pressed = ExtResource("13_o5g2v")
 texture_hover = ExtResource("14_o5g2v")
 stretch_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=135070211]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=135070211]
 propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="RotLeft" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1557499804]
+[node name="RotLeft" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1557499804]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture_normal = ExtResource("12_xdioi")
@@ -1931,7 +1968,7 @@ texture_pressed = ExtResource("13_tx112")
 texture_hover = ExtResource("14_xrc8x")
 stretch_mode = 0
 
-[node name="RotRight" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1653448788]
+[node name="RotRight" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1653448788]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture_normal = ExtResource("14_ga0gs")
@@ -1941,5 +1978,6 @@ stretch_mode = 0
 
 [connection signal="pressed" from="alignment/mask2/TextureButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="alignment/mask2/TextureButton2" to="." method="_on_right_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RotLeft" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RotRight" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/RotLeft" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/RotRight" to="." method="_on_right_button_pressed"]

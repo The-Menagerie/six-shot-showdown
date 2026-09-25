@@ -80,6 +80,20 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_r4osx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_r4osx")
 text = "Start"
 
+[node name="Act Select" type="Button" parent="ButtonContainer" unique_id=826130795]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_fonts/font = ExtResource("2_fxewk")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_r4osx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r4osx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r4osx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_r4osx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r4osx")
+text = "Act Select"
+
 [node name="Options" type="Button" parent="ButtonContainer" unique_id=1497127313]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -114,5 +128,6 @@ volume_db = -10.0
 bus = &"music"
 
 [connection signal="pressed" from="ButtonContainer/Start" to="." method="start_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/Act Select" to="." method="_on_act_select_pressed"]
 [connection signal="pressed" from="ButtonContainer/Options" to="." method="options_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/Exit" to="." method="exit_button_pressed"]
