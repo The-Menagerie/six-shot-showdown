@@ -50,6 +50,9 @@ anim_player = NodePath("AnimationPlayer")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=246771891]
 texture = ExtResource("2_ehi7u")
 hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+region_filter_clip_enabled = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1561303659]
 

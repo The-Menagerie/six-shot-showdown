@@ -391,6 +391,9 @@ patrol_speed = 20.0
 texture = ExtResource("2_6agwo")
 hframes = 6
 vframes = 5
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 160)
+region_filter_clip_enabled = true
 
 [node name="MovementCollision" parent="." index="1" unique_id=432735664]
 position = Vector2(-0.5, 5)

@@ -11,3 +11,6 @@ script = ExtResource("2_p5yux")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ambow")
 hframes = 16
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 64)
+region_filter_clip_enabled = true

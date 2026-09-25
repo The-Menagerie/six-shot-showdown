@@ -10,6 +10,9 @@ position = Vector2(3, -6)
 texture = ExtResource("1_yoho7")
 hframes = 4
 vframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 64)
+region_filter_clip_enabled = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=117420901]
 position = Vector2(11, -6)

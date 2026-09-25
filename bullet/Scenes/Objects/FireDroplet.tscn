@@ -53,6 +53,9 @@ anim_player = NodePath("AnimationPlayer")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1781168031]
 texture = ExtResource("1_h0sw2")
 hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 8)
+region_filter_clip_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=237262373]
 libraries/ = SubResource("AnimationLibrary_8ism7")

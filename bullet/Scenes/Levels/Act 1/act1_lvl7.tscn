@@ -26,6 +26,9 @@ texture = ExtResource("3_xboe1")
 hframes = 4
 vframes = 3
 frame = 9
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Sprite2D8" type="Sprite2D" parent="Decorations" unique_id=381150691]
 position = Vector2(-72, 0)
@@ -33,6 +36,9 @@ texture = ExtResource("3_xboe1")
 hframes = 4
 vframes = 3
 frame = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=913544977]
 z_index = -1
@@ -42,6 +48,9 @@ texture = ExtResource("3_xboe1")
 hframes = 4
 vframes = 3
 frame = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Sprite2D9" type="Sprite2D" parent="Decorations" unique_id=1811461474]
 position = Vector2(142, 1)
@@ -49,6 +58,9 @@ texture = ExtResource("3_xboe1")
 hframes = 4
 vframes = 3
 frame = 6
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=1672493909]
 position = Vector2(-88, 160)
@@ -56,6 +68,9 @@ texture = ExtResource("3_xboe1")
 hframes = 4
 vframes = 3
 frame = 6
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Rope1" parent="." unique_id=602890189 instance=ExtResource("4_yhr2o")]
 tile_map_data = PackedByteArray("AAALAPT/AAABAAMAAAALAPb/AAABAAIAAAALAPf/AAABAAIAAAALAPj/AAABAAIAAAALAPn/AAABAAIAAAALAPr/AAABAAIAAAALAPv/AAABAAIAAAALAPz/AAABAAIAAAALAP3/AAABAAIAAAALAP7/AAABAAIAAAALAP//AAABAAIAAAALAAAAAAABAAIAAAALAAEAAAABAAIAAAALAAIAAAABAAIAAAALAAMAAAADAAEAAAAJAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAFAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAADAAMAAAAAAAEAAAACAAMAAAAAAAEAAAABAAMAAAAAAAEAAAAAAAMAAAAAAAEAAAD//wMAAAAAAAEAAAD+/wMAAAABAAEAAAD+/wUAAAADAAAAAAA=")

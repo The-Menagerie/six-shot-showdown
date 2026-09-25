@@ -78,17 +78,17 @@ limit_bottom = 755
 
 [node name="Fuse" parent="." unique_id=61583169 instance=ExtResource("14_0t70p")]
 position = Vector2(10, -5)
-tile_map_data = PackedByteArray("AADv/y0AAAAAAAQAAADv/y4AAAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AADv/y0AAAAAAAQAAADv/y8AAAABAAMAAADv/y4AAAABAAEAAAA=")
 dynamite_player_explosion_impulse = 110.0
 
 [node name="Fuse2" parent="." unique_id=1709900039 instance=ExtResource("14_0t70p")]
 position = Vector2(9, -6)
-tile_map_data = PackedByteArray("AAAMACAAAAAAAAQAAAAMACEAAAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAMACAAAAAAAAQAAAAMACEAAAABAAEAAAAMACIAAAABAAMAAAA=")
 dynamite_player_explosion_impulse = 160.0
 
 [node name="Fuse3" parent="." unique_id=1170048583 instance=ExtResource("14_0t70p")]
 position = Vector2(5, -6)
-tile_map_data = PackedByteArray("AAAAAAsAAAAAAAQAAAAAAAwAAAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAsAAAAAAAQAAAAAAAwAAAABAAEAAAAAAA0AAAABAAMAAAA=")
 dynamite_player_explosion_impulse = 250.0
 
 [node name="Fuse4" parent="." unique_id=439421248 instance=ExtResource("14_0t70p")]
