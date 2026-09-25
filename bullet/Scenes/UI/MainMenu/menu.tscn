@@ -5,9 +5,94 @@
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="3_748jn"]
 [ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png" id="3_y6gmb"]
 [ext_resource type="AudioStream" uid="uid://b3y3f71hn07jt" path="res://Assets/Music/CowboyMenuSong.mp3" id="4_7udck"]
+[ext_resource type="PackedScene" uid="uid://bh5ngb3vwhpgr" path="res://Scenes/act_select.tscn" id="6_jo8uo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4osx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_srimb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActSelect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2000, 108)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(833, 367)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(653, 74)]
+}
+
+[sub_resource type="Animation" id="Animation_5cm7v"]
+resource_name = "act_select_slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActSelect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.83333325),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2000, 108), Vector2(192, 108)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(833, 367), Vector2(833, -1633)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(653, 74), Vector2(653, -1926)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sa3ks"]
+_data = {
+&"RESET": SubResource("Animation_srimb"),
+&"act_select_slide": SubResource("Animation_5cm7v")
+}
 
 [node name="Menu" type="Control" unique_id=1804501283]
 layout_mode = 3
@@ -36,9 +121,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -144.5
+offset_left = -307.0
 offset_top = 74.0
-offset_right = 144.5
+offset_right = 307.0
 offset_bottom = 190.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -58,10 +143,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -93.0
-offset_right = 57.0
-offset_bottom = 93.0
+offset_left = -127.0
+offset_top = -173.0
+offset_right = 127.0
+offset_bottom = 173.00049
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
@@ -126,6 +211,20 @@ text = "Exit"
 stream = ExtResource("4_7udck")
 volume_db = -10.0
 bus = &"music"
+
+[node name="ActSelectSlider" type="AnimationPlayer" parent="." unique_id=1859172442]
+libraries/ = SubResource("AnimationLibrary_sa3ks")
+
+[node name="ActSelect" parent="." unique_id=265526477 instance=ExtResource("6_jo8uo")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 1.1
+anchor_bottom = 1.1
+offset_left = -2192.0
+offset_right = -2192.0
+scale = Vector2(0.8, 0.8)
 
 [connection signal="pressed" from="ButtonContainer/Start" to="." method="start_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/Act Select" to="." method="_on_act_select_pressed"]

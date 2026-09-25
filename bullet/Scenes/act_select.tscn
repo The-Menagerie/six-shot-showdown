@@ -188,7 +188,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("alignment/BulletHolder/Bullet2/TextureRect:rotation")
+tracks/12/path = NodePath("alignment/BulletHolder/Bullet4/TextureRect:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -200,170 +200,26 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:modulate")
+tracks/13/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:rotation")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [-12.566371]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:rotation")
+tracks/14/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-12.566371]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("alignment/BulletHolder/Bullet3/TextureRect:rotation")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:modulate")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Color(1, 1, 1, 0)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:rotation")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-12.566371]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("alignment/BulletHolder/Bullet4/TextureRect:rotation")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:rotation")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-12.566371]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:modulate")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("alignment/BulletHolder/Bullet5/TextureRect:rotation")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:modulate")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:rotation")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-12.566371]
-}
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("alignment/BulletHolder/Bullet6/TextureRect:rotation")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/25/type = "value"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:modulate")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/26/type = "value"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:rotation")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-12.566371]
 }
 
 [sub_resource type="Animation" id="Animation_3htl0"]
@@ -381,42 +237,6 @@ tracks/0/keys = {
 "args": ["Bullet5"],
 "method": &"_change_bullet_image_during_animation"
 }]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("alignment/BulletHolder/Bullet5/TextureRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
 }
 
 [sub_resource type="Animation" id="Animation_n313f"]
@@ -553,42 +373,6 @@ tracks/0/keys = {
 "method": &"_change_bullet_image_during_animation"
 }]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("alignment/BulletHolder/Bullet6/TextureRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
 
 [sub_resource type="Animation" id="Animation_uftls"]
 resource_name = "bullet_three_change"
@@ -606,42 +390,6 @@ tracks/0/keys = {
 "method": &"_change_bullet_image_during_animation"
 }]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("alignment/BulletHolder/Bullet3/TextureRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
 
 [sub_resource type="Animation" id="Animation_53qv3"]
 resource_name = "bullet_two_change"
@@ -658,42 +406,6 @@ tracks/0/keys = {
 "args": ["Bullet2"],
 "method": &"_change_bullet_image_during_animation"
 }]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("alignment/BulletHolder/Bullet2/TextureRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172, -12.566371]
 }
 
 [sub_resource type="Animation" id="Animation_80tj5"]
@@ -766,11 +478,11 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("alignment/BulletHolder/Bullet2/TextureRect:rotation")
+tracks/4/path = NodePath("alignment/BulletHolder/Bullet4/TextureRect:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.0333333, 0.6333333),
+"times": PackedFloat32Array(0.1, 0.70000005),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -12.566370614359172]
@@ -778,11 +490,11 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:modulate")
+tracks/5/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.0333333, 0.2333333, 0.4333333, 0.6333333),
+"times": PackedFloat32Array(0.1, 0.29999998, 0.5, 0.70000005),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -790,155 +502,11 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("alignment/BulletHolder/Bullet2/SwirlOverlay:rotation")
+tracks/6/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.0333333, 0.6333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("alignment/BulletHolder/Bullet3/TextureRect:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.06666666, 0.6666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.06666666, 0.26666665, 0.46666667, 0.6666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("alignment/BulletHolder/Bullet3/SwirlOverlay:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0.06666666, 0.6666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("alignment/BulletHolder/Bullet4/TextureRect:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
 "times": PackedFloat32Array(0.1, 0.70000005),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0.1, 0.29999998, 0.5, 0.70000005),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("alignment/BulletHolder/Bullet4/SwirlOverlay:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0.1, 0.70000005),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("alignment/BulletHolder/Bullet5/TextureRect:rotation")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0.13333334, 0.73333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:modulate")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0.13333334, 0.3333333, 0.53333336, 0.73333335),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("alignment/BulletHolder/Bullet5/SwirlOverlay:rotation")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0.13333334, 0.73333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("alignment/BulletHolder/Bullet6/TextureRect:rotation")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0.16666667, 0.7666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -12.566370614359172]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:modulate")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0.16666667, 0.36666664, 0.5666667, 0.7666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("alignment/BulletHolder/Bullet6/SwirlOverlay:rotation")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0.16666667, 0.7666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -12.566370614359172]
@@ -1345,15 +913,48 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5g2v"]
-bg_color = Color(0.3327859, 0.25797874, 0.21324301, 1)
+bg_color = Color(0.33333334, 0.25882354, 0.21176471, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.8798556, 0.80480456, 0.42916796, 1)
+border_color = Color(0.8784314, 0.8039216, 0.42745098, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40fn5"]
+bg_color = Color(0.33333334, 0.25882354, 0.21176471, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8784314, 0.8039216, 0.42745098, 1)
+corner_radius_top_left = 50
+corner_radius_bottom_left = 50
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b7hp"]
+bg_color = Color(0.28197858, 0.14562088, 0.09109052, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8784314, 0.8039216, 0.42745098, 1)
+corner_radius_top_left = 50
+corner_radius_bottom_left = 50
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy3n0"]
+bg_color = Color(0.3647059, 0.19215687, 0.1254902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8784314, 0.8039216, 0.42745098, 1)
+corner_radius_top_left = 50
 corner_radius_bottom_left = 50
 corner_detail = 1
 
@@ -1373,10 +974,10 @@ act_level_paths = Array[String](["res://Scenes/Levels/Act 1/act1_lvl1.tscn", "re
 
 [node name="alignment" type="Control" parent="." unique_id=229077522]
 layout_mode = 1
-anchor_left = 0.67
-anchor_top = 0.55
-anchor_right = 0.67
-anchor_bottom = 0.55
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8, 8)
@@ -1502,15 +1103,15 @@ offset_right = 0.25
 offset_bottom = -59.25
 color = Color(0, 0, 0, 1)
 
-[node name="Bullet2" type="Control" parent="alignment/BulletHolder" unique_id=2107343635]
+[node name="Bullet2" type="Control" parent="alignment/BulletHolder" unique_id=926055492]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-rotation = 5.2359877
+rotation = 1.0471976
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=1513087909]
+[node name="TextureRect2" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=1348383615]
 use_parent_material = true
 layout_mode = 0
 offset_left = -44.0
@@ -1522,7 +1123,7 @@ pivot_offset = Vector2(44, 44)
 mouse_filter = 2
 texture = ExtResource("4_fgq86")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet2/TextureRect" unique_id=965728754]
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet2/TextureRect2" unique_id=1409391849]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1532,7 +1133,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=479768098]
+[node name="SwirlOverlay2" type="TextureRect" parent="alignment/BulletHolder/Bullet2" unique_id=593309270]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1547,15 +1148,15 @@ pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ru711")
 
-[node name="Bullet3" type="Control" parent="alignment/BulletHolder" unique_id=1943306581]
+[node name="Bullet3" type="Control" parent="alignment/BulletHolder" unique_id=31497768]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-rotation = 4.1887903
+rotation = 2.0943952
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=1299463582]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=549357315]
 use_parent_material = true
 layout_mode = 0
 offset_left = -44.0
@@ -1567,7 +1168,7 @@ pivot_offset = Vector2(44, 44)
 mouse_filter = 2
 texture = ExtResource("5_t6bsl")
 
-[node name="@ColorRect@115805" type="ColorRect" parent="alignment/BulletHolder/Bullet3/TextureRect" unique_id=118843472]
+[node name="_ColorRect_115805" type="ColorRect" parent="alignment/BulletHolder/Bullet3/TextureRect" unique_id=928484961]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1577,7 +1178,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=1233621530]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet3" unique_id=104857612]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1637,15 +1238,15 @@ pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ru711")
 
-[node name="Bullet5" type="Control" parent="alignment/BulletHolder" unique_id=31497768]
+[node name="Bullet5" type="Control" parent="alignment/BulletHolder" unique_id=1943306581]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-rotation = 2.0943952
+rotation = 4.1887903
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=1040118350]
+[node name="TextureRect2" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=1672571316]
 use_parent_material = true
 layout_mode = 0
 offset_left = -44.0
@@ -1657,7 +1258,7 @@ pivot_offset = Vector2(44, 44)
 mouse_filter = 2
 texture = ExtResource("5_ru711")
 
-[node name="@ColorRect@119403" type="ColorRect" parent="alignment/BulletHolder/Bullet5/TextureRect" unique_id=1287681666]
+[node name="_ColorRect_119403" type="ColorRect" parent="alignment/BulletHolder/Bullet5/TextureRect2" unique_id=1156698157]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1667,7 +1268,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=491164355]
+[node name="SwirlOverlay2" type="TextureRect" parent="alignment/BulletHolder/Bullet5" unique_id=410129394]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1682,15 +1283,15 @@ pivot_offset = Vector2(11, 11)
 mouse_filter = 2
 texture = ExtResource("3_ru711")
 
-[node name="Bullet6" type="Control" parent="alignment/BulletHolder" unique_id=926055492]
+[node name="Bullet6" type="Control" parent="alignment/BulletHolder" unique_id=2107343635]
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-rotation = 1.0471976
+rotation = 5.2359877
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=56896108]
+[node name="TextureRect" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=1036600515]
 use_parent_material = true
 layout_mode = 0
 offset_left = -44.0
@@ -1702,7 +1303,7 @@ pivot_offset = Vector2(44, 44)
 mouse_filter = 2
 texture = ExtResource("5_ru711")
 
-[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet6/TextureRect" unique_id=986571805]
+[node name="ColorRect" type="ColorRect" parent="alignment/BulletHolder/Bullet6/TextureRect" unique_id=801210644]
 visible = false
 z_index = -10
 layout_mode = 0
@@ -1712,7 +1313,7 @@ offset_right = 24.25
 offset_bottom = 23.75
 color = Color(0, 0, 0, 1)
 
-[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=2103737856]
+[node name="SwirlOverlay" type="TextureRect" parent="alignment/BulletHolder/Bullet6" unique_id=189614678]
 modulate = Color(1, 1, 1, 0)
 clip_children = 2
 use_parent_material = true
@@ -1870,7 +1471,8 @@ libraries/ = SubResource("AnimationLibrary_4v62u")
 propagate_maximum_size = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.333
+anchor_left = 0.08
+anchor_right = 0.41
 anchor_bottom = 1.0
 grow_vertical = 2
 theme_override_constants/margin_left = 40
@@ -1975,6 +1577,26 @@ texture_normal = ExtResource("14_ga0gs")
 texture_pressed = ExtResource("15_xrc8x")
 texture_hover = ExtResource("16_tx112")
 stretch_mode = 0
+
+[node name="BackButtonContainer" type="MarginContainer" parent="." unique_id=651623536]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 70
+
+[node name="BackButton" type="Button" parent="BackButtonContainer" unique_id=97672204]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8sgur")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxFlat_40fn5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4b7hp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oy3n0")
+text = "<"
 
 [connection signal="pressed" from="alignment/mask2/TextureButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="alignment/mask2/TextureButton2" to="." method="_on_right_button_pressed"]
