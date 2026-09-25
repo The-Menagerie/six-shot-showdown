@@ -61,3 +61,10 @@ func back_button_pressed() -> void:
 func _is_options_menu() -> bool:
 	var current_scene := get_tree().current_scene
 	return current_scene != null and current_scene.scene_file_path == OPTIONS_SCENE_PATH
+
+
+func _on_act_select_pressed() -> void:
+	$WoodenBlock.play()
+	await $WoodenBlock.finished
+	get_tree().change_scene_to_file("res://Scenes/act_select.tscn")
+	pass # Replace with function body.

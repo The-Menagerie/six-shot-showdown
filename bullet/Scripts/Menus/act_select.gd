@@ -15,14 +15,15 @@ var act_bullet_rotation_array = [0,60,120,180,240,300]
 
 var act_dictionary = {
 	1: {"name": "[b]Act 1: Cave Escape[/b]",
-	"description":"Yo"},
+	"description":"Head hurting you broke out of the Lack gang's restraints. Now it's high time to break the gang's hold on the caves. After that, the Town."},
 	2: {"name": "[b]Act 2: Town Showdown[/b]",
-	"description":"Yo"},
+	"description":"Free from the mines a chance encounter witha  veiled figure gives you the perfect tool to rid the town of the Lack's gang."},
 	3: {"name": "[b]Act 3: The Ravine[/b]",
-	"description":"Yo"}
+	"description":"You watch the last of the gang flee the town heading towards the distant ravines. This time revenge finds its way to the heart of the gang."}
 }
+var act_scenes = []
 
-@export var act_levels: Array[String]
+@export var act_level_paths: Array[String]
 
 
 # @onready var bullet_name_holder: Control = $BulletNameHolder
@@ -31,9 +32,15 @@ var act_dictionary = {
 @onready var alignment: Control = $alignment
 @onready var bullet_holder: Control = $alignment/BulletHolder
 @onready var chamber_sprite: Control = $alignment/VBoxContainer/TextureRect
-@onready var act_name: Control = $MarginContainer/VBoxContainer/ActName
-@onready var act_description: Control = $MarginContainer/VBoxContainer/ActDescription
+@onready var act_name: Control = $MarginContainer/ColorRect/MarginContainer/VBoxContainer/ActName
+@onready var act_description: Control = $MarginContainer/ColorRect/MarginContainer/VBoxContainer/ActDescription
 
+
+func _ready() -> void:
+	for i in act_level_paths:
+		var temp_scene = load(i)
+		act_scenes.append(temp_scene)
+	change_act_data(selected_act)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("left") and not Input.is_action_just_pressed("right"):
@@ -114,3 +121,11 @@ func change_act_data(act_num: int) -> void:
 		var act_data = act_dictionary[act_num]
 		act_name.text = act_data["name"]
 		act_description.text = act_data["description"]
+
+
+func _on_play_pressed() -> void:
+	if act_scenes[selected_act-1]:
+		ActManager.ActSelected = true
+		ActManager.SelectedAct = act_scenes[selected_act-1]
+	get_tree().change_scene_to_file("res://Scenes/main_game.tscn")
+	pass # Replace with function body.
