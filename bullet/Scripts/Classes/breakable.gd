@@ -16,10 +16,15 @@ var is_dying := false
 var scene_reset_queued := false
 var player_collision_enabled := true
 var player_collision_body: PhysicsBody2D
+var carried_drops: Array[Node2D] = []
 
 func _ready() -> void:
 	add_to_group("crush_object")
 	add_to_group("breakable")
+	for child in find_children("*", "Node2D", true, false):
+		if child.has_method("set_carried_state") and child.has_method("drop_from_carrier"):
+			carried_drops.append(child)
+			child.set_carried_state(true)
 	contact_monitor = true
 	max_contacts_reported = 8
 	body_entered.connect(_on_body_entered)
@@ -32,12 +37,34 @@ func handle_death() -> void:
 	set_deferred("freeze", true)
 	_disable_collisions()
 	_play_break_sound()
+	_drop_carried_items()
 	target_destroyed.emit(self)
 
 	var fade_tween = create_tween()
 	fade_tween.tween_property(self, "modulate:a", 0.0, fade_duration)
 	await fade_tween.finished
 	queue_free()
+
+func _drop_carried_items() -> void:
+	var parent := get_parent()
+	if parent == null:
+		return
+
+	for carried_drop in carried_drops:
+		if is_instance_valid(carried_drop):
+			call_deferred("_finish_drop_carried_item", carried_drop, parent, carried_drop.global_position)
+	carried_drops.clear()
+
+func _finish_drop_carried_item(drop_node: Node2D, parent: Node, drop_global_position: Vector2) -> void:
+	if not is_instance_valid(drop_node) or not is_instance_valid(parent):
+		return
+
+	var drop_parent := drop_node.get_parent()
+	if drop_parent != null:
+		drop_parent.remove_child(drop_node)
+	parent.add_child(drop_node)
+	drop_node.global_position = drop_global_position
+	drop_node.drop_from_carrier()
 
 func can_crush_enemy() -> bool:
 	return not is_dying and linear_velocity.y > crush_min_downward_speed
