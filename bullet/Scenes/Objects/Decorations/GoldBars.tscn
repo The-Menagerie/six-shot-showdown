@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://b5krgmf2u6f77" path="res://Assets/Images/Gold Bars.png" id="1_gold_bars"]
+
+[node name="GoldBars" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_gold_bars")
+offset = Vector2(0, -8)

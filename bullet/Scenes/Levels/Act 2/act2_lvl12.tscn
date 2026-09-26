@@ -14,9 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="11_tn8ua"]
 [ext_resource type="PackedScene" uid="uid://w2icp313ke2c" path="res://Scenes/Objects/Dynamite.tscn" id="12_p0yuq"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="14_bmnhf"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/GoldBars.tscn" id="14_q0ji0"]
+[ext_resource type="Texture2D" uid="uid://7ewrqy5p7j54" path="res://Assets/Images/Bank.png" id="16_fvd2o"]
+[ext_resource type="Texture2D" uid="uid://5k021156i33w" path="res://Assets/Images/Bank(Formal).png" id="17_tc7xi"]
 
-[node name="Act2Lvl12" type="Node2D" unique_id=718201387]
+[node name="Act2Lvl12" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_8m4ju")
+targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Enemy6"), NodePath("Enemy7"), NodePath("Enemy8")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl1.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
@@ -65,6 +69,15 @@ tile_set = ExtResource("5_p0yuq")
 z_index = -2
 position = Vector2(1, -18)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057127925]
+position = Vector2(173, -168)
+rotation = 0.08901179
+texture = ExtResource("16_fvd2o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=422801044]
+position = Vector2(988, 56)
+texture = ExtResource("17_tc7xi")
+
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("6_typq8")]
 position = Vector2(-317, 127)
 player_recoil_force = 205.0
@@ -81,6 +94,8 @@ limit_bottom = 325
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]
 
 [node name="Chamber" parent="CanvasLayer" unique_id=1884226542 instance=ExtResource("7_3v1j6")]
+offset_left = -2.0
+offset_right = -2.0
 bullet_pattern = Array[int]([3, 3, 3, 3, 3, 3])
 
 [node name="Dynamite5" parent="." unique_id=1520705311 instance=ExtResource("12_p0yuq")]
@@ -91,10 +106,6 @@ position = Vector2(0, 128)
 
 [node name="BulletSwap" parent="Crate4" unique_id=661340299 instance=ExtResource("9_3v1j6")]
 bullet_swap_target = 7
-
-[node name="LockBox" parent="." unique_id=1504117620 instance=ExtResource("8_bmnhf")]
-position = Vector2(712.00006, 104)
-scale = Vector2(3.5, 3.5)
 
 [node name="Platform" parent="." unique_id=1737485350 instance=ExtResource("9_odik1")]
 position = Vector2(192, -157)
@@ -156,3 +167,46 @@ position = Vector2(606, 151)
 
 [node name="Dynamite7" parent="." unique_id=726789481 instance=ExtResource("12_p0yuq")]
 position = Vector2(620, 133)
+
+[node name="GoldBars" parent="." unique_id=2032307501 instance=ExtResource("14_q0ji0")]
+position = Vector2(664, 121)
+
+[node name="GoldBars2" parent="." unique_id=1614784927 instance=ExtResource("14_q0ji0")]
+position = Vector2(679, 121)
+
+[node name="GoldBars3" parent="." unique_id=173752260 instance=ExtResource("14_q0ji0")]
+position = Vector2(671, 115)
+
+[node name="GoldBars4" parent="." unique_id=1602087845 instance=ExtResource("14_q0ji0")]
+position = Vector2(762, 104)
+
+[node name="GoldBars5" parent="." unique_id=735976461 instance=ExtResource("14_q0ji0")]
+position = Vector2(761, 72)
+
+[node name="GoldBars6" parent="." unique_id=1052765316 instance=ExtResource("14_q0ji0")]
+position = Vector2(747, 104)
+
+[node name="GoldBars7" parent="." unique_id=104585200 instance=ExtResource("14_q0ji0")]
+position = Vector2(754, 98)
+
+[node name="GoldBars8" parent="." unique_id=1474048673 instance=ExtResource("14_q0ji0")]
+position = Vector2(664, 72)
+
+[node name="GoldBars9" parent="." unique_id=690111368 instance=ExtResource("14_q0ji0")]
+position = Vector2(663, 160)
+
+[node name="GoldBars10" parent="." unique_id=68823163 instance=ExtResource("14_q0ji0")]
+position = Vector2(678, 160)
+
+[node name="GoldBars11" parent="." unique_id=1798039916 instance=ExtResource("14_q0ji0")]
+position = Vector2(693, 160)
+
+[node name="GoldBars12" parent="." unique_id=732349054 instance=ExtResource("14_q0ji0")]
+position = Vector2(670, 154)
+
+[node name="GoldBars13" parent="." unique_id=1276544581 instance=ExtResource("14_q0ji0")]
+position = Vector2(685, 154)
+
+[node name="LockBox" parent="." unique_id=1504117620 instance=ExtResource("8_bmnhf")]
+position = Vector2(712.00006, 104)
+scale = Vector2(3.5, 3.5)
