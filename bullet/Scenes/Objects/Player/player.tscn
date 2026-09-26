@@ -310,6 +310,9 @@ explosion_jump_combo_window = 0.3
 texture = ExtResource("2_kvv6r")
 hframes = 4
 vframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1653543074]
 position = Vector2(-2, 4)

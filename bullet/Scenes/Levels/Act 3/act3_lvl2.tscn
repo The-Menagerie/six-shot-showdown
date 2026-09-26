@@ -68,6 +68,9 @@ texture = ExtResource("6_m0w0j")
 hframes = 4
 vframes = 3
 frame = 6
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Sprite2D11" type="Sprite2D" parent="Decorations/Sprite2D11" unique_id=1165053234]
 position = Vector2(-126, -79)
@@ -75,6 +78,9 @@ texture = ExtResource("6_m0w0j")
 hframes = 4
 vframes = 3
 frame = 10
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Sprite2D11" type="Sprite2D" parent="Decorations/Sprite2D11/Sprite2D11" unique_id=558088446]
 position = Vector2(0, -113)
@@ -82,6 +88,9 @@ texture = ExtResource("6_m0w0j")
 hframes = 4
 vframes = 3
 frame = 10
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=79501271]
 position = Vector2(-82, 28)
@@ -89,6 +98,9 @@ texture = ExtResource("6_m0w0j")
 hframes = 4
 vframes = 3
 frame = 5
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 96)
+region_filter_clip_enabled = true
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("7_icxk5")]
 position = Vector2(-4, 6)

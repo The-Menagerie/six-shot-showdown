@@ -25,12 +25,18 @@ texture = ExtResource("2_dynamite_texture")
 hframes = 4
 vframes = 5
 frame = 13
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 160)
+region_filter_clip_enabled = true
 
 [node name="ExplosionSprite" type="Sprite2D" parent="." unique_id=1365855466]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_explosion_texture")
 hframes = 16
 frame = 12
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 64)
+region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1597547268]
 position = Vector2(0.5, 0.5)

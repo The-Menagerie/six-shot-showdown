@@ -19,3 +19,6 @@ single_use_key_texture = ExtResource("3_ghost_key")
 position = Vector2(16, 16)
 texture = ExtResource("2_key")
 vframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 96)
+region_filter_clip_enabled = true

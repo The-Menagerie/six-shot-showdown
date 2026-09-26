@@ -67,6 +67,9 @@ position = Vector2(6, -5)
 texture = ExtResource("1_byq6p")
 hframes = 4
 vframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 64)
+region_filter_clip_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=753339382]
 libraries/ = SubResource("AnimationLibrary_fqlw1")
