@@ -10,8 +10,10 @@ const BULLET_NAME_MIN_HEIGHT := 24.0
 @export var bullet_changer: Node
 @export var cylinder_rotator: Node
 
+@export var skip_speed = 3.0
+
 var selected_act = 1
-var act_bullet_rotation_array = [0,60,120,180,240,300]
+var act_bullet_rotation_array = [0,-60,-120,-180,-240,-300]
 
 var act_dictionary = {
 	1: {"name": "[b]Act 1: Cave Escape[/b]",
@@ -64,9 +66,11 @@ func move_left() -> void:
 			#if direction == "revolve_backwards":
 				#var distance_partial_rotated = fmod(cylinder_rotator.rotation_degrees,60.0)
 				#rotate_chamber(-60 - distance_partial_rotated)
-		selected_act += 1
-		if selected_act > 6:
-			selected_act -= 6
+		selected_act -= 1
+		if selected_act < 1:
+			selected_act += 6
+		if not act_dictionary.has(selected_act):
+			anim_player.speed_scale = skip_speed
 		anim_player.play_section("revolve")
 		change_act_data(selected_act)
 
@@ -85,9 +89,11 @@ func move_right() -> void:
 			#if direction == "revolve_backwards":
 				#var distance_partial_rotated = fmod(cylinder_rotator.rotation_degrees,60.0)
 				#rotate_chamber(-60 - distance_partial_rotated)
-		selected_act -= 1
-		if selected_act < 1:
-			selected_act += 6
+		selected_act += 1
+		if selected_act > 6:
+			selected_act -= 6
+		if not act_dictionary.has(selected_act):
+			anim_player.speed_scale = skip_speed
 		anim_player.play_section("revolve_backwards")
 		change_act_data(selected_act)
 
@@ -127,5 +133,15 @@ func _on_play_pressed() -> void:
 	if act_scenes[selected_act-1]:
 		ActManager.ActSelected = true
 		ActManager.SelectedAct = act_scenes[selected_act-1]
+	MusicManager.stop_music()
 	get_tree().change_scene_to_file("res://Scenes/main_game.tscn")
 	pass # Replace with function body.
+
+func validate_data(dir: String) -> void:
+	if not act_dictionary.has(selected_act):
+		if dir == "left":
+			move_left()
+		elif dir == "right":
+			move_right()
+	else:
+		anim_player.speed_scale = 1.0

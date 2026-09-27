@@ -8,9 +8,17 @@ const PLAYGROUND_EASTER_EGG := "play"
 var easter_egg_buffer := ""
 var menu_action_in_progress := false
 
+var ActSlider
+var ActSelect
+
 func _ready() -> void:
 	MusicManager.play_music(MENU_MUSIC, -10.0)
 	SettingsManager.focus_first_menu_control(self)
+	if $ActSelect:
+		ActSlider = $ActSelectSlider
+		ActSelect = $ActSelect
+		var back_button = $ActSelect/BackButtonContainer/BackButton
+		back_button.pressed.connect(on_back_pressed)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -93,5 +101,10 @@ func _is_options_menu() -> bool:
 func _on_act_select_pressed() -> void:
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
-	get_tree().change_scene_to_file("res://Scenes/act_select.tscn")
+	ActSlider.play("act_select_slide")
+	pass # Replace with function body.
+
+func on_back_pressed() -> void:
+	$WoodenBlock.play()
+	ActSlider.play_backwards("act_select_slide")
 	pass # Replace with function body.
