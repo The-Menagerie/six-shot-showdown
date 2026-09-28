@@ -999,7 +999,7 @@ name_changer = NodePath("NameFader")
 bullet_changer = NodePath("BulletChanger")
 cylinder_rotator = NodePath("alignment/BulletHolder")
 skip_speed = 2.75
-act_level_paths = Array[String](["res://Scenes/Levels/Act 1/act1_lvl1.tscn", "res://Scenes/Levels/Act 2/act2_lvl6.tscn", "res://Scenes/Levels/Act 3/act3_lvl1.tscn"])
+act_level_paths = Array[String](["res://Scenes/Levels/Act 1/act1_lvl1.tscn", "res://Scenes/Levels/Act 2/act2_lvl1.tscn", "res://Scenes/Levels/Act 3/act3_lvl1.tscn"])
 
 [node name="alignment" type="Control" parent="." unique_id=229077522]
 layout_mode = 1
