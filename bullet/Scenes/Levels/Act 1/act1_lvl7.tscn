@@ -123,9 +123,9 @@ vertical_recoil_scale = 0.45
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=288009827]
 position = Vector2(-1, -15)
 zoom = Vector2(4, 4)
-limit_left = -416
+limit_left = -411
 limit_top = -211
-limit_right = 432
+limit_right = 428
 limit_bottom = 247
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]

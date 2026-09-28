@@ -2,15 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://btadkvwru6byt" path="res://Scenes/Objects/Bullets/bullet.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://gmjqjgftep7l" path="res://Scripts/Bullets/fly_bullet.gd" id="2_script"]
-[ext_resource type="Texture2D" uid="uid://bbgfgu5bw3tyd" path="res://Assets/Images/SceneBullets/fly_bullet.png" id="3_texture"]
+[ext_resource type="Texture2D" uid="uid://dvbth2rh6yx40" path="res://Assets/Images/Bullets/FlyBullet.png" id="3_frq5r"]
+[ext_resource type="AudioStream" uid="uid://c4gfxiytx38vl" path="res://Assets/SoundEffects/FlyShoot.wav" id="4_shoot"]
+[ext_resource type="AudioStream" uid="uid://cid2k5ytn8kwj" path="res://Assets/SoundEffects/BirdShriek.wav" id="5_frq5r"]
 
 [node name="FlyBullet" unique_id=729225113 instance=ExtResource("1_base")]
 collision_mask = 1
 script = ExtResource("2_script")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1359081898]
-texture = ExtResource("3_texture")
+position = Vector2(0, -1)
+texture = ExtResource("3_frq5r")
 
 [node name="Area2D" parent="." index="2" unique_id=81985079]
 collision_layer = 1
 collision_mask = 1
+
+[node name="RicochetAudio" parent="." index="3" unique_id=91885689]
+stream = ExtResource("4_shoot")
+volume_db = -5.0
+pitch_scale = 2.0
+
+[node name="ShootAudio" parent="." index="4" unique_id=633659628]
+stream = ExtResource("4_shoot")
+
+[node name="Bird" type="AudioStreamPlayer" parent="." index="5" unique_id=1890458826]
+stream = ExtResource("5_frq5r")
+max_polyphony = 6
+bus = &"sfx"

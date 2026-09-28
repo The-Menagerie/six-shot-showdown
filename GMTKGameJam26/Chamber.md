@@ -1,2 +1,0 @@
-Bullets: Array
-CurrentBullet: Int

@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cnmfjwqsduuok"]
 
+[ext_resource type="Script" uid="uid://cx2niijh1soug" path="res://Scripts/Environmental/camera_expander.gd" id="11_w2u5i"]
+[ext_resource type="Script" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_n67pu"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="2_c3o7m"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="3_80vj0"]
@@ -10,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="9_c3o7m"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="10_80vj0"]
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="10_w2u5i"]
-[ext_resource type="Script" uid="uid://cx2niijh1soug" path="res://Scripts/Environmental/camera_expander.gd" id="11_w2u5i"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="12_pvl3i"]
 [ext_resource type="Texture2D" uid="uid://briqjcg1lmprf" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_4.png" id="13_lnpyt"]
 [ext_resource type="Texture2D" uid="uid://cmptnlgfim1x5" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_1.png" id="14_kf13l"]
@@ -181,6 +182,40 @@ position = Vector2(-842, -10)
 [node name="Crate4" parent="." unique_id=1419376844 instance=ExtResource("10_w2u5i")]
 position = Vector2(-843, -44)
 
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.05, 0.05)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="BackgroundParallaxLayer0Scroll" unique_id=503752645]
+z_index = -30
+position = Vector2(-718, 115)
+scale = Vector2(2.589815, 2.589815)
+texture = ExtResource("12_pvl3i")
+
+[node name="BackgroundParallaxLayer4Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer4" type="Sprite2D" parent="BackgroundParallaxLayer4Scroll" unique_id=459394908]
+z_index = -30
+position = Vector2(-821, -32)
+scale = Vector2(6.366667, 6.366667)
+texture = ExtResource("13_lnpyt")
+
+[node name="BackgroundParallaxLayer1Scroll" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("99_centered_parallax")
+
+[node name="BackgroundParallaxLayer1" type="Sprite2D" parent="BackgroundParallaxLayer1Scroll" unique_id=1229516325]
+z_index = -30
+position = Vector2(-739.00006, -8.000004)
+scale = Vector2(5.34, 5.34)
+texture = ExtResource("14_kf13l")
+
+[node name="Salun" type="Sprite2D" parent="." unique_id=1374504362]
+position = Vector2(-204, -63)
+texture = ExtResource("15_lnpyt")
+
 [node name="Camera_Expander" type="Area2D" parent="." unique_id=1354690788 node_paths=PackedStringArray("cam_node", "anim_player")]
 script = ExtResource("11_w2u5i")
 cam_node = NodePath("../Player/Camera2D")
@@ -192,27 +227,5 @@ shape = SubResource("RectangleShape2D_40fn5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera_Expander" unique_id=1189388554]
 libraries/ = SubResource("AnimationLibrary_jkjsh")
-
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=503752645]
-z_index = -30
-position = Vector2(-670.00006, -55.999996)
-scale = Vector2(6.4999976, 6.499998)
-texture = ExtResource("12_pvl3i")
-
-[node name="BackgroundParallaxLayer4" type="Sprite2D" parent="." unique_id=459394908]
-z_index = -30
-position = Vector2(-821, -32)
-scale = Vector2(6.366667, 6.366667)
-texture = ExtResource("13_lnpyt")
-
-[node name="BackgroundParallaxLayer1" type="Sprite2D" parent="." unique_id=1229516325]
-z_index = -30
-position = Vector2(-739.00006, -8.000004)
-scale = Vector2(5.34, 5.34)
-texture = ExtResource("14_kf13l")
-
-[node name="Salun" type="Sprite2D" parent="." unique_id=1374504362]
-position = Vector2(-204, -63)
-texture = ExtResource("15_lnpyt")
 
 [connection signal="body_entered" from="Camera_Expander" to="Camera_Expander" method="_on_body_entered"]

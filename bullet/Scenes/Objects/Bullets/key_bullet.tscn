@@ -2,10 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://btadkvwru6byt" path="res://Scenes/Objects/Bullets/bullet.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://45ajcvmmk46h" path="res://Scripts/Bullets/key_bullet.gd" id="2_script"]
-[ext_resource type="Texture2D" uid="uid://bfjegeug31j2p" path="res://Assets/Images/SceneBullets/key_bullet.png" id="3_texture"]
+[ext_resource type="Texture2D" uid="uid://cc65xmsf6m65b" path="res://Assets/Images/Bullets/KeyBullet.png" id="3_wolui"]
+[ext_resource type="AudioStream" uid="uid://bwbpwu3sg3rub" path="res://Assets/SoundEffects/KeyRicochet.wav" id="4_0tbtl"]
+[ext_resource type="AudioStream" uid="uid://cwmvo6xa8x1r8" path="res://Assets/SoundEffects/KeysShooting.wav" id="4_wolui"]
 
 [node name="KeyBullet" unique_id=1246326201 instance=ExtResource("1_base")]
 script = ExtResource("2_script")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1359081898]
-texture = ExtResource("3_texture")
+texture = ExtResource("3_wolui")
+
+[node name="RicochetAudio" parent="." index="3" unique_id=91885689]
+stream = ExtResource("4_0tbtl")
+volume_db = -10.0
+
+[node name="ShootAudio" parent="." index="4" unique_id=633659628]
+stream = ExtResource("4_wolui")
