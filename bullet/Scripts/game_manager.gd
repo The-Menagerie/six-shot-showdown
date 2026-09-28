@@ -54,13 +54,16 @@ func _process(_delta):
 func _apply_initial_level_selection() -> void:
 	if current_level == null:
 		return
-
-	if SettingsManager.skip_tutorial:
-		if first_level_scene != null and current_level.scene_file_path.get_file() != first_level_scene.resource_path.get_file():
-			change_level(first_level_scene)
-			return
-	elif tutorial_level_scene != null and current_level.scene_file_path.get_file() != tutorial_level_scene.resource_path.get_file():
-		change_level(tutorial_level_scene)
+	if ActManager.ActSelected == false:
+		if SettingsManager.skip_tutorial:
+			if first_level_scene != null and current_level.scene_file_path.get_file() != first_level_scene.resource_path.get_file():
+				change_level(first_level_scene)
+				return
+		elif tutorial_level_scene != null and current_level.scene_file_path.get_file() != tutorial_level_scene.resource_path.get_file():
+			change_level(tutorial_level_scene)
+	else:
+		if ActManager.SelectedAct != null and current_level.scene_file_path.get_file() != ActManager.SelectedAct.resource_path.get_file():
+			change_level(ActManager.SelectedAct)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if get_tree().paused:

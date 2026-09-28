@@ -46,6 +46,7 @@ BulletBus="*res://Scripts/bullet_bus.gd"
 ScoreBus="*res://Scripts/score_bus.gd"
 MusicManager="*res://Scripts/music_manager.gd"
 SettingsManager="*res://Scripts/settings_manager.gd"
+ActManager="*uid://drmn8im8xbida"
 
 [display]
 
