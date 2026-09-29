@@ -100,7 +100,6 @@ tile_set = ExtResource("7_vb6bx")
 
 [node name="Background2" type="TileMapLayer" parent="." unique_id=98857092]
 z_index = -20
-tile_map_data = PackedByteArray("AADi//T/BAACAAEAAADi//X/BAACAAEAAADi//b/BAACAAEAAADj//T/BAADAAEAAADj//X/BAADAAEAAADj//b/BAADAAEAAADk//T/BAAEAAEAAADk//X/BAAEAAEAAADk//b/BAAEAAEAAAA=")
 tile_set = ExtResource("7_vb6bx")
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_4mkqr")]
