@@ -20,7 +20,7 @@
 
 [node name="Act2Lvl5" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_m0k45")
-targets = [NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy"), NodePath("Target")]
+targets = [NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy"), NodePath("Target"), NodePath("Enemy4")]
 next_level_path = "res://Scenes/Levels/Act 2/act2_lvl6.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
@@ -39,7 +39,7 @@ script = ExtResource("2_tx5eb")
 
 [node name="BackgroundParallaxLayer3" type="Sprite2D" parent="BackgroundParallaxLayer3Scroll" unique_id=309395312]
 z_index = -30
-position = Vector2(83, 35)
+position = Vector2(41.000004, -21.000004)
 scale = Vector2(2.1758332, 2.1758332)
 texture = ExtResource("4_m0k45")
 
@@ -153,3 +153,6 @@ bullet_swap_target = 7
 [node name="ChamberSwap" parent="." unique_id=570067826 instance=ExtResource("16_dslvl")]
 position = Vector2(144, -72)
 chamber_swap_target = 5
+
+[node name="Enemy4" parent="." unique_id=630515949 instance=ExtResource("10_5me8s")]
+position = Vector2(200, 112)

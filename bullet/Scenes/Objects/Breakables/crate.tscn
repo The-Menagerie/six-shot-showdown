@@ -23,4 +23,3 @@ shape = SubResource("RectangleShape2D_xykdq")
 
 [node name="Break" parent="." index="5" unique_id=1851595839]
 stream = ExtResource("3_xykdq")
-bus = &"sfx"
