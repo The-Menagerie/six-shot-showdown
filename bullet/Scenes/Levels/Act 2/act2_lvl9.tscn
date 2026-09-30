@@ -109,6 +109,12 @@ position = Vector2(669, 172)
 [node name="GoldBars13" parent="Decorations" unique_id=1276544581 instance=ExtResource("16_n77n4")]
 position = Vector2(684, 172)
 
+[node name="GoldBars14" parent="Decorations" unique_id=1250365403 instance=ExtResource("16_n77n4")]
+position = Vector2(1096, 178)
+
+[node name="GoldBars15" parent="Decorations" unique_id=1423082842 instance=ExtResource("16_n77n4")]
+position = Vector2(1022, 178)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057127925]
 position = Vector2(173, -168)
 rotation = 0.08901179

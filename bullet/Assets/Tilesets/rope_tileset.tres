@@ -66,6 +66,10 @@ texture_region_size = Vector2i(32, 32)
 2:3/0/terrain_set = 0
 2:3/0/terrain = 0
 2:3/0/custom_data_0 = true
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/custom_data_0 = true
 
 [resource]
 physics_layer_0/collision_layer = 1

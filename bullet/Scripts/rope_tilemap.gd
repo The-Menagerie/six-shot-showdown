@@ -5,9 +5,11 @@ extends TileMapLayer
 const CRATE_TILE_COORDS := Vector2i(2, 0)
 const BOULDER_TILE_COORDS := Vector2i(3, 0)
 const KEY_TILE_COORDS := Vector2i(2, 3)
+const GHOST_KEY_TILE_COORDS := Vector2i(3, 3)
 const CRATE_SCENE := preload("res://Scenes/Objects/Breakables/crate.tscn")
 const BOULDER_SCENE := preload("res://Scenes/Objects/Boulder.tscn")
 const KEY_SCENE := preload("res://Scenes/Objects/PowerUps/Key.tscn")
+const GHOST_KEY_SCENE := preload("res://Scenes/Objects/PowerUps/ghost_key.tscn")
 
 @onready var break_audio: AudioStreamPlayer = $Break
 
@@ -29,7 +31,7 @@ func cut_along_segment(segment_start: Vector2, segment_end: Vector2, cut_toleran
 	if get_cell_source_id(cut_cell) == -1:
 		return false
 	
-	if get_cell_atlas_coords(cut_cell) in [CRATE_TILE_COORDS, BOULDER_TILE_COORDS, KEY_TILE_COORDS]:
+	if get_cell_atlas_coords(cut_cell) in [CRATE_TILE_COORDS, BOULDER_TILE_COORDS, KEY_TILE_COORDS, GHOST_KEY_TILE_COORDS]:
 		return false
 
 	_break_all_rope()
@@ -56,6 +58,8 @@ func _spawn_hanging_object_for_cell(parent_node: Node, cell: Vector2i) -> void:
 		spawned_node = BOULDER_SCENE.instantiate() as Node2D
 	elif atlas_coords == KEY_TILE_COORDS:
 		spawned_node = KEY_SCENE.instantiate() as Node2D
+	elif atlas_coords == GHOST_KEY_TILE_COORDS:
+		spawned_node = GHOST_KEY_SCENE.instantiate() as Node2D
 
 	if spawned_node == null:
 		return
