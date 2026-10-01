@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://doi5aeomulvu1" path="res://Assets/Images/Wheel.png" id="6_o3yqi"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="7_blwqu"]
 [ext_resource type="Texture2D" uid="uid://b5krgmf2u6f77" path="res://Assets/Images/Gold Bars.png" id="7_s6hsu"]
+[ext_resource type="Texture2D" uid="uid://b5mje64kp3mui" path="res://Assets/Images/Rail End.png" id="8_igc3o"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="8_sa06l"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="9_0q0jg"]
+[ext_resource type="Texture2D" uid="uid://c60unsihu5xa6" path="res://Assets/Images/Rail.png" id="9_43lkt"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="10_6qnm3"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="10_rkqhv"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="11_rkqhv"]
@@ -110,6 +112,46 @@ texture = ExtResource("7_s6hsu")
 [node name="GoldBars10" type="Sprite2D" parent="Decorations" unique_id=625484168]
 position = Vector2(-168, 8)
 texture = ExtResource("7_s6hsu")
+
+[node name="RailEnd" type="Sprite2D" parent="Decorations" unique_id=1345467926]
+position = Vector2(637, 0)
+texture = ExtResource("8_igc3o")
+
+[node name="Rail" type="Sprite2D" parent="Decorations" unique_id=177440270]
+position = Vector2(669, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail2" type="Sprite2D" parent="Decorations" unique_id=1471127050]
+position = Vector2(701, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail3" type="Sprite2D" parent="Decorations" unique_id=26190137]
+position = Vector2(733, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail4" type="Sprite2D" parent="Decorations" unique_id=1801948229]
+position = Vector2(765, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail5" type="Sprite2D" parent="Decorations" unique_id=1850362774]
+position = Vector2(797, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail6" type="Sprite2D" parent="Decorations" unique_id=1180966250]
+position = Vector2(829, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail7" type="Sprite2D" parent="Decorations" unique_id=2016416071]
+position = Vector2(861, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail8" type="Sprite2D" parent="Decorations" unique_id=1745702954]
+position = Vector2(893, 0)
+texture = ExtResource("9_43lkt")
+
+[node name="Rail9" type="Sprite2D" parent="Decorations" unique_id=1788582342]
+position = Vector2(925, 0)
+texture = ExtResource("9_43lkt")
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
 z_index = 5

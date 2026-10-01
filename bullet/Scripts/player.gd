@@ -30,6 +30,7 @@ var recoil_velocity : Vector2 = Vector2.ZERO
 var has_key := false
 var has_permanent_key := false
 var has_single_use_key := false
+var single_use_key_count := 0
 var flying := false
 var just_shot := false
 var is_dropping_through_platforms := false
@@ -220,20 +221,22 @@ func _has_recent_jump_input(current_time: float) -> bool:
 
 func collect_key(single_use := false) -> void:
 	if single_use:
+		single_use_key_count += 1
 		has_single_use_key = true
 	else:
 		has_permanent_key = true
 	has_key = true
-	BulletBus.player_key_changed.emit(has_key, has_single_use_key and not has_permanent_key)
+	BulletBus.player_key_changed.emit(has_key, has_single_use_key and not has_permanent_key, single_use_key_count)
 	# A key can be collected while already inside a door's unlock area.
 	get_tree().call_group_flags(SceneTree.GROUP_CALL_DEFERRED, "lock", "_try_unlock_for_body", self)
 
 func consume_key() -> void:
 	if has_permanent_key:
 		return
-	has_single_use_key = false
+	single_use_key_count = maxi(0, single_use_key_count - 1)
+	has_single_use_key = single_use_key_count > 0
 	has_key = has_permanent_key or has_single_use_key
-	BulletBus.player_key_changed.emit(has_key, has_single_use_key)
+	BulletBus.player_key_changed.emit(has_key, has_single_use_key, single_use_key_count)
 
 func _push_boulders() -> void:
 	for collision_index in range(get_slide_collision_count()):
