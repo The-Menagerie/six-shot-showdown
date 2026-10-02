@@ -71,7 +71,7 @@ func _try_damage_hitbox(area: Area2D) -> bool:
 	if not (swap_target is Node):
 		return false
 
-	var is_valid_swap_target := swap_target.is_in_group("enemy") or swap_target is breakable
+	var is_valid_swap_target := swap_target.is_in_group("enemy") or swap_target is breakable or "swapable" in swap_target
 	if not is_valid_swap_target:
 		return false
 
