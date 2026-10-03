@@ -13,7 +13,8 @@ extends RigidBody2D
 @onready var rolling_area: Area2D = $RollingArea
 
 var scene_reset_queued := false
-var swapable = true
+var swappable = true
+var last_frame_ang_speed = 0.0
 
 func _ready() -> void:
 	contact_monitor = true
@@ -26,6 +27,17 @@ func _physics_process(_delta: float) -> void:
 	_check_fall_attack_overlaps()
 	_check_roll_attack_overlaps()
 	
+	if abs(angular_velocity) > 20:
+		angular_velocity = (angular_velocity/abs(angular_velocity)) * 20
+		print(angular_velocity)
+	var current_vel = angular_velocity
+	var abs_diff = abs(current_vel - last_frame_ang_speed)
+	var a_dir = (current_vel - last_frame_ang_speed)/abs_diff
+	if abs_diff > 3.0:
+		if a_dir == 1:
+			angular_velocity = last_frame_ang_speed + 3.0
+		elif a_dir == -1:
+			angular_velocity = last_frame_ang_speed - 3.0
 func _on_attack_area_entered(area: Area2D) -> void:
 	_try_fall_attack(area)
 

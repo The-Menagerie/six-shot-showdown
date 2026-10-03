@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bpjnih2vfqndv" path="res://Scenes/Objects/Breakables/template_breakable.tscn" id="1_l1h5r"]
 [ext_resource type="Texture2D" uid="uid://dp2vl1ee4va0r" path="res://Assets/Images/Crate.png" id="2_bgs0j"]
+[ext_resource type="Script" uid="uid://ds8eecdlqpwry" path="res://Scripts/Environmental/crate.gd" id="2_nmpu0"]
 [ext_resource type="AudioStream" uid="uid://83mq5u7gl0m8" path="res://Assets/SoundEffects/WoodBreak.wav" id="3_xykdq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgs0j"]
@@ -11,6 +12,7 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="Crate" unique_id=1501267980 instance=ExtResource("1_l1h5r")]
+script = ExtResource("2_nmpu0")
 
 [node name="Sprite2D" parent="." index="0" unique_id=2134221960]
 texture = ExtResource("2_bgs0j")

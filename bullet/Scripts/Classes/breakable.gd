@@ -28,6 +28,10 @@ func _ready() -> void:
 	contact_monitor = true
 	max_contacts_reported = 8
 	body_entered.connect(_on_body_entered)
+	_after_ready()
+
+func _after_ready() -> void:
+	pass
 
 func handle_death() -> void:
 	if is_dying:
@@ -38,6 +42,7 @@ func handle_death() -> void:
 	_disable_collisions()
 	_play_break_sound()
 	_drop_carried_items()
+	_other_death_effects()
 	target_destroyed.emit(self)
 
 	var fade_tween = create_tween()
@@ -65,6 +70,9 @@ func _finish_drop_carried_item(drop_node: Node2D, parent: Node, drop_global_posi
 	parent.add_child(drop_node)
 	drop_node.global_position = drop_global_position
 	drop_node.drop_from_carrier()
+
+func _other_death_effects():
+	pass
 
 func can_crush_enemy() -> bool:
 	return not is_dying and linear_velocity.y > crush_min_downward_speed
