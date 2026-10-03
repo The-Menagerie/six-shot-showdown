@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_8hwy4"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="2_a0sc6"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="2_hib7f"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="2_uhav5"]
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="3_5kwnp"]
 [ext_resource type="Texture2D" uid="uid://b0jigyk4dpob3" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_5.png" id="3_rcvla"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_o1tgu"]
@@ -20,13 +21,20 @@ targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("
 next_level_path = "res://Scenes/Levels/Act 2/act2_lvl1.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=2147163451]
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=2087206197]
+scroll_scale = Vector2(0.05, 0.05)
+script = ExtResource("2_uhav5")
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="BackgroundParallaxLayer0Scroll" unique_id=1763508654]
 z_index = -30
-position = Vector2(-34, -57)
-scale = Vector2(2.3275, 2.3666666)
+position = Vector2(35.999996, -7)
 texture = ExtResource("2_a0sc6")
 
-[node name="BackgroundParallaxLayer5" type="Sprite2D" parent="." unique_id=726995174]
+[node name="BackgroundParallaxLayer3Scroll" type="Parallax2D" parent="." unique_id=1966070748]
+scroll_scale = Vector2(0.1, 0.067)
+script = ExtResource("2_uhav5")
+
+[node name="BackgroundParallaxLayer5" type="Sprite2D" parent="BackgroundParallaxLayer3Scroll" unique_id=726995174]
 z_index = -30
 position = Vector2(91, -134)
 scale = Vector2(1.7, 1.7000002)
@@ -80,16 +88,19 @@ limit_bottom = 755
 position = Vector2(10, -5)
 tile_map_data = PackedByteArray("AADv/y0AAAAAAAQAAADv/y8AAAABAAMAAADv/y4AAAABAAEAAAA=")
 dynamite_player_explosion_impulse = 110.0
+dynamite_player_minimum_launch_height = 160.0
 
 [node name="Fuse2" parent="." unique_id=1709900039 instance=ExtResource("14_0t70p")]
 position = Vector2(9, -6)
 tile_map_data = PackedByteArray("AAAMACAAAAAAAAQAAAAMACEAAAABAAEAAAAMACIAAAABAAMAAAA=")
 dynamite_player_explosion_impulse = 160.0
+dynamite_player_minimum_launch_height = 240.0
 
 [node name="Fuse3" parent="." unique_id=1170048583 instance=ExtResource("14_0t70p")]
 position = Vector2(5, -6)
 tile_map_data = PackedByteArray("AAAAAAsAAAAAAAQAAAAAAAwAAAABAAEAAAAAAA0AAAABAAMAAAA=")
 dynamite_player_explosion_impulse = 250.0
+dynamite_player_minimum_launch_height = 280.0
 
 [node name="Fuse4" parent="." unique_id=439421248 instance=ExtResource("14_0t70p")]
 tile_map_data = PackedByteArray("AAANAP7/AAAAAAMAADASAP7/AAAAAAMAADAIAP7/AAAAAAMAADADAPn/AAAAAAMAAAD+//v/AAAAAAMAAGAIAP//AAAAAAAAAAAKAP//AAAAAAAAAAAMAP//AAAAAAAAAAAOAP//AAAAAAAAAAAQAP//AAAAAAAAAAARAP//AAAAAAAAAAAGAP//AAAAAAEAAAAGAPj/AAACAAAAAAAGAPr/AAABAAEAAAAGAPz/AAABAAEAAAAEAPj/AAAAAAAAAAACAPj/AAAAAAAAAAAAAPj/AAAAAAAAAAD+//j/AAAAAAAAAAD9//v/AAAAAAEAAAD9//j/AAABAAAAAAD9//r/AAABAAEAAAAEAP3/AAAAAAQAAAAFAP3/AAADAAIAADAGAP3/AAABAAEAAAA=")

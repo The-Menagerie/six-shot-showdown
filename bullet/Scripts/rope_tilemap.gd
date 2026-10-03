@@ -31,7 +31,8 @@ func cut_along_segment(segment_start: Vector2, segment_end: Vector2, cut_toleran
 	if get_cell_source_id(cut_cell) == -1:
 		return false
 	
-	if get_cell_atlas_coords(cut_cell) in [CRATE_TILE_COORDS, BOULDER_TILE_COORDS, KEY_TILE_COORDS, GHOST_KEY_TILE_COORDS]:
+	# Hanging keys are part of the cuttable rope, including ghost keys.
+	if get_cell_atlas_coords(cut_cell) in [CRATE_TILE_COORDS, BOULDER_TILE_COORDS]:
 		return false
 
 	_break_all_rope()

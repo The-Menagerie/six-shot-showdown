@@ -37,6 +37,7 @@ var is_dropping_through_platforms := false
 var last_explosion_knockback_frame := -1
 var last_explosion_knockback_impulse := Vector2.ZERO
 var pending_explosion_knockback := Vector2.ZERO
+var pending_explosion_minimum_height := 0.0
 var last_jump_input_time := -999.0
 var last_applied_explosion_knockback_time := -999.0
 var last_applied_explosion_knockback_impulse := Vector2.ZERO
@@ -67,11 +68,11 @@ func _physics_process(delta):
 
 	if jump_pressed:
 		_apply_recent_explosion_jump_combo(current_time)
-	_apply_pending_explosion_knockback(current_time)
 	
 	if just_shot:
 		velocity.y += recoil_velocity.y*2
 		just_shot = false
+	_apply_pending_explosion_knockback(current_time)
 
 	recoil_velocity = recoil_velocity.move_toward(Vector2.ZERO, recoil_velocity_decay * delta)
 	velocity.x = move_input * move_speed + recoil_velocity.x
@@ -176,8 +177,8 @@ func apply_player_kickback(aim_vector: Vector2, recoil_multiplier: float = 1.0):
 	recoil_velocity += recoil_impulse
 	just_shot = true
 
-func apply_explosion_knockback(impulse: Vector2) -> void:
-	if impulse == Vector2.ZERO:
+func apply_explosion_knockback(impulse: Vector2, minimum_launch_height: float = 0.0) -> void:
+	if impulse == Vector2.ZERO and minimum_launch_height <= 0.0:
 		return
 
 	var current_frame := Engine.get_physics_frames()
@@ -186,11 +187,12 @@ func apply_explosion_knockback(impulse: Vector2) -> void:
 			impulse = last_explosion_knockback_impulse
 
 	pending_explosion_knockback = impulse
+	pending_explosion_minimum_height = maxf(pending_explosion_minimum_height, minimum_launch_height)
 	last_explosion_knockback_frame = current_frame
 	last_explosion_knockback_impulse = impulse
 
 func _apply_pending_explosion_knockback(current_time: float) -> void:
-	if pending_explosion_knockback == Vector2.ZERO:
+	if pending_explosion_knockback == Vector2.ZERO and pending_explosion_minimum_height <= 0.0:
 		return
 
 	var impulse := pending_explosion_knockback
@@ -200,9 +202,14 @@ func _apply_pending_explosion_knockback(current_time: float) -> void:
 
 	recoil_velocity += Vector2(impulse.x, 0.0)
 	velocity.y += impulse.y
+	if pending_explosion_minimum_height > 0.0 and gravity > 0.0:
+		# v^2 = 2gh: cancel downward momentum and guarantee at least this rise.
+		var minimum_upward_speed := sqrt(2.0 * gravity * pending_explosion_minimum_height)
+		velocity.y = minf(velocity.y, -minimum_upward_speed)
 	last_applied_explosion_knockback_time = current_time
 	last_applied_explosion_knockback_impulse = impulse
 	pending_explosion_knockback = Vector2.ZERO
+	pending_explosion_minimum_height = 0.0
 
 func _apply_recent_explosion_jump_combo(current_time: float) -> void:
 	if last_explosion_jump_combo_time == last_applied_explosion_knockback_time:

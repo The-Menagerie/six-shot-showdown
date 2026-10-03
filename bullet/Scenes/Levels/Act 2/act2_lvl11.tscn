@@ -45,7 +45,7 @@ texture = ExtResource("3_je45x")
 [node name="BackgroundParallaxLayer3Scroll" type="Parallax2D" parent="." unique_id=1532481772]
 scroll_scale = Vector2(0.1, 0.067)
 repeat_size = Vector2(745.3334, 0)
-autoscroll = Vector2(-72, 0)
+autoscroll = Vector2(-60, 0)
 repeat_times = 6
 script = ExtResource("2_w12ci")
 
@@ -58,7 +58,7 @@ texture = ExtResource("4_xpebe")
 [node name="BackgroundParallaxLayer2Scroll" type="Parallax2D" parent="." unique_id=134170389]
 scroll_scale = Vector2(0.1, 0.067)
 repeat_size = Vector2(785.3333, 0)
-autoscroll = Vector2(-120, 0)
+autoscroll = Vector2(-80, 0)
 repeat_times = 6
 script = ExtResource("2_w12ci")
 
@@ -70,7 +70,7 @@ texture = ExtResource("5_k4kbu")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1103362837]
 repeat_size = Vector2(785.333, 0)
-autoscroll = Vector2(-60, 0)
+autoscroll = Vector2(-120, 0)
 repeat_times = 3
 
 [node name="Rail" type="Sprite2D" parent="Parallax2D" unique_id=1548112591]

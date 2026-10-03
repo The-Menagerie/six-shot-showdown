@@ -407,6 +407,7 @@ position = Vector2(-178, -201)
 
 [node name="GhostKey2" parent="." unique_id=1580874137 instance=ExtResource("13_m83un")]
 position = Vector2(48, -14)
+pickup_delay = 0.1
 
 [node name="Key3" parent="." unique_id=660126778 instance=ExtResource("12_6ei5d")]
 position = Vector2(141, -12)
