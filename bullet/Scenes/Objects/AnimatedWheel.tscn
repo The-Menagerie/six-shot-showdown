@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dsi78p5w3xo1q"]
+
+[ext_resource type="Texture2D" uid="uid://crpukqtpgsff5" path="res://Assets/Images/WheelAnimation.png" id="1_xfha1"]
+
+[sub_resource type="Animation" id="Animation_1rpbn"]
+resource_name = "MovingRight"
+length = 0.6666667
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08647509, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_07c6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dse8"]
+_data = {
+&"MovingRight": SubResource("Animation_1rpbn"),
+&"RESET": SubResource("Animation_07c6d")
+}
+
+[node name="AnimatedWheel" type="Node2D" unique_id=2030789777]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1542160169]
+texture = ExtResource("1_xfha1")
+hframes = 2
+vframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 128)
+region_filter_clip_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1672484633]
+autoplay = "MovingRight"
+libraries/ = SubResource("AnimationLibrary_6dse8")

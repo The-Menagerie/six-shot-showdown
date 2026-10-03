@@ -14,6 +14,8 @@ extends TileMapLayer
 @export var spent_trigger_atlas_coords := Vector2i(1, 4)
 @export var trigger_interaction_size := Vector2(24, 24)
 @export var dynamite_player_explosion_impulse: float = 150.0
+## Minimum unobstructed rise in world pixels, measured from the player's launch position. Zero disables it.
+@export_range(0.0, 1000.0, 1.0, "or_greater", "suffix:px") var dynamite_player_minimum_launch_height := 0.0
 @export var dynamite_player_explosion_radius: float = 96.0
 @export var dynamite_player_explosion_horizontal_scale: float = 0.25
 @export var dynamite_player_explosion_upward_bias: float = 0.85
@@ -269,6 +271,8 @@ func _is_trigger_cell(cell: Vector2i) -> bool:
 	return trigger_tile_atlas_coords.has(get_cell_atlas_coords(cell))
 
 func _configure_dynamite_player_launch(dynamite: Node) -> void:
+	if "player_minimum_launch_height" in dynamite:
+		dynamite.player_minimum_launch_height = dynamite_player_minimum_launch_height
 	if "player_explosion_impulse" in dynamite:
 		dynamite.player_explosion_impulse = dynamite_player_explosion_impulse
 	if "player_explosion_radius" in dynamite:
@@ -289,7 +293,7 @@ func _launch_players_from_trigger(cell: Vector2i) -> void:
 
 		var impulse := _get_player_launch_impulse(launch_origin, (player as Node2D).global_position)
 		if player.has_method("apply_explosion_knockback"):
-			player.apply_explosion_knockback(impulse)
+			player.apply_explosion_knockback(impulse, dynamite_player_minimum_launch_height)
 
 func _get_player_launch_impulse(launch_origin: Vector2, player_position: Vector2) -> Vector2:
 	var launch_direction := player_position - launch_origin

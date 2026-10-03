@@ -3,7 +3,8 @@ extends RigidBody2D
 @export var attack_damage := 999.0
 @export var attack_height_margin := 6.0
 @export var bullet_knockback := 35.0
-@export var crush_min_downward_speed := 5.0
+## Minimum downward speed in pixels/second to damage hitboxes or crush the player.
+@export var crush_min_downward_speed := 20.0
 @export var player_push_impulse := 4.0
 @export var player_bottom_push_impulse := 3.0
 
@@ -28,7 +29,7 @@ func _check_fall_attack_overlaps() -> void:
 		_try_fall_attack(area)
 
 func _try_fall_attack(area: Area2D) -> void:
-	if linear_velocity.y <= 0.0:
+	if linear_velocity.y <= crush_min_downward_speed:
 		return
 	if not area.is_in_group("hitbox"):
 		return

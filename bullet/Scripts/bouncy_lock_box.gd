@@ -15,9 +15,6 @@ func _ready() -> void:
 	super._ready()
 	_randomize_idle_animation_start()
 
-func _bullet_entered_check(body: Node2D) -> void:
-	try_unlock_key_bullet(body)
-
 func _on_unlocked() -> void:
 	_spawn_bouncy_burst()
 	_apply_bouncy_burst_knockback()

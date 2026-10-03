@@ -7,6 +7,8 @@ extends RigidBody2D
 @export var explosion_damage: float = 10.0
 @export var explosion_impulse: float = 150.0
 @export var player_explosion_impulse: float = 150.0
+## Minimum unobstructed player rise in world pixels. Zero preserves impulse-only launches.
+@export_range(0.0, 1000.0, 1.0, "or_greater", "suffix:px") var player_minimum_launch_height := 0.0
 @export var player_explosion_radius: float = 48.0
 @export var player_explosion_horizontal_scale: float = 0.25
 @export var player_explosion_upward_bias: float = 0.85
@@ -278,7 +280,7 @@ func _apply_explosion_impulse(collider: Node) -> void:
 		impulse_direction.y = minf(impulse_direction.y, -player_explosion_upward_bias)
 		var impulse := impulse_direction.normalized() * player_explosion_impulse
 		if character.has_method("apply_explosion_knockback"):
-			character.apply_explosion_knockback(impulse)
+			character.apply_explosion_knockback(impulse, player_minimum_launch_height)
 		else:
 			character.velocity += impulse
 

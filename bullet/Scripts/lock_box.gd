@@ -15,7 +15,9 @@ var is_unlocked := false
 func _ready() -> void:
 	add_to_group("lock")
 	unlock_area.body_entered.connect(_on_body_entered)
-	bullet_unlock.body_entered.connect(_bullet_entered_check)
+	# Key bullets unlock through their swept collision with WallBody. This larger
+	# proximity area overlaps adjacent locks and can consume a shot aimed elsewhere.
+	bullet_unlock.monitoring = false
 
 func _on_body_entered(body: Node2D) -> void:
 	# Wait until all door overlaps for this physics frame are available.
@@ -71,9 +73,6 @@ func _standing_priority(body: Node2D) -> int:
 	if local_position.y < wall_bounds.position.y and local_position.x >= wall_bounds.position.x and local_position.x <= wall_bounds.end.x:
 		return 1
 	return 0
-
-func _bullet_entered_check(body: Node2D) -> void:
-	try_unlock_key_bullet(body)
 
 func try_unlock_key_bullet(body: Node2D, _bounce_normal := Vector2.ZERO) -> bool:
 	if body == null or is_unlocked or body.is_queued_for_deletion():

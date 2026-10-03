@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3xqvjp4k877u" path="res://Scripts/key_indicator.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://8a0143eg1fn2" path="res://Assets/Images/PowerUps/Key.png" id="2_key"]
 [ext_resource type="Texture2D" uid="uid://dfcjpqnivx0q4" path="res://Assets/Images/PowerUps/GhostKey.png" id="3_ghost_key"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Rye-Regular.ttf" id="4_font"]
 
 [node name="KeyIndicator" type="Control" unique_id=1290417318]
 layout_mode = 3
@@ -22,3 +23,18 @@ vframes = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 96)
 region_filter_clip_enabled = true
+
+[node name="Count" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 12.0
+offset_right = 62.0
+offset_bottom = 32.0
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 38
+text = "x2"

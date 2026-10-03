@@ -14,7 +14,7 @@
 [node name="Act2Lvl8" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_jix2o")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4")]
-next_level_path = "res://Scenes/Levels/Act 3/act3_lvl1.tscn"
+next_level_path = "res://Scenes/Levels/Act 2/act2_lvl9.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=1705099618]
@@ -100,7 +100,6 @@ tile_set = ExtResource("7_vb6bx")
 
 [node name="Background2" type="TileMapLayer" parent="." unique_id=98857092]
 z_index = -20
-tile_map_data = PackedByteArray("AADi//T/BAACAAEAAADi//X/BAACAAEAAADi//b/BAACAAEAAADj//T/BAADAAEAAADj//X/BAADAAEAAADj//b/BAADAAEAAADk//T/BAAEAAEAAADk//X/BAAEAAEAAADk//b/BAAEAAEAAAA=")
 tile_set = ExtResource("7_vb6bx")
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_4mkqr")]

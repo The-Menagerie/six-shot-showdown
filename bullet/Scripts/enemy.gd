@@ -23,6 +23,7 @@ signal target_destroyed(target)
 const DEATH_SOUND = preload("res://Assets/SoundEffects/EnemyDeath.wav")
 const PIERCING_DEATH_SOUND = preload("res://Assets/SoundEffects/PiercingEnemyDeath.wav")
 const DEATH_ANIMATION_DURATION := 0.4
+const GAG_EFFECT = preload("res://Scripts/enemy_gag_effect.gd")
 
 var is_dying := false
 var knockedback := false
@@ -83,11 +84,6 @@ func _physics_process(delta):
 		else:
 			_update_combat_fire(delta)
 		
-		if not is_on_floor():
-			velocity.y += gravity * delta
-		else:
-			velocity.y = 0.0
-
 		if is_in_combat:
 			velocity.x = 0.0
 		else:
@@ -98,17 +94,20 @@ func _physics_process(delta):
 			if is_patrolling and _has_hazard_ahead():
 				velocity.x = 0.0
 	
+	# Apply normal gravity to launches too, preserving an upward impulse on takeoff.
+	if not is_on_floor() or velocity.y < 0.0:
+		velocity.y += gravity * delta
+	else:
+		velocity.y = 0.0
 	move_and_slide()
 	_check_crush_overlaps()
+	if is_dying:
+		return
 	
 	if knockedback:
-		if not is_on_floor():
-			velocity.y += gravity/5 * delta
-		else:
-			velocity.y = 0.0
 		if velocity.x != 0.0:
 			velocity.x = velocity.x * (1-knockback_drag)
-		if velocity.length() < knockback_end_velocity:
+		if is_on_floor() and velocity.length() < knockback_end_velocity:
 			knockedback = false
 			
 	if not is_in_combat and is_on_wall() and is_patrolling:
@@ -133,6 +132,29 @@ func handle_death():
 	_play_death_sound()
 	_drop_shotgun(death_velocity)
 	_drop_carried_items()
+	await get_tree().create_timer(DEATH_ANIMATION_DURATION).timeout
+	target_destroyed.emit(self)
+	queue_free()
+
+func handle_gag_death(destination: Vector2, tiny_scale: float, fall_speed: float, spin_speed: float, lifetime: float, effect_z_index: int = -10, horizontal_drift_speed: float = 0.0) -> void:
+	if is_dying:
+		return
+	is_dying = true
+	_disable_collisions()
+	# Item reparenting must happen outside the physics overlap callback.
+	_finish_gag_death.call_deferred(destination, tiny_scale, fall_speed, spin_speed, lifetime, effect_z_index, horizontal_drift_speed)
+
+func _finish_gag_death(destination: Vector2, tiny_scale: float, fall_speed: float, spin_speed: float, lifetime: float, effect_z_index: int, horizontal_drift_speed: float) -> void:
+	var sprite := get_node_or_null("Sprite2D") as Sprite2D
+	if sprite != null:
+		var effect := GAG_EFFECT.new()
+		get_parent().add_child(effect)
+		effect.play(sprite, destination, tiny_scale, fall_speed, spin_speed, lifetime, effect_z_index, horizontal_drift_speed)
+	hide()
+	alert_audio.stop()
+	_drop_shotgun(velocity)
+	_drop_carried_items()
+	velocity = Vector2.ZERO
 	await get_tree().create_timer(DEATH_ANIMATION_DURATION).timeout
 	target_destroyed.emit(self)
 	queue_free()
