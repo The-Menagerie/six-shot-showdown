@@ -33,6 +33,7 @@ texture = ExtResource("2_yop3b")
 
 [node name="BackgroundParallaxLayer5Scroll" type="Parallax2D" parent="." unique_id=261251151]
 scroll_scale = Vector2(0.1, 0.067)
+scroll_offset = Vector2(0, 6)
 script = ExtResource("99_centered_parallax")
 
 [node name="BackgroundParallaxLayer5" type="Sprite2D" parent="BackgroundParallaxLayer5Scroll" unique_id=1250594054]
