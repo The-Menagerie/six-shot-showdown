@@ -11,6 +11,22 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0euh8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_selected_tab"]
+content_margin_left = 28.0
+content_margin_top = 8.0
+content_margin_right = 28.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.15)
+border_width_bottom = 3
+border_color = Color(0.9098039, 0.4, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unselected_tab"]
+content_margin_left = 28.0
+content_margin_top = 8.0
+content_margin_right = 28.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0)
+
 [node name="TempScoreScene" type="Control" unique_id=471598541]
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1888738055]
+layer = 20
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2129187607]
 anchors_preset = 15
@@ -31,12 +48,10 @@ texture = ExtResource("1_w06ly")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=943280875]
 anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.25
-anchor_right = 0.75
-anchor_bottom = 0.75
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_left = 0.15
+anchor_top = 0.15
+anchor_right = 0.85
+anchor_bottom = 0.85
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=1447452877]
 layout_mode = 1
@@ -67,25 +82,37 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_48pco")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "CONGRATULATIONS"
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Container" unique_id=802530807]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("1_48pco")
-text = "You beat the gang and kept"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Panel/Container" unique_id=1703278290]
 layout_mode = 2
 
-[node name="Score" type="Label" parent="CanvasLayer/Panel/Container" unique_id=845003210 node_paths=PackedStringArray("sayin_label", "stats_label")]
+[node name="ScoreTabs" type="TabBar" parent="CanvasLayer/Panel/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 2
+theme_override_fonts/font = ExtResource("1_48pco")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_selected_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_selected_tab")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_unselected_tab")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_unselected_tab")
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_0euh8")
+clip_tabs = false
+tab_count = 2
+current_tab = 0
+tab_0/title = "Recent"
+tab_1/title = "Best"
+
+[node name="Score" type="Label" parent="CanvasLayer/Panel/Container" unique_id=845003210 node_paths=PackedStringArray("sayin_label", "stats_label", "act_scores_container")]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_48pco")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "0 Reputation"
 horizontal_alignment = 1
 script = ExtResource("2_0euh8")
@@ -93,6 +120,35 @@ reset_level = ExtResource("5_6jp05")
 tutorial_level = ExtResource("3_tut01")
 sayin_label = NodePath("../SayinLabel")
 stats_label = NodePath("../StatsLabel")
+act_scores_container = NodePath("../ActScores")
+
+[node name="ActScores" type="HBoxContainer" parent="CanvasLayer/Panel/Container"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Act1" type="Label" parent="CanvasLayer/Panel/Container/ActScores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_48pco")
+theme_override_font_sizes/font_size = 28
+text = "Act 1 Recent\nUnplayed"
+horizontal_alignment = 1
+
+[node name="Act2" type="Label" parent="CanvasLayer/Panel/Container/ActScores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_48pco")
+theme_override_font_sizes/font_size = 28
+text = "Act 2 Recent\nUnplayed"
+horizontal_alignment = 1
+
+[node name="Act3" type="Label" parent="CanvasLayer/Panel/Container/ActScores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_48pco")
+theme_override_font_sizes/font_size = 28
+text = "Act 3 Recent\nUnplayed"
+horizontal_alignment = 1
 
 [node name="StatsLabel" type="Label" parent="CanvasLayer/Panel/Container" unique_id=284110003]
 layout_mode = 2
@@ -142,11 +198,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0euh8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0euh8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_0euh8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0euh8")
-text = "Wanna Quit?"
+text = "Return to Main Menu"
 
 [node name="WoodenBlock" type="AudioStreamPlayer" parent="." unique_id=64770076]
 stream = ExtResource("5_y3xw1")
 bus = &"sfx"
 
+[connection signal="tab_changed" from="CanvasLayer/Panel/Container/ScoreTabs" to="CanvasLayer/Panel/Container/Score" method="_on_score_tab_changed"]
 [connection signal="pressed" from="CanvasLayer/Panel/Container/Start" to="CanvasLayer/Panel/Container/Score" method="restart_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/Container/Quit" to="CanvasLayer/Panel/Container/Score" method="exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Container/Quit" to="CanvasLayer/Panel/Container/Score" method="main_menu_button_pressed"]

@@ -1,0 +1,166 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu/profile_menu.gd" id="1_script"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Rye-Regular.ttf" id="2_font"]
+[ext_resource type="Texture2D" path="res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png" id="3_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clear"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
+content_margin_left = 32.0
+content_margin_top = 30.0
+content_margin_right = 32.0
+content_margin_bottom = 24.0
+texture = ExtResource("3_panel")
+region_rect = Rect2(0, 0, 100, 100)
+texture_margin_left = 20.0
+texture_margin_top = 35.0
+texture_margin_right = 20.0
+texture_margin_bottom = 35.0
+
+[sub_resource type="Theme" id="Theme_profiles"]
+default_font = ExtResource("2_font")
+default_font_size = 24
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.9098039, 0.4, 0.2901961, 1)
+Button/colors/font_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
+Button/colors/font_hover_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_clear")
+Button/styles/hover = SubResource("StyleBoxFlat_clear")
+Button/styles/pressed = SubResource("StyleBoxFlat_clear")
+Button/styles/focus = SubResource("StyleBoxFlat_clear")
+
+[node name="ProfileButton" type="Button"]
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 260.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.4, 0.2901961, 1)
+theme_override_colors/font_pressed_color = Color(0.8784314, 0.34901962, 0.23921569, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_clear")
+theme_override_styles/hover = SubResource("StyleBoxFlat_clear")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_clear")
+theme_override_styles/focus = SubResource("StyleBoxFlat_clear")
+text = "Profile 1"
+script = ExtResource("1_script")
+
+[node name="Profiles" type="AcceptDialog" parent="."]
+title = "Profiles"
+exclusive = true
+popup_window = true
+size = Vector2i(780, 440)
+borderless = true
+theme = SubResource("Theme_profiles")
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+ok_button_text = "Close"
+
+[node name="Content" type="VBoxContainer" parent="Profiles"]
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Profiles/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Profiles"
+horizontal_alignment = 1
+
+[node name="Slots" type="GridContainer" parent="Profiles/Content"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 24
+columns = 3
+
+[node name="Slot1" type="Label" parent="Profiles/Content/Slots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Profile 1"
+
+[node name="Select1" type="Button" parent="Profiles/Content/Slots"]
+layout_mode = 2
+text = "Select"
+
+[node name="Delete1" type="Button" parent="Profiles/Content/Slots"]
+layout_mode = 2
+text = "Delete"
+
+[node name="Slot2" type="Label" parent="Profiles/Content/Slots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Profile 2"
+
+[node name="Select2" type="Button" parent="Profiles/Content/Slots"]
+layout_mode = 2
+text = "Select"
+
+[node name="Delete2" type="Button" parent="Profiles/Content/Slots"]
+layout_mode = 2
+text = "Delete"
+
+[node name="Slot3" type="Label" parent="Profiles/Content/Slots"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Profile 3"
+
+[node name="Select3" type="Button" parent="Profiles/Content/Slots"]
+layout_mode = 2
+text = "Select"
+
+[node name="Delete3" type="Button" parent="Profiles/Content/Slots"]
+layout_mode = 2
+text = "Delete"
+
+[node name="Status" type="Label" parent="Profiles/Content"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Confirmation" type="ConfirmationDialog" parent="Profiles"]
+title = "Delete Profile"
+exclusive = true
+popup_window = true
+size = Vector2i(680, 400)
+borderless = true
+theme = SubResource("Theme_profiles")
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+dialog_hide_on_ok = false
+ok_button_text = "Delete"
+cancel_button_text = "Cancel"
+
+[node name="Content" type="VBoxContainer" parent="Profiles/Confirmation"]
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Profiles/Confirmation/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Delete Profile"
+horizontal_alignment = 1
+
+[node name="Warning" type="Label" parent="Profiles/Confirmation/Content"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="ConfirmationInput" type="LineEdit" parent="Profiles/Confirmation/Content"]
+layout_mode = 2
+placeholder_text = "CONFIRM"
+
+[node name="ErrorLabel" type="Label" parent="Profiles/Confirmation/Content"]
+visible = false
+layout_mode = 2
+autowrap_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="confirmed" from="Profiles" to="." method="_on_closed"]
+[connection signal="canceled" from="Profiles" to="." method="_on_closed"]
+[connection signal="confirmed" from="Profiles/Confirmation" to="." method="_on_confirmed"]
+[connection signal="canceled" from="Profiles/Confirmation" to="." method="_on_delete_canceled"]
+[connection signal="text_changed" from="Profiles/Confirmation/Content/ConfirmationInput" to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="Profiles/Confirmation/Content/ConfirmationInput" to="." method="_on_text_submitted"]

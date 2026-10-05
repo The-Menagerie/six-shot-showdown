@@ -18,8 +18,9 @@ signal level_changed(level_path: String)
 
 const TUTORIAL_LEVEL_DIRECTORY := "res://Scenes/Levels/Tutorial/"
 const GAME_LEVEL_DIRECTORY := "res://Scenes/Levels/"
-const SCOREBOARD_SCENE_PATH := "res://Scenes/UI/temp_score_scene.tscn"
-const MAX_LEVEL_CHAIN_DEPTH := 64
+const END_ACT_SCENE = preload("res://Scenes/UI/end_of_act.tscn")
+const CREDITS_SCENE = preload("res://Scenes/UI/credits.tscn")
+const MENU_MUSIC = preload("res://Assets/Music/CowboyMenuSong.mp3")
 const DEBUG_PREVIOUS_LEVEL_KEY := KEY_F1
 const DEBUG_NEXT_LEVEL_KEY := KEY_F2
 
@@ -27,6 +28,9 @@ var is_bullet_time_active := false
 var is_level_reset_queued := false
 var is_level_transition_active := false
 var bullet_time_overlay_tween: Tween
+var completed_act_number := 0
+var next_act_scene: PackedScene
+var _game_music_enabled := true
 @onready var music_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var bullet_time_overlay: ColorRect = $CanvasLayer/BulletTimeOverlay
 @onready var transition_overlay: ColorRect = $CanvasLayer/TransitionOverlay
@@ -49,6 +53,8 @@ func _ready():
 	call_deferred("_play_initial_level_intro")
 
 func _process(_delta):
+	if _is_post_act_screen():
+		return
 	_update_bullet_time()
 
 func _apply_initial_level_selection() -> void:
@@ -66,6 +72,8 @@ func _apply_initial_level_selection() -> void:
 			change_level(ActManager.SelectedAct)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _is_post_act_screen():
+		return
 	if get_tree().paused:
 		return
 	if is_level_transition_active or is_level_reset_queued:
@@ -85,17 +93,37 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func change_level(level: PackedScene) -> void:
 	var new_level = level.instantiate()
+	if level == END_ACT_SCENE:
+		new_level.configure_act_result(completed_act_number, ScoreBus.current_score, next_act_scene)
+	if level == END_ACT_SCENE or level == CREDITS_SCENE:
+		Engine.time_scale = 1.0
+		is_bullet_time_active = false
+		_set_bullet_time_overlay_intensity(0.0)
+		_apply_audio_pitch_scale_to_subtree(self)
 	call_deferred("add_child",new_level)
 	current_level.queue_free()
 	current_level = new_level
 	call_deferred("_emit_level_changed")
 
 func transition_to_level(level: PackedScene, fade_out_duration: float) -> void:
-	if is_level_transition_active:
+	if is_level_transition_active or level == null:
 		return
 
+	if current_level != null:
+		var completed_act: int = ActManager.get_completed_act_for_transition(current_level.scene_file_path, level.resource_path)
+		ActManager.record_level_completion(current_level.scene_file_path, level.resource_path)
+		if completed_act > 0:
+			completed_act_number = completed_act
+			next_act_scene = CREDITS_SCENE if completed_act == 3 else level
+			level = END_ACT_SCENE
 	is_level_transition_active = true
 	call_deferred("_run_level_transition", level, fade_out_duration)
+
+func _is_end_of_act_screen() -> bool:
+	return current_level != null and current_level.scene_file_path == END_ACT_SCENE.resource_path
+
+func _is_post_act_screen() -> bool:
+	return _is_end_of_act_screen() or (current_level != null and current_level.scene_file_path == CREDITS_SCENE.resource_path)
 
 func reset_current_level() -> void:
 	if is_level_reset_queued:
@@ -140,6 +168,7 @@ func _update_bullet_time():
 
 
 func _exit_tree():
+	ActManager.end_act_attempt()
 	Engine.time_scale = 1.0
 	is_bullet_time_active = false
 	_apply_audio_pitch_scale_to_subtree(self)
@@ -149,8 +178,20 @@ func _emit_level_changed() -> void:
 	if current_level == null:
 		return
 
+	if current_level.scene_file_path == CREDITS_SCENE.resource_path:
+		_game_music_enabled = false
+		if is_instance_valid(music_player):
+			music_player.stop()
+		MusicManager.play_music(MENU_MUSIC, -10.0)
+	elif is_gameplay_level_path(current_level.scene_file_path) or is_tutorial_level_path(current_level.scene_file_path):
+		_game_music_enabled = true
+		MusicManager.stop_music()
+		if is_instance_valid(music_player) and not music_player.playing:
+			music_player.play()
+
 	_apply_audio_pitch_scale_to_subtree(current_level)
 	BulletBus.player_key_changed.emit(false, false, 0)
+	ActManager.begin_level(current_level.scene_file_path)
 	level_changed.emit(current_level.scene_file_path)
 
 func configure_audio_player_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
@@ -226,7 +267,7 @@ func _get_bullet_time_overlay_intensity() -> float:
 	return float(overlay_material.get_shader_parameter("intensity"))
 
 func _on_music_finished() -> void:
-	if is_instance_valid(music_player):
+	if _game_music_enabled and is_instance_valid(music_player):
 		music_player.play()
 
 func _run_level_transition(level: PackedScene, fade_out_duration: float) -> void:
@@ -247,7 +288,13 @@ func _run_level_transition(level: PackedScene, fade_out_duration: float) -> void
 	change_level(level)
 	await get_tree().process_frame
 
-	await _play_transition_fade_in(level.resource_path)
+	if level == END_ACT_SCENE or level == CREDITS_SCENE:
+		if is_instance_valid(transition_overlay):
+			transition_overlay.hide()
+		if is_instance_valid(transition_text):
+			transition_text.hide()
+	else:
+		await _play_transition_fade_in(level.resource_path)
 
 	is_level_transition_active = false
 
@@ -278,13 +325,14 @@ func _update_transition_text_for_path(level_path: String) -> void:
 		transition_text.hide()
 		return
 
-	var minutes_until_showdown := _get_remaining_gameplay_level_count(level_path)
-	if minutes_until_showdown < 1:
+	var level_pattern := RegEx.new()
+	level_pattern.compile("^act([0-9]+)_lvl([0-9]+)$")
+	var level_match := level_pattern.search(level_name.get_basename())
+	if level_match == null:
 		transition_text.hide()
 		return
 
-	var minute_label: String = "Minute" if minutes_until_showdown == 1 else "Minutes"
-	transition_text.text = "%d %s til Showdown" % [minutes_until_showdown, minute_label]
+	transition_text.text = "Act %d Level %d" % [int(level_match.get_string(1)), int(level_match.get_string(2))]
 	transition_text.show()
 
 func _play_initial_level_intro() -> void:
@@ -327,25 +375,6 @@ func is_gameplay_level_path(level_path: String) -> bool:
 
 func is_first_gameplay_level_path(level_path: String) -> bool:
 	return first_level_scene != null and level_path == first_level_scene.resource_path
-
-func _get_remaining_gameplay_level_count(level_path: String) -> int:
-	if not is_gameplay_level_path(level_path):
-		return 0
-
-	var visited_paths: Dictionary = {}
-	var current_path := level_path
-	var remaining_count := 0
-
-	while is_gameplay_level_path(current_path) and not visited_paths.has(current_path) and remaining_count < MAX_LEVEL_CHAIN_DEPTH:
-		visited_paths[current_path] = true
-		remaining_count += 1
-
-		var next_path := _get_next_level_path_for_scene(current_path)
-		if next_path.is_empty() or next_path == SCOREBOARD_SCENE_PATH:
-			break
-		current_path = next_path
-
-	return remaining_count
 
 func _get_next_level_path_for_scene(level_path: String) -> String:
 	var scene := load(level_path) as PackedScene

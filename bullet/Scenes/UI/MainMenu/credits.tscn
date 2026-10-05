@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/UI/credits.tscn" id="1_credits"]
+
+[node name="MenuCredits" instance=ExtResource("1_credits")]
+opened_from_menu = true
+
+[node name="Skip" parent="CanvasLayer"]
+text = "Menu"

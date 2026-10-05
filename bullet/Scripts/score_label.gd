@@ -14,7 +14,7 @@ const SHADOW_COLOR := Color(0.0, 0.0, 0.0, 0.85)
 const SHADOW_OFFSET := Vector2i(3, 3)
 
 func _ready() -> void:
-	ScoreBus.score_update.connect(update_score)
+	ScoreBus.score_changed.connect(update_score)
 	ScoreBus.score_loss_indicator.connect(show_score_loss_indicator)
 	hide()
 	text = "Score: %d" % score
@@ -26,12 +26,8 @@ func _ready() -> void:
 
 	popup_parent = get_parent()
 
-func update_score(score_change: int) -> void:
-	if not score_enabled:
-		return
-
-	score += score_change
-	score = max(score, 0)
+func update_score(new_score: int) -> void:
+	score = new_score
 	text = "Score: %d" % score
 
 func show_score_loss_indicator(amount: int) -> void:
@@ -67,16 +63,8 @@ func _on_level_changed(level_path: String) -> void:
 	var level_name := level_path.get_file()
 	current_level_number = _get_level_number(level_name)
 
-	if _is_first_gameplay_level(level_path):
-		if not ScoreBus.is_run_active():
-			ScoreBus.start_run()
-			score = ScoreBus.starting_score
-		score_enabled = true
-		show()
-		text = "Score: %d" % score
-		return
-
 	if _is_gameplay_level(level_path):
+		update_score(ScoreBus.current_score)
 		score_enabled = true
 		show()
 		text = "Score: %d" % score
@@ -90,9 +78,6 @@ func _get_level_number(level_name: String) -> int:
 		return 0
 
 	return int(level_name.trim_prefix("lvl_").trim_suffix(".tscn"))
-
-func _is_first_gameplay_level(level_path: String) -> bool:
-	return game_manager != null and game_manager.has_method("is_first_gameplay_level_path") and game_manager.is_first_gameplay_level_path(level_path)
 
 func _is_gameplay_level(level_path: String) -> bool:
 	return game_manager != null and game_manager.has_method("is_gameplay_level_path") and game_manager.is_gameplay_level_path(level_path)

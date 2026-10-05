@@ -13,8 +13,9 @@ var ActSelect
 
 func _ready() -> void:
 	MusicManager.play_music(MENU_MUSIC, -10.0)
+	_update_continue_visibility()
 	SettingsManager.focus_first_menu_control(self)
-	if $ActSelect:
+	if get_node_or_null("ActSelect") != null:
 		ActSlider = $ActSelectSlider
 		ActSelect = $ActSelect
 		var back_button = $ActSelect/BackButtonContainer/BackButton
@@ -44,12 +45,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			get_tree().change_scene_to_file(PLAYGROUND_SCENE_PATH)
 
-func start_button_pressed() -> void:
+func new_game_button_pressed() -> void:
 	if menu_action_in_progress:
 		return
 	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
+	ActManager.ActSelected = false
+	ActManager.SelectedAct = null
 	ScoreBus.reset_run_stats()
 	if SettingsManager.skip_cutscenes:
 		MusicManager.stop_music()
@@ -64,6 +67,22 @@ func options_button_pressed() -> void:
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/options.tscn")
+
+func credits_button_pressed() -> void:
+	if menu_action_in_progress:
+		return
+	menu_action_in_progress = true
+	$WoodenBlock.play()
+	await $WoodenBlock.finished
+	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/credits.tscn")
+
+func statistics_button_pressed() -> void:
+	if menu_action_in_progress or not ActManager.has_completed_game():
+		return
+	menu_action_in_progress = true
+	$WoodenBlock.play()
+	await $WoodenBlock.finished
+	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/statistics.tscn")
 
 func exit_button_pressed() -> void:
 	if menu_action_in_progress:
@@ -98,7 +117,9 @@ func _is_options_menu() -> bool:
 	return current_scene != null and current_scene.scene_file_path == OPTIONS_SCENE_PATH
 
 
-func _on_act_select_pressed() -> void:
+func continue_button_pressed() -> void:
+	if not ActManager.is_act_unlocked(2):
+		return
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
 	ActSlider.play("act_select_slide")
@@ -108,3 +129,26 @@ func on_back_pressed() -> void:
 	$WoodenBlock.play()
 	ActSlider.play_backwards("act_select_slide")
 	pass # Replace with function body.
+
+func _on_profiles_opened() -> void:
+	ActSelect.set_process(false)
+
+func _on_profiles_closed() -> void:
+	ActSelect.set_process(true)
+
+func _on_profile_changed() -> void:
+	_update_continue_visibility()
+	ActSelect.anim_player.stop()
+	ActSelect.anim_player.speed_scale = 1.0
+	ActSelect.chamber_sprite.texture.region = Rect2(0, 0, 128, 128)
+	ActSelect.cylinder_rotator.rotation_degrees = 0.0
+	ActSelect.selected_act = 1
+	ActSelect.change_act_data(1)
+
+func _update_continue_visibility() -> void:
+	var continue_button := get_node_or_null("ButtonContainer/Continue") as Button
+	if continue_button != null:
+		continue_button.visible = ActManager.is_act_unlocked(2)
+	var statistics_button := get_node_or_null("ButtonContainer/Statistics") as Button
+	if statistics_button != null:
+		statistics_button.visible = ActManager.has_completed_game()

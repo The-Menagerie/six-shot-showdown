@@ -22,6 +22,9 @@ func open_menu() -> void:
 	await $AnimationPlayer.animation_finished
 
 func _input(event) -> void:
+	var game_manager := get_tree().root.find_child("MainGame", true, false)
+	if game_manager != null and game_manager.has_method("_is_post_act_screen") and game_manager._is_post_act_screen():
+		return
 	if SettingsManager.is_capturing_binding:
 		return
 	var options_menu := get_parent().get_node_or_null("OptionsPauseMenu")

@@ -5,4 +5,5 @@
 [node name="VolumeSlider" type="HSlider" unique_id=1203919283]
 max_value = 1.0
 step = 0.001
+value = 0.8
 script = ExtResource("1_he84p")
