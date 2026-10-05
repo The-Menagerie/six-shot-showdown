@@ -314,6 +314,9 @@ func _set_flying_state(enabled: bool) -> void:
 	for node in get_tree().get_nodes_in_group("breakable"):
 		if node.has_method("set_player_collision_enabled"):
 			node.set_player_collision_enabled(not enabled, self)
+	for node in get_tree().get_nodes_in_group("enemy"):
+		if node.has_method("set_player_collision_enabled"):
+			node.set_player_collision_enabled(not enabled, self)
 
 func ram_through() -> void:
 	var hit_areas: Dictionary = {}
