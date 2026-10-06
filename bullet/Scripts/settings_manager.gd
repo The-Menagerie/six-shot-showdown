@@ -31,8 +31,8 @@ const INPUT_DEVICE_AXIS_THRESHOLD := 0.2
 
 @export var reticle_edge_padding : float = 4.0
 
-var reticle = load("res://Assets/Tilesets/StrangeCowboy/Player/reticle_norm.png")
-var reticle_clicked = load("res://Assets/Tilesets/StrangeCowboy/Player/reticle_clicked.png")
+var reticle = load("res://Assets/TO BE REPLACED/StrangeCowboy/Player/reticle_norm.png")
+var reticle_clicked = load("res://Assets/TO BE REPLACED/StrangeCowboy/Player/reticle_clicked.png")
 
 var skip_tutorial := false
 var skip_cutscenes := false

@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://nojbbl16gbrd"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_nxelu"]
-[ext_resource type="Texture2D" uid="uid://6d20e1f5dvq" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_3.png" id="2_djl8y"]
-[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="3_acm3o"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="4_p3x8e"]
+[ext_resource type="Texture2D" uid="uid://6d20e1f5dvq" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_3.png" id="2_djl8y"]
+[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_0.png" id="3_acm3o"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="4_p3x8e"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="6_jty17"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="7_6ei5d"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="7_nxelu"]

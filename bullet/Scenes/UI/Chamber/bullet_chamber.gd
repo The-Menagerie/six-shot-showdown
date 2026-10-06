@@ -20,47 +20,47 @@ var bullet_change_animation_dictionary = {
 var bullet_dictionary = {
 	5:  {
 		bullet_name = "Regular Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/regular_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/regular_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/bullet.tscn"),
 		},
 	4: {
 		bullet_name = "Rubber Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/rubber_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/rubber_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/rubber_bullet.tscn"),
 	},
 	3: {
 		bullet_name = "Piercing Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/piercing_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/piercing_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/piercing_bullet.tscn"),
 	},
 	2: {
 		bullet_name = "Fly Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/fly_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/fly_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/fly_bullet.tscn"),
 	},
 	1: {
 		bullet_name = "Swap Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/swap_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/swap_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/swap_bullet.tscn"),
 	},
 	6: {
 		bullet_name = "Fire Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/fire_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/fire_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/fire_bullet.tscn"),
 	},
 	7: {
 		bullet_name = "Key Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/key_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/key_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/key_bullet.tscn"),
 	},
 	8: {
 		bullet_name = "Ice Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/ice_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/ice_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/ice_bullet.tscn"),
 	},
 	99: {
 		bullet_name = "Sad Bullet",
-		chamber_scene = "res://Assets/Images/ChamberBullets/sad_bullet.png",
+		chamber_scene = "res://Assets/Images/Chamber/sad_bullet.png",
 		combat_scene = preload("res://Scenes/Objects/Bullets/bullet.tscn"),
 	}
 }
@@ -100,8 +100,9 @@ var is_refilling := false
 @onready var bullet_holder: Control = $alignment/BulletHolder
 
 func _ready() -> void:
-	BulletBus.bullet_swap.connect(_change_current_bullet)
-	BulletBus.chamber_swap.connect(_change_chamber)
+	if not Engine.is_editor_hint():
+		BulletBus.bullet_swap.connect(_change_current_bullet)
+		BulletBus.chamber_swap.connect(_change_chamber)
 	#var screen_dimensions = get_viewport().get_visible_rect()
 	#var screen_x = screen_dimensions.size.x
 	#var screen_y = screen_dimensions.size.y

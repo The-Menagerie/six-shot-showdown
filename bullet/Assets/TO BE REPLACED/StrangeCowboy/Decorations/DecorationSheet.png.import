@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqj4uv01j3lss"
-path="res://.godot/imported/wood_tileset.png-879ec816da9c6942fed808653a248348.ctex"
+uid="uid://053bcm4syd57"
+path="res://.godot/imported/DecorationSheet.png-eb3cc0f06f5e9e3633c255247903002e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Tilemap/wood_tileset.png"
-dest_files=["res://.godot/imported/wood_tileset.png-879ec816da9c6942fed808653a248348.ctex"]
+source_file="res://Assets/TO BE REPLACED/StrangeCowboy/Decorations/DecorationSheet.png"
+dest_files=["res://.godot/imported/DecorationSheet.png-eb3cc0f06f5e9e3633c255247903002e.ctex"]
 
 [params]
 

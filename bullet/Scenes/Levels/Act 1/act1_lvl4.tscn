@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_em15n"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="4_lrbkr"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="5_ocngw"]
-[ext_resource type="TileSet" path="res://Assets/Tilesets/desert_tileset.tres" id="6_efxe8"]
+[ext_resource type="TileSet" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="6_efxe8"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_hd0kn"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_5m7mn"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_tivc3"]

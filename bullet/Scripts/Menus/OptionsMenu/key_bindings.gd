@@ -4,8 +4,8 @@ signal closed()
 
 @export var show_menu_background := true
 
-const MENU_BACKGROUND := preload("res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png")
-const MENU_PANEL := preload("res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png")
+const MENU_BACKGROUND := preload("res://Assets/Images/Tilemap/KeyboardAndMouse/MainMenuBackground.png")
+const MENU_PANEL := preload("res://Assets/Images/Tilemap/KeyboardAndMouse/PauseMenu.png")
 const BUTTON_SOUND := preload("res://Assets/SoundEffects/WoodenBlock.wav")
 const ACTION_LABELS := {
 	"left": "Move Left",

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dsi78p5w3xo1q"]
 
-[ext_resource type="Texture2D" uid="uid://crpukqtpgsff5" path="res://Assets/Images/WheelAnimation.png" id="1_xfha1"]
+[ext_resource type="Texture2D" uid="uid://4khcyqeqn0vm" path="res://Assets/Images/Decor/WheelAnimation.png" id="1_xfha1"]
 
 [sub_resource type="Animation" id="Animation_1rpbn"]
 resource_name = "MovingRight"

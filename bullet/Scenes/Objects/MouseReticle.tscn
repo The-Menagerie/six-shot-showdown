@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgs2nqomu7gma"]
 
-[ext_resource type="Texture2D" uid="uid://bnyjmpa8xa0xq" path="res://Assets/Tilesets/StrangeCowboy/Player/ReticleSheet.png" id="1_jc7s7"]
+[ext_resource type="Texture2D" uid="uid://bnyjmpa8xa0xq" path="res://Assets/TO BE REPLACED/StrangeCowboy/Player/ReticleSheet.png" id="1_jc7s7"]
 [ext_resource type="Script" uid="uid://bxia3gr3q1pu" path="res://Scripts/mouse_reticle.gd" id="2_8x9kc"]
 
 [sub_resource type="Animation" id="Animation_jc7s7"]

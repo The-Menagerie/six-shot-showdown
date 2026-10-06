@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" format=3 uid="uid://i28d0rfrfnfq"]
+[gd_resource type="TileSet" format=3 uid="uid://b3oy2fisc822f"]
 
-[ext_resource type="Texture2D" uid="uid://cndsupk77ayys" path="res://Assets/Tilesets/StrangeCowboy/Tilemap/GroundTilemap.png" id="1_o1kib"]
-[ext_resource type="Texture2D" uid="uid://s2yeyj2f7j87" path="res://Assets/Images/Abyss/abyss_spritesheet.png" id="2_xaitd"]
-[ext_resource type="Texture2D" uid="uid://bqj4uv01j3lss" path="res://Assets/Tilesets/wood_tileset.png" id="4_xaitd"]
-[ext_resource type="Texture2D" uid="uid://bxlo22b1uec25" path="res://Assets/Tilesets/stone_tileset.png" id="5_stone"]
-[ext_resource type="Texture2D" uid="uid://bkq1ygxf7wdg8" path="res://Assets/Tilesets/metal_tileset.png" id="6_metal"]
+[ext_resource type="Texture2D" uid="uid://cndsupk77ayys" path="res://Assets/Images/Tilemap/Terrain/GroundTilemap.png" id="1_o1kib"]
+[ext_resource type="Texture2D" uid="uid://s2yeyj2f7j87" path="res://Assets/Images/Tilemap/Abyss/abyss_spritesheet.png" id="2_xaitd"]
+[ext_resource type="Texture2D" uid="uid://bqj4uv01j3lss" path="res://Assets/Images/Tilemap/Terrain/wood_tileset.png" id="4_xaitd"]
+[ext_resource type="Texture2D" uid="uid://bxlo22b1uec25" path="res://Assets/Images/Tilemap/Terrain/stone_tileset.png" id="5_stone"]
+[ext_resource type="Texture2D" uid="uid://bkq1ygxf7wdg8" path="res://Assets/Images/Tilemap/Terrain/metal_tileset.png" id="6_metal"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htlyi"]
 resource_name = "Main Terrain"

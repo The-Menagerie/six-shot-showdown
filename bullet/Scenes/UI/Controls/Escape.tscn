@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://k56aqm7nswkl"]
 
 [ext_resource type="PackedScene" uid="uid://b3wausjj6n1mb" path="res://Scenes/UI/Controls/Control.tscn" id="1_koyxj"]
-[ext_resource type="Texture2D" uid="uid://b1xyyia0feuht" path="res://Assets/Tilesets/KeyboardAndMouse/keyboard/vertical_animation/escape.png" id="2_5gwn4"]
+[ext_resource type="Texture2D" uid="uid://b1xyyia0feuht" path="res://Assets/Images/Tilemap/KeyboardAndMouse/keyboard/vertical_animation/escape.png" id="2_5gwn4"]
 
 [node name="Escape" unique_id=941366614 instance=ExtResource("1_koyxj")]
 

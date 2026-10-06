@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_cdlr6"]
 [ext_resource type="PackedScene" uid="uid://cji6hd7veljn5" path="res://Scenes/Objects/Breakables/target.tscn" id="2_7gc1o"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="3_iopnk"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="4_8wgbi"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="3_iopnk"]
+[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/TO BE REPLACED/StrangeCowboy/Decorations/DecorationSheet.png" id="4_8wgbi"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="5_ssgps"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="6_ojy3o"]
 [ext_resource type="PackedScene" uid="uid://dteab80jwc6fh" path="res://Scenes/UI/Controls/Full Controls.tscn" id="7_t5ps5"]

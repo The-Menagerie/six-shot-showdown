@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func _on_continue_pressed() -> void:
 	MusicManager.stop_music()
-	get_tree().change_scene_to_file("res://Scenes/main_game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/main_game.tscn")
 	
 
 func _process(delta: float) -> void:

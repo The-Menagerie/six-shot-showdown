@@ -1,0 +1,175 @@
+bullet\Assets\Images\Tilemap\desert_tileset.tres: 4
+bullet\Assets\Images\Tilemap\Terrain\desert_tileset.tres: 5
+bullet\Scenes\Debug\debug_room.tscn: 1
+bullet\Scenes\Debug\debug_room_2.tscn: 1
+bullet\Scenes\Debug\debug_room_3.tscn: 1
+bullet\Scenes\Debug\debug_room_4.tscn: 1
+bullet\Scenes\Levels\playground.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl1.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl10.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl11.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl12.tscn: 3
+bullet\Scenes\Levels\Act 1\act1_lvl2.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl4.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl5.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl6.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl7.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl8.tscn: 1
+bullet\Scenes\Levels\Act 1\act1_lvl9.tscn: 1
+bullet\Scenes\Levels\Act 2\act2_lvl1.tscn: 3
+bullet\Scenes\Levels\Act 2\act2_lvl10.tscn: 7
+bullet\Scenes\Levels\Act 2\act2_lvl11.tscn: 6
+bullet\Scenes\Levels\Act 2\act2_lvl12.tscn: 6
+bullet\Scenes\Levels\Act 2\act2_lvl2.tscn: 3
+bullet\Scenes\Levels\Act 2\act2_lvl3.tscn: 3
+bullet\Scenes\Levels\Act 2\act2_lvl4.tscn: 3
+bullet\Scenes\Levels\Act 2\act2_lvl5.tscn: 3
+bullet\Scenes\Levels\Act 2\act2_lvl6.tscn: 3
+bullet\Scenes\Levels\Act 2\act2_lvl9.tscn: 5
+bullet\Scenes\Levels\Act 3\act3_lvl1.tscn: 3
+bullet\Scenes\Levels\Act 3\act3_lvl11.tscn: 5
+bullet\Scenes\Levels\Act 3\act3_lvl12.tscn: 5
+bullet\Scenes\Levels\Act 3\act3_lvl2.tscn: 5
+bullet\Scenes\Levels\Act 3\act3_lvl5.tscn: 5
+bullet\Scenes\Levels\Tutorial\tut_01.tscn: 2
+bullet\Scenes\Levels\Tutorial\tut_02.tscn: 2
+bullet\Scenes\Levels\Tutorial\tut_03.tscn: 2
+bullet\Scenes\Objects\Fuse.tscn: 1
+bullet\Scenes\Objects\Rope.tscn: 1
+bullet\Scenes\Objects\Spikes.tscn: 1
+bullet\Scenes\Objects\Breakables\target.tscn: 1
+bullet\Scenes\Objects\Decorations\AnimatedWheel.tscn: 1
+bullet\Scenes\Objects\Decorations\GoldBars.tscn: 1
+bullet\Scenes\Objects\Enemies\outlaw.tscn: 1
+bullet\Scenes\Objects\Player\player.tscn: 1
+bullet\Scenes\Objects\Player\revolver.tscn: 1
+bullet\Scenes\UI\act_score_screen.tscn: 2
+bullet\Scenes\UI\temp_score_scene.tscn: 2
+bullet\Scenes\UI\Controls\0.tscn: 1
+bullet\Scenes\UI\Controls\1.tscn: 1
+bullet\Scenes\UI\Controls\2.tscn: 1
+bullet\Scenes\UI\Controls\3.tscn: 1
+bullet\Scenes\UI\Controls\4.tscn: 1
+bullet\Scenes\UI\Controls\5.tscn: 1
+bullet\Scenes\UI\Controls\6.tscn: 1
+bullet\Scenes\UI\Controls\7.tscn: 1
+bullet\Scenes\UI\Controls\8.tscn: 1
+bullet\Scenes\UI\Controls\9.tscn: 1
+bullet\Scenes\UI\Controls\A.tscn: 1
+bullet\Scenes\UI\Controls\Alt.tscn: 1
+bullet\Scenes\UI\Controls\Apostrophe.tscn: 1
+bullet\Scenes\UI\Controls\B.tscn: 1
+bullet\Scenes\UI\Controls\BackSlash.tscn: 1
+bullet\Scenes\UI\Controls\Backspace.tscn: 1
+bullet\Scenes\UI\Controls\BracketLeft.tscn: 1
+bullet\Scenes\UI\Controls\BracketRight.tscn: 1
+bullet\Scenes\UI\Controls\C.tscn: 1
+bullet\Scenes\UI\Controls\Comma.tscn: 1
+bullet\Scenes\UI\Controls\ControllerA.tscn: 1
+bullet\Scenes\UI\Controls\ControllerB.tscn: 1
+bullet\Scenes\UI\Controls\ControllerDPadDown.tscn: 1
+bullet\Scenes\UI\Controls\ControllerDPadLeft.tscn: 1
+bullet\Scenes\UI\Controls\ControllerDPadRight.tscn: 1
+bullet\Scenes\UI\Controls\ControllerDPadUp.tscn: 1
+bullet\Scenes\UI\Controls\ControllerHome.tscn: 1
+bullet\Scenes\UI\Controls\ControllerL1.tscn: 1
+bullet\Scenes\UI\Controls\ControllerL2.tscn: 1
+bullet\Scenes\UI\Controls\ControllerL3.tscn: 1
+bullet\Scenes\UI\Controls\ControllerL4.tscn: 1
+bullet\Scenes\UI\Controls\ControllerL5.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLP.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickDown.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickDownLeft.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickDownRight.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickLeft.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickRight.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickUp.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickUpLeft.tscn: 1
+bullet\Scenes\UI\Controls\ControllerLStickUpRight.tscn: 1
+bullet\Scenes\UI\Controls\ControllerMenu.tscn: 1
+bullet\Scenes\UI\Controls\ControllerR1.tscn: 1
+bullet\Scenes\UI\Controls\ControllerR2.tscn: 1
+bullet\Scenes\UI\Controls\ControllerR3.tscn: 1
+bullet\Scenes\UI\Controls\ControllerR4.tscn: 1
+bullet\Scenes\UI\Controls\ControllerR5.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRP.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickDown.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickDownLeft.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickDownRight.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickLeft.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickRight.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickUp.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickUpLeft.tscn: 1
+bullet\Scenes\UI\Controls\ControllerRStickUpRight.tscn: 1
+bullet\Scenes\UI\Controls\ControllerShare.tscn: 1
+bullet\Scenes\UI\Controls\ControllerView.tscn: 1
+bullet\Scenes\UI\Controls\ControllerX.tscn: 1
+bullet\Scenes\UI\Controls\ControllerY.tscn: 1
+bullet\Scenes\UI\Controls\Ctrl.tscn: 1
+bullet\Scenes\UI\Controls\D.tscn: 1
+bullet\Scenes\UI\Controls\Delete.tscn: 1
+bullet\Scenes\UI\Controls\Down.tscn: 1
+bullet\Scenes\UI\Controls\E.tscn: 1
+bullet\Scenes\UI\Controls\End.tscn: 1
+bullet\Scenes\UI\Controls\Enter.tscn: 1
+bullet\Scenes\UI\Controls\Equal.tscn: 1
+bullet\Scenes\UI\Controls\Escape.tscn: 1
+bullet\Scenes\UI\Controls\F.tscn: 1
+bullet\Scenes\UI\Controls\F1.tscn: 1
+bullet\Scenes\UI\Controls\F10.tscn: 1
+bullet\Scenes\UI\Controls\F11.tscn: 1
+bullet\Scenes\UI\Controls\F12.tscn: 1
+bullet\Scenes\UI\Controls\F2.tscn: 1
+bullet\Scenes\UI\Controls\F3.tscn: 1
+bullet\Scenes\UI\Controls\F4.tscn: 1
+bullet\Scenes\UI\Controls\F5.tscn: 1
+bullet\Scenes\UI\Controls\F6.tscn: 1
+bullet\Scenes\UI\Controls\F7.tscn: 1
+bullet\Scenes\UI\Controls\F8.tscn: 1
+bullet\Scenes\UI\Controls\F9.tscn: 1
+bullet\Scenes\UI\Controls\G.tscn: 1
+bullet\Scenes\UI\Controls\H.tscn: 1
+bullet\Scenes\UI\Controls\Home.tscn: 1
+bullet\Scenes\UI\Controls\I.tscn: 1
+bullet\Scenes\UI\Controls\Insert.tscn: 1
+bullet\Scenes\UI\Controls\J.tscn: 1
+bullet\Scenes\UI\Controls\K.tscn: 1
+bullet\Scenes\UI\Controls\L.tscn: 1
+bullet\Scenes\UI\Controls\Left.tscn: 1
+bullet\Scenes\UI\Controls\LeftClick.tscn: 1
+bullet\Scenes\UI\Controls\M.tscn: 1
+bullet\Scenes\UI\Controls\MiddleClick.tscn: 1
+bullet\Scenes\UI\Controls\Minus.tscn: 1
+bullet\Scenes\UI\Controls\N.tscn: 1
+bullet\Scenes\UI\Controls\O.tscn: 1
+bullet\Scenes\UI\Controls\P.tscn: 1
+bullet\Scenes\UI\Controls\PageDown.tscn: 1
+bullet\Scenes\UI\Controls\PageUp.tscn: 1
+bullet\Scenes\UI\Controls\Pause.tscn: 1
+bullet\Scenes\UI\Controls\Period.tscn: 1
+bullet\Scenes\UI\Controls\Print.tscn: 1
+bullet\Scenes\UI\Controls\Q.tscn: 1
+bullet\Scenes\UI\Controls\QuestionMark.tscn: 1
+bullet\Scenes\UI\Controls\R.tscn: 1
+bullet\Scenes\UI\Controls\Right.tscn: 1
+bullet\Scenes\UI\Controls\RightClick.tscn: 1
+bullet\Scenes\UI\Controls\S.tscn: 1
+bullet\Scenes\UI\Controls\SemiColon.tscn: 1
+bullet\Scenes\UI\Controls\Shift.tscn: 1
+bullet\Scenes\UI\Controls\Slash.tscn: 1
+bullet\Scenes\UI\Controls\Space.tscn: 1
+bullet\Scenes\UI\Controls\T.tscn: 1
+bullet\Scenes\UI\Controls\Tab.tscn: 1
+bullet\Scenes\UI\Controls\Tilde.tscn: 1
+bullet\Scenes\UI\Controls\U.tscn: 1
+bullet\Scenes\UI\Controls\Up.tscn: 1
+bullet\Scenes\UI\Controls\V.tscn: 1
+bullet\Scenes\UI\Controls\W.tscn: 1
+bullet\Scenes\UI\Controls\WheelDown.tscn: 1
+bullet\Scenes\UI\Controls\WheelUp.tscn: 1
+bullet\Scenes\UI\Controls\X.tscn: 1
+bullet\Scenes\UI\Controls\Y.tscn: 1
+bullet\Scenes\UI\Controls\Z.tscn: 1
+bullet\Scenes\UI\MainMenu\options.tscn: 2
+bullet\Scenes\UI\PauseMenu\options_pause_menu.tscn: 1
+bullet\Scenes\UI\PauseMenu\pause_menu.tscn: 1

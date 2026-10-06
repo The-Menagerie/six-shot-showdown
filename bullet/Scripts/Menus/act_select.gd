@@ -139,7 +139,7 @@ func _on_play_pressed() -> void:
 	ActManager.ActSelected = true
 	ActManager.SelectedAct = act_scenes[selected_act-1]
 	MusicManager.stop_music()
-	get_tree().change_scene_to_file("res://Scenes/main_game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/main_game.tscn")
 
 func _on_stats_pressed() -> void:
 	if not act_dictionary.has(selected_act) or is_instance_valid(stats_screen):

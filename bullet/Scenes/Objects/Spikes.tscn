@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwigns85xyesy"]
 
-[ext_resource type="Texture2D" uid="uid://ym5ygbhc2qbf" path="res://Assets/Tilesets/StrangeCowboy/Items/Spike.png" id="1_7mgwy"]
+[ext_resource type="Texture2D" uid="uid://ym5ygbhc2qbf" path="res://Assets/TO BE REPLACED/StrangeCowboy/Items/Spike.png" id="1_7mgwy"]
 [ext_resource type="Script" path="res://Scripts/Environmental/spikes.gd" id="2_tn1b2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]

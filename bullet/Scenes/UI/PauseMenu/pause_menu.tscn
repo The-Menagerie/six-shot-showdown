@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bjavlvrmxi754" path="res://Scripts/Menus/PauseMenu/pause_menu.gd" id="1_t3nwl"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="1_wtndc"]
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="2_bkcxk"]
-[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png" id="4_2mkgl"]
+[ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Images/Tilemap/KeyboardAndMouse/PauseMenu.png" id="4_2mkgl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3nwl"]
 shader = ExtResource("1_2ts85")

@@ -21,7 +21,7 @@ extends CharacterBody2D
 signal target_destroyed(target)
 
 const DEATH_SOUND = preload("res://Assets/SoundEffects/EnemyDeath.wav")
-const PIERCING_DEATH_SOUND = preload("res://Assets/SoundEffects/PiercingEnemyDeath.wav")
+const PIERCING_DEATH_SOUND = preload("res://Assets/SoundEffects/BulletSounds/PiercingEnemyDeath.wav")
 const DEATH_ANIMATION_DURATION := 0.4
 const GAG_EFFECT = preload("res://Scripts/enemy_gag_effect.gd")
 

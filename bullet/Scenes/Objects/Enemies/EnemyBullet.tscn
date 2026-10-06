@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c14o0hfibwra3"]
 
-[ext_resource type="Texture2D" uid="uid://d11nabp33j16k" path="res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png" id="1_6rdbi"]
+[ext_resource type="Texture2D" uid="uid://c24ggrv1ogvql" path="res://Assets/Images/Bullets/Bullet.png" id="1_6rdbi"]
 [ext_resource type="Script" path="res://Scripts/enemy_bullet.gd" id="2_dyma6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enemy_bullet"]

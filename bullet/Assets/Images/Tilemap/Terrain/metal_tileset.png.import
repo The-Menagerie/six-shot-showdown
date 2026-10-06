@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwt85tfeb16kp"
-path="res://.godot/imported/Decorations.png-9209b6da98eafdd67b8db41994d50659.ctex"
+uid="uid://bkq1ygxf7wdg8"
+path="res://.godot/imported/metal_tileset.png-fcc4cd79094a2aa3994c526d8b5666a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Decorations.png"
-dest_files=["res://.godot/imported/Decorations.png-9209b6da98eafdd67b8db41994d50659.ctex"]
+source_file="res://Assets/Images/Tilemap/Terrain/metal_tileset.png"
+dest_files=["res://.godot/imported/metal_tileset.png-fcc4cd79094a2aa3994c526d8b5666a6.ctex"]
 
 [params]
 

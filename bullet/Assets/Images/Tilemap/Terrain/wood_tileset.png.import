@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkq1ygxf7wdg8"
-path="res://.godot/imported/metal_tileset.png-d3bfb7c81ec3dd663256b5b8c962200e.ctex"
+uid="uid://bqj4uv01j3lss"
+path="res://.godot/imported/wood_tileset.png-8dc767b2a34b7061f64ace8d544db4c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Tilemap/metal_tileset.png"
-dest_files=["res://.godot/imported/metal_tileset.png-d3bfb7c81ec3dd663256b5b8c962200e.ctex"]
+source_file="res://Assets/Images/Tilemap/Terrain/wood_tileset.png"
+dest_files=["res://.godot/imported/wood_tileset.png-8dc767b2a34b7061f64ace8d544db4c6.ctex"]
 
 [params]
 

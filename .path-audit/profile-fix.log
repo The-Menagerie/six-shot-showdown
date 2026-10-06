@@ -1,0 +1,1516 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Player/reticle_norm.png (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] @implicit_new (res://Scripts/settings_manager.gd:34)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Player/reticle_clicked.png (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] @implicit_new (res://Scripts/settings_manager.gd:35)
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+AUDIT_BEGIN|res://ActManager.gd
+AUDIT_RESULT|OK|res://ActManager.gd
+AUDIT_BEGIN|res://default_bus_layout.tres
+AUDIT_RESULT|OK|res://default_bus_layout.tres
+AUDIT_BEGIN|res://Assets/Images/Tilemap/desert_tileset.tres
+ERROR: Resource file not found: res://Assets/Images/Tilemap/GroundTilemap.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Tilemap/wood_tileset.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Tilemap/stone_tileset.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Tilemap/metal_tileset.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Assets/Images/Tilemap/desert_tileset.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/GroundTilemap.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Assets/Images/Tilemap/desert_tileset.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/GroundTilemap.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed loading resource: res://Assets/Images/Tilemap/desert_tileset.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|FAIL|res://Assets/Images/Tilemap/desert_tileset.tres
+AUDIT_BEGIN|res://Assets/Images/Tilemap/fuse_tileset.tres
+AUDIT_RESULT|OK|res://Assets/Images/Tilemap/fuse_tileset.tres
+AUDIT_BEGIN|res://Assets/Images/Tilemap/rope_tileset.tres
+AUDIT_RESULT|OK|res://Assets/Images/Tilemap/rope_tileset.tres
+AUDIT_BEGIN|res://Assets/Images/Tilemap/Object/fuse_tileset.tres
+AUDIT_RESULT|OK|res://Assets/Images/Tilemap/Object/fuse_tileset.tres
+AUDIT_BEGIN|res://Assets/Images/Tilemap/Object/rope_tileset.tres
+AUDIT_RESULT|OK|res://Assets/Images/Tilemap/Object/rope_tileset.tres
+AUDIT_BEGIN|res://Assets/Images/Tilemap/Terrain/desert_tileset.tres
+AUDIT_RESULT|OK|res://Assets/Images/Tilemap/Terrain/desert_tileset.tres
+AUDIT_BEGIN|res://Scenes/Components/Enemy_Component.tscn
+AUDIT_RESULT|OK|res://Scenes/Components/Enemy_Component.tscn
+AUDIT_BEGIN|res://Scenes/Components/Health_Component.tscn
+AUDIT_RESULT|OK|res://Scenes/Components/Health_Component.tscn
+AUDIT_BEGIN|res://Scenes/Components/Hitbox_Component.tscn
+AUDIT_RESULT|OK|res://Scenes/Components/Hitbox_Component.tscn
+AUDIT_BEGIN|res://Scenes/Debug/debug_room.tscn
+WARNING: res://Scenes/Objects/Enemies/EnemyBullet.tscn:3 - ext_resource, invalid UID: uid://d11nabp33j16k - using text path instead: res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Objects/Enemies/EnemyBullet.tscn:51 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Debug/debug_room.tscn
+AUDIT_BEGIN|res://Scenes/Debug/debug_room_2.tscn
+AUDIT_RESULT|OK|res://Scenes/Debug/debug_room_2.tscn
+AUDIT_BEGIN|res://Scenes/Debug/debug_room_3.tscn
+AUDIT_RESULT|OK|res://Scenes/Debug/debug_room_3.tscn
+AUDIT_BEGIN|res://Scenes/Debug/debug_room_4.tscn
+AUDIT_RESULT|OK|res://Scenes/Debug/debug_room_4.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Cutscene.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Cutscene.tscn
+AUDIT_BEGIN|res://Scenes/Levels/act_select.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/act_select.tscn
+AUDIT_BEGIN|res://Scenes/Levels/main_game.tscn
+WARNING: res://Scenes/Levels/Tutorial/tut_01.tscn:6 - ext_resource, invalid UID: uid://053bcm4syd57 - using text path instead: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Tutorial/tut_01.tscn:52 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Tutorial/tut_01.tscn:63 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+SCRIPT ERROR: Parse Error: Preload file "res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png" does not exist.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:7)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "MENU_BACKGROUND" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:7)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+SCRIPT ERROR: Parse Error: Preload file "res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png" does not exist.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:8)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "MENU_PANEL" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:8)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed to load script "res://Scripts/Menus/OptionsMenu/key_bindings.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/main_game.tscn
+AUDIT_BEGIN|res://Scenes/Levels/playground.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/playground.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl1.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl1.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl10.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl10.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl11.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl11.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl12.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl12.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl2.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl2.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl3.tscn
+ERROR: Resource file not found: res://Assets/Images/Tilemap/GroundTilemap.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Tilemap/wood_tileset.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Tilemap/stone_tileset.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Tilemap/metal_tileset.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Assets/Images/Tilemap/desert_tileset.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/GroundTilemap.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Assets/Images/Tilemap/desert_tileset.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/GroundTilemap.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed loading resource: res://Assets/Images/Tilemap/desert_tileset.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl3.tscn:34 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl3.tscn:38 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl3.tscn:43 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl3.tscn:48 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Tilemap/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl3.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl4.tscn
+ERROR: Cannot open file 'res://Assets/Tilesets/desert_tileset.tres'.
+   at: load (scene/resources/resource_format_text.cpp:1442)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed loading resource: res://Assets/Tilesets/desert_tileset.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl4.tscn:34 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl4.tscn:38 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl4.tscn:43 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl4.tscn:48 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl4.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl5.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl5.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl6.tscn
+ERROR: Cannot open file 'res://Assets/Tilesets/desert_tileset.tres'.
+   at: load (scene/resources/resource_format_text.cpp:1442)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed loading resource: res://Assets/Tilesets/desert_tileset.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl6.tscn:19 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl6.tscn:23 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl6.tscn:28 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl6.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl7.tscn
+ERROR: Cannot open file 'res://Assets/Tilesets/desert_tileset.tres'.
+   at: load (scene/resources/resource_format_text.cpp:1442)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed loading resource: res://Assets/Tilesets/desert_tileset.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl7.tscn:55 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl7.tscn:59 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 1/act1_lvl7.tscn:64 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl7.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl8.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl8.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 1/act1_lvl9.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 1/act1_lvl9.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl1.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl1.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl10.tscn
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_4.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Wheel.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Rail End.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Cannot open file 'res://Assets/Tilesets/desert_tileset.tres'.
+   at: load (scene/resources/resource_format_text.cpp:1442)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed loading resource: res://Assets/Tilesets/desert_tileset.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Rail.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:41 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:51 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_4.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:61 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:69 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Wheel.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:73 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Wheel.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:77 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail End.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:81 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:85 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:89 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:93 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:97 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:101 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:105 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:109 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:113 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:118 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:122 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:127 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl10.tscn:131 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl10.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl11.tscn
+WARNING: res://Scenes/Levels/Act 2/act2_lvl11.tscn:10 - ext_resource, invalid UID: uid://c60unsihu5xa6 - using text path instead: res://Assets/Images/Rail.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Rail.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+WARNING: res://Scenes/Objects/Decorations/AnimatedWheel.tscn:3 - ext_resource, invalid UID: uid://crpukqtpgsff5 - using text path instead: res://Assets/Images/WheelAnimation.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/WheelAnimation.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Objects/Decorations/AnimatedWheel.tscn:47 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/WheelAnimation.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+WARNING: res://Scenes/Levels/Act 2/act2_lvl11.tscn:13 - ext_resource, invalid UID: uid://pu1c224vksi2 - using text path instead: res://Assets/Images/TrainChain.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/TrainChain.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:85 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:89 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:93 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:97 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:101 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:105 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:109 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:113 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:117 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:121 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:125 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:129 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:133 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:137 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:141 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:145 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:149 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:153 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:157 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:161 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:165 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:169 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:173 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:177 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:181 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:185 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:189 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:193 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:197 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:201 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:205 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:209 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:213 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:217 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:221 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:225 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:229 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:233 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:237 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:241 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:245 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:249 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:253 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:289 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:293 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:297 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl11.tscn:301 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl11.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl12.tscn
+WARNING: res://Scenes/Levels/Act 2/act2_lvl12.tscn:9 - ext_resource, invalid UID: uid://c60unsihu5xa6 - using text path instead: res://Assets/Images/Rail.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Rail.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+WARNING: res://Scenes/Levels/Act 2/act2_lvl12.tscn:13 - ext_resource, invalid UID: uid://pu1c224vksi2 - using text path instead: res://Assets/Images/TrainChain.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/TrainChain.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:85 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:89 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:93 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:97 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:101 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:105 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:109 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:113 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:117 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:121 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:125 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:129 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:133 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:137 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:141 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:145 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:149 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:153 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:157 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:161 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:165 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:169 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:173 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:177 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:181 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:185 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:189 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:193 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:197 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:201 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:205 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:209 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:213 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:217 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:221 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:225 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:229 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:233 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:237 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:241 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:245 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:249 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:253 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Rail.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:294 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:298 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:302 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl12.tscn:309 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/TrainChain.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl12.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl2.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl2.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl3.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl3.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl4.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl4.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl5.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl5.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl6.tscn
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_3.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Cannot open file 'res://Assets/Tilesets/desert_tileset.tres'.
+   at: load (scene/resources/resource_format_text.cpp:1442)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Failed loading resource: res://Assets/Tilesets/desert_tileset.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl6.tscn:27 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_3.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl6.tscn:36 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl6.tscn:41 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl6.tscn:45 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl6.tscn:50 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/desert_tileset.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl6.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl8.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl8.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 2/act2_lvl9.tscn
+WARNING: res://Scenes/Levels/Act 2/act2_lvl9.tscn:8 - ext_resource, invalid UID: uid://7ewrqy5p7j54 - using text path instead: res://Assets/Images/Bank.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Bank.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+WARNING: res://Scenes/Levels/Act 2/act2_lvl9.tscn:9 - ext_resource, invalid UID: uid://5k021156i33w - using text path instead: res://Assets/Images/Bank(Formal).png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Bank(Formal).png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl9.tscn:75 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Bank.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 2/act2_lvl9.tscn:79 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Bank(Formal).png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 2/act2_lvl9.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 3/act3_lvl1.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 3/act3_lvl1.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 3/act3_lvl11.tscn
+WARNING: res://Scenes/Levels/Act 3/act3_lvl11.tscn:8 - ext_resource, invalid UID: uid://053bcm4syd57 - using text path instead: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl11.tscn:78 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 3/act3_lvl11.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 3/act3_lvl12.tscn
+WARNING: res://Scenes/Levels/Act 3/act3_lvl12.tscn:18 - ext_resource, invalid UID: uid://dh0d1gxt5n1cl - using text path instead: res://Assets/Images/salun.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/salun.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl12.tscn:217 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/salun.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 3/act3_lvl12.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 3/act3_lvl2.tscn
+WARNING: res://Scenes/Levels/Act 3/act3_lvl2.tscn:9 - ext_resource, invalid UID: uid://053bcm4syd57 - using text path instead: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl2.tscn:79 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl2.tscn:89 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl2.tscn:99 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl2.tscn:109 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 3/act3_lvl2.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Act 3/act3_lvl5.tscn
+WARNING: res://Scenes/Levels/Act 3/act3_lvl5.tscn:10 - ext_resource, invalid UID: uid://053bcm4syd57 - using text path instead: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl5.tscn:91 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Act 3/act3_lvl5.tscn:102 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Act 3/act3_lvl5.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Tutorial/tut_01.tscn
+AUDIT_RESULT|OK|res://Scenes/Levels/Tutorial/tut_01.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Tutorial/tut_02.tscn
+WARNING: res://Scenes/Levels/Tutorial/tut_02.tscn:9 - ext_resource, invalid UID: uid://053bcm4syd57 - using text path instead: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Tutorial/tut_02.tscn:45 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Tutorial/tut_02.tscn:56 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Tutorial/tut_02.tscn
+AUDIT_BEGIN|res://Scenes/Levels/Tutorial/tut_03.tscn
+WARNING: res://Scenes/Levels/Tutorial/tut_03.tscn:6 - ext_resource, invalid UID: uid://053bcm4syd57 - using text path instead: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Tutorial/tut_03.tscn:48 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Levels/Tutorial/tut_03.tscn:58 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Levels/Tutorial/tut_03.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Boulder.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Boulder.tscn
+AUDIT_BEGIN|res://Scenes/Objects/BouncyBurst.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/BouncyBurst.tscn
+AUDIT_BEGIN|res://Scenes/Objects/BouncyLockBox.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/BouncyLockBox.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Dynamite.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Dynamite.tscn
+AUDIT_BEGIN|res://Scenes/Objects/FireDroplet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/FireDroplet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/FlameField.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/FlameField.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Fuse.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Fuse.tscn
+AUDIT_BEGIN|res://Scenes/Objects/IceCube.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/IceCube.tscn
+AUDIT_BEGIN|res://Scenes/Objects/LockBox.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/LockBox.tscn
+AUDIT_BEGIN|res://Scenes/Objects/MouseReticle.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/MouseReticle.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Platform.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Platform.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Rope.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Rope.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Spikes.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Spikes.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Breakables/crate.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Breakables/crate.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Breakables/target.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Breakables/target.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Breakables/template_breakable.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Breakables/template_breakable.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/fire_bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/fire_bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/fly_bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/fly_bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/ice_bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/ice_bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/key_bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/key_bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/piercing_bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/piercing_bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/rubber_bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/rubber_bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Bullets/swap_bullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Bullets/swap_bullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Decorations/AnimatedWheel.tscn
+WARNING: res://Scenes/Objects/Decorations/AnimatedWheel.tscn:3 - ext_resource, invalid UID: uid://crpukqtpgsff5 - using text path instead: res://Assets/Images/WheelAnimation.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/WheelAnimation.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Objects/Decorations/AnimatedWheel.tscn:47 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/WheelAnimation.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Objects/Decorations/AnimatedWheel.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Decorations/GoldBars.tscn
+WARNING: res://Scenes/Objects/Decorations/GoldBars.tscn:3 - ext_resource, invalid UID: uid://b5krgmf2u6f77 - using text path instead: res://Assets/Images/Gold Bars.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: Resource file not found: res://Assets/Images/Gold Bars.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+ERROR: res://Scenes/Objects/Decorations/GoldBars.tscn:7 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Images/Gold Bars.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _audit (res://../.path-audit/check.gd:11)
+AUDIT_RESULT|OK|res://Scenes/Objects/Decorations/GoldBars.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Decorations/Train Smoke.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Decorations/Train Smoke.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Enemies/EnemyBlocker.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Enemies/EnemyBlocker.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Enemies/EnemyBullet.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Enemies/EnemyBullet.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Enemies/EnemyShotgun.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Enemies/EnemyShotgun.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Enemies/GagDestroyBox.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Enemies/GagDestroyBox.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Enemies/outlaw.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Enemies/outlaw.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Player/player.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Player/player.tscn
+AUDIT_BEGIN|res://Scenes/Objects/Player/revolver.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/Player/revolver.tscn
+AUDIT_BEGIN|res://Scenes/Objects/PowerUps/BulletSwap.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/PowerUps/BulletSwap.tscn
+AUDIT_BEGIN|res://Scenes/Objects/PowerUps/ChamberSwap.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/PowerUps/ChamberSwap.tscn
+AUDIT_BEGIN|res://Scenes/Objects/PowerUps/Key.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/PowerUps/Key.tscn
+AUDIT_BEGIN|res://Scenes/Objects/PowerUps/ghost_key.tscn
+AUDIT_RESULT|OK|res://Scenes/Objects/PowerUps/ghost_key.tscn
+AUDIT_BEGIN|res://Scenes/UI/MouseReticle.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MouseReticle.tscn
+AUDIT_BEGIN|res://Scenes/UI/WorldActionHint.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/WorldActionHint.tscn
+AUDIT_BEGIN|res://Scenes/UI/act_score_screen.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/act_score_screen.tscn
+AUDIT_BEGIN|res://Scenes/UI/credits.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/credits.tscn
+AUDIT_BEGIN|res://Scenes/UI/end_of_act.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/end_of_act.tscn
+AUDIT_BEGIN|res://Scenes/UI/score_board.gd
+AUDIT_RESULT|OK|res://Scenes/UI/score_board.gd
+AUDIT_BEGIN|res://Scenes/UI/temp_score_scene.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/temp_score_scene.tscn
+AUDIT_BEGIN|res://Scenes/UI/Chamber/bullet_chamber.gd
+AUDIT_RESULT|OK|res://Scenes/UI/Chamber/bullet_chamber.gd
+AUDIT_BEGIN|res://Scenes/UI/Chamber/chamber.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Chamber/chamber.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/0.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/0.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/1.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/1.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/2.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/2.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/3.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/3.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/4.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/4.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/5.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/5.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/6.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/6.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/7.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/7.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/8.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/8.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/9.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/9.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/A.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/A.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Alt.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Alt.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Apostrophe.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Apostrophe.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/B.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/B.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/BackSlash.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/BackSlash.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Backspace.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Backspace.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/BracketLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/BracketLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/BracketRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/BracketRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/C.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/C.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Comma.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Comma.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Control.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Control.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerA.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerA.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerB.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerB.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerDPadDown.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerDPadDown.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerDPadLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerDPadLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerDPadRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerDPadRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerDPadUp.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerDPadUp.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerHome.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerHome.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerL1.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerL1.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerL2.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerL2.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerL3.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerL3.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerL4.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerL4.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerL5.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerL5.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLP.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLP.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickDown.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickDown.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickDownLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickDownLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickDownRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickDownRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickUp.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickUp.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickUpLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickUpLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerLStickUpRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerLStickUpRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerMenu.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerMenu.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerR1.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerR1.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerR2.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerR2.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerR3.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerR3.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerR4.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerR4.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerR5.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerR5.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRP.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRP.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickDown.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickDown.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickDownLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickDownLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickDownRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickDownRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickUp.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickUp.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickUpLeft.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickUpLeft.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerRStickUpRight.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerRStickUpRight.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerShare.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerShare.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerView.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerView.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerX.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerX.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/ControllerY.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/ControllerY.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Ctrl.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Ctrl.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/D.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/D.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Delete.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Delete.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Down.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Down.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/E.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/E.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/End.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/End.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Enter.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Enter.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Equal.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Equal.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Escape.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Escape.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F1.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F1.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F10.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F10.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F11.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F11.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F12.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F12.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F2.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F2.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F3.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F3.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F4.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F4.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F5.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F5.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F6.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F6.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F7.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F7.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F8.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F8.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/F9.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/F9.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Full Controls.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Full Controls.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/G.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/G.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/H.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/H.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Home.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Home.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/I.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/I.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Insert.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Insert.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/J.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/J.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/K.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/K.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/L.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/L.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Left.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Left.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/LeftClick.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/LeftClick.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/M.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/M.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/MiddleClick.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/MiddleClick.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Minus.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Minus.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/N.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/N.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/O.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/O.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/P.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/P.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/PageDown.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/PageDown.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/PageUp.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/PageUp.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Pause.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Pause.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Period.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Period.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Print.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Print.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Q.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Q.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/QuestionMark.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/QuestionMark.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/R.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/R.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Right.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Right.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/RightClick.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/RightClick.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/S.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/S.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/SemiColon.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/SemiColon.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Shift.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Shift.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Slash.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Slash.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Space.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Space.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/T.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/T.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Tab.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Tab.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Tilde.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Tilde.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/U.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/U.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Up.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Up.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/V.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/V.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/W.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/W.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/WheelDown.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/WheelDown.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/WheelUp.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/WheelUp.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/X.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/X.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Y.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Y.tscn
+AUDIT_BEGIN|res://Scenes/UI/Controls/Z.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/Controls/Z.tscn
+AUDIT_BEGIN|res://Scenes/UI/KeyIndicator/key_indicator.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/KeyIndicator/key_indicator.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/credits.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/credits.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/menu.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/menu.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/newGame.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/newGame.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/options.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/options.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/profile_menu.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/profile_menu.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/statistics.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/statistics.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/Options/aimSpeedSlider.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/Options/aimSpeedSlider.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/Options/key_bindings.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/Options/key_bindings.tscn
+AUDIT_BEGIN|res://Scenes/UI/MainMenu/Options/volumeSlider.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/MainMenu/Options/volumeSlider.tscn
+AUDIT_BEGIN|res://Scenes/UI/PauseMenu/options_pause_menu.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/PauseMenu/options_pause_menu.tscn
+AUDIT_BEGIN|res://Scenes/UI/PauseMenu/pause_menu.tscn
+AUDIT_RESULT|OK|res://Scenes/UI/PauseMenu/pause_menu.tscn
+AUDIT_BEGIN|res://Scripts/boulder.gd
+AUDIT_RESULT|OK|res://Scripts/boulder.gd
+AUDIT_BEGIN|res://Scripts/bouncy_burst.gd
+AUDIT_RESULT|OK|res://Scripts/bouncy_burst.gd
+AUDIT_BEGIN|res://Scripts/bouncy_lock_box.gd
+AUDIT_RESULT|OK|res://Scripts/bouncy_lock_box.gd
+AUDIT_BEGIN|res://Scripts/bullet_bus.gd
+AUDIT_RESULT|OK|res://Scripts/bullet_bus.gd
+AUDIT_BEGIN|res://Scripts/centered_parallax.gd
+AUDIT_RESULT|OK|res://Scripts/centered_parallax.gd
+AUDIT_BEGIN|res://Scripts/cutscene.gd
+AUDIT_RESULT|OK|res://Scripts/cutscene.gd
+AUDIT_BEGIN|res://Scripts/cutscene_reveal_mask.gd
+AUDIT_RESULT|OK|res://Scripts/cutscene_reveal_mask.gd
+AUDIT_BEGIN|res://Scripts/dynamite.gd
+AUDIT_RESULT|OK|res://Scripts/dynamite.gd
+AUDIT_BEGIN|res://Scripts/enemy.gd
+AUDIT_RESULT|OK|res://Scripts/enemy.gd
+AUDIT_BEGIN|res://Scripts/enemy_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/enemy_bullet.gd
+AUDIT_BEGIN|res://Scripts/enemy_gag_effect.gd
+AUDIT_RESULT|OK|res://Scripts/enemy_gag_effect.gd
+AUDIT_BEGIN|res://Scripts/enemy_shotgun.gd
+AUDIT_RESULT|OK|res://Scripts/enemy_shotgun.gd
+AUDIT_BEGIN|res://Scripts/full_controls.gd
+AUDIT_RESULT|OK|res://Scripts/full_controls.gd
+AUDIT_BEGIN|res://Scripts/fuse_tilemap.gd
+AUDIT_RESULT|OK|res://Scripts/fuse_tilemap.gd
+AUDIT_BEGIN|res://Scripts/game_manager.gd
+AUDIT_RESULT|OK|res://Scripts/game_manager.gd
+AUDIT_BEGIN|res://Scripts/hitbox_component.gd
+AUDIT_RESULT|OK|res://Scripts/hitbox_component.gd
+AUDIT_BEGIN|res://Scripts/key.gd
+AUDIT_RESULT|OK|res://Scripts/key.gd
+AUDIT_BEGIN|res://Scripts/key_indicator.gd
+AUDIT_RESULT|OK|res://Scripts/key_indicator.gd
+AUDIT_BEGIN|res://Scripts/lock_box.gd
+AUDIT_RESULT|OK|res://Scripts/lock_box.gd
+AUDIT_BEGIN|res://Scripts/mouse_reticle.gd
+AUDIT_RESULT|OK|res://Scripts/mouse_reticle.gd
+AUDIT_BEGIN|res://Scripts/music_manager.gd
+AUDIT_RESULT|OK|res://Scripts/music_manager.gd
+AUDIT_BEGIN|res://Scripts/player.gd
+AUDIT_RESULT|OK|res://Scripts/player.gd
+AUDIT_BEGIN|res://Scripts/restart_hint.gd
+AUDIT_RESULT|OK|res://Scripts/restart_hint.gd
+AUDIT_BEGIN|res://Scripts/rope_tilemap.gd
+AUDIT_RESULT|OK|res://Scripts/rope_tilemap.gd
+AUDIT_BEGIN|res://Scripts/score_bus.gd
+AUDIT_RESULT|OK|res://Scripts/score_bus.gd
+AUDIT_BEGIN|res://Scripts/score_label.gd
+AUDIT_RESULT|OK|res://Scripts/score_label.gd
+AUDIT_BEGIN|res://Scripts/score_summary.gd
+AUDIT_RESULT|OK|res://Scripts/score_summary.gd
+AUDIT_BEGIN|res://Scripts/settings_manager.gd
+AUDIT_RESULT|OK|res://Scripts/settings_manager.gd
+AUDIT_BEGIN|res://Scripts/world_action_hint.gd
+AUDIT_RESULT|OK|res://Scripts/world_action_hint.gd
+AUDIT_BEGIN|res://Scripts/Bullets/bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/bullet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/fire_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/fire_bullet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/fire_droplet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/fire_droplet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/fly_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/fly_bullet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/ice_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/ice_bullet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/ice_cube.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/ice_cube.gd
+AUDIT_BEGIN|res://Scripts/Bullets/key_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/key_bullet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/piercing_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/piercing_bullet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/rubber_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/rubber_bullet.gd
+AUDIT_BEGIN|res://Scripts/Bullets/swap_bullet.gd
+AUDIT_RESULT|OK|res://Scripts/Bullets/swap_bullet.gd
+AUDIT_BEGIN|res://Scripts/Classes/Attack.gd
+AUDIT_RESULT|OK|res://Scripts/Classes/Attack.gd
+AUDIT_BEGIN|res://Scripts/Classes/breakable.gd
+AUDIT_RESULT|OK|res://Scripts/Classes/breakable.gd
+AUDIT_BEGIN|res://Scripts/Classes/health_component.gd
+AUDIT_RESULT|OK|res://Scripts/Classes/health_component.gd
+AUDIT_BEGIN|res://Scripts/Classes/level_root.gd
+AUDIT_RESULT|OK|res://Scripts/Classes/level_root.gd
+AUDIT_BEGIN|res://Scripts/Classes/pickup.gd
+AUDIT_RESULT|OK|res://Scripts/Classes/pickup.gd
+AUDIT_BEGIN|res://Scripts/Environmental/camera_expander.gd
+AUDIT_RESULT|OK|res://Scripts/Environmental/camera_expander.gd
+AUDIT_BEGIN|res://Scripts/Environmental/death_zone.gd
+AUDIT_RESULT|OK|res://Scripts/Environmental/death_zone.gd
+AUDIT_BEGIN|res://Scripts/Environmental/flame_field.gd
+AUDIT_RESULT|OK|res://Scripts/Environmental/flame_field.gd
+AUDIT_BEGIN|res://Scripts/Environmental/gag_destroy_box.gd
+AUDIT_RESULT|OK|res://Scripts/Environmental/gag_destroy_box.gd
+AUDIT_BEGIN|res://Scripts/Environmental/spikes.gd
+AUDIT_RESULT|OK|res://Scripts/Environmental/spikes.gd
+AUDIT_BEGIN|res://Scripts/Levels/lvl_01.gd
+AUDIT_RESULT|OK|res://Scripts/Levels/lvl_01.gd
+AUDIT_BEGIN|res://Scripts/Levels/playground.gd
+AUDIT_RESULT|OK|res://Scripts/Levels/playground.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/menu.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/menu.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/profile_menu.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/profile_menu.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/statistics.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/statistics.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/Options/aim_speed_slider.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/Options/aim_speed_slider.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/Options/chamber_scale_option.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/Options/chamber_scale_option.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/Options/skip_cutscenes_toggle.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/Options/skip_cutscenes_toggle.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd
+AUDIT_BEGIN|res://Scripts/MainMenu/Options/volume_slider.gd
+AUDIT_RESULT|OK|res://Scripts/MainMenu/Options/volume_slider.gd
+AUDIT_BEGIN|res://Scripts/Menus/act_score_screen.gd
+AUDIT_RESULT|OK|res://Scripts/Menus/act_score_screen.gd
+AUDIT_BEGIN|res://Scripts/Menus/act_select.gd
+AUDIT_RESULT|OK|res://Scripts/Menus/act_select.gd
+AUDIT_BEGIN|res://Scripts/Menus/button_text_shadow.gd
+AUDIT_RESULT|OK|res://Scripts/Menus/button_text_shadow.gd
+AUDIT_BEGIN|res://Scripts/Menus/credits.gd
+AUDIT_RESULT|OK|res://Scripts/Menus/credits.gd
+AUDIT_BEGIN|res://Scripts/Menus/end_of_act.gd
+AUDIT_RESULT|OK|res://Scripts/Menus/end_of_act.gd
+AUDIT_BEGIN|res://Scripts/Menus/OptionsMenu/key_bindings.gd
+AUDIT_RESULT|FAIL|res://Scripts/Menus/OptionsMenu/key_bindings.gd
+AUDIT_BEGIN|res://Scripts/Menus/OptionsMenu/options_pause_menu.gd
+AUDIT_RESULT|OK|res://Scripts/Menus/OptionsMenu/options_pause_menu.gd
+AUDIT_BEGIN|res://Scripts/Menus/PauseMenu/pause_menu.gd
+AUDIT_RESULT|OK|res://Scripts/Menus/PauseMenu/pause_menu.gd
+AUDIT_BEGIN|res://Scripts/PowerUps/bullet_swap.gd
+AUDIT_RESULT|OK|res://Scripts/PowerUps/bullet_swap.gd
+AUDIT_BEGIN|res://Scripts/PowerUps/chamber_swap.gd
+AUDIT_RESULT|OK|res://Scripts/PowerUps/chamber_swap.gd
+AUDIT_BEGIN|res://Tests/act_unlocks_test.gd
+AUDIT_RESULT|OK|res://Tests/act_unlocks_test.gd

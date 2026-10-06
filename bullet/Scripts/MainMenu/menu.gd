@@ -2,7 +2,7 @@ extends Control
 
 const MENU_MUSIC = preload("res://Assets/Music/CowboyMenuSong.mp3")
 const OPTIONS_SCENE_PATH := "res://Scenes/UI/MainMenu/options.tscn"
-const PLAYGROUND_SCENE_PATH := "res://Scenes/playground.tscn"
+const PLAYGROUND_SCENE_PATH := "res://Scenes/Levels/playground.tscn"
 const PLAYGROUND_EASTER_EGG := "play"
 
 var easter_egg_buffer := ""
@@ -43,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if easter_egg_buffer == PLAYGROUND_EASTER_EGG:
 			easter_egg_buffer = ""
 			get_viewport().set_input_as_handled()
-			get_tree().change_scene_to_file(PLAYGROUND_SCENE_PATH)
+			_change_menu_scene(PLAYGROUND_SCENE_PATH)
 
 func new_game_button_pressed() -> void:
 	if menu_action_in_progress:
@@ -56,9 +56,9 @@ func new_game_button_pressed() -> void:
 	ScoreBus.reset_run_stats()
 	if SettingsManager.skip_cutscenes:
 		MusicManager.stop_music()
-		get_tree().change_scene_to_file("res://Scenes/main_game.tscn")
+		_change_menu_scene("res://Scenes/Levels/main_game.tscn")
 	else:
-		get_tree().change_scene_to_file("res://Scenes/Cutscene.tscn")
+		_change_menu_scene("res://Scenes/Levels/Cutscene.tscn")
 
 func options_button_pressed() -> void:
 	if menu_action_in_progress:
@@ -66,7 +66,7 @@ func options_button_pressed() -> void:
 	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
-	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/options.tscn")
+	_change_menu_scene("res://Scenes/UI/MainMenu/options.tscn")
 
 func credits_button_pressed() -> void:
 	if menu_action_in_progress:
@@ -74,7 +74,7 @@ func credits_button_pressed() -> void:
 	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
-	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/credits.tscn")
+	_change_menu_scene("res://Scenes/UI/MainMenu/credits.tscn")
 
 func statistics_button_pressed() -> void:
 	if menu_action_in_progress or not ActManager.has_completed_game():
@@ -82,7 +82,7 @@ func statistics_button_pressed() -> void:
 	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
-	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/statistics.tscn")
+	_change_menu_scene("res://Scenes/UI/MainMenu/statistics.tscn")
 
 func exit_button_pressed() -> void:
 	if menu_action_in_progress:
@@ -90,7 +90,8 @@ func exit_button_pressed() -> void:
 	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
-	JavaScriptBridge.eval("window.close()")
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.close()")
 	get_tree().quit()
 	
 
@@ -100,7 +101,7 @@ func back_button_pressed() -> void:
 	menu_action_in_progress = true
 	$WoodenBlock.play()
 	await $WoodenBlock.finished
-	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/menu.tscn")
+	_change_menu_scene("res://Scenes/UI/MainMenu/menu.tscn")
 
 func key_bindings_pressed() -> void:
 	$WoodenBlock.play()
@@ -152,3 +153,10 @@ func _update_continue_visibility() -> void:
 	var statistics_button := get_node_or_null("ButtonContainer/Statistics") as Button
 	if statistics_button != null:
 		statistics_button.visible = ActManager.has_completed_game()
+
+
+func _change_menu_scene(scene_path: String) -> void:
+	var error := get_tree().change_scene_to_file(scene_path)
+	if error != OK:
+		menu_action_in_progress = false
+		push_error("Could not open menu scene %s: %s" % [scene_path, error_string(error)])

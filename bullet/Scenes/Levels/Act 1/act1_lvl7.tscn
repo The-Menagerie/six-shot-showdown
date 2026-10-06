@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="4_yhr2o"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="5_nycpa"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="6_hd41i"]
-[ext_resource type="TileSet" path="res://Assets/Tilesets/desert_tileset.tres" id="7_gapij"]
+[ext_resource type="TileSet" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="7_gapij"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_uh28i"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_21yea"]
 [ext_resource type="PackedScene" uid="uid://c05ebcchwffnk" path="res://Scenes/Objects/PowerUps/BulletSwap.tscn" id="10_0ipho"]

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b8xsg505p8w83"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_xjca2"]
-[ext_resource type="TileSet" path="res://Assets/Tilesets/desert_tileset.tres" id="2_xpi8q"]
+[ext_resource type="TileSet" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="2_xpi8q"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_r0snq"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="5_ums2l"]
 [ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="6_pn8ci"]

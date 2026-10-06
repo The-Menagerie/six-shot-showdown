@@ -1,15 +1,15 @@
 [gd_scene format=4 uid="uid://c82invmjqckq1"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_ecjso"]
-[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="2_53j6n"]
-[ext_resource type="Texture2D" uid="uid://briqjcg1lmprf" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_4.png" id="3_1jj02"]
-[ext_resource type="Texture2D" uid="uid://cmptnlgfim1x5" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_1.png" id="4_w4ubn"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="5_ob27v"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="6_m0w0j"]
+[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_0.png" id="2_53j6n"]
+[ext_resource type="Texture2D" uid="uid://briqjcg1lmprf" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_4.png" id="3_1jj02"]
+[ext_resource type="Texture2D" uid="uid://cmptnlgfim1x5" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_1.png" id="4_w4ubn"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="5_ob27v"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_icxk5"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_ft8vr"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="9_xgedu"]
 [ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="10_53j6n"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 [ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 
 [node name="Act3Lvl2" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
@@ -18,7 +18,7 @@ targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl3.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
-[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=1107350467]
+[node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=1507241956]
 scroll_scale = Vector2(0.05, 0.05)
 script = ExtResource("99_centered_parallax")
 
@@ -27,7 +27,7 @@ z_index = -30
 position = Vector2(6, -21)
 texture = ExtResource("2_53j6n")
 
-[node name="BackgroundParallaxLayer4Scroll" type="Parallax2D" parent="." unique_id=839265773]
+[node name="BackgroundParallaxLayer4Scroll" type="Parallax2D" parent="." unique_id=2127056073]
 scroll_scale = Vector2(0.1, 0.067)
 script = ExtResource("99_centered_parallax")
 
@@ -37,7 +37,7 @@ position = Vector2(-22, 44)
 scale = Vector2(1.8474998, 1.8566664)
 texture = ExtResource("3_1jj02")
 
-[node name="BackgroundParallaxLayer1Scroll" type="Parallax2D" parent="." unique_id=2077607820]
+[node name="BackgroundParallaxLayer1Scroll" type="Parallax2D" parent="." unique_id=525685743]
 scroll_scale = Vector2(0.1, 0.067)
 script = ExtResource("99_centered_parallax")
 
@@ -73,46 +73,6 @@ tile_set = ExtResource("5_ob27v")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(0, -16)
-
-[node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=238418500]
-position = Vector2(44, 28)
-texture = ExtResource("6_m0w0j")
-hframes = 4
-vframes = 3
-frame = 6
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D11" type="Sprite2D" parent="Decorations/Sprite2D11" unique_id=1165053234]
-position = Vector2(-126, -79)
-texture = ExtResource("6_m0w0j")
-hframes = 4
-vframes = 3
-frame = 10
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D11" type="Sprite2D" parent="Decorations/Sprite2D11/Sprite2D11" unique_id=558088446]
-position = Vector2(0, -113)
-texture = ExtResource("6_m0w0j")
-hframes = 4
-vframes = 3
-frame = 10
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=79501271]
-position = Vector2(-82, 28)
-texture = ExtResource("6_m0w0j")
-hframes = 4
-vframes = 3
-frame = 5
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("7_icxk5")]
 position = Vector2(-4, 6)

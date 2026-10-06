@@ -1,19 +1,19 @@
 [gd_scene format=4 uid="uid://b1i5kdkqm1li1"]
 
-[ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_oqfu5"]
-[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="2_t4o53"]
-[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="3_ggwnr"]
-[ext_resource type="Texture2D" uid="uid://b0jigyk4dpob3" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_5.png" id="4_ygn4x"]
-[ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png" id="5_t6wry"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="6_tt87s"]
-[ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="7_7xu2g"]
-[ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_wumq8"]
-[ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_0xipj"]
-[ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="10_xcrcw"]
-[ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="11_8emto"]
-[ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="13_pd7b4"]
-[ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="14_1p7bo"]
-[ext_resource type="PackedScene" uid="uid://yxar26ilb0ew" path="res://Scenes/Objects/PowerUps/ChamberSwap.tscn" id="14_yk6ro"]
+[ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_yk6ro"]
+[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_0.png" id="2_yop3b"]
+[ext_resource type="Texture2D" uid="uid://b0jigyk4dpob3" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_5.png" id="3_32dwl"]
+[ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_2.png" id="4_87hec"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="5_oqfu5"]
+[ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_ggwnr"]
+[ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_ygn4x"]
+[ext_resource type="PackedScene" uid="uid://cji6hd7veljn5" path="res://Scenes/Objects/Breakables/target.tscn" id="9_t6wry"]
+[ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_tt87s"]
+[ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="11_7xu2g"]
+[ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="12_wumq8"]
+[ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="13_0xipj"]
+[ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="14_xcrcw"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
 
 [node name="Act3Lvl11" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_oqfu5")
@@ -70,11 +70,9 @@ z_index = -20
 tile_map_data = PackedByteArray("AAD8//z/AwABAAAAAAD8//3/BAABAAEAAAD8//7/BAABAAEAAAD8////BAABAAEAAAD8/wAABAABAAEAAAD8/wEABAABAAEAAAD9//z/AwACAAEAAAD9//3/BAACAAEAAAD9//7/BAACAAEAAAD9////BAACAAEAAAD9/wAABAACAAEAAAD9/wEABAACAAEAAAD+//z/AwAFAAEAAAD+//3/BAADAAEAAAD+//7/BAADAAEAAAD+////BAADAAEAAAD+/wAABAADAAEAAAD+/wEABAADAAEAAAD///z/AwADAAEAAAD///3/BAAEAAEAAAD///7/BAAEAAEAAAD/////BAAEAAEAAAD//wAABAAEAAEAAAD//wEABAAEAAEAAAAAAPz/AwAEAAEAAAAAAP3/BAAFAAEAAAAAAP7/BAAFAAEAAAAAAP//BAAFAAEAAAAAAAAABAAFAAEAAAAAAAEABAAFAAEAAAABAPz/BAADAAEAAAABAP3/BAADAAEAAAABAP7/BAADAAEAAAABAP//BAADAAEAAAABAAAABAADAAEAAAABAAEABAADAAEAAAACAPz/BAAEAAEAAAACAP3/BAAEAAEAAAACAP7/BAAEAAEAAAACAP//BAAEAAEAAAACAAAABAAEAAEAAAACAAEABAAEAAEAAAADAPz/BAAFAAEAAAADAP3/BAAFAAEAAAADAP7/BAAFAAEAAAADAP//BAAFAAEAAAADAAAABAAFAAEAAAADAAEABAAFAAEAAAAEAPz/AwABAAEAAAAEAP3/BAACAAEAAAAEAP7/BAACAAEAAAAEAP//BAACAAEAAAAEAAAABAACAAEAAAAEAAEABAACAAEAAAAFAPz/AwAEAAEAAAAFAP3/BAADAAEAAAAFAP7/BAADAAEAAAAFAP//BAADAAEAAAAFAAAABAADAAEAAAAFAAEABAADAAEAAAAGAPz/AwAFAAEAAAAGAP3/BAAEAAEAAAAGAP7/BAAEAAEAAAAGAP//BAAEAAEAAAAGAAAABAAEAAEAAAAGAAEABAAEAAEAAAAHAPz/AwAFAAEAAAAHAP3/BAAFAAEAAAAHAP7/BAAFAAEAAAAHAP//BAAFAAEAAAAHAAAABAAFAAEAAAAHAAEABAAFAAEAAAAIAPz/AwAGAAEAAAAIAP3/BAAGAAEAAAAIAP7/BAAGAAEAAAAIAP//BAAGAAEAAAAIAAAABAAGAAEAAAAIAAEABAAGAAEAAAAJAPz/AwABAAAAAAAJAP3/BAAHAAEAAAAJAP7/BAAHAAEAAAAJAP//BAAHAAEAAAAJAAAABAAHAAEAAAAJAAEABAAHAAEAAAD8//f/BAABAAEAAAD8//j/BAABAAEAAAD8//n/BAABAAEAAAD8//r/BAABAAEAAAD8//v/BAABAAEAAAD9//b/AwACAAEAAAD9//f/BAACAAEAAAD9//j/BAACAAEAAAD9//n/BAACAAEAAAD9//r/BAACAAEAAAD9//v/BAACAAEAAAD+//b/AwAFAAEAAAD+//f/BAADAAEAAAD+//j/BAADAAEAAAD+//n/BAADAAEAAAD+//r/BAADAAEAAAD+//v/BAADAAEAAAD///b/AwADAAEAAAD///f/BAAEAAEAAAD///j/BAAEAAEAAAD///n/BAAEAAEAAAD///r/BAAEAAEAAAD///v/BAAEAAEAAAAAAPb/AwAEAAEAAAAAAPf/BAAFAAEAAAAAAPj/BAAFAAEAAAAAAPn/BAAFAAEAAAAAAPr/BAAFAAEAAAAAAPv/BAAFAAEAAAABAPb/BAADAAEAAAABAPf/BAADAAEAAAABAPj/BAADAAEAAAABAPn/BAADAAEAAAABAPr/BAADAAEAAAABAPv/BAADAAEAAAACAPb/BAAEAAEAAAACAPf/BAAEAAEAAAACAPj/BAAEAAEAAAACAPn/BAAEAAEAAAACAPr/BAAEAAEAAAACAPv/BAAEAAEAAAADAPb/BAAFAAEAAAADAPf/BAAFAAEAAAADAPj/BAAFAAEAAAADAPn/BAAFAAEAAAADAPr/BAAFAAEAAAADAPv/BAAFAAEAAAAEAPb/AwABAAEAAAAEAPf/BAACAAEAAAAEAPj/BAACAAEAAAAEAPn/BAACAAEAAAAEAPr/BAACAAEAAAAEAPv/BAACAAEAAAAFAPb/AwAEAAEAAAAFAPf/BAADAAEAAAAFAPj/BAADAAEAAAAFAPn/BAADAAEAAAAFAPr/BAADAAEAAAAFAPv/BAADAAEAAAAGAPb/AwAFAAEAAAAGAPf/BAAEAAEAAAAGAPj/BAAEAAEAAAAGAPn/BAAEAAEAAAAGAPr/BAAEAAEAAAAGAPv/BAAEAAEAAAAHAPb/AwAFAAEAAAAHAPf/BAAFAAEAAAAHAPj/BAAFAAEAAAAHAPn/BAAFAAEAAAAHAPr/BAAFAAEAAAAHAPv/BAAFAAEAAAAIAPb/AwAGAAEAAAAIAPf/BAAGAAEAAAAIAPj/BAAGAAEAAAAIAPn/BAAGAAEAAAAIAPr/BAAGAAEAAAAIAPv/BAAGAAEAAAAJAPf/BAAHAAEAAAAJAPj/BAAHAAEAAAAJAPn/BAAHAAEAAAAJAPr/BAAHAAEAAAAJAPv/BAAHAAEAAAD//wIAAwAAAAAAAAAGAAIAAwAAAAEAAAATAAIAAwAAAAAAAAAgAAIAAwAAAAEAAAD0/wIAAwAAAAEAAAA=")
 tile_set = ExtResource("6_tt87s")
 
-[node name="BridgeAttachLayer" type="TileMapLayer" parent="." unique_id=773132776]
-z_index = -20
-tile_map_data = PackedByteArray("AAAgAAIAAwAAAAEAAAASAAEAAwAIAAIAAAATAAEAAwAJAAIAAAAhAAEAAwAJAAIAAAAgAAEAAwAIAAIAAAAGAAEAAwAIAAIAAAD+/wEAAwAIAAIAAAD0/wEAAwAIAAIAAAD1/wEAAwAJAAIAAAD//wEAAwAJAAIAAAAHAAEAAwAJAAIAAAA=")
-tile_set = ExtResource("6_tt87s")
-collision_enabled = false
+[node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
+z_index = -1
+position = Vector2(0, -16)
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_wumq8")]
 position = Vector2(641, 16)
