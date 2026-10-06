@@ -1,10 +1,9 @@
 [gd_scene format=4 uid="uid://kbf87vsi2qsa"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_n8asf"]
-[ext_resource type="Texture2D" uid="uid://6d20e1f5dvq" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_3.png" id="2_mawr1"]
-[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="3_ycu7y"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="4_vgr1s"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="5_hl85m"]
+[ext_resource type="Texture2D" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_3.png" id="2_mawr1"]
+[ext_resource type="Texture2D" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="3_ycu7y"]
+[ext_resource type="TileSet" path="res://Assets/Tilesets/desert_tileset.tres" id="4_vgr1s"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="6_p4yiq"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="7_g0u1y"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="8_icytj"]
@@ -53,66 +52,6 @@ tile_set = ExtResource("4_vgr1s")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -2
 position = Vector2(1, -18)
-
-[node name="Sprite2D13" type="Sprite2D" parent="Decorations" unique_id=757273561]
-position = Vector2(60, -8)
-texture = ExtResource("5_hl85m")
-hframes = 4
-vframes = 3
-frame = 10
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=280933730]
-position = Vector2(49, -8)
-texture = ExtResource("5_hl85m")
-hframes = 4
-vframes = 3
-frame = 10
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D12" type="Sprite2D" parent="Decorations" unique_id=820271350]
-position = Vector2(-36, 2)
-texture = ExtResource("5_hl85m")
-hframes = 4
-vframes = 3
-frame = 11
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=1018502514]
-position = Vector2(64, 2)
-texture = ExtResource("5_hl85m")
-hframes = 4
-vframes = 3
-frame = 10
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D9" type="Sprite2D" parent="Decorations" unique_id=929458125]
-position = Vector2(53, 2)
-texture = ExtResource("5_hl85m")
-hframes = 4
-vframes = 3
-frame = 10
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D8" type="Sprite2D" parent="Decorations" unique_id=1260766844]
-position = Vector2(42, 2)
-texture = ExtResource("5_hl85m")
-hframes = 4
-vframes = 3
-frame = 10
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("6_p4yiq")]
 position = Vector2(0, -206)

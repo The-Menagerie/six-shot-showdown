@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bh5ngb3vwhpgr"]
 
 [ext_resource type="Script" uid="uid://by0inxveuixkk" path="res://Scripts/Menus/act_select.gd" id="1_t6bsl"]
-[ext_resource type="Texture2D" uid="uid://dsqqd7jct0e4u" path="res://Assets/Images/chamber_sheet.png" id="1_x8fir"]
+[ext_resource type="Texture2D" uid="uid://dsqqd7jct0e4u" path="res://Assets/Images/Chamber/chamber_sheet.png" id="1_x8fir"]
 [ext_resource type="Texture2D" uid="uid://ddp1isfna7eu3" path="res://Assets/Images/ActSelect/act_1.png" id="2_fgq86"]
-[ext_resource type="Texture2D" uid="uid://brvm8yl0g20dl" path="res://Assets/Images/ChamberBullets/change_bullet.png" id="3_ru711"]
+[ext_resource type="Texture2D" uid="uid://brvm8yl0g20dl" path="res://Assets/Images/Chamber/change_bullet.png" id="3_ru711"]
 [ext_resource type="Texture2D" uid="uid://dtakpor1yaflc" path="res://Assets/Images/ActSelect/act_2.png" id="4_fgq86"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="5_8sgur"]
 [ext_resource type="Texture2D" uid="uid://sm2vje2pfqh2" path="res://Assets/Images/ActSelect/act_base.png" id="5_ru711"]
@@ -20,9 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://1ekgocfx1ik2" path="res://Assets/Images/UI/left_arrow_hovered.png" id="14_xrc8x"]
 [ext_resource type="Texture2D" uid="uid://dtkpjwtwcfnx7" path="res://Assets/Images/UI/right_arrow_pressed.png" id="15_xrc8x"]
 [ext_resource type="Texture2D" uid="uid://bvrnqq08067gn" path="res://Assets/Images/UI/right_arrow_hovered.png" id="16_tx112"]
-[ext_resource type="Texture2D" path="res://Assets/Images/UI/stat_unpressed.png" id="17_stats_normal"]
-[ext_resource type="Texture2D" path="res://Assets/Images/UI/stat_pressed.png" id="18_stats_pressed"]
-[ext_resource type="Texture2D" path="res://Assets/Images/UI/stat_hovered.png" id="19_stats_hover"]
+[ext_resource type="Texture2D" uid="uid://blk0n214ggutn" path="res://Assets/Images/UI/stat_unpressed.png" id="17_stats_normal"]
+[ext_resource type="Texture2D" uid="uid://dpli2n0k743ga" path="res://Assets/Images/UI/stat_pressed.png" id="18_stats_pressed"]
+[ext_resource type="Texture2D" uid="uid://b8jkjwqd0chgx" path="res://Assets/Images/UI/stat_hovered.png" id="19_stats_hover"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v62u"]
 atlas = ExtResource("1_x8fir")

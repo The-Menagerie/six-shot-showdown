@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b3nc0qlpy08pi"]
 
 [ext_resource type="Script" uid="uid://c6cuvf1pcts82" path="res://Scripts/Bullets/ice_cube.gd" id="1_6hi5v"]
-[ext_resource type="Shader" uid="uid://b7avylse2dfe5" path="res://Scenes/Objects/IceCubeFrozen.gdshader" id="1_ey3lv"]
+[ext_resource type="Shader" uid="uid://b7avylse2dfe5" path="res://Assets/Shaders/IceCubeFrozen.gdshader" id="1_ey3lv"]
 [ext_resource type="Texture2D" uid="uid://w0ohoqj15rq7" path="res://Assets/Images/SceneBullets/ice_cube.png" id="1_rt44v"]
-[ext_resource type="Texture2D" uid="uid://bs4mo4sohlpyi" path="res://Assets/Tilesets/StrangeCowboy/Character/Outlaw/Outlaw.png" id="2_6hi5v"]
+[ext_resource type="Texture2D" uid="uid://bs4mo4sohlpyi" path="res://Assets/TO BE REPLACED/StrangeCowboy/Character/Outlaw/Outlaw.png" id="2_6hi5v"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6hi5v"]
 friction = 0.1

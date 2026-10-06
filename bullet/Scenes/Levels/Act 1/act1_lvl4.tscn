@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_em15n"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="4_lrbkr"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="5_ocngw"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="6_efxe8"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="7_aq4yd"]
+[ext_resource type="TileSet" path="res://Assets/Tilesets/desert_tileset.tres" id="6_efxe8"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_hd0kn"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_5m7mn"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_tivc3"]
@@ -51,16 +50,6 @@ tile_set = ExtResource("6_efxe8")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(0, -16)
-
-[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=704602951]
-position = Vector2(71, 0)
-texture = ExtResource("7_aq4yd")
-hframes = 4
-vframes = 3
-frame = 9
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_hd0kn")]
 position = Vector2(1, -19)

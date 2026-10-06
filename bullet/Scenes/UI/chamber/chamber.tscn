@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bgt5m6c8pbwnf"]
 
 [ext_resource type="Script" uid="uid://b481okk6l0ss6" path="res://Scenes/UI/Chamber/bullet_chamber.gd" id="1_cqkxi"]
-[ext_resource type="Texture2D" uid="uid://dsqqd7jct0e4u" path="res://Assets/Images/chamber_sheet.png" id="2_cqkxi"]
-[ext_resource type="Texture2D" uid="uid://23djn2ulf8mo" path="res://Assets/Images/ChamberBullets/regular_bullet.png" id="3_ka4g4"]
+[ext_resource type="Texture2D" uid="uid://dsqqd7jct0e4u" path="res://Assets/Images/Chamber/chamber_sheet.png" id="2_cqkxi"]
+[ext_resource type="Texture2D" uid="uid://23djn2ulf8mo" path="res://Assets/Images/Chamber/regular_bullet.png" id="3_ka4g4"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="4_bh58u"]
-[ext_resource type="Texture2D" uid="uid://brvm8yl0g20dl" path="res://Assets/Images/ChamberBullets/change_bullet.png" id="5_a7ea7"]
+[ext_resource type="Texture2D" uid="uid://brvm8yl0g20dl" path="res://Assets/Images/Chamber/change_bullet.png" id="5_a7ea7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sh608"]
 atlas = ExtResource("2_cqkxi")

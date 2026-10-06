@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="13_qy51m"]
 [ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="14_2hkmo"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="15_nckee"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/GoldBars.tscn" id="16_n77n4"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="17_sebh6"]
 
 [node name="Act2Lvl9" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
@@ -70,58 +69,13 @@ tile_set = ExtResource("5_8utv0")
 z_index = -2
 position = Vector2(1, -18)
 
-[node name="GoldBars" parent="Decorations" unique_id=2032307501 instance=ExtResource("16_n77n4")]
-position = Vector2(663, 139)
-
-[node name="GoldBars2" parent="Decorations" unique_id=1614784927 instance=ExtResource("16_n77n4")]
-position = Vector2(678, 139)
-
-[node name="GoldBars3" parent="Decorations" unique_id=173752260 instance=ExtResource("16_n77n4")]
-position = Vector2(670, 133)
-
-[node name="GoldBars4" parent="Decorations" unique_id=1602087845 instance=ExtResource("16_n77n4")]
-position = Vector2(761, 122)
-
-[node name="GoldBars5" parent="Decorations" unique_id=735976461 instance=ExtResource("16_n77n4")]
-position = Vector2(760, 90)
-
-[node name="GoldBars6" parent="Decorations" unique_id=1052765316 instance=ExtResource("16_n77n4")]
-position = Vector2(746, 122)
-
-[node name="GoldBars7" parent="Decorations" unique_id=104585200 instance=ExtResource("16_n77n4")]
-position = Vector2(753, 116)
-
-[node name="GoldBars8" parent="Decorations" unique_id=1474048673 instance=ExtResource("16_n77n4")]
-position = Vector2(663, 90)
-
-[node name="GoldBars9" parent="Decorations" unique_id=690111368 instance=ExtResource("16_n77n4")]
-position = Vector2(662, 178)
-
-[node name="GoldBars10" parent="Decorations" unique_id=68823163 instance=ExtResource("16_n77n4")]
-position = Vector2(677, 178)
-
-[node name="GoldBars11" parent="Decorations" unique_id=1798039916 instance=ExtResource("16_n77n4")]
-position = Vector2(692, 178)
-
-[node name="GoldBars12" parent="Decorations" unique_id=732349054 instance=ExtResource("16_n77n4")]
-position = Vector2(669, 172)
-
-[node name="GoldBars13" parent="Decorations" unique_id=1276544581 instance=ExtResource("16_n77n4")]
-position = Vector2(684, 172)
-
-[node name="GoldBars14" parent="Decorations" unique_id=1250365403 instance=ExtResource("16_n77n4")]
-position = Vector2(1096, 178)
-
-[node name="GoldBars15" parent="Decorations" unique_id=1423082842 instance=ExtResource("16_n77n4")]
-position = Vector2(1022, 178)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057127925]
-position = Vector2(173, -168)
+[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=1057127925]
+position = Vector2(172, -150)
 rotation = 0.08901179
 texture = ExtResource("6_7k6xx")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=422801044]
-position = Vector2(988, 56)
+[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=422801044]
+position = Vector2(987, 74)
 texture = ExtResource("7_6o0l1")
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_2vds5")]

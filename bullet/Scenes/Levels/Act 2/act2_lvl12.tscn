@@ -1,13 +1,15 @@
 [gd_scene format=4 uid="uid://cwsaucq2cnkwd"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_em7ek"]
+[ext_resource type="AudioStream" uid="uid://wb86g7hkc0oy" path="res://Assets/SoundEffects/TrainTracks.wav" id="2_3puf2"]
 [ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="2_cjyhe"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="3_3puf2"]
 [ext_resource type="Texture2D" uid="uid://6d20e1f5dvq" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_3.png" id="4_gqht1"]
 [ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png" id="5_xolvb"]
 [ext_resource type="Texture2D" uid="uid://c60unsihu5xa6" path="res://Assets/Images/Rail.png" id="6_j7urv"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="7_arv3b"]
-[ext_resource type="PackedScene" uid="uid://dsi78p5w3xo1q" path="res://Scenes/Objects/AnimatedWheel.tscn" id="8_ynhto"]
+[ext_resource type="PackedScene" uid="uid://bb6qaj285xd8u" path="res://Scenes/Objects/Decorations/Train Smoke.tscn" id="8_em7ek"]
+[ext_resource type="PackedScene" uid="uid://dsi78p5w3xo1q" path="res://Scenes/Objects/Decorations/AnimatedWheel.tscn" id="8_ynhto"]
 [ext_resource type="Texture2D" uid="uid://pu1c224vksi2" path="res://Assets/Images/TrainChain.png" id="9_weycp"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="10_2gb6d"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="11_v0nfg"]
@@ -27,6 +29,12 @@ script = ExtResource("1_em7ek")
 targets = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Enemy6"), NodePath("Enemy7"), NodePath("Enemy8")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl1.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
+
+[node name="TrainTracks" type="AudioStreamPlayer" parent="." unique_id=1980661947]
+stream = ExtResource("2_3puf2")
+volume_db = -7.0
+autoplay = true
+bus = &"sfx"
 
 [node name="BackgroundParallaxLayer0Scroll" type="Parallax2D" parent="." unique_id=1705099618]
 scroll_scale = Vector2(0.05, 0.05)
@@ -251,6 +259,11 @@ tile_set = ExtResource("7_arv3b")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(0, -16)
+
+[node name="TrainSmoke" parent="Decorations" unique_id=1976527619 instance=ExtResource("8_em7ek")]
+z_index = -25
+position = Vector2(627, -144)
+rotation = -0.22514747
 
 [node name="AnimatedWheel" parent="Decorations" unique_id=2030789777 instance=ExtResource("8_ynhto")]
 position = Vector2(-423, 0)

@@ -1,8 +1,7 @@
 [gd_scene format=4 uid="uid://b8xsg505p8w83"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_xjca2"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="2_xpi8q"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="3_iha81"]
+[ext_resource type="TileSet" path="res://Assets/Tilesets/desert_tileset.tres" id="2_xpi8q"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_r0snq"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="5_ums2l"]
 [ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="6_pn8ci"]
@@ -31,51 +30,6 @@ tile_set = ExtResource("2_xpi8q")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(1, -18)
-
-[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=990161335]
-position = Vector2(-80, -190)
-rotation = 3.1415927
-texture = ExtResource("3_iha81")
-hframes = 4
-vframes = 3
-frame = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D3" type="Sprite2D" parent="Decorations" unique_id=390730604]
-position = Vector2(119, -191)
-rotation = 3.1415927
-texture = ExtResource("3_iha81")
-hframes = 4
-vframes = 3
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D4" type="Sprite2D" parent="Decorations" unique_id=776989367]
-position = Vector2(47, -11)
-rotation = 0.76096356
-texture = ExtResource("3_iha81")
-hframes = 4
-vframes = 3
-frame = 8
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D5" type="Sprite2D" parent="Decorations" unique_id=166056424]
-position = Vector2(-47, -15)
-rotation = -0.53407073
-texture = ExtResource("3_iha81")
-flip_h = true
-hframes = 4
-vframes = 3
-frame = 8
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("4_r0snq")]
 position = Vector2(-1, -47)

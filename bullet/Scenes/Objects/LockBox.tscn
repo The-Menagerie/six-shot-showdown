@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gs71ss565tgx"]
 
-[ext_resource type="Texture2D" uid="uid://qudt8rc0xyib" path="res://Assets/Images/Locked Cell Block.png" id="1_ntf47"]
+[ext_resource type="Texture2D" uid="uid://qudt8rc0xyib" path="res://Assets/Images/Objects/Locked Cell Block.png" id="1_ntf47"]
 [ext_resource type="Script" uid="uid://dxn0j0dwyhvrt" path="res://Scripts/lock_box.gd" id="2_r11gc"]
 [ext_resource type="AudioStream" uid="uid://byunsa87tfq0s" path="res://Assets/SoundEffects/Unlock.wav" id="3_ss5et"]
 
