@@ -94,7 +94,7 @@ func is_menu_context() -> bool:
 	if current_scene == null or current_scene.scene_file_path.is_empty():
 		return false
 	var scene_path := current_scene.scene_file_path
-	return scene_path.begins_with("res://Scenes/UI/MainMenu/") or scene_path == "res://Scenes/Cutscene.tscn"
+	return scene_path.begins_with("res://Scenes/UI/MainMenu/") or scene_path == "res://Scenes/Levels/Cutscene.tscn"
 
 func is_menu_back_event(event: InputEvent) -> bool:
 	if event is InputEventJoypadButton:

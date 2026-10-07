@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://dbdhm078ocrus"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_284kn"]
-[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="2_34csr"]
-[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="3_80rig"]
-[ext_resource type="Texture2D" uid="uid://b0jigyk4dpob3" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_5.png" id="4_omuwc"]
-[ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_2.png" id="5_l2x8m"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="6_uwu7l"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/Environmental/centered_parallax.gd" id="2_34csr"]
+[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_0.png" id="3_80rig"]
+[ext_resource type="Texture2D" uid="uid://b0jigyk4dpob3" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_5.png" id="4_omuwc"]
+[ext_resource type="Texture2D" uid="uid://bqbk3h51ae71" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_2.png" id="5_l2x8m"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="6_uwu7l"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_dmtgp"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_giqe6"]
 [ext_resource type="PackedScene" uid="uid://bjmdveua1c74i" path="res://Scenes/Objects/Boulder.tscn" id="9_dn0g6"]
@@ -27,7 +27,7 @@ size = Vector2(600, 35)
 
 [node name="Act3Lvl10" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_284kn")
-targets = [null, null, NodePath("Enemy")]
+targets = [NodePath("Enemy")]
 next_level_path = "res://Scenes/Levels/Act 3/act3_lvl11.tscn"
 metadata/_custom_type_script = "uid://dw8thabw4ialp"
 

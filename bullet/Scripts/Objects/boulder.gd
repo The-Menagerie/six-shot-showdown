@@ -31,17 +31,9 @@ func _physics_process(_delta: float) -> void:
 	_check_fall_attack_overlaps()
 	_check_roll_attack_overlaps()
 	if rotation_drag:
-		if abs(angular_velocity) > max_rotation_speed:
-			angular_velocity = (angular_velocity/abs(angular_velocity)) * max_rotation_speed
-			print(angular_velocity)
-		var current_vel = angular_velocity
-		var abs_diff = abs(current_vel - last_frame_ang_speed)
-		var a_dir = (current_vel - last_frame_ang_speed)/abs_diff
-		if abs_diff > max_frame_acceleration:
-			if a_dir == 1:
-				angular_velocity = last_frame_ang_speed + max_frame_acceleration
-			elif a_dir == -1:
-				angular_velocity = last_frame_ang_speed - max_frame_acceleration
+		angular_velocity = clampf(angular_velocity, -max_rotation_speed, max_rotation_speed)
+		angular_velocity = move_toward(last_frame_ang_speed, angular_velocity, max_frame_acceleration)
+	last_frame_ang_speed = angular_velocity
 func _on_attack_area_entered(area: Area2D) -> void:
 	_try_fall_attack(area)
 
@@ -128,18 +120,20 @@ func stabilize_after_swap(destination: Vector2, rotation_radians: float = 0.0) -
 	freeze = true
 	sleeping = true
 	linear_velocity = Vector2.ZERO
-	#angular_velocity = 0.0
+	angular_velocity = 0.0
+	last_frame_ang_speed = 0.0
 	global_position = destination
 	rotation = rotation_radians
 	_finish_swap_stabilization()
 
 func _finish_swap_stabilization() -> void:
 	await get_tree().physics_frame
-	global_position = global_position
 	linear_velocity = Vector2.ZERO
-	#angular_velocity = 0.0
+	angular_velocity = 0.0
+	last_frame_ang_speed = 0.0
 	await get_tree().physics_frame
 	linear_velocity = Vector2.ZERO
-	#angular_velocity = 0.0
+	angular_velocity = 0.0
+	last_frame_ang_speed = 0.0
 	sleeping = true
 	freeze = false

@@ -1,0 +1,40 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl1.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl2.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl3.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl4.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl5.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl6.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl7.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl8.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl9.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl10.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl11.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 1/act1_lvl12.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl1.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl2.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl3.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl4.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl5.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl6.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl8.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl9.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl10.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl11.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 2/act2_lvl12.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl1.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl2.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl3.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl4.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl5.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl6.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl7.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl8.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl9.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl10.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl11.tscn
+LEVEL_PASS|res://Scenes/Levels/Act 3/act3_lvl12.tscn
+REGRESSION_RESULT|0 failures

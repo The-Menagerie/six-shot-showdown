@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xrx6t3vmfp16" path="res://Assets/Images/Objects/Boulder.png" id="1_ybl2n"]
 [ext_resource type="Script" uid="uid://ue28swfd6j0j" path="res://Scripts/Objects/boulder.gd" id="2_ncu1i"]
+[ext_resource type="PackedScene" uid="uid://cnflp8hfx1cp8" path="res://Scenes/Components/Hitbox_Component.tscn" id="3_8fhse"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f1por"]
 radius = 14.852741

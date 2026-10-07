@@ -126,6 +126,13 @@ func _ready() -> void:
 		_emit_out_of_ammo_state()
 	_refresh_bullet_name_layout()
 
+func _exit_tree() -> void:
+	# Refill templates are detached nodes, so the scene cannot free them for us.
+	for template in original_bullet_templates:
+		if is_instance_valid(template):
+			template.free()
+	original_bullet_templates.clear()
+
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		_refresh_bullet_name_layout()
