@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://1ekgocfx1ik2" path="res://Assets/Images/UI/left_arrow_hovered.png" id="14_xrc8x"]
 [ext_resource type="Texture2D" uid="uid://dtkpjwtwcfnx7" path="res://Assets/Images/UI/right_arrow_pressed.png" id="15_xrc8x"]
 [ext_resource type="Texture2D" uid="uid://bvrnqq08067gn" path="res://Assets/Images/UI/right_arrow_hovered.png" id="16_tx112"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/stat_unpressed.png" id="17_stats_normal"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/stat_pressed.png" id="18_stats_pressed"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/stat_hovered.png" id="19_stats_hover"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v62u"]
 atlas = ExtResource("1_x8fir")
@@ -1223,6 +1226,7 @@ mouse_filter = 2
 texture = ExtResource("3_ru711")
 
 [node name="Bullet4" type="Control" parent="alignment/BulletHolder" unique_id=1134136272]
+visible = false
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1268,6 +1272,7 @@ mouse_filter = 2
 texture = ExtResource("3_ru711")
 
 [node name="Bullet5" type="Control" parent="alignment/BulletHolder" unique_id=1943306581]
+visible = false
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1313,6 +1318,7 @@ mouse_filter = 2
 texture = ExtResource("3_ru711")
 
 [node name="Bullet6" type="Control" parent="alignment/BulletHolder" unique_id=2107343635]
+visible = false
 use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
@@ -1530,7 +1536,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 26
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/MarginContainer" unique_id=1557882925]
 propagate_maximum_size = false
@@ -1554,26 +1560,19 @@ layout_mode = 2
 
 [node name="ActDescription" type="RichTextLabel" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=232282349]
 custom_minimum_size = Vector2(0, 250)
-custom_maximum_size = Vector2(-1, 250)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Lorem Ipsum Dolor Amet"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=638111674]
+[node name="HighScore" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_bottom = 32
-
-[node name="HighScore" type="RichTextLabel" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/MarginContainer" unique_id=187216970]
-layout_mode = 2
-theme_override_font_sizes/bold_italics_font_size = 48
-bbcode_enabled = true
-text = "[i][b]High Score: Unplayed[/b][/i]"
-fit_content = true
-autowrap_mode = 0
+theme_override_fonts/font = ExtResource("5_8sgur")
+theme_override_font_sizes/font_size = 32
+text = "High Score: Unplayed"
 horizontal_alignment = 1
 
 [node name="Play" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=623082027]
@@ -1588,7 +1587,7 @@ stretch_mode = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" unique_id=135070211]
 propagate_maximum_size = false
 layout_mode = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="RotLeft" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1557499804]
@@ -1597,6 +1596,14 @@ layout_mode = 2
 texture_normal = ExtResource("12_xdioi")
 texture_pressed = ExtResource("13_tx112")
 texture_hover = ExtResource("14_xrc8x")
+stretch_mode = 0
+
+[node name="Stats" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+texture_normal = ExtResource("17_stats_normal")
+texture_pressed = ExtResource("18_stats_pressed")
+texture_hover = ExtResource("19_stats_hover")
 stretch_mode = 0
 
 [node name="RotRight" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1653448788]
@@ -1627,6 +1634,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4b7hp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oy3n0")
 text = "<"
 
+[connection signal="pressed" from="MarginContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="alignment/mask2/TextureButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="alignment/mask2/TextureButton2" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ColorRect/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

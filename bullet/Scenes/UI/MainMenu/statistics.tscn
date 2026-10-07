@@ -1,0 +1,68 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/UI/temp_score_scene.tscn" id="1_scores"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/statistics.gd" id="2_script"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/left_arrow_unpressed.png" id="3_left"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/left_arrow_pressed.png" id="4_left_pressed"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/left_arrow_hovered.png" id="5_left_hovered"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/right_arrow_unpressed.png" id="6_right"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/right_arrow_pressed.png" id="7_right_pressed"]
+[ext_resource type="Texture2D" path="res://Assets/Images/UI/right_arrow_hovered.png" id="8_right_hovered"]
+
+[node name="Statistics" instance=ExtResource("1_scores")]
+script = ExtResource("2_script")
+
+[node name="Congrats" parent="CanvasLayer/Panel/Container"]
+custom_minimum_size = Vector2(0, 80)
+text = "STATISTICS"
+vertical_alignment = 1
+
+[node name="Score" parent="CanvasLayer/Panel/Container"]
+opened_from_menu = true
+
+[node name="Start" parent="CanvasLayer/Panel/Container"]
+visible = false
+
+[node name="HSeparator2" parent="CanvasLayer/Panel/Container"]
+visible = false
+
+[node name="Quit" parent="CanvasLayer/Panel/Container"]
+text = "Back to Main Menu"
+
+[node name="Navigation" type="CanvasLayer" parent="."]
+layer = 21
+
+[node name="Left" type="TextureButton" parent="Navigation"]
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -480.0
+offset_top = 27.0
+offset_right = -416.0
+offset_bottom = 91.0
+tooltip_text = "Previous statistics page"
+texture_normal = ExtResource("3_left")
+texture_pressed = ExtResource("4_left_pressed")
+texture_hover = ExtResource("5_left_hovered")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Right" type="TextureButton" parent="Navigation"]
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = 416.0
+offset_top = 27.0
+offset_right = 480.0
+offset_bottom = 91.0
+tooltip_text = "Next statistics page"
+texture_normal = ExtResource("6_right")
+texture_pressed = ExtResource("7_right_pressed")
+texture_hover = ExtResource("8_right_hovered")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="Navigation/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Navigation/Right" to="." method="_on_right_pressed"]
