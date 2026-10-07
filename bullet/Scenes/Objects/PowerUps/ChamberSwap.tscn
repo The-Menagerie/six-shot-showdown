@@ -78,6 +78,7 @@ _data = {
 [node name="ChamberSwap" type="Node2D" unique_id=661340299]
 material = SubResource("ShaderMaterial_0krc1")
 script = ExtResource("2_vbpir")
+chamber_swap_target = 5
 metadata/_custom_type_script = "uid://du4c56u86mjxg"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=806142777]
