@@ -8,9 +8,13 @@ extends RigidBody2D
 @export var player_push_impulse := 4.0
 @export var player_bottom_push_impulse := 3.0
 @export var roll_min_speed := 3.0
+@export var rotation_drag := true
+@export var max_rotation_speed := 20
+@export var max_frame_acceleration:= 3.0
 
 @onready var attack_area: Area2D = $AttackArea
 @onready var rolling_area: Area2D = $RollingArea
+
 
 var scene_reset_queued := false
 var swappable = true
@@ -26,18 +30,18 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	_check_fall_attack_overlaps()
 	_check_roll_attack_overlaps()
-	
-	if abs(angular_velocity) > 20:
-		angular_velocity = (angular_velocity/abs(angular_velocity)) * 20
-		print(angular_velocity)
-	var current_vel = angular_velocity
-	var abs_diff = abs(current_vel - last_frame_ang_speed)
-	var a_dir = (current_vel - last_frame_ang_speed)/abs_diff
-	if abs_diff > 3.0:
-		if a_dir == 1:
-			angular_velocity = last_frame_ang_speed + 3.0
-		elif a_dir == -1:
-			angular_velocity = last_frame_ang_speed - 3.0
+	if rotation_drag:
+		if abs(angular_velocity) > max_rotation_speed:
+			angular_velocity = (angular_velocity/abs(angular_velocity)) * max_rotation_speed
+			print(angular_velocity)
+		var current_vel = angular_velocity
+		var abs_diff = abs(current_vel - last_frame_ang_speed)
+		var a_dir = (current_vel - last_frame_ang_speed)/abs_diff
+		if abs_diff > max_frame_acceleration:
+			if a_dir == 1:
+				angular_velocity = last_frame_ang_speed + max_frame_acceleration
+			elif a_dir == -1:
+				angular_velocity = last_frame_ang_speed - max_frame_acceleration
 func _on_attack_area_entered(area: Area2D) -> void:
 	_try_fall_attack(area)
 

@@ -17,6 +17,8 @@ radius = 23.021729
 [node name="Boulder" type="RigidBody2D" unique_id=1972943660]
 can_sleep = false
 script = ExtResource("2_ncu1i")
+max_rotation_speed = 75
+max_frame_acceleration = 9.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682418123]
 texture = ExtResource("1_ybl2n")
