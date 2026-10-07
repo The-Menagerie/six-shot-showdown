@@ -8,7 +8,7 @@
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/desert_tileset.tres" id="7_vb6bx"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_4mkqr"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_hx4dl"]
-[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/Environmental/centered_parallax.gd" id="99_centered_parallax"]
 
 [node name="Act2Lvl8" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_jix2o")

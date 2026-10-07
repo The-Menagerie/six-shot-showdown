@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://briqjcg1lmprf" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_4.png" id="13_lnpyt"]
 [ext_resource type="Texture2D" uid="uid://cmptnlgfim1x5" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_1.png" id="14_kf13l"]
 [ext_resource type="Texture2D" uid="uid://cqbo3c18sesv1" path="res://Assets/Images/Decor/salun.png" id="15_lnpyt"]
-[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/Environmental/centered_parallax.gd" id="99_centered_parallax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40fn5"]
 size = Vector2(380, 314)

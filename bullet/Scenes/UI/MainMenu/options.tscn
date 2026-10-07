@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://r4lcmgqqm3kc"]
 
-[ext_resource type="Script" uid="uid://s4yejtxjejiq" path="res://Scripts/MainMenu/menu.gd" id="1_xct24"]
+[ext_resource type="Script" uid="uid://s4yejtxjejiq" path="res://Scripts/Menus/MainMenu/menu.gd" id="1_xct24"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="2_0aapc"]
 [ext_resource type="PackedScene" uid="uid://wxi0vtp7n3m5" path="res://Scenes/UI/MainMenu/Options/volumeSlider.tscn" id="3_fql3x"]
 [ext_resource type="Texture2D" uid="uid://cqvgtjs5lmcy3" path="res://Assets/Images/Tilemap/KeyboardAndMouse/MainMenuBackground.png" id="3_v8wv4"]
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="4_4om0b"]
-[ext_resource type="Script" uid="uid://e2vlnvg1m203" path="res://Scripts/MainMenu/Options/skip_tutorial_toggle.gd" id="5_skipt"]
-[ext_resource type="Script" path="res://Scripts/MainMenu/Options/skip_cutscenes_toggle.gd" id="6_skipc"]
+[ext_resource type="Script" uid="uid://e2vlnvg1m203" path="res://Scripts/Menus/MainMenu/Options/skip_tutorial_toggle.gd" id="5_skipt"]
+[ext_resource type="Script" path="res://Scripts/Menus/MainMenu/Options/skip_cutscenes_toggle.gd" id="6_skipc"]
 [ext_resource type="PackedScene" path="res://Scenes/UI/MainMenu/Options/key_bindings.tscn" id="7_keys"]
 [ext_resource type="Texture2D" uid="uid://dys12lbnmdiwc" path="res://Assets/Images/Tilemap/KeyboardAndMouse/PauseMenu.png" id="8_panel"]
 

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://smkvi17rdgy2" path="res://Scenes/UI/Controls/E.tscn" id="8_rnbr0"]
 [ext_resource type="PackedScene" uid="uid://5nqw2v1dr8b2" path="res://Scenes/UI/Controls/R.tscn" id="9_20mvd"]
 [ext_resource type="PackedScene" uid="uid://cna414avtqqvk" path="res://Scenes/UI/Controls/W.tscn" id="10_dte07"]
-[ext_resource type="Script" uid="uid://bb5be34dh83jn" path="res://Scripts/full_controls.gd" id="11_full_controls"]
+[ext_resource type="Script" uid="uid://bb5be34dh83jn" path="res://Scripts/UI/full_controls.gd" id="11_full_controls"]
 [ext_resource type="PackedScene" uid="uid://b31x51v7on0e3" path="res://Scenes/UI/Controls/S.tscn" id="11_sn7tf"]
 
 [node name="FullControls" type="Control" unique_id=1208426789]

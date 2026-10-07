@@ -23,7 +23,7 @@ signal target_destroyed(target)
 const DEATH_SOUND = preload("res://Assets/SoundEffects/EnemyDeath.wav")
 const PIERCING_DEATH_SOUND = preload("res://Assets/SoundEffects/BulletSounds/PiercingEnemyDeath.wav")
 const DEATH_ANIMATION_DURATION := 0.4
-const GAG_EFFECT = preload("res://Scripts/enemy_gag_effect.gd")
+const GAG_EFFECT = preload("res://Scripts/Enemy/enemy_gag_effect.gd")
 
 var is_dying := false
 var knockedback := false

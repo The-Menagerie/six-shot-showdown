@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="1_ua1kg"]
 [ext_resource type="Texture2D" uid="uid://q87l6fj1dh" path="res://Assets/Images/Objects/Bouncy Locked Cell Block.png" id="2_mgpgd"]
 [ext_resource type="PackedScene" uid="uid://c5dxkr8nr6h3m" path="res://Scenes/Objects/BouncyBurst.tscn" id="3_2fyot"]
-[ext_resource type="Script" uid="uid://bbq3pc80bbd1q" path="res://Scripts/bouncy_lock_box.gd" id="4_wsvlc"]
+[ext_resource type="Script" uid="uid://bbq3pc80bbd1q" path="res://Scripts/Objects/bouncy_lock_box.gd" id="4_wsvlc"]
 
 [sub_resource type="Animation" id="Animation_pn6tw"]
 length = 0.001

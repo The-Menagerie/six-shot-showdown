@@ -1,7 +1,7 @@
 extends Label
 
-const SCORE_SUMMARY = preload("res://Scripts/score_summary.gd")
-const BUTTON_TEXT_SHADOW = preload("res://Scripts/Menus/button_text_shadow.gd")
+const SCORE_SUMMARY = preload("res://Scripts/UI/Score/score_summary.gd")
+const BUTTON_TEXT_SHADOW = preload("res://Scripts/UI/button_text_shadow.gd")
 
 @export var reset_level: PackedScene
 @export var tutorial_level: PackedScene

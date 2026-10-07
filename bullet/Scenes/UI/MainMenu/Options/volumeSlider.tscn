@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wxi0vtp7n3m5"]
 
-[ext_resource type="Script" uid="uid://ccm52jaxo3ghc" path="res://Scripts/MainMenu/Options/volume_slider.gd" id="1_he84p"]
+[ext_resource type="Script" uid="uid://ccm52jaxo3ghc" path="res://Scripts/Menus/MainMenu/Options/volume_slider.gd" id="1_he84p"]
 
 [node name="VolumeSlider" type="HSlider" unique_id=1203919283]
 max_value = 1.0

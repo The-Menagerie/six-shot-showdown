@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b03kxi0daulbh" path="res://Scenes/Objects/Breakables/crate.tscn" id="10_jty17"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="12_6ei5d"]
 [ext_resource type="PackedScene" uid="uid://b3okgeyvtrpnw" path="res://Scenes/Objects/PowerUps/ghost_key.tscn" id="13_m83un"]
-[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="99_centered_parallax"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/Environmental/centered_parallax.gd" id="99_centered_parallax"]
 
 [node name="Act2Lvl4" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
 script = ExtResource("1_nxelu")

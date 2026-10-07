@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cmvic0k1lagsx"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_b4etj"]
-[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="2_srd6a"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/Environmental/centered_parallax.gd" id="2_srd6a"]
 [ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_0.png" id="3_pkyse"]
 [ext_resource type="Texture2D" uid="uid://briqjcg1lmprf" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_4.png" id="4_f6hl3"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="5_i0bhn"]

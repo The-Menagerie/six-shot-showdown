@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://w2icp313ke2c"]
 
-[ext_resource type="Script" uid="uid://b5tdp50dtxoch" path="res://Scripts/dynamite.gd" id="1_dynamite_script"]
+[ext_resource type="Script" uid="uid://b5tdp50dtxoch" path="res://Scripts/Objects/dynamite.gd" id="1_dynamite_script"]
 [ext_resource type="Texture2D" uid="uid://bcyff32hv46pt" path="res://Assets/Images/Objects/Dynamite.png" id="2_dynamite_texture"]
 [ext_resource type="Texture2D" uid="uid://b61qsweuojgkf" path="res://Assets/Images/Objects/Explosion [size64] [frames16].png" id="3_explosion_texture"]
 [ext_resource type="AudioStream" uid="uid://middqatfar0f" path="res://Assets/SoundEffects/Explosion.wav" id="4_explosion_audio"]
-[ext_resource type="Script" uid="uid://mtwrh6gg85wt" path="res://Scripts/hitbox_component.gd" id="5_hitbox_script"]
-[ext_resource type="Script" uid="uid://uy1kipra5x2k" path="res://Scripts/Classes/health_component.gd" id="6_health_script"]
+[ext_resource type="Script" uid="uid://mtwrh6gg85wt" path="res://Scripts/Components/hitbox_component.gd" id="5_hitbox_script"]
+[ext_resource type="Script" uid="uid://uy1kipra5x2k" path="res://Scripts/Components/health_component.gd" id="6_health_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(15, 17)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf312iha47sj7" path="res://Scripts/Levels/lvl_01.gd" id="1_acgkm"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="4_f1j2g"]
-[ext_resource type="TileSet" uid="uid://b3oy2fisc822f" path="res://Assets/Images/Tilemap/desert_tileset.tres" id="5_0xx5e"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="5_0xx5e"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_6xnah"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_wepxq"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="9_kwhjh"]

@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+MENU_CHECK PASS profile button opens dialog
+MENU_CHECK PASS Options mouse click changes scene
+MENU_CHECK PASS key bindings script loads
+MENU_CHECK PASS Options back returns to menu
+MENU_CHECK PASS Credits mouse click changes scene
+ERROR: Cannot open file 'res://Scenes/__missing_menu_check__.tscn'.
+   at: load (scene/resources/resource_format_text.cpp:1442)
+   GDScript backtrace (most recent call first):
+       [0] _change_menu_scene (res://Scripts/Menus/MainMenu/menu.gd:159)
+       [1] run (res://../.path-audit/menu-interaction-check.gd:41)
+       [2] open_menu (res://../.path-audit/menu-interaction-check.gd:12)
+ERROR: Failed loading resource: res://Scenes/__missing_menu_check__.tscn.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _change_menu_scene (res://Scripts/Menus/MainMenu/menu.gd:159)
+       [1] run (res://../.path-audit/menu-interaction-check.gd:41)
+       [2] open_menu (res://../.path-audit/menu-interaction-check.gd:12)
+ERROR: Could not open menu scene res://Scenes/__missing_menu_check__.tscn: Can't open
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _change_menu_scene (res://Scripts/Menus/MainMenu/menu.gd:162)
+       [1] run (res://../.path-audit/menu-interaction-check.gd:41)
+       [2] open_menu (res://../.path-audit/menu-interaction-check.gd:12)
+MENU_CHECK PASS failed transition releases button lock
+1920.0
+MENU_CHECK PASS New Game mouse click opens moved cutscene
+MENU_CHECK_DONE failures=0

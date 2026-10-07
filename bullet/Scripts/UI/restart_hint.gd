@@ -1,6 +1,6 @@
 extends Label
 
-const FULL_CONTROLS_SCRIPT := preload("res://Scripts/full_controls.gd")
+const FULL_CONTROLS_SCRIPT := preload("res://Scripts/UI/full_controls.gd")
 const CONTROL_SCENE_DIRECTORY := "res://Scenes/UI/Controls/"
 const ACT_1_LEVEL_DIRECTORY := "res://Scenes/Levels/Act 1/"
 

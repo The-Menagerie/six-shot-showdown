@@ -1,4 +1,4 @@
-extends "res://Scripts/lock_box.gd"
+extends "res://Scripts/Objects/lock_box.gd"
 
 @export var bouncy_burst_scene: PackedScene
 @export var bouncy_burst_radius := 72.0

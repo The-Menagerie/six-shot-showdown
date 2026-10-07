@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjv7soqfoej7"]
 
-[ext_resource type="Script" uid="uid://btqfexsvtoip2" path="res://Scripts/rope_tilemap.gd" id="1_rope_script"]
+[ext_resource type="Script" uid="uid://btqfexsvtoip2" path="res://Scripts/Objects/rope_tilemap.gd" id="1_rope_script"]
 [ext_resource type="TileSet" uid="uid://u8ygmr6mw15k" path="res://Assets/Images/Tilemap/Object/rope_tileset.tres" id="2_rope_tileset"]
 [ext_resource type="AudioStream" uid="uid://cl0hhsugnvhr0" path="res://Assets/SoundEffects/RopeBreak.wav" id="3_py1n4"]
 

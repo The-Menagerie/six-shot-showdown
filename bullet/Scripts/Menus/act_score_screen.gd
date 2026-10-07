@@ -2,7 +2,7 @@ extends Control
 
 signal back_requested
 
-const SCORE_SUMMARY = preload("res://Scripts/score_summary.gd")
+const SCORE_SUMMARY = preload("res://Scripts/UI/Score/score_summary.gd")
 const COLUMN_TITLES := ["Reputation", "Shots", "Resets", "Deaths", "Time"]
 const COLUMN_KEYS := ["reputation", "shots", "resets", "deaths", "time_msec"]
 const ACT_LEVEL_PATHS := [

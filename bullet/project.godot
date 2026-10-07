@@ -34,7 +34,6 @@ config/name="Bullet"
 config/version="1.0.1"
 run/main_scene="uid://gprmo5bgyvp6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [audio]
 
@@ -42,11 +41,11 @@ buses/default_bus_layout="uid://boifccp6cs00d"
 
 [autoload]
 
-BulletBus="*res://Scripts/bullet_bus.gd"
-ScoreBus="*res://Scripts/score_bus.gd"
-MusicManager="*res://Scripts/music_manager.gd"
-SettingsManager="*res://Scripts/settings_manager.gd"
-ActManager="*uid://drmn8im8xbida"
+BulletBus="*res://Scripts/Managers/bullet_bus.gd"
+ScoreBus="*res://Scripts/Managers/score_bus.gd"
+MusicManager="*res://Scripts/Managers/music_manager.gd"
+SettingsManager="*res://Scripts/Managers/settings_manager.gd"
+ActManager="*res://Scripts/Managers/ActManager.gd"
 
 [display]
 

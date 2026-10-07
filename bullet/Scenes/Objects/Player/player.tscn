@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bq1sofkymsr0h"]
 
-[ext_resource type="Script" uid="uid://c6byjaeesjo3q" path="res://Scripts/player.gd" id="1_4qkr3"]
+[ext_resource type="Script" uid="uid://c6byjaeesjo3q" path="res://Scripts/Player/player.gd" id="1_4qkr3"]
 [ext_resource type="Texture2D" uid="uid://ptus7g3ur2jj" path="res://Assets/TO BE REPLACED/StrangeCowboy/Player/PlayerSheet.png" id="2_kvv6r"]
 [ext_resource type="PackedScene" uid="uid://d2xn2lqrmwgak" path="res://Scenes/Objects/Player/revolver.tscn" id="3_8f63s"]
-[ext_resource type="Script" uid="uid://bxia3gr3q1pu" path="res://Scripts/mouse_reticle.gd" id="4_2ugxg"]
+[ext_resource type="Script" uid="uid://bxia3gr3q1pu" path="res://Scripts/UI/mouse_reticle.gd" id="4_2ugxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]
 size = Vector2(15, 23)

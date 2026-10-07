@@ -1,7 +1,7 @@
 extends Control
 
 const ACT_LEADERBOARD = preload("res://Scenes/UI/act_score_screen.tscn")
-const BUTTON_TEXT_SHADOW = preload("res://Scripts/Menus/button_text_shadow.gd")
+const BUTTON_TEXT_SHADOW = preload("res://Scripts/UI/button_text_shadow.gd")
 
 var selected_page := 0
 var act_screen: Control
