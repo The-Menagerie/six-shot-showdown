@@ -32,6 +32,8 @@ var has_permanent_key := false
 var has_single_use_key := false
 var single_use_key_count := 0
 var flying := false
+var recently_flying := false
+var frames_since_last_fly = 0
 var just_shot := false
 var is_dropping_through_platforms := false
 var last_explosion_knockback_frame := -1
@@ -84,6 +86,10 @@ func _physics_process(delta):
 		if is_on_floor():
 			self.modulate = Color(1,1,1,1)
 			_set_flying_state(false)
+	if recently_flying:
+		frames_since_last_fly += 1
+		if frames_since_last_fly > 10:
+			recently_flying = false
 	_push_boulders()
 	update_animation_parameters()
 	update_revolver_aim()
@@ -190,11 +196,16 @@ func apply_explosion_knockback(impulse: Vector2, minimum_launch_height: float = 
 	pending_explosion_minimum_height = maxf(pending_explosion_minimum_height, minimum_launch_height)
 	last_explosion_knockback_frame = current_frame
 	last_explosion_knockback_impulse = impulse
+	if recently_flying:
+		recently_flying = false
+		frames_since_last_fly = 0
+		_set_flying_state(true)
 
 func _apply_pending_explosion_knockback(current_time: float) -> void:
 	if pending_explosion_knockback == Vector2.ZERO and pending_explosion_minimum_height <= 0.0:
 		return
-
+	
+		
 	var impulse := pending_explosion_knockback
 	if _has_recent_jump_input(current_time):
 		impulse.y *= explosion_jump_combo_vertical_multiplier
@@ -210,6 +221,10 @@ func _apply_pending_explosion_knockback(current_time: float) -> void:
 	last_applied_explosion_knockback_impulse = impulse
 	pending_explosion_knockback = Vector2.ZERO
 	pending_explosion_minimum_height = 0.0
+	if recently_flying:
+		recently_flying = false
+		frames_since_last_fly = 0
+		_set_flying_state(true)
 
 func _apply_recent_explosion_jump_combo(current_time: float) -> void:
 	if last_explosion_jump_combo_time == last_applied_explosion_knockback_time:
@@ -222,6 +237,10 @@ func _apply_recent_explosion_jump_combo(current_time: float) -> void:
 	var bonus_y := last_applied_explosion_knockback_impulse.y * (explosion_jump_combo_vertical_multiplier - 1.0)
 	velocity.y += bonus_y
 	last_explosion_jump_combo_time = last_applied_explosion_knockback_time
+	if recently_flying:
+		recently_flying = false
+		frames_since_last_fly = 0
+		_set_flying_state(true)
 
 func _has_recent_jump_input(current_time: float) -> bool:
 	return current_time - last_jump_input_time <= explosion_jump_combo_window
@@ -279,13 +298,23 @@ func pick_new_state():
 		state_machine.travel("Idle")
 
 func _set_flying_state(enabled: bool) -> void:
+	
+	if not enabled:
+		recently_flying = true
+		frames_since_last_fly = 0
+	
 	if flying == enabled:
 		return
 
 	flying = enabled
 	modulate = Color(0.5,0.5,1,1) if enabled else Color(1,1,1,1)
-
+	
+	
+	
 	for node in get_tree().get_nodes_in_group("breakable"):
+		if node.has_method("set_player_collision_enabled"):
+			node.set_player_collision_enabled(not enabled, self)
+	for node in get_tree().get_nodes_in_group("enemy"):
 		if node.has_method("set_player_collision_enabled"):
 			node.set_player_collision_enabled(not enabled, self)
 

@@ -37,6 +37,8 @@ var fire_timer : float = 0.0
 var has_played_alert := false
 var rng := RandomNumberGenerator.new()
 var carried_drops: Array[Node2D] = []
+var player_collision_body: PhysicsBody2D
+var player_collision_enabled:= true
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"]
@@ -472,3 +474,19 @@ func _configure_audio_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
 	var game_manager := get_tree().root.find_child("MainGame", true, false)
 	if game_manager != null and game_manager.has_method("configure_audio_player_for_bullet_time"):
 		game_manager.configure_audio_player_for_bullet_time(audio_player)
+	
+func set_player_collision_enabled(enabled: bool, player_body: PhysicsBody2D = null) -> void:
+	player_collision_enabled = enabled
+	if is_dying:
+		return
+
+	if player_body != null:
+		player_collision_body = player_body
+
+	if not is_instance_valid(player_collision_body):
+		return
+
+	if enabled:
+		remove_collision_exception_with(player_collision_body)
+	else:
+		add_collision_exception_with(player_collision_body)

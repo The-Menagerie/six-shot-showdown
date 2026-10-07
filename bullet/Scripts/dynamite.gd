@@ -20,6 +20,7 @@ extends RigidBody2D
 
 signal target_destroyed(target)
 
+var swappable = true
 var has_exploded := false
 var is_carried := false
 var default_gravity_scale := 1.0

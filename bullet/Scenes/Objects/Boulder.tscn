@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xrx6t3vmfp16" path="res://Assets/Images/Boulder.png" id="1_ybl2n"]
 [ext_resource type="Script" uid="uid://ue28swfd6j0j" path="res://Scripts/boulder.gd" id="2_ncu1i"]
+[ext_resource type="PackedScene" uid="uid://cnflp8hfx1cp8" path="res://Scenes/Components/Hitbox_Component.tscn" id="3_8fhse"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f1por"]
 radius = 14.852741
@@ -10,9 +11,14 @@ height = 32.50425
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_attack"]
 size = Vector2(22, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_40fn5"]
+radius = 23.021729
+
 [node name="Boulder" type="RigidBody2D" unique_id=1972943660]
 can_sleep = false
 script = ExtResource("2_ncu1i")
+max_rotation_speed = 75
+max_frame_acceleration = 9.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682418123]
 texture = ExtResource("1_ybl2n")
@@ -27,3 +33,15 @@ shape = SubResource("CapsuleShape2D_f1por")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=467909690]
 position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_attack")
+
+[node name="RollingArea" type="Area2D" parent="." unique_id=190113508]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RollingArea" unique_id=781475055]
+shape = SubResource("CircleShape2D_40fn5")
+
+[node name="HitboxComponent" parent="." unique_id=474203754 instance=ExtResource("3_8fhse")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1914208031]
+position = Vector2(1, 1)
+rotation = 0.79063416
+shape = SubResource("CapsuleShape2D_f1por")
