@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_baq4d"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="4_40u1y"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="4_vt2e0"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="5_rhp1q"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="7_i0alc"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="8_yiw6v"]
@@ -43,6 +44,10 @@ tile_set = ExtResource("5_rhp1q")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(0, -16)
+
+[node name="DecorationLayer" parent="Decorations" unique_id=1288352245 instance=ExtResource("4_vt2e0")]
+position = Vector2(0, 16)
+tile_map_data = PackedByteArray("AAD7//7/AAAAAAYAAAD7////AAAAAAcAAAD8//7/AAABAAYAAAD8////AAABAAcAAAAAAPj/AAACAAYAABD///j/AAADAAYAABAAAPn/AAACAAcAABD///n/AAADAAcAABAHAPr/AAAKAAYAAAAHAPv/AAAKAAcAAAAIAPr/AAALAAYAAAAIAPv/AAALAAcAAAD2/wAAAAAKAAYAAAD2/wEAAAAKAAcAAAD3/wAAAAALAAYAAAD3/wEAAAALAAcAAAD3//j/AAAKAAQAAAD3//n/AAAKAAUAAAD4//j/AAALAAQAAAD4//n/AAALAAUAAAAIAAEAAAAKAAQAAFAIAAIAAAALAAQAAFAHAAEAAAAKAAUAAFAHAAIAAAALAAUAAFD7//v/AAAMAAIAAAD7//z/AAAMAAMAAAD8//v/AAANAAIAAAD8//z/AAANAAMAAAAHAPX/AAAMAAIAAAAHAPb/AAAMAAMAAAAIAPX/AAANAAIAAAAIAPb/AAANAAMAAADx//f/AAAMAAIAAADx//j/AAAMAAMAAADy//f/AAANAAIAAADy//j/AAANAAMAAAA=")
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("7_i0alc")]
 position = Vector2(-192, 46)

@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_em15n"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="4_lrbkr"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="5_ocngw"]
-[ext_resource type="TileSet" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="6_efxe8"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="5_vcjvd"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="6_efxe8"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_hd0kn"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_5m7mn"]
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="10_tivc3"]
@@ -51,8 +52,11 @@ tile_set = ExtResource("6_efxe8")
 z_index = -1
 position = Vector2(0, -16)
 
+[node name="DecorationLayer" parent="Decorations" unique_id=771445751 instance=ExtResource("5_vcjvd")]
+tile_map_data = PackedByteArray("AAADAPL/AAAKAAAAAAADAPP/AAAKAAEAAAADAPT/AAAKAAIAAAADAPX/AAAKAAMAAAAEAPL/AAALAAAAAAAEAPP/AAALAAEAAAAEAPT/AAALAAIAAAAEAPX/AAALAAMAAAALAPf/AAAKAAAAABAKAPf/AAALAAAAABALAPj/AAAKAAEAABAKAPj/AAALAAEAABALAPn/AAAKAAIAABAKAPn/AAALAAIAABALAPr/AAAKAAMAABAKAPr/AAALAAMAABAHAPX/AAAMAAAAAAAHAPb/AAAMAAEAAAAIAPX/AAANAAAAAAAIAPb/AAANAAEAAAAPAPn/AAAMAAAAABAOAPn/AAANAAAAABAPAPr/AAAMAAEAABAOAPr/AAANAAEAABAHAPv/AAAMAAIAAAAHAPz/AAAMAAMAAAAIAPv/AAANAAIAAAAIAPz/AAANAAMAAAAAAPb/AAAMAAIAAFAAAPf/AAANAAIAAFD///b/AAAMAAMAAFD///f/AAANAAMAAFD5//3/AAANAAMAAGD5//7/AAAMAAMAAGD4//3/AAANAAIAAGD4//7/AAAMAAIAAGD4//j/AAAOAAIAAGD4//f/AAAPAAIAAGD5//j/AAAOAAMAAGD5//f/AAAPAAMAAGD+//7/AAAHAAEAAAD+//3/AAAHAAAAAAD///7/AAAIAAEAAAD///3/AAAIAAAAAAD9//3/AAAGAAAAAAD9//7/AAAGAAEAAAD9////AAAGAAIAAAD9/wAAAAAGAAMAAAD+////AAAHAAIAAAD+/wAAAAAHAAMAAAD/////AAAIAAIAAAD//wAAAAAIAAMAAAAAAP7/AAAJAAEAAAAAAP//AAAJAAIAAAAAAAAAAAAJAAMAAAAQAP//AAAAAAgAAAAQAAAAAAAAAAkAAAARAP//AAABAAgAAAARAAAAAAABAAkAAAD3/wAAAAAAAAUAAAD4/wAAAAABAAUAAAAKAPz/AAAAAAUAABAJAPz/AAABAAUAABA=")
+
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_hd0kn")]
-position = Vector2(1, -19)
+position = Vector2(-20, -17)
 player_recoil_force = 205.0
 vertical_recoil_scale = 0.45
 

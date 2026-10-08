@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="TileSet" path="res://Assets/Images/Tilemap/Object/decoration_tileset.tres" id="1_decorations"]
+
+[node name="DecorationLayer" type="TileMapLayer"]
+z_index = -2
+texture_filter = 1
+tile_set = ExtResource("1_decorations")
+collision_enabled = false
+navigation_enabled = false

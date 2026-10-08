@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="3_5kwnp"]
 [ext_resource type="Texture2D" uid="uid://b0jigyk4dpob3" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_5.png" id="3_rcvla"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_o1tgu"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="5_8hwy4"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="5_kj7b3"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="9_ik503"]
 [ext_resource type="PackedScene" uid="uid://w2icp313ke2c" path="res://Scenes/Objects/Dynamite.tscn" id="10_lv6mk"]
@@ -42,6 +43,9 @@ texture = ExtResource("3_rcvla")
 
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 position = Vector2(0, -16)
+
+[node name="DecorationLayer" parent="Decorations" unique_id=2092548162 instance=ExtResource("5_8hwy4")]
+tile_map_data = PackedByteArray("AAAOABkAAAAGAAQAAAAOABoAAAAGAAUAAAAOABsAAAAGAAYAAAAOABwAAAAGAAcAAAAPABkAAAAHAAQAAAAPABoAAAAHAAUAAAAPABsAAAAHAAYAAAAPABwAAAAHAAcAAAD2/woAAAAIAAQAAGD2/wkAAAAJAAQAAGD3/woAAAAIAAUAAGD3/wkAAAAJAAUAAGD4/woAAAAIAAYAAGD4/wkAAAAJAAYAAGD5/woAAAAIAAcAAGD5/wkAAAAJAAcAAGAOAP3/AAACAAAAAAAOAP7/AAACAAEAAAAPAP3/AAADAAAAAAAPAP7/AAADAAEAAAAJAP7/AAAEAAEAAAAKAP7/AAAFAAEAAAALABQAAAAKAAAAAAALABUAAAAKAAEAAAALABYAAAAKAAIAAAALABcAAAAKAAMAAAAMABQAAAALAAAAAAAMABUAAAALAAEAAAAMABYAAAALAAIAAAAMABcAAAALAAMAAADv/woAAAAMAAAAAADv/wsAAAAMAAEAAADw/woAAAANAAAAAADw/wsAAAANAAEAAAD3/xUAAAAAAAUAAAD4/xUAAAABAAUAAAAEACYAAAACAAQAAAAEACcAAAACAAUAAAAFACYAAAADAAQAAAAFACcAAAADAAUAAAD1/yAAAAAGAAoAAAD1/yEAAAAGAAsAAAD2/yEAAAAHAAsAAAD5/yQAAAAMAAQAAAD5/yUAAAAMAAUAAAD6/yQAAAANAAQAAAD6/yUAAAANAAUAAAAAACYAAAAMAAQAAAAAACcAAAAMAAUAAAABACYAAAANAAQAAAABACcAAAANAAUAAAAGABQAAAAMAAQAAAAGABUAAAAMAAUAAAAHABQAAAANAAQAAAAHABUAAAANAAUAAAD//wIAAAAMAAQAAAD//wMAAAAMAAUAAAAAAAIAAAANAAQAAAAAAAMAAAANAAUAAAACAPz/AAAMAAQAAAACAP3/AAAMAAUAAAADAPz/AAANAAQAAAADAP3/AAANAAUAAAAAAPv/AAAMAAQAAFAAAPz/AAANAAQAAFD///v/AAAMAAUAAFD///z/AAANAAUAAFAAAAgAAAAMAAQAAGAAAAcAAAANAAQAAGABAAgAAAAMAAUAAGABAAcAAAANAAUAAGD+/wwAAAANAAQAADD+/wsAAAANAAUAADD//wwAAAAMAAQAADD//wsAAAAMAAUAADA=")
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
 z_index = 5

@@ -80,6 +80,16 @@ var chambered_bullet_names: Array[String]
 @export var score_cost: int = 100
 @export var bullet_name_offset: Vector2 = Vector2(0.0, -2.0)
 
+@export_group("Hover Fade")
+## Seconds to fade out on hover and fade back in when the mouse leaves.
+@export_range(0.0, 5.0, 0.01, "or_greater") var hover_fade_duration := 0.2
+## Percentage of opacity removed on hover: 0 leaves it visible, 100 hides it.
+@export_range(0.0, 100.0, 1.0) var hover_fade_percent := 70.0
+
+var hover_fade_tween: Tween
+var hover_fade_target_alpha := -1.0
+var normal_chamber_alpha := 1.0
+
 var cylinder_start_pos
 var scale_modifier := 1.0
 var chamber_scale_setting := 3.0
@@ -98,8 +108,10 @@ var is_refilling := false
 @onready var cylinder_container = $alignment/VBoxContainer
 @onready var alignment: Control = $alignment
 @onready var bullet_holder: Control = $alignment/BulletHolder
+@onready var chamber_texture: TextureRect = $alignment/VBoxContainer/TextureRect
 
 func _ready() -> void:
+	normal_chamber_alpha = modulate.a
 	if not Engine.is_editor_hint():
 		BulletBus.bullet_swap.connect(_change_current_bullet)
 		BulletBus.chamber_swap.connect(_change_chamber)
@@ -132,6 +144,32 @@ func _exit_tree() -> void:
 		if is_instance_valid(template):
 			template.free()
 	original_bullet_templates.clear()
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	_set_hover_faded(_is_mouse_over_chamber(get_viewport().get_mouse_position()))
+
+func _is_mouse_over_chamber(mouse_position: Vector2) -> bool:
+	if not chamber_texture.is_visible_in_tree():
+		return false
+	var local_mouse := chamber_texture.get_global_transform_with_canvas().affine_inverse() * mouse_position
+	return Rect2(Vector2.ZERO, chamber_texture.size).has_point(local_mouse)
+
+func _set_hover_faded(hovered: bool) -> void:
+	var target_alpha := normal_chamber_alpha
+	if hovered:
+		target_alpha *= 1.0 - clampf(hover_fade_percent, 0.0, 100.0) / 100.0
+	if is_equal_approx(target_alpha, hover_fade_target_alpha):
+		return
+	hover_fade_target_alpha = target_alpha
+	if hover_fade_tween != null and hover_fade_tween.is_valid():
+		hover_fade_tween.kill()
+	if hover_fade_duration <= 0.0:
+		modulate.a = target_alpha
+		return
+	hover_fade_tween = create_tween()
+	hover_fade_tween.tween_property(self, "modulate:a", target_alpha, hover_fade_duration)
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():

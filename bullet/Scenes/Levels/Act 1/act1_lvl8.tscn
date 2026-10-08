@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_k84j7"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="2_1dhyu"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="4_0emyk"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="4_rlemp"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="5_d8yuq"]
 [ext_resource type="PackedScene" uid="uid://c05ebcchwffnk" path="res://Scenes/Objects/PowerUps/BulletSwap.tscn" id="5_y4he0"]
@@ -55,6 +56,9 @@ tile_set = ExtResource("4_rlemp")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(0, -16)
+
+[node name="DecorationLayer" parent="Decorations" unique_id=971889531 instance=ExtResource("4_0emyk")]
+tile_map_data = PackedByteArray("AAD4/wEAAAAGAAAAAAD4/wIAAAAGAAEAAAD4/wMAAAAGAAIAAAD4/wQAAAAGAAMAAAD5/wEAAAAHAAAAAAD5/wIAAAAHAAEAAAD5/wMAAAAHAAIAAAD5/wQAAAAHAAMAAAD6/wEAAAAIAAAAAAD6/wIAAAAIAAEAAAD6/wMAAAAIAAIAAAD6/wQAAAAIAAMAAAD7/wIAAAAJAAEAAAD7/wMAAAAJAAIAAAD7/wQAAAAJAAMAAAAFAAIAAAAJAAQAAEAFAAEAAAAIAAQAAEAGAAIAAAAJAAUAAEAGAAEAAAAIAAUAAEAHAAIAAAAJAAYAAEAHAAEAAAAIAAYAAEAIAAIAAAAJAAcAAEAIAAEAAAAIAAcAAEDl//r/AAAGAAQAAGDl//n/AAAHAAQAAGDm//r/AAAGAAUAAGDm//n/AAAHAAUAAGDn//r/AAAGAAYAAGDn//n/AAAHAAYAAGDo//r/AAAGAAcAAGDo//n/AAAHAAcAAGD4//v/AAAMAAIAAAD4//z/AAAMAAMAAAD5//v/AAANAAIAAAD5//z/AAANAAMAAADm/wMAAAAMAAIAAGDm/wIAAAANAAIAAGDn/wMAAAAMAAMAAGDn/wIAAAANAAMAAGAIAPr/AAAMAAIAAFAIAPv/AAANAAIAAFAHAPr/AAAMAAMAAFAHAPv/AAANAAMAAFAOAAMAAAAMAAMAAAAOAAIAAAAMAAIAAAAPAAMAAAANAAMAAAAPAAIAAAANAAIAAAATAPz/AAAOAAIAAAATAP3/AAAOAAMAAAAUAPz/AAAPAAIAAAAUAP3/AAAPAAMAAAABAAMAAAAOAAIAAAABAAQAAAAOAAMAAAACAAMAAAAPAAIAAAACAAQAAAAPAAMAAADv//r/AAAOAAIAAADv//v/AAAOAAMAAADw//r/AAAPAAIAAADw//v/AAAPAAMAAAD2/wQAAAACAAMAAAD3/wQAAAADAAMAAAAGAP3/AAAEAAMAAAAHAP3/AAAFAAMAAAACAPn/AAAKAAYAAAACAPr/AAAKAAcAAAADAPn/AAALAAYAAAADAPr/AAALAAcAAAA=")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]
 

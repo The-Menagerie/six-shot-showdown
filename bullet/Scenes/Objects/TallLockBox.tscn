@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="1_lock_box"]
+[ext_resource type="Texture2D" path="res://Assets/Images/Objects/Tall Locked Cell Block.png" id="2_tall_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bullet_unlock"]
+size = Vector2(38, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unlock"]
+size = Vector2(24, 56)
+
+[node name="TallLockBox" instance=ExtResource("1_lock_box")]
+
+[node name="CollisionShape2D" parent="BulletUnlockArea" index="0"]
+shape = SubResource("RectangleShape2D_bullet_unlock")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_tall_texture")
+
+[node name="CollisionShape2D" parent="WallBody" index="0"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="CollisionShape2D" parent="UnlockArea" index="0"]
+shape = SubResource("RectangleShape2D_unlock")

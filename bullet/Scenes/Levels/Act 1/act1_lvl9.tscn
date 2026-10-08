@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cmg6ontcxvwwc"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_on43a"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="2_flana"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="5_s0n5c"]
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="5_tcgh1"]
 [ext_resource type="PackedScene" uid="uid://w2icp313ke2c" path="res://Scenes/Objects/Dynamite.tscn" id="6_on43a"]
@@ -19,6 +20,9 @@ metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 position = Vector2(0, -16)
+
+[node name="DecorationLayer" parent="Decorations" unique_id=1043921219 instance=ExtResource("2_flana")]
+tile_map_data = PackedByteArray("AAAHAAIAAAAMAAQAAAAHAAMAAAAMAAUAAAAIAAIAAAANAAQAAAAIAAMAAAANAAUAAAD//w4AAAAMAAQAAAD//w8AAAAMAAUAAAAAAA4AAAANAAQAAAAAAA8AAAANAAUAAAAGAAoAAAAMAAQAAAAGAAsAAAAMAAUAAAAHAAoAAAANAAQAAAAHAAsAAAANAAUAAAD6/wcAAAAKAAQAAAD6/wgAAAAKAAUAAAD7/wcAAAALAAQAAAD7/wgAAAALAAUAAAAFAAIAAAAMAAIAAAAFAAMAAAAMAAMAAAAGAAIAAAANAAIAAAAGAAMAAAANAAMAAAAIAP7/AAAMAAIAAFAIAP//AAANAAIAAFAHAP7/AAAMAAMAAFAHAP//AAANAAMAAFD5/wsAAAAMAAMAADD5/wwAAAAMAAIAADD4/wsAAAANAAMAADD4/wwAAAANAAIAADADAAoAAAAOAAIAAFADAAsAAAAPAAIAAFACAAoAAAAOAAMAAFACAAsAAAAPAAMAAFD9/wEAAAAOAAIAAFD9/wIAAAAPAAIAAFD8/wEAAAAOAAMAAFD8/wIAAAAPAAMAAFDt//r/AAAMAAIAAADt//v/AAAMAAMAAADu//r/AAANAAIAAADu//v/AAANAAMAAAD1//f/AAAOAAIAAAD1//j/AAAOAAMAAAD2//f/AAAPAAIAAAD2//j/AAAPAAMAAAD6//r/AAAOAAEAAAD7//r/AAAPAAEAAAAHAAEAAAAAAAYAAGAHAAAAAAABAAYAAGAIAAEAAAAAAAcAAGAIAAAAAAABAAcAAGA=")
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
 z_index = 5

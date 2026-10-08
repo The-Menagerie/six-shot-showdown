@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_j6tbg"]
 [ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="2_gcuyb"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="2_wyhhf"]
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="3_cbjiy"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_wyhhf"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="5_pd205"]
@@ -21,6 +22,13 @@ metadata/_custom_type_script = "uid://dw8thabw4ialp"
 
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 position = Vector2(0, -16)
+
+[node name="DecorationLayer" parent="Decorations" unique_id=820703849 instance=ExtResource("2_wyhhf")]
+tile_map_data = PackedByteArray("AAD5//r/AAAGAAkAAAD6//r/AAAHAAkAAAD7//r/AAAIAAkAAAD8//r/AAAJAAkAAAAAAPj/AAAMAAQAAAAAAPn/AAAMAAUAAAABAPj/AAANAAQAAAABAPn/AAANAAUAAAAKAAQAAAAKAAYAAAAKAAUAAAAKAAcAAAALAAQAAAALAAYAAAALAAUAAAALAAcAAAD+/wUAAAAKAAYAAGD+/wQAAAALAAYAAGD//wUAAAAKAAcAAGD//wQAAAALAAcAAGAGAPj/AAAGAAQAAGAGAPf/AAAHAAQAAGAHAPj/AAAGAAUAAGAHAPf/AAAHAAUAAGAIAPj/AAAGAAYAAGAIAPf/AAAHAAYAAGAJAPj/AAAGAAcAAGAJAPf/AAAHAAcAAGABAAUAAAAOAAIAAAABAAYAAAAOAAMAAAACAAUAAAAPAAIAAAACAAYAAAAPAAMAAAD4/wMAAAAOAAIAAAD4/wQAAAAOAAMAAAD5/wMAAAAPAAIAAAD5/wQAAAAPAAMAAAAKAP3/AAAAAAgAAAAKAP7/AAAAAAkAAAALAP3/AAABAAgAAAALAP7/AAABAAkAAAD3//f/AAACAAgAAAD4//f/AAADAAgAAAA=")
+
+[node name="DecorationLayer2" parent="Decorations" unique_id=909465219 instance=ExtResource("2_wyhhf")]
+position = Vector2(-1, 6)
+tile_map_data = PackedByteArray("AAD6//n/AAAKAAsAAAD7//n/AAALAAsAAAA=")
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
 z_index = 5

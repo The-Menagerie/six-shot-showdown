@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxyncv5q6w7w6" path="res://Scenes/Objects/PowerUps/Key.tscn" id="3_jyc38"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_jyc38"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="5_bib3x"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="5_fj1qi"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="7_ko1dd"]
 
 [node name="Act1Lvl02" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
@@ -48,6 +49,9 @@ tile_set = ExtResource("3_amnvy")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(0, -16)
+
+[node name="DecorationLayer" parent="Decorations" unique_id=1087106533 instance=ExtResource("5_fj1qi")]
+tile_map_data = PackedByteArray("AAD///j/AAAIAAQAAAD///n/AAAIAAUAAAD///r/AAAIAAYAAAD///v/AAAIAAcAAAAAAPj/AAAJAAQAAAAAAPn/AAAJAAUAAAAAAPr/AAAJAAYAAAAAAPv/AAAJAAcAAAD0//P/AAAIAAQAAFD0//T/AAAJAAQAAFDz//P/AAAIAAUAAFDz//T/AAAJAAUAAFDy//P/AAAIAAYAAFDy//T/AAAJAAYAAFDx//P/AAAIAAcAAFDx//T/AAAJAAcAAFAIAPv/AAAOAAIAAAAIAPz/AAAOAAMAAAAJAPv/AAAPAAIAAAAJAPz/AAAPAAMAAAAAAAAAAAAOAAIAAAAAAAEAAAAOAAMAAAABAAAAAAAPAAIAAAABAAEAAAAPAAMAAAD7/wIAAAAHAAEAAAD7/wMAAAAHAAIAAAD8/wIAAAAIAAEAAAD8/wMAAAAIAAIAAAAGAAIAAAAOAAIAAAAGAAMAAAAOAAMAAAAHAAIAAAAPAAIAAAAHAAMAAAAPAAMAAAD2/wMAAAAAAAgAAAD2/wQAAAAAAAkAAAD3/wMAAAABAAgAAAD3/wQAAAABAAkAAAAHAPj/AAACAAgAAAAIAPj/AAADAAgAAADy//f/AAACAAgAAADz//f/AAADAAgAAAADAPn/AAAEAAQAACAEAPn/AAAFAAQAACADAPj/AAAEAAUAACAEAPj/AAAFAAUAACD6/wEAAAAGAAAAAAD6/wIAAAAGAAEAAAD6/wMAAAAGAAIAAAD6/wQAAAAGAAMAAAD7/wEAAAAHAAAAAAD7/wQAAAAHAAMAAAD8/wEAAAAIAAAAAAD8/wQAAAAIAAMAAAD9/wIAAAAJAAEAAAD9/wMAAAAJAAIAAAD9/wQAAAAJAAMAAAA=")
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("4_jyc38")]
 position = Vector2(-56, 47)
