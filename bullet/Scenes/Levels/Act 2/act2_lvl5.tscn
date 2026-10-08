@@ -138,7 +138,7 @@ position = Vector2(-128, 144)
 position = Vector2(48, 96)
 
 [node name="Rope4" parent="." unique_id=1329390131 instance=ExtResource("8_36tyc")]
-tile_map_data = PackedByteArray("AAAPAPz/AAACAAAAAAAPAPf/AAACAAEAAAAPAPn/AAABAAIAAAAPAPv/AAABAAIAAAANAPf/AAAAAAEAAAAMAPf/AAAAAAEAAAALAPf/AAADAAIAAAA=")
+tile_map_data = PackedByteArray("AAAPAPz/AAADAAAAAAAPAPf/AAACAAEAAAAPAPn/AAABAAIAAAAPAPv/AAABAAIAAAANAPf/AAAAAAEAAAAMAPf/AAAAAAEAAAALAPf/AAADAAIAAAA=")
 
 [node name="GhostKey" parent="." unique_id=1777878280 instance=ExtResource("13_f6f4w")]
 position = Vector2(-166, -75)
@@ -152,7 +152,6 @@ bullet_swap_target = 7
 
 [node name="ChamberSwap" parent="." unique_id=570067826 instance=ExtResource("16_dslvl")]
 position = Vector2(144, -72)
-chamber_swap_target = 5
 
 [node name="Enemy4" parent="." unique_id=630515949 instance=ExtResource("10_5me8s")]
 position = Vector2(200, 112)
