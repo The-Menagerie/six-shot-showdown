@@ -15,6 +15,8 @@ signal level_changed(level_path: String)
 @export_range(0.0, 3.0, 0.05) var level_fade_in_duration: float = 1.75
 @export var transition_text_start_scale: Vector2 = Vector2(2.0, 2.0)
 @export var transition_text_end_scale: Vector2 = Vector2(3.0, 3.0)
+@export_range(1.0, 30.0, 0.5) var camera_pan_smoothing: float = 12.0
+@export_range(0.1, 2.0, 0.1) var camera_pan_sensitivity: float = 1.0
 
 const TUTORIAL_LEVEL_DIRECTORY := "res://Scenes/Levels/Tutorial/"
 const GAME_LEVEL_DIRECTORY := "res://Scenes/Levels/"
@@ -31,6 +33,12 @@ var bullet_time_overlay_tween: Tween
 var completed_act_number := 0
 var next_act_scene: PackedScene
 var _game_music_enabled := true
+var _pan_camera: Camera2D
+var _camera_pan_offset := Vector2.ZERO
+var _camera_pan_target := Vector2.ZERO
+var _camera_pan_mouse_origin := Vector2.ZERO
+var _camera_pan_start_offset := Vector2.ZERO
+var _is_camera_panning := false
 @onready var music_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var bullet_time_overlay: ColorRect = $CanvasLayer/BulletTimeOverlay
 @onready var transition_overlay: ColorRect = $CanvasLayer/TransitionOverlay
@@ -52,10 +60,65 @@ func _ready():
 	_emit_level_changed()
 	call_deferred("_play_initial_level_intro")
 
-func _process(_delta):
+func _process(delta):
 	if _is_post_act_screen():
 		return
 	_update_bullet_time()
+	_update_camera_pan(delta)
+
+func _update_camera_pan(delta: float) -> void:
+	var camera := get_viewport().get_camera_2d()
+	if camera != _pan_camera:
+		_reset_camera_pan()
+		_pan_camera = camera
+	if not is_instance_valid(_pan_camera):
+		return
+
+	# Apply a temporary offset so player following and camera animations still work.
+	_pan_camera.offset -= _camera_pan_offset
+	_pan_camera.force_update_scroll()
+	var normal_screen_center := _pan_camera.get_screen_center_position()
+	var pan_held := Input.is_physical_key_pressed(KEY_SHIFT) and not is_level_transition_active and not is_level_reset_queued and not SettingsManager.is_capturing_binding
+	if pan_held:
+		var mouse_position := get_viewport().get_mouse_position()
+		if not _is_camera_panning:
+			_camera_pan_mouse_origin = mouse_position
+			_camera_pan_start_offset = _camera_pan_offset
+		var mouse_delta := (mouse_position - _camera_pan_mouse_origin) * camera_pan_sensitivity
+		_camera_pan_target = _camera_pan_start_offset + mouse_delta / _pan_camera.zoom
+		var max_pan := get_viewport_rect().size * 0.5 / _pan_camera.zoom
+		_camera_pan_target = _camera_pan_target.clamp(-max_pan, max_pan)
+	else:
+		_camera_pan_target = Vector2.ZERO
+	_camera_pan_target = _clamp_camera_pan_to_limits(_camera_pan_target, normal_screen_center)
+	_is_camera_panning = pan_held
+	var smoothing_weight := 1.0 - exp(-camera_pan_smoothing * delta / Engine.time_scale)
+	_camera_pan_offset = _camera_pan_offset.lerp(_camera_pan_target, smoothing_weight)
+	_camera_pan_offset = _clamp_camera_pan_to_limits(_camera_pan_offset, normal_screen_center)
+	if not pan_held and _camera_pan_offset.length_squared() < 0.01:
+		_camera_pan_offset = Vector2.ZERO
+	_pan_camera.offset += _camera_pan_offset
+	_pan_camera.force_update_scroll()
+
+func _clamp_camera_pan_to_limits(pan_offset: Vector2, normal_screen_center: Vector2) -> Vector2:
+	if not _pan_camera.limit_enabled:
+		return pan_offset
+	var half_view := get_viewport_rect().size * 0.5 / _pan_camera.zoom
+	var minimum_pan := Vector2(_pan_camera.limit_left, _pan_camera.limit_top) + half_view - normal_screen_center
+	var maximum_pan := Vector2(_pan_camera.limit_right, _pan_camera.limit_bottom) - half_view - normal_screen_center
+	# Keep the normal framing when the viewport is wider than the level or the
+	# scene has an intentional offset, but never pan farther outside its bounds.
+	minimum_pan = minimum_pan.min(Vector2.ZERO)
+	maximum_pan = maximum_pan.max(Vector2.ZERO)
+	return pan_offset.clamp(minimum_pan, maximum_pan)
+
+func _reset_camera_pan() -> void:
+	if is_instance_valid(_pan_camera):
+		_pan_camera.offset -= _camera_pan_offset
+	_pan_camera = null
+	_camera_pan_offset = Vector2.ZERO
+	_camera_pan_target = Vector2.ZERO
+	_is_camera_panning = false
 
 func _apply_initial_level_selection() -> void:
 	if current_level == null:
@@ -92,6 +155,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func change_level(level: PackedScene) -> void:
+	_reset_camera_pan()
 	var new_level = level.instantiate()
 	if level == END_ACT_SCENE:
 		new_level.configure_act_result(completed_act_number, ScoreBus.current_score, next_act_scene)
@@ -111,6 +175,7 @@ func transition_to_level(level: PackedScene, fade_out_duration: float) -> void:
 
 	if current_level != null:
 		var completed_act: int = ActManager.get_completed_act_for_transition(current_level.scene_file_path, level.resource_path)
+		ScoreBus.complete_level()
 		ActManager.record_level_completion(current_level.scene_file_path, level.resource_path)
 		if completed_act > 0:
 			completed_act_number = completed_act
@@ -126,7 +191,7 @@ func _is_post_act_screen() -> bool:
 	return _is_end_of_act_screen() or (current_level != null and current_level.scene_file_path == CREDITS_SCENE.resource_path)
 
 func reset_current_level() -> void:
-	if is_level_reset_queued:
+	if is_level_reset_queued or is_level_transition_active:
 		return
 	if current_level == null:
 		return
@@ -148,6 +213,7 @@ func _deferred_reset_current_level() -> void:
 		return
 
 	var new_level := level_scene.instantiate()
+	_reset_camera_pan()
 	add_child(new_level)
 	current_level.queue_free()
 	current_level = new_level
@@ -192,6 +258,7 @@ func _emit_level_changed() -> void:
 	_apply_audio_pitch_scale_to_subtree(current_level)
 	BulletBus.player_key_changed.emit(false, false, 0)
 	ActManager.begin_level(current_level.scene_file_path)
+	ScoreBus.begin_level_attempt()
 	level_changed.emit(current_level.scene_file_path)
 
 func configure_audio_player_for_bullet_time(audio_player: AudioStreamPlayer) -> void:

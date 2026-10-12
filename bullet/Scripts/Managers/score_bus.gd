@@ -23,6 +23,8 @@ var _run_start_msec: int = 0
 var _run_active := false
 var _elapsed_run_msec: int = 0
 var _pause_started_msec: int = -1
+var _level_bullet_score_change: int = 0
+var _level_completed := false
 
 func _ready() -> void:
 	_last_passive_score_tick_msec = Time.get_ticks_msec()
@@ -61,11 +63,24 @@ func reset_score() -> void:
 	current_score = starting_score
 	score_changed.emit(current_score)
 
-func player_fired_shot() -> void:
-	if not _run_active:
+func player_fired_shot(chamber_cost: int = 0) -> void:
+	if not _run_active or _level_completed:
 		return
 	shots_taken += 1
-	apply_score_change(score_per_shot)
+	_level_bullet_score_change += score_per_shot - abs(chamber_cost)
+
+func begin_level_attempt() -> void:
+	_level_bullet_score_change = 0
+	_level_completed = false
+
+func complete_level() -> void:
+	if not _run_active or _level_completed:
+		return
+	_level_completed = true
+	var bullet_score_change := _level_bullet_score_change
+	_level_bullet_score_change = 0
+	if bullet_score_change != 0:
+		apply_score_change(bullet_score_change)
 
 func player_hit_by_enemy_bullet() -> void:
 	apply_score_change(score_on_enemy_bullet_hit)
@@ -95,6 +110,7 @@ func spend_score(amount: int) -> void:
 	apply_score_change(-abs(amount))
 
 func start_run() -> void:
+	begin_level_attempt()
 	shots_taken = 0
 	reset_count = 0
 	death_count = 0
@@ -115,6 +131,7 @@ func finish_run() -> void:
 	_last_passive_score_tick_msec = Time.get_ticks_msec()
 
 func reset_run_stats() -> void:
+	begin_level_attempt()
 	shots_taken = 0
 	reset_count = 0
 	death_count = 0

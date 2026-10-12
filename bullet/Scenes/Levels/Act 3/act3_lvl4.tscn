@@ -137,6 +137,7 @@ position = Vector2(10, -5)
 tile_map_data = PackedByteArray("AAAEAPf/AAAAAAMAADAFAPf/AAAAAAMAADAGAPf/AAAAAAMAADAHAPf/AAAAAAMAADAEAPj/AAAAAAMAAAAFAPj/AAAAAAMAAAAGAPj/AAAAAAMAAAAHAPj/AAAAAAMAAAAFAPb/AAAAAAQAAAA=")
 trigger_interaction_size = Vector2(48, 48)
 dynamite_player_explosion_impulse = 260.0
+dynamite_player_minimum_launch_height = 300.0
 dynamite_player_explosion_radius = 128.0
 
 [node name="ChamberSwap" parent="." unique_id=661340299 instance=ExtResource("12_iyvt5")]

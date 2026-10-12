@@ -65,8 +65,12 @@ func _physics_process(delta):
 		velocity.y = -jump_force
 	elif not is_on_floor():
 		velocity.y += gravity * delta
-	elif Input.is_action_pressed("down"):
-		_drop_through_platforms()
+	else:
+		# move_and_slide leaves slope motion in velocity.y; do not carry it
+		# into the next frame as an unintended jump or fall.
+		velocity.y = 0.0
+		if Input.is_action_pressed("down"):
+			_drop_through_platforms()
 
 	if jump_pressed:
 		_apply_recent_explosion_jump_combo(current_time)
@@ -80,9 +84,11 @@ func _physics_process(delta):
 	velocity.x = move_input * move_speed + recoil_velocity.x
 
 
+	var fly_segment_start := collision_shape.global_position
 	move_and_slide()
 	if flying:
 		ram_through()
+		_ignite_fuses_while_flying(fly_segment_start)
 		if is_on_floor():
 			self.modulate = Color(1,1,1,1)
 			_set_flying_state(false)
@@ -144,7 +150,6 @@ func fire_bullet(bullet_scene: PackedScene):
 	#if Input.is_action_just_pressed("shoot"):
 	var bullet = bullet_scene.instantiate()
 	bullet.shooter = self
-	ScoreBus.player_fired_shot()
 	if bullet.has_method("capture_swap_origin"):
 		bullet.capture_swap_origin(self)
 	var aim_vector = get_global_mouse_position() - global_position
@@ -332,6 +337,16 @@ func ram_through() -> void:
 		var attack := Attack.new()
 		attack.attack_damage = 1.0
 		area.damage(attack)
+
+func _ignite_fuses_while_flying(segment_start: Vector2) -> void:
+	if not flying or not is_instance_valid(collision_shape) or collision_shape.shape == null:
+		return
+	# Expand the fuse contact range to cover the player's body, not just its center.
+	var body_size := collision_shape.shape.get_rect().size * collision_shape.global_scale.abs()
+	var contact_tolerance := maxf(body_size.x, body_size.y) * 0.5
+	for fuse: Node in get_tree().get_nodes_in_group("fuse"):
+		if fuse.has_method("ignite_along_segment"):
+			fuse.ignite_along_segment(segment_start, collision_shape.global_position, contact_tolerance)
 
 func _get_fly_overlap_hitboxes() -> Array[Area2D]:
 	var results: Array[Area2D] = []

@@ -118,9 +118,10 @@ func ignite_by_bullet(hit_position: Vector2, ignite_tolerance: float = default_i
 		return false
 	var cell: Vector2i = local_to_map(to_local(hit_position))
 	if not _has_fuse_cell(cell):
-		cell = _find_ignite_cell_for_point(hit_position, ignite_tolerance)
-		if not _has_fuse_cell(cell):
+		var hit_cell: Variant = _find_ignite_cell_for_point(hit_position, ignite_tolerance)
+		if hit_cell == null:
 			return false
+		cell = hit_cell
 	if _is_trigger_cell(cell):
 		return false
 
@@ -130,9 +131,10 @@ func ignite_by_bullet(hit_position: Vector2, ignite_tolerance: float = default_i
 func ignite_along_segment(segment_start: Vector2, segment_end: Vector2, ignite_tolerance: float = default_ignite_tolerance) -> bool:
 	if has_ignited:
 		return false
-	var ignite_cell: Vector2i = _find_ignite_cell_along_segment(segment_start, segment_end, ignite_tolerance)
-	if not _has_fuse_cell(ignite_cell):
+	var hit_cell: Variant = _find_ignite_cell_along_segment(segment_start, segment_end, ignite_tolerance)
+	if hit_cell == null:
 		return false
+	var ignite_cell: Vector2i = hit_cell
 	if _is_trigger_cell(ignite_cell):
 		return false
 
@@ -340,17 +342,18 @@ func _get_nearby_dynamites(dynamite_tile_positions: Array[Vector2]) -> Array[Nod
 
 	return nearby_dynamites
 
-func _find_ignite_cell_for_point(hit_position: Vector2, ignite_tolerance: float) -> Vector2i:
+# Null represents a miss; every Vector2i is a valid tile coordinate.
+func _find_ignite_cell_for_point(hit_position: Vector2, ignite_tolerance: float) -> Variant:
 	for cell: Vector2i in _get_used_fuse_cells():
 		if _point_intersects_cell(to_local(hit_position), cell, ignite_tolerance):
 			return cell
 
-	return Vector2i(-1, -1)
+	return null
 
-func _find_ignite_cell_along_segment(segment_start: Vector2, segment_end: Vector2, ignite_tolerance: float) -> Vector2i:
+func _find_ignite_cell_along_segment(segment_start: Vector2, segment_end: Vector2, ignite_tolerance: float) -> Variant:
 	var local_start: Vector2 = to_local(segment_start)
 	var local_end: Vector2 = to_local(segment_end)
-	var best_cell: Vector2i = Vector2i(-1, -1)
+	var best_cell: Variant = null
 	var best_distance: float = INF
 
 	for cell: Vector2i in _get_used_fuse_cells():

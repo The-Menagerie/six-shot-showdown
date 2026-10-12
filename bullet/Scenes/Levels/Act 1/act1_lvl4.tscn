@@ -66,6 +66,7 @@ zoom = Vector2(4, 4)
 limit_left = -416
 limit_top = -250
 limit_right = 432
+limit_bottom = 169
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668499867]
 
