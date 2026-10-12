@@ -396,6 +396,7 @@ tile_map_data = PackedByteArray("AAD2//7/AAACAAAAAAD4//7/AAACAAAAAAD6//7/AAACAAA
 [node name="BouncyLockBox" parent="." unique_id=100605580 instance=ExtResource("20_uo101")]
 position = Vector2(357, -56)
 bouncy_burst_impulse = 875.0
+ricochet_targets = Array[NodePath]([])
 
 [node name="Enemy4" parent="." unique_id=1132088133 instance=ExtResource("18_x41u4")]
 position = Vector2(-2, -57)
@@ -409,6 +410,7 @@ position = Vector2(367, -89)
 [node name="BouncyLockBox2" parent="." unique_id=1730199616 instance=ExtResource("20_uo101")]
 position = Vector2(208, -56)
 bouncy_burst_impulse = 875.0
+ricochet_targets = Array[NodePath]([])
 
 [node name="Enemy7" parent="." unique_id=298579815 instance=ExtResource("18_x41u4")]
 position = Vector2(211, -88)
@@ -416,6 +418,7 @@ position = Vector2(211, -88)
 [node name="BouncyLockBox3" parent="." unique_id=602602697 instance=ExtResource("20_uo101")]
 position = Vector2(-112, -145)
 bouncy_burst_impulse = 800.0
+ricochet_targets = Array[NodePath]([NodePath("../Enemy4")])
 
 [node name="Enemy8" parent="." unique_id=1988306827 instance=ExtResource("18_x41u4")]
 position = Vector2(-112, -178)

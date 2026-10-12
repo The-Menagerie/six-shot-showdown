@@ -113,12 +113,15 @@ position = Vector2(723, 16)
 
 [node name="BouncyLockBox" parent="." unique_id=1504117620 instance=ExtResource("10_teldl")]
 position = Vector2(464, 112)
+ricochet_targets = Array[NodePath]([NodePath("../LockBox"), NodePath("../Target")])
 
 [node name="BouncyLockBox2" parent="." unique_id=1286286932 instance=ExtResource("10_teldl")]
 position = Vector2(912, 144)
+ricochet_targets = Array[NodePath]([])
 
 [node name="BouncyLockBox3" parent="." unique_id=1607498995 instance=ExtResource("10_teldl")]
 position = Vector2(880, 144)
+ricochet_targets = Array[NodePath]([])
 
 [node name="LockBox" parent="." unique_id=208298922 instance=ExtResource("8_mnpae")]
 position = Vector2(368, 67)
@@ -141,6 +144,7 @@ scale = Vector2(0.029, 4)
 
 [node name="BouncyLockBox4" parent="." unique_id=1581320761 instance=ExtResource("10_teldl")]
 position = Vector2(64, 96)
+ricochet_targets = Array[NodePath]([NodePath("../Enemy2"), NodePath("../Crate2")])
 
 [node name="Target" parent="." unique_id=2010272472 instance=ExtResource("13_7kadq")]
 position = Vector2(339, 67)
@@ -168,16 +172,19 @@ scale = Vector2(0.029, 4)
 position = Vector2(1200, 112)
 bouncy_burst_impulse = 600.0
 bouncy_burst_min_force_scale = 0.9
+ricochet_targets = Array[NodePath]([])
 
 [node name="BouncyLockBox6" parent="." unique_id=1166208437 instance=ExtResource("10_teldl")]
 position = Vector2(1120, 14)
 bouncy_burst_impulse = 600.0
 bouncy_burst_min_force_scale = 0.9
+ricochet_targets = Array[NodePath]([])
 
 [node name="BouncyLockBox7" parent="." unique_id=1278259174 instance=ExtResource("10_teldl")]
 position = Vector2(1200, -82)
 bouncy_burst_impulse = 600.0
 bouncy_burst_min_force_scale = 0.9
+ricochet_targets = Array[NodePath]([])
 
 [node name="Platform3" parent="." unique_id=2026337778 instance=ExtResource("11_y1hp3")]
 position = Vector2(1168, 18)

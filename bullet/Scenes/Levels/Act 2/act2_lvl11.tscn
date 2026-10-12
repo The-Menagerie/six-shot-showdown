@@ -435,6 +435,7 @@ position = Vector2(904, -64)
 
 [node name="TallBouncyLockBox" parent="." unique_id=724680282 instance=ExtResource("23_xu0k5")]
 position = Vector2(-264, -64)
+ricochet_targets = Array[NodePath]([NodePath("../Target")])
 
 [node name="Platform" parent="." unique_id=1737485350 instance=ExtResource("24_xu0k5")]
 position = Vector2(400, -104)

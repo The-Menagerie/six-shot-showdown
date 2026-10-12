@@ -124,11 +124,13 @@ position = Vector2(-89, 147)
 position = Vector2(-112, 304)
 bouncy_burst_impulse = 750.0
 bouncy_burst_upward_bias = 0.6
+ricochet_targets = Array[NodePath]([])
 
 [node name="BouncyLockBox2" parent="." unique_id=1183633761 instance=ExtResource("9_0qt5t")]
 position = Vector2(-80, 304)
 bouncy_burst_impulse = 750.0
 bouncy_burst_upward_bias = 0.6
+ricochet_targets = Array[NodePath]([])
 
 [node name="Dynamite" parent="." unique_id=1520705311 instance=ExtResource("10_4rdcq")]
 position = Vector2(-109, 279)
@@ -171,6 +173,7 @@ position = Vector2(400, 416)
 position = Vector2(512, 272)
 bouncy_burst_impulse = 850.0
 bouncy_burst_min_force_scale = 0.8
+ricochet_targets = Array[NodePath]([NodePath("../Enemy5")])
 
 [node name="Enemy4" parent="." unique_id=266312982 instance=ExtResource("10_x04b7")]
 position = Vector2(487, 238)
@@ -206,6 +209,7 @@ position = Vector2(400, 496)
 bouncy_burst_impulse = 800.0
 bouncy_burst_upward_bias = 0.6
 bouncy_burst_min_force_scale = 0.9
+ricochet_targets = Array[NodePath]([])
 
 [node name="Spikes" parent="." unique_id=758327182 instance=ExtResource("13_gcm7t")]
 position = Vector2(400, 572)

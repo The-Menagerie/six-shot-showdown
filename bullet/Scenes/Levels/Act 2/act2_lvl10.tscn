@@ -186,6 +186,7 @@ position = Vector2(496, -173)
 
 [node name="BouncyLockBox" parent="." unique_id=72370791 instance=ExtResource("13_7mhed")]
 position = Vector2(528, -320)
+ricochet_targets = Array[NodePath]([NodePath("../Enemy6")])
 
 [node name="Crate" parent="." unique_id=1501267980 instance=ExtResource("14_fx8ie")]
 position = Vector2(138, -64)

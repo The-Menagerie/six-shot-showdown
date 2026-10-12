@@ -8,6 +8,9 @@ extends "res://Scripts/Objects/lock_box.gd"
 @export var limit_stacked_upward_launch := true
 @export var idle_animation_name: StringName = &"animation"
 @export var randomize_idle_animation_start := true
+## Ordered targets for the outgoing key bullet. Missing targets are skipped;
+## an empty list or no remaining targets uses the normal reflected bounce.
+@export var ricochet_targets: Array[NodePath] = []
 
 @onready var idle_animation_player: AnimationPlayer = get_node_or_null("AnimationPlayer")
 
@@ -64,6 +67,9 @@ func _ricochet_key_bullet(body: Node2D, bounce_normal := Vector2.ZERO) -> void:
 		bounce_normal = -bullet_direction.normalized()
 
 	var ricochet_direction := bullet_direction.bounce(bounce_normal).normalized()
+	var target_direction := _get_ricochet_target_direction(body)
+	if target_direction != Vector2.ZERO:
+		ricochet_direction = target_direction
 	body.set("direction", ricochet_direction)
 	body.rotation = ricochet_direction.angle()
 
@@ -72,6 +78,22 @@ func _ricochet_key_bullet(body: Node2D, bounce_normal := Vector2.ZERO) -> void:
 		body.set("bounce_count", maxi(max_bounces, 1))
 	if body.has_method("_play_ricochet"):
 		body._play_ricochet()
+
+func _get_ricochet_target_direction(body: Node2D) -> Vector2:
+	for target_path: NodePath in ricochet_targets:
+		if target_path.is_empty():
+			continue
+		var target := get_node_or_null(target_path) as Node2D
+		if not is_instance_valid(target) or not target.is_inside_tree() or target.is_queued_for_deletion():
+			continue
+		if target == self or target == body:
+			continue
+		if target.get("has_exploded") == true or target.get("is_unlocked") == true:
+			continue
+		var target_direction := body.global_position.direction_to(target.global_position)
+		if target_direction != Vector2.ZERO:
+			return target_direction
+	return Vector2.ZERO
 
 func _spawn_bouncy_burst() -> void:
 	if bouncy_burst_scene == null:

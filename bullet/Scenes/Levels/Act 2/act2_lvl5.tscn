@@ -109,6 +109,7 @@ tile_map_data = PackedByteArray("AAAHAP3/AAADAAAAAAAHAPv/AAABAAIAAAAHAPn/AAABAAI
 
 [node name="BouncyLockBox" parent="." unique_id=1504117620 instance=ExtResource("10_etkqp")]
 position = Vector2(-256, 16)
+ricochet_targets = Array[NodePath]([NodePath("../Target")])
 
 [node name="Platform2" parent="." unique_id=1162312405 instance=ExtResource("12_08txe")]
 position = Vector2(-256, 20)
