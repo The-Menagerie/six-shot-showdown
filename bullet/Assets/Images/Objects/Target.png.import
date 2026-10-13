@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5c22gxc1rw5b"
-path="res://.godot/imported/ExplosionAnimated.png-6fcf8dffc764f249ba83c07a07335bf8.ctex"
+uid="uid://ck7cndyncv08a"
+path="res://.godot/imported/Target.png-6268a66efb5846841bb9dcbaf50ddd4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TO BE REPLACED/StrangeCowboy/Enemy/ExplosionAnimated.png"
-dest_files=["res://.godot/imported/ExplosionAnimated.png-6fcf8dffc764f249ba83c07a07335bf8.ctex"]
+source_file="res://Assets/Images/Objects/Target.png"
+dest_files=["res://.godot/imported/Target.png-6268a66efb5846841bb9dcbaf50ddd4a.ctex"]
 
 [params]
 

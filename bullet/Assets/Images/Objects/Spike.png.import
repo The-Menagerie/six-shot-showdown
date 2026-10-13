@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://didp52v56yjjb"
-path="res://.godot/imported/reticle_clicked.png-d7bedcd286c871bccf57369556eaac33.ctex"
+uid="uid://ym5ygbhc2qbf"
+path="res://.godot/imported/Spike.png-b11ab0660b14f1be3d151bcbb34bbc93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TO BE REPLACED/StrangeCowboy/Player/reticle_clicked.png"
-dest_files=["res://.godot/imported/reticle_clicked.png-d7bedcd286c871bccf57369556eaac33.ctex"]
+source_file="res://Assets/Images/Objects/Spike.png"
+dest_files=["res://.godot/imported/Spike.png-b11ab0660b14f1be3d151bcbb34bbc93.ctex"]
 
 [params]
 

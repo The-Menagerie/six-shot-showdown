@@ -18,7 +18,10 @@ const MAX_BINDINGS_PER_ACTION := 2
 const INPUT_DEVICE_KEYBOARD := "keyboard"
 const INPUT_DEVICE_CONTROLLER := "controller"
 const STICK_DIRECTION_ACTIONS := ["left", "right", "down", "aim_left", "aim_right", "aim_up", "aim_down"]
-const CURSOR_HOTSPOT := Vector2(10, 10)
+const RETICLE_SHEET := preload("res://Assets/Images/UI/Reticle.png")
+const RETICLE_FRAME_SIZE := Vector2i(17, 17)
+const RETICLE_CURSOR_SIZE := Vector2i(34, 34)
+const CURSOR_HOTSPOT := Vector2(17, 17)
 const UI_TEXT_SHADOW_COLOR := Color(0.0, 0.0, 0.0, 0.85)
 const UI_TEXT_SHADOW_OFFSET := Vector2i(3, 3)
 const UI_FOCUS_COLOR := Color(0.9098039, 0.4, 0.2901961, 1)
@@ -31,8 +34,8 @@ const INPUT_DEVICE_AXIS_THRESHOLD := 0.2
 
 @export var reticle_edge_padding : float = 4.0
 
-var reticle = load("res://Assets/TO BE REPLACED/StrangeCowboy/Player/reticle_norm.png")
-var reticle_clicked = load("res://Assets/TO BE REPLACED/StrangeCowboy/Player/reticle_clicked.png")
+var reticle := _create_reticle_frame(0)
+var reticle_clicked := _create_reticle_frame(1)
 
 var skip_tutorial := false
 var skip_cutscenes := false
@@ -188,6 +191,12 @@ func _focus_first_menu_control(root: Node) -> void:
 			continue
 		control.grab_focus()
 		return
+
+func _create_reticle_frame(frame: int) -> ImageTexture:
+	var region := Rect2i(Vector2i(frame * RETICLE_FRAME_SIZE.x, 0), RETICLE_FRAME_SIZE)
+	var image := RETICLE_SHEET.get_image().get_region(region)
+	image.resize(RETICLE_CURSOR_SIZE.x, RETICLE_CURSOR_SIZE.y, Image.INTERPOLATE_NEAREST)
+	return ImageTexture.create_from_image(image)
 
 func apply_custom_cursor() -> void:
 	_apply_cursor_texture(reticle)

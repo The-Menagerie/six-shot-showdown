@@ -169,12 +169,6 @@ position = Vector2(578, 480)
 [node name="LockBox" parent="." unique_id=1619971870 instance=ExtResource("9_keni0")]
 position = Vector2(400, 416)
 
-[node name="BouncyLockBox3" parent="." unique_id=1225141767 instance=ExtResource("9_0qt5t")]
-position = Vector2(512, 272)
-bouncy_burst_impulse = 850.0
-bouncy_burst_min_force_scale = 0.8
-ricochet_targets = Array[NodePath]([NodePath("../Enemy5")])
-
 [node name="Enemy4" parent="." unique_id=266312982 instance=ExtResource("10_x04b7")]
 position = Vector2(487, 238)
 
@@ -242,5 +236,11 @@ position = Vector2(806, 145)
 
 [node name="Boulder9" parent="." unique_id=1643401161 instance=ExtResource("15_b4etj")]
 position = Vector2(830, 181)
+
+[node name="BouncyLockBox3" parent="." unique_id=1733735987 instance=ExtResource("9_0qt5t")]
+position = Vector2(512, 272)
+bouncy_burst_impulse = 850.0
+bouncy_burst_min_force_scale = 0.8
+ricochet_targets = Array[NodePath]([NodePath("../Enemy5")])
 
 [editable path="Fuse"]

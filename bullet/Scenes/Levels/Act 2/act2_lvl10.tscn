@@ -35,12 +35,6 @@ metadata/_custom_type_script = "uid://dw8thabw4ialp"
 scroll_scale = Vector2(0.05, 0.05)
 script = ExtResource("2_rkqhv")
 
-[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="BackgroundParallaxLayer0Scroll" unique_id=1224316472]
-z_index = -30
-position = Vector2(50, -67.000015)
-scale = Vector2(2.9666665, 2.9666667)
-texture = ExtResource("3_gm5sb")
-
 [node name="BackgroundParallaxLayer3Scroll" type="Parallax2D" parent="." unique_id=1532481772]
 scroll_scale = Vector2(0.1, 0.067)
 script = ExtResource("2_rkqhv")
@@ -389,6 +383,12 @@ position = Vector2(848, -88)
 
 [node name="TallLockBox" parent="." unique_id=1849300913 instance=ExtResource("23_iw1br")]
 position = Vector2(632, -64)
+
+[node name="BackgroundParallaxLayer0" type="Sprite2D" parent="." unique_id=1050237979]
+z_index = -30
+position = Vector2(50, -67.000015)
+scale = Vector2(2.9666665, 2.9666667)
+texture = ExtResource("3_gm5sb")
 
 [editable path="Fuse"]
 [editable path="Fuse2"]
