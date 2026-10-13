@@ -78,7 +78,7 @@ func _update_camera_pan(delta: float) -> void:
 	_pan_camera.offset -= _camera_pan_offset
 	_pan_camera.force_update_scroll()
 	var normal_screen_center := _pan_camera.get_screen_center_position()
-	var pan_held := Input.is_physical_key_pressed(KEY_SHIFT) and not is_level_transition_active and not is_level_reset_queued and not SettingsManager.is_capturing_binding
+	var pan_held := Input.is_action_pressed("pan") and not is_level_transition_active and not is_level_reset_queued and not SettingsManager.is_capturing_binding
 	if pan_held:
 		var mouse_position := get_viewport().get_mouse_position()
 		if not _is_camera_panning:

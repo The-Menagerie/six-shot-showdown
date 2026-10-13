@@ -13,6 +13,7 @@ const ACTION_MARKERS := {
 	"bullet_time": ["Right Click"],
 	"menu": ["Esc"],
 	"restart": ["R"],
+	"pan": ["Shift"],
 }
 const MOUSE_SCENES := {
 	MOUSE_BUTTON_LEFT: "LeftClick",

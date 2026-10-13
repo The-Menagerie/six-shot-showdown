@@ -21,9 +21,10 @@ position = Vector2(196, 16)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=288009827]
 zoom = Vector2(3, 3)
-limit_left = -416
-limit_top = -175
-limit_right = 432
+limit_left = -413
+limit_top = -172
+limit_right = 426
+limit_bottom = 339
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
 z_index = 5
