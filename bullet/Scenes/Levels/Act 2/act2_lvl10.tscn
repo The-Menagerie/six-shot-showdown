@@ -256,20 +256,10 @@ position = Vector2(241, -177)
 position = Vector2(210, -177)
 
 [node name="Rope2" parent="." unique_id=1546746062 instance=ExtResource("11_rkqhv")]
-tile_map_data = PackedByteArray("AAAPAPL/AAACAAAAAAAPAPD/AAABAAIAAAAPAO7/AAABAAMAAAA=")
+tile_map_data = PackedByteArray("AAAPAPL/AAADAAAAAAAPAPD/AAABAAIAAAAPAO7/AAABAAMAAAA=")
 
 [node name="Enemy5" parent="." unique_id=950316484 instance=ExtResource("7_blwqu")]
 position = Vector2(350, -240)
-
-[node name="Platform3" parent="." unique_id=315414090 instance=ExtResource("12_wip0k")]
-position = Vector2(241, -198)
-
-[node name="Fuse" parent="." unique_id=61583169 instance=ExtResource("20_g5xw7")]
-z_index = -1
-tile_map_data = PackedByteArray("AAANAO7/AAABAAIAAAANAPL/AAAAAAMAAAANAPD/AAABAAEAAAA=")
-
-[node name="Connectors" parent="Fuse" index="0" unique_id=2144048916]
-tile_map_data = PackedByteArray("AAANAPL/AAACAAIAAAA=")
 
 [node name="Crate7" parent="." unique_id=1372449115 instance=ExtResource("14_fx8ie")]
 position = Vector2(477, -80)
@@ -390,5 +380,4 @@ position = Vector2(50, -67.000015)
 scale = Vector2(2.9666665, 2.9666667)
 texture = ExtResource("3_gm5sb")
 
-[editable path="Fuse"]
 [editable path="Fuse2"]
