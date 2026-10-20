@@ -1,5 +1,7 @@
 extends Control
 
+signal finished
+
 @onready var animation_player: AnimationPlayer = $ScreenAdjuster/AnimationPlayer
 @onready var continue_button: Button = $ScreenAdjuster/Button
 @onready var reveal_masks: Control = $ScreenAdjuster/RevealMasks
@@ -29,8 +31,8 @@ func _ready() -> void:
 		continue_button.pressed.connect(_on_continue_pressed)
 
 func _on_continue_pressed() -> void:
-	MusicManager.stop_music()
-	get_tree().change_scene_to_file("res://Scenes/Levels/main_game.tscn")
+	continue_button.disabled = true
+	finished.emit()
 	
 
 func _process(delta: float) -> void:

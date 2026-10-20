@@ -21,6 +21,7 @@ signal level_changed(level_path: String)
 const TUTORIAL_LEVEL_DIRECTORY := "res://Scenes/Levels/Tutorial/"
 const GAME_LEVEL_DIRECTORY := "res://Scenes/Levels/"
 const END_ACT_SCENE = preload("res://Scenes/UI/end_of_act.tscn")
+const ACT_1_SCENE_3 = preload("res://Scenes/Levels/Cutscene.tscn")
 const CREDITS_SCENE = preload("res://Scenes/UI/credits.tscn")
 const MENU_MUSIC = preload("res://Assets/Music/CowboyMenuSong.mp3")
 const DEBUG_PREVIOUS_LEVEL_KEY := KEY_F1
@@ -159,7 +160,9 @@ func change_level(level: PackedScene) -> void:
 	var new_level = level.instantiate()
 	if level == END_ACT_SCENE:
 		new_level.configure_act_result(completed_act_number, ScoreBus.current_score, next_act_scene)
-	if level == END_ACT_SCENE or level == CREDITS_SCENE:
+	if level == ACT_1_SCENE_3:
+		new_level.get_node("Cutscene").finished.connect(_on_act_cutscene_finished)
+	if level == END_ACT_SCENE or level == CREDITS_SCENE or level == ACT_1_SCENE_3:
 		Engine.time_scale = 1.0
 		is_bullet_time_active = false
 		_set_bullet_time_overlay_intensity(0.0)
@@ -181,14 +184,20 @@ func transition_to_level(level: PackedScene, fade_out_duration: float) -> void:
 			completed_act_number = completed_act
 			next_act_scene = CREDITS_SCENE if completed_act == 3 else level
 			level = END_ACT_SCENE
+			if completed_act == 1 and not SettingsManager.skip_cutscenes:
+				level = ACT_1_SCENE_3
 	is_level_transition_active = true
 	call_deferred("_run_level_transition", level, fade_out_duration)
+
+func _on_act_cutscene_finished() -> void:
+	# The act was already recorded before the cutscene; show its results next.
+	change_level(END_ACT_SCENE)
 
 func _is_end_of_act_screen() -> bool:
 	return current_level != null and current_level.scene_file_path == END_ACT_SCENE.resource_path
 
 func _is_post_act_screen() -> bool:
-	return _is_end_of_act_screen() or (current_level != null and current_level.scene_file_path == CREDITS_SCENE.resource_path)
+	return _is_end_of_act_screen() or (current_level != null and current_level.scene_file_path in [CREDITS_SCENE.resource_path, ACT_1_SCENE_3.resource_path])
 
 func reset_current_level() -> void:
 	if is_level_reset_queued or is_level_transition_active:
@@ -355,7 +364,7 @@ func _run_level_transition(level: PackedScene, fade_out_duration: float) -> void
 	change_level(level)
 	await get_tree().process_frame
 
-	if level == END_ACT_SCENE or level == CREDITS_SCENE:
+	if level == END_ACT_SCENE or level == CREDITS_SCENE or level == ACT_1_SCENE_3:
 		if is_instance_valid(transition_overlay):
 			transition_overlay.hide()
 		if is_instance_valid(transition_text):
@@ -438,7 +447,7 @@ func is_tutorial_level_path(level_path: String) -> bool:
 	return level_path.begins_with(TUTORIAL_LEVEL_DIRECTORY)
 
 func is_gameplay_level_path(level_path: String) -> bool:
-	return level_path.begins_with(GAME_LEVEL_DIRECTORY) and not is_tutorial_level_path(level_path)
+	return level_path.begins_with(GAME_LEVEL_DIRECTORY) and not is_tutorial_level_path(level_path) and level_path != ACT_1_SCENE_3.resource_path
 
 func is_first_gameplay_level_path(level_path: String) -> bool:
 	return first_level_scene != null and level_path == first_level_scene.resource_path

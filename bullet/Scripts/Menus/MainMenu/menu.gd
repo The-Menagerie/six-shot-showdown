@@ -54,11 +54,8 @@ func new_game_button_pressed() -> void:
 	ActManager.ActSelected = false
 	ActManager.SelectedAct = null
 	ScoreBus.reset_run_stats()
-	if SettingsManager.skip_cutscenes:
-		MusicManager.stop_music()
-		_change_menu_scene("res://Scenes/Levels/main_game.tscn")
-	else:
-		_change_menu_scene("res://Scenes/Levels/Cutscene.tscn")
+	MusicManager.stop_music()
+	_change_menu_scene("res://Scenes/Levels/main_game.tscn")
 
 func options_button_pressed() -> void:
 	if menu_action_in_progress:
