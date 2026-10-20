@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://btadkvwru6byt" path="res://Scenes/Objects/Bullets/bullet.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://bhg8nl3rytoyy" path="res://Scripts/Bullets/piercing_bullet.gd" id="2_script"]
 [ext_resource type="Texture2D" uid="uid://dd624cwxkk158" path="res://Assets/Images/Bullets/PiercingBullet.png" id="3_uu1rk"]
-[ext_resource type="AudioStream" uid="uid://w7bexa72y02d" path="res://Assets/SoundEffects/PierceRicochet.wav" id="4_3a744"]
-[ext_resource type="AudioStream" uid="uid://b280feedov6tx" path="res://Assets/SoundEffects/PiercingShoot.wav" id="5_ir8bv"]
+[ext_resource type="AudioStream" uid="uid://w7bexa72y02d" path="res://Assets/SoundEffects/BulletSounds/PierceRicochet.wav" id="4_3a744"]
+[ext_resource type="AudioStream" uid="uid://b280feedov6tx" path="res://Assets/SoundEffects/BulletSounds/PiercingShoot.wav" id="5_ir8bv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a744"]
 size = Vector2(6, 2)

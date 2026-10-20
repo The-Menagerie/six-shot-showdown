@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://dxpd15g4ecs7k"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_8lsg5"]
-[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/centered_parallax.gd" id="2_lv87f"]
-[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_0.png" id="3_htke5"]
-[ext_resource type="Texture2D" uid="uid://6d20e1f5dvq" path="res://Assets/Tilesets/StrangeCowboy/Backgrounds/Background_ParallaxLayer_3.png" id="4_2rdf2"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="5_8utv0"]
-[ext_resource type="Texture2D" uid="uid://7ewrqy5p7j54" path="res://Assets/Images/Bank.png" id="6_7k6xx"]
-[ext_resource type="Texture2D" uid="uid://5k021156i33w" path="res://Assets/Images/Bank(Formal).png" id="7_6o0l1"]
+[ext_resource type="Script" uid="uid://e27h5ssvj7ui" path="res://Scripts/Environmental/centered_parallax.gd" id="2_lv87f"]
+[ext_resource type="Texture2D" uid="uid://bioqnfnqkjpmo" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_0.png" id="3_htke5"]
+[ext_resource type="Texture2D" uid="uid://6d20e1f5dvq" path="res://Assets/Images/Backgrounds/Background_ParallaxLayer_3.png" id="4_2rdf2"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="5_8utv0"]
+[ext_resource type="Texture2D" uid="uid://gp6i57244pma" path="res://Assets/Images/Decor/Bank.png" id="6_7k6xx"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="6_lv87f"]
+[ext_resource type="Texture2D" uid="uid://boanpqwlfmhs7" path="res://Assets/Images/Decor/Bank(Formal).png" id="7_6o0l1"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_2vds5"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_5nx0m"]
 [ext_resource type="PackedScene" uid="uid://w2icp313ke2c" path="res://Scenes/Objects/Dynamite.tscn" id="10_ssnv5"]
@@ -16,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://ca7q7a6c062y2" path="res://Scenes/Objects/Platform.tscn" id="13_qy51m"]
 [ext_resource type="PackedScene" uid="uid://v0kr3c1tx4aj" path="res://Scenes/Objects/Fuse.tscn" id="14_2hkmo"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="15_nckee"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/GoldBars.tscn" id="16_n77n4"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="17_sebh6"]
 
 [node name="Act2Lvl9" type="Node2D" unique_id=718201387 node_paths=PackedStringArray("targets")]
@@ -70,59 +70,33 @@ tile_set = ExtResource("5_8utv0")
 z_index = -2
 position = Vector2(1, -18)
 
-[node name="GoldBars" parent="Decorations" unique_id=2032307501 instance=ExtResource("16_n77n4")]
-position = Vector2(663, 139)
+[node name="DecorationLayer5" parent="Decorations" unique_id=1285489083 instance=ExtResource("6_lv87f")]
+position = Vector2(0, 2)
+tile_map_data = PackedByteArray("AAAhAA8AAAAMAAQAAAAhABAAAAAMAAUAAAAiAA8AAAANAAQAAAAiABAAAAANAAUAAAANAAgAAAAMAAQAAAANAAkAAAAMAAUAAAAOAAgAAAANAAQAAAAOAAkAAAANAAUAAAD//wgAAAAMAAQAAAD//wkAAAAMAAUAAAAAAAgAAAANAAQAAAAAAAkAAAANAAUAAAALAPr/AAAMAAQAAAALAPv/AAAMAAUAAAAMAPr/AAANAAQAAAAMAPv/AAANAAUAAAAEAP7/AAAMAAQAAAAEAP//AAAMAAUAAAAFAP7/AAANAAQAAAAFAP//AAANAAUAAAAgAAoAAAAEAAEAAAAhAAoAAAAFAAEAAADs/wgAAAACAAAAAADs/wkAAAACAAEAAADt/wgAAAADAAAAAADt/wkAAAADAAEAAAD4/wAAAAACAAAAAAD4/wEAAAACAAEAAAD5/wAAAAADAAAAAAD5/wEAAAADAAEAAAD///b/AAAAAAAAAAD///f/AAAAAAEAAAAAAPb/AAABAAAAAAAAAPf/AAABAAEAAAAQAPf/AAACAAMAAAARAPf/AAADAAMAAAAaAAUAAAACAAMAAAAbAAUAAAADAAMAAAAFAPf/AAAPAAEAAAAGAPf/AAAOAAUAAAAGAPb/AAAOAAQAAAAHAPb/AAAPAAQAAAAHAPf/AAAPAAUAAAAEAPf/AAAOAAEAAAAsAAwAAAAKAAYAAAAsAA0AAAAKAAcAAAAtAAwAAAALAAYAAAAtAA0AAAALAAcAAAAAAAMAAAAKAAYAAAAAAAQAAAAKAAcAAAABAAMAAAALAAYAAAABAAQAAAALAAcAAAAyAAoAAAAGAAkAAAAzAAoAAAAHAAkAAAA0AAoAAAAIAAkAAAA1AAoAAAAJAAkAAAA3AAoAAAAGAAkAAAA4AAoAAAAHAAkAAAA5AAoAAAAIAAkAAAA6AAoAAAAJAAkAAAA+AAkAAAACAAYAAAA+AAoAAAACAAcAAAA/AAkAAAADAAYAAAA/AAoAAAADAAcAAAA=")
 
-[node name="GoldBars2" parent="Decorations" unique_id=1614784927 instance=ExtResource("16_n77n4")]
-position = Vector2(678, 139)
+[node name="DecorationLayer" parent="Decorations" unique_id=1152770223 instance=ExtResource("6_lv87f")]
+tile_map_data = PackedByteArray("AAAkABAAAAAEAAwAAAAkABEAAAAEAA0AAAAlABAAAAAFAAwAAAAlABEAAAAFAA0AAAArABAAAAACAAwAAAArABEAAAACAA0AAAAsABAAAAADAAwAAAAsABEAAAADAA0AAAA=")
 
-[node name="GoldBars3" parent="Decorations" unique_id=173752260 instance=ExtResource("16_n77n4")]
-position = Vector2(670, 133)
-
-[node name="GoldBars4" parent="Decorations" unique_id=1602087845 instance=ExtResource("16_n77n4")]
-position = Vector2(761, 122)
-
-[node name="GoldBars5" parent="Decorations" unique_id=735976461 instance=ExtResource("16_n77n4")]
-position = Vector2(760, 90)
-
-[node name="GoldBars6" parent="Decorations" unique_id=1052765316 instance=ExtResource("16_n77n4")]
-position = Vector2(746, 122)
-
-[node name="GoldBars7" parent="Decorations" unique_id=104585200 instance=ExtResource("16_n77n4")]
-position = Vector2(753, 116)
-
-[node name="GoldBars8" parent="Decorations" unique_id=1474048673 instance=ExtResource("16_n77n4")]
-position = Vector2(663, 90)
-
-[node name="GoldBars9" parent="Decorations" unique_id=690111368 instance=ExtResource("16_n77n4")]
-position = Vector2(662, 178)
-
-[node name="GoldBars10" parent="Decorations" unique_id=68823163 instance=ExtResource("16_n77n4")]
-position = Vector2(677, 178)
-
-[node name="GoldBars11" parent="Decorations" unique_id=1798039916 instance=ExtResource("16_n77n4")]
-position = Vector2(692, 178)
-
-[node name="GoldBars12" parent="Decorations" unique_id=732349054 instance=ExtResource("16_n77n4")]
-position = Vector2(669, 172)
-
-[node name="GoldBars13" parent="Decorations" unique_id=1276544581 instance=ExtResource("16_n77n4")]
-position = Vector2(684, 172)
-
-[node name="GoldBars14" parent="Decorations" unique_id=1250365403 instance=ExtResource("16_n77n4")]
-position = Vector2(1096, 178)
-
-[node name="GoldBars15" parent="Decorations" unique_id=1423082842 instance=ExtResource("16_n77n4")]
-position = Vector2(1022, 178)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057127925]
-position = Vector2(173, -168)
+[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=1057127925]
+position = Vector2(172, -150)
 rotation = 0.08901179
 texture = ExtResource("6_7k6xx")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=422801044]
-position = Vector2(988, 56)
+[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=422801044]
+position = Vector2(987, 74)
 texture = ExtResource("7_6o0l1")
+
+[node name="DecorationLayer2" parent="Decorations" unique_id=262551315 instance=ExtResource("6_lv87f")]
+position = Vector2(-1, -5)
+tile_map_data = PackedByteArray("AAApAAgAAAAOAAkAAAAqAAgAAAAPAAkAAAAuAAcAAAAOAAsAAAAvAAcAAAAPAAsAAAA=")
+
+[node name="DecorationLayer3" parent="Decorations" unique_id=1107955789 instance=ExtResource("6_lv87f")]
+position = Vector2(7, -6)
+tile_map_data = PackedByteArray("AAAuAAUAAAAMAAsAAAAvAAUAAAANAAsAAAAoAAUAAAAMAAsAAAApAAUAAAANAAsAAAA=")
+
+[node name="DecorationLayer4" parent="Decorations" unique_id=1013598034 instance=ExtResource("6_lv87f")]
+position = Vector2(-2, 2)
+tile_map_data = PackedByteArray("AAApAAoAAAAOAAsAAAAqAAoAAAAPAAsAAAAvAAoAAAAOAAkAABAuAAoAAAAPAAkAABAyAAoAAAAMAAkAAAAzAAoAAAANAAkAAAA5AAoAAAAMAAkAAAA6AAoAAAANAAkAAABAAAoAAAAMAAkAAABBAAoAAAANAAkAAABFAAoAAAAMAAkAAABGAAoAAAANAAkAAAA=")
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("8_2vds5")]
 position = Vector2(-317, 127)

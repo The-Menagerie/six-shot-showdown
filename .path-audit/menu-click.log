@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Player/reticle_norm.png (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] @implicit_new (res://Scripts/settings_manager.gd:34)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Player/reticle_clicked.png (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] @implicit_new (res://Scripts/settings_manager.gd:35)
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+WARNING: res://Scenes/Objects/Enemies/EnemyBullet.tscn:3 - ext_resource, invalid UID: uid://d11nabp33j16k - using text path instead: res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://Scripts/Menus/act_select.gd:48)
+ERROR: Resource file not found: res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://Scripts/Menus/act_select.gd:48)
+ERROR: res://Scenes/Objects/Enemies/EnemyBullet.tscn:51 - Parse Error: [ext_resource] referenced non-existent resource at: res://Assets/Tilesets/StrangeCowboy/Player/Bullet.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://Scripts/Menus/act_select.gd:48)
+CONTROL ProfileButton rect=[P: (0.0, 0.0), S: (230.0, 56.0)] visible=true
+CONTROL ButtonContainer/NewGame rect=[P: (823.0, 787.0), S: (274.0, 64.0)] visible=true
+CONTROL ButtonContainer/Options rect=[P: (823.0, 881.0), S: (274.0, 64.0)] visible=true
+CONTROL ActSelect rect=[P: (-2000.0, 192.0), S: (1536.0, 1536.0)] visible=true
+DIALOGS false false
+SCRIPT ERROR: Parse Error: Preload file "res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png" does not exist.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:7)
+   GDScript backtrace (most recent call first):
+       [0] options_button_pressed (res://Scripts/MainMenu/menu.gd:69)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "MENU_BACKGROUND" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:7)
+   GDScript backtrace (most recent call first):
+       [0] options_button_pressed (res://Scripts/MainMenu/menu.gd:69)
+SCRIPT ERROR: Parse Error: Preload file "res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png" does not exist.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:8)
+   GDScript backtrace (most recent call first):
+       [0] options_button_pressed (res://Scripts/MainMenu/menu.gd:69)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "MENU_PANEL" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://Scripts/Menus/OptionsMenu/key_bindings.gd:8)
+   GDScript backtrace (most recent call first):
+       [0] options_button_pressed (res://Scripts/MainMenu/menu.gd:69)
+ERROR: Failed to load script "res://Scripts/Menus/OptionsMenu/key_bindings.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] options_button_pressed (res://Scripts/MainMenu/menu.gd:69)
+ERROR: In Object of type 'Control': Attempt to connect nonexistent signal 'closed' to callable 'Control(menu.gd)::key_bindings_closed'.
+   at: connect (core/object/object.cpp:1550)
+   GDScript backtrace (most recent call first):
+       [0] options_button_pressed (res://Scripts/MainMenu/menu.gd:69)
+AFTER_CLICK res://Scenes/UI/MainMenu/options.tscn busy=false

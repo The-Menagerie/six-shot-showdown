@@ -4,8 +4,8 @@ signal closed()
 
 @export var show_menu_background := true
 
-const MENU_BACKGROUND := preload("res://Assets/Tilesets/KeyboardAndMouse/MainMenuBackground.png")
-const MENU_PANEL := preload("res://Assets/Tilesets/KeyboardAndMouse/PauseMenu.png")
+const MENU_BACKGROUND := preload("res://Assets/Images/Tilemap/KeyboardAndMouse/MainMenuBackground.png")
+const MENU_PANEL := preload("res://Assets/Images/Tilemap/KeyboardAndMouse/PauseMenu.png")
 const BUTTON_SOUND := preload("res://Assets/SoundEffects/WoodenBlock.wav")
 const ACTION_LABELS := {
 	"left": "Move Left",
@@ -17,6 +17,7 @@ const ACTION_LABELS := {
 	"interact": "Interact",
 	"restart": "Restart",
 	"menu": "Pause Menu",
+	"pan": "Pan Camera",
 }
 
 var awaiting_action := ""
@@ -86,8 +87,8 @@ func _input(event: InputEvent) -> void:
 	elif binding_device == SettingsManager.INPUT_DEVICE_KEYBOARD and event is InputEventKey and event.pressed and not event.echo:
 		binding_type = "key"
 		code = event.physical_keycode if event.physical_keycode != 0 else event.keycode
-		if code == 0 or code in [KEY_SHIFT, KEY_CTRL, KEY_ALT, KEY_META]:
-			status_label.text = "Press a regular key or mouse button, or Escape to cancel."
+		if code == 0:
+			status_label.text = "Press a key or mouse button, or Escape to cancel."
 			return
 		binding_name = OS.get_keycode_string(code)
 	elif binding_device == SettingsManager.INPUT_DEVICE_CONTROLLER and event is InputEventJoypadButton and event.pressed:

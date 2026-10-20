@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1pg1xnockout" path="res://Scenes/Components/Health_Component.tscn" id="1_w403x"]
 [ext_resource type="PackedScene" uid="uid://cnflp8hfx1cp8" path="res://Scenes/Components/Hitbox_Component.tscn" id="2_xh64l"]
-[ext_resource type="Script" uid="uid://dkrldnkfwey8" path="res://Scripts/enemy.gd" id="3_qm2k8"]
+[ext_resource type="Script" uid="uid://dkrldnkfwey8" path="res://Scripts/Enemy/enemy.gd" id="3_qm2k8"]
 [ext_resource type="AudioStream" uid="uid://c6e5qfoq8m6ut" path="res://Assets/SoundEffects/Hey.wav" id="4_k6m0v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]

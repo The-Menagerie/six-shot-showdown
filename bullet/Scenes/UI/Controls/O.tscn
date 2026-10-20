@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tbbuqblyxw6d"]
 
 [ext_resource type="PackedScene" uid="uid://b3wausjj6n1mb" path="res://Scenes/UI/Controls/Control.tscn" id="1_esspu"]
-[ext_resource type="Texture2D" uid="uid://biay6mlgtcc8q" path="res://Assets/Tilesets/KeyboardAndMouse/keyboard/vertical_animation/o.png" id="2_yl8sw"]
+[ext_resource type="Texture2D" uid="uid://biay6mlgtcc8q" path="res://Assets/Images/Tilemap/KeyboardAndMouse/keyboard/vertical_animation/o.png" id="2_yl8sw"]
 
 [node name="O" unique_id=871972327 instance=ExtResource("1_esspu")]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cljh5yy647aai"]
 
-[ext_resource type="Script" uid="uid://bxia3gr3q1pu" path="res://Scripts/mouse_reticle.gd" id="2_8x9kc"]
+[ext_resource type="Script" uid="uid://bxia3gr3q1pu" path="res://Scripts/UI/mouse_reticle.gd" id="2_8x9kc"]
 
 [node name="MouseReticle" type="Node2D" unique_id=809555363]
 script = ExtResource("2_8x9kc")

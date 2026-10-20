@@ -1,0 +1,514 @@
+extends Node2D
+
+signal level_changed(level_path: String)
+
+@export var current_level: Node
+@export var anim_player: Node
+@export var tutorial_level_scene: PackedScene
+@export var first_level_scene: PackedScene
+@export_range(0.05, 1.0, 0.05) var bullet_time_scale: float = 0.35
+@export_range(0.05, 1.0, 0.05) var bullet_time_music_scale: float = 0.75
+@export_range(0.05, 1.0, 0.05) var bullet_time_sfx_scale: float = 0.35
+@export_range(0.0, 1.0, 0.05) var bullet_time_overlay_intensity: float = 0.7
+@export_range(0.5, 1.5, 0.05) var bullet_time_overlay_contrast: float = 1.0
+@export_range(0.0, 1.0, 0.05) var bullet_time_overlay_fade_duration: float = 0.18
+@export_range(0.0, 3.0, 0.05) var level_fade_in_duration: float = 1.75
+@export var transition_text_start_scale: Vector2 = Vector2(2.0, 2.0)
+@export var transition_text_end_scale: Vector2 = Vector2(3.0, 3.0)
+@export_range(1.0, 30.0, 0.5) var camera_pan_smoothing: float = 12.0
+@export_range(0.1, 2.0, 0.1) var camera_pan_sensitivity: float = 1.0
+
+const TUTORIAL_LEVEL_DIRECTORY := "res://Scenes/Levels/Tutorial/"
+const GAME_LEVEL_DIRECTORY := "res://Scenes/Levels/"
+const END_ACT_SCENE = preload("res://Scenes/UI/end_of_act.tscn")
+const CREDITS_SCENE = preload("res://Scenes/UI/credits.tscn")
+const MENU_MUSIC = preload("res://Assets/Music/CowboyMenuSong.mp3")
+const DEBUG_PREVIOUS_LEVEL_KEY := KEY_F1
+const DEBUG_NEXT_LEVEL_KEY := KEY_F2
+
+var is_bullet_time_active := false
+var is_level_reset_queued := false
+var is_level_transition_active := false
+var bullet_time_overlay_tween: Tween
+var completed_act_number := 0
+var next_act_scene: PackedScene
+var _game_music_enabled := true
+var _pan_camera: Camera2D
+var _camera_pan_offset := Vector2.ZERO
+var _camera_pan_target := Vector2.ZERO
+var _camera_pan_mouse_origin := Vector2.ZERO
+var _camera_pan_start_offset := Vector2.ZERO
+var _is_camera_panning := false
+@onready var music_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var bullet_time_overlay: ColorRect = $CanvasLayer/BulletTimeOverlay
+@onready var transition_overlay: ColorRect = $CanvasLayer/TransitionOverlay
+@onready var transition_text: Label = $CanvasLayer/TransitionOverlay/TransitionText
+#@onready var score_label: Label = $CanvasLayer/ScoreLabel
+
+#func _ready():
+	#_update_score_label()
+
+func _ready():
+	Engine.time_scale = 1.0
+	_apply_initial_level_selection()
+	if is_instance_valid(music_player):
+		music_player.finished.connect(_on_music_finished)
+		if not music_player.playing:
+			music_player.play()
+	_configure_bullet_time_overlay()
+	_apply_audio_pitch_scale_to_subtree(self)
+	_emit_level_changed()
+	call_deferred("_play_initial_level_intro")
+
+func _process(delta):
+	if _is_post_act_screen():
+		return
+	_update_bullet_time()
+	_update_camera_pan(delta)
+
+func _update_camera_pan(delta: float) -> void:
+	var camera := get_viewport().get_camera_2d()
+	if camera != _pan_camera:
+		_reset_camera_pan()
+		_pan_camera = camera
+	if not is_instance_valid(_pan_camera):
+		return
+
+	# Apply a temporary offset so player following and camera animations still work.
+	_pan_camera.offset -= _camera_pan_offset
+	_pan_camera.force_update_scroll()
+	var normal_screen_center := _pan_camera.get_screen_center_position()
+	var pan_held := Input.is_action_pressed("pan") and not is_level_transition_active and not is_level_reset_queued and not SettingsManager.is_capturing_binding
+	if pan_held:
+		var mouse_position := get_viewport().get_mouse_position()
+		if not _is_camera_panning:
+			_camera_pan_mouse_origin = mouse_position
+			_camera_pan_start_offset = _camera_pan_offset
+		var mouse_delta := (mouse_position - _camera_pan_mouse_origin) * camera_pan_sensitivity
+		_camera_pan_target = _camera_pan_start_offset + mouse_delta / _pan_camera.zoom
+		var max_pan := get_viewport_rect().size * 0.5 / _pan_camera.zoom
+		_camera_pan_target = _camera_pan_target.clamp(-max_pan, max_pan)
+	else:
+		_camera_pan_target = Vector2.ZERO
+	_camera_pan_target = _clamp_camera_pan_to_limits(_camera_pan_target, normal_screen_center)
+	_is_camera_panning = pan_held
+	var smoothing_weight := 1.0 - exp(-camera_pan_smoothing * delta / Engine.time_scale)
+	_camera_pan_offset = _camera_pan_offset.lerp(_camera_pan_target, smoothing_weight)
+	_camera_pan_offset = _clamp_camera_pan_to_limits(_camera_pan_offset, normal_screen_center)
+	if not pan_held and _camera_pan_offset.length_squared() < 0.01:
+		_camera_pan_offset = Vector2.ZERO
+	_pan_camera.offset += _camera_pan_offset
+	_pan_camera.force_update_scroll()
+
+func _clamp_camera_pan_to_limits(pan_offset: Vector2, normal_screen_center: Vector2) -> Vector2:
+	if not _pan_camera.limit_enabled:
+		return pan_offset
+	var half_view := get_viewport_rect().size * 0.5 / _pan_camera.zoom
+	var minimum_pan := Vector2(_pan_camera.limit_left, _pan_camera.limit_top) + half_view - normal_screen_center
+	var maximum_pan := Vector2(_pan_camera.limit_right, _pan_camera.limit_bottom) - half_view - normal_screen_center
+	# Keep the normal framing when the viewport is wider than the level or the
+	# scene has an intentional offset, but never pan farther outside its bounds.
+	minimum_pan = minimum_pan.min(Vector2.ZERO)
+	maximum_pan = maximum_pan.max(Vector2.ZERO)
+	return pan_offset.clamp(minimum_pan, maximum_pan)
+
+func _reset_camera_pan() -> void:
+	if is_instance_valid(_pan_camera):
+		_pan_camera.offset -= _camera_pan_offset
+	_pan_camera = null
+	_camera_pan_offset = Vector2.ZERO
+	_camera_pan_target = Vector2.ZERO
+	_is_camera_panning = false
+
+func _apply_initial_level_selection() -> void:
+	if current_level == null:
+		return
+	if ActManager.ActSelected == false:
+		if SettingsManager.skip_tutorial:
+			if first_level_scene != null and current_level.scene_file_path.get_file() != first_level_scene.resource_path.get_file():
+				change_level(first_level_scene)
+				return
+		elif tutorial_level_scene != null and current_level.scene_file_path.get_file() != tutorial_level_scene.resource_path.get_file():
+			change_level(tutorial_level_scene)
+	else:
+		if ActManager.SelectedAct != null and current_level.scene_file_path.get_file() != ActManager.SelectedAct.resource_path.get_file():
+			change_level(ActManager.SelectedAct)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _is_post_act_screen():
+		return
+	if get_tree().paused:
+		return
+	if is_level_transition_active or is_level_reset_queued:
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == DEBUG_PREVIOUS_LEVEL_KEY:
+			_debug_change_relative_level(-1)
+			get_viewport().set_input_as_handled()
+			return
+		if event.keycode == DEBUG_NEXT_LEVEL_KEY:
+			_debug_change_relative_level(1)
+			get_viewport().set_input_as_handled()
+			return
+	if event.is_action_pressed("restart") and not event.is_echo():
+		reset_current_level()
+		get_viewport().set_input_as_handled()
+
+func change_level(level: PackedScene) -> void:
+	_reset_camera_pan()
+	var new_level = level.instantiate()
+	if level == END_ACT_SCENE:
+		new_level.configure_act_result(completed_act_number, ScoreBus.current_score, next_act_scene)
+	if level == END_ACT_SCENE or level == CREDITS_SCENE:
+		Engine.time_scale = 1.0
+		is_bullet_time_active = false
+		_set_bullet_time_overlay_intensity(0.0)
+		_apply_audio_pitch_scale_to_subtree(self)
+	call_deferred("add_child",new_level)
+	current_level.queue_free()
+	current_level = new_level
+	call_deferred("_emit_level_changed")
+
+func transition_to_level(level: PackedScene, fade_out_duration: float) -> void:
+	if is_level_transition_active or level == null:
+		return
+
+	if current_level != null:
+		var completed_act: int = ActManager.get_completed_act_for_transition(current_level.scene_file_path, level.resource_path)
+		ScoreBus.complete_level()
+		ActManager.record_level_completion(current_level.scene_file_path, level.resource_path)
+		if completed_act > 0:
+			completed_act_number = completed_act
+			next_act_scene = CREDITS_SCENE if completed_act == 3 else level
+			level = END_ACT_SCENE
+	is_level_transition_active = true
+	call_deferred("_run_level_transition", level, fade_out_duration)
+
+func _is_end_of_act_screen() -> bool:
+	return current_level != null and current_level.scene_file_path == END_ACT_SCENE.resource_path
+
+func _is_post_act_screen() -> bool:
+	return _is_end_of_act_screen() or (current_level != null and current_level.scene_file_path == CREDITS_SCENE.resource_path)
+
+func reset_current_level() -> void:
+	if is_level_reset_queued or is_level_transition_active:
+		return
+	if current_level == null:
+		return
+	if current_level.scene_file_path.is_empty():
+		return
+
+	ScoreBus.register_level_reset()
+	is_level_reset_queued = true
+	call_deferred("_deferred_reset_current_level")
+
+func _deferred_reset_current_level() -> void:
+	if current_level == null:
+		is_level_reset_queued = false
+		return
+
+	var level_scene := load(current_level.scene_file_path) as PackedScene
+	if level_scene == null:
+		is_level_reset_queued = false
+		return
+
+	var new_level := level_scene.instantiate()
+	_reset_camera_pan()
+	add_child(new_level)
+	current_level.queue_free()
+	current_level = new_level
+	is_level_reset_queued = false
+	_apply_audio_pitch_scale_to_subtree(new_level)
+	_emit_level_changed()
+
+
+func _update_bullet_time():
+	var should_enable_bullet_time = Input.is_action_pressed("bullet_time")
+	if should_enable_bullet_time == is_bullet_time_active:
+		return
+
+	is_bullet_time_active = should_enable_bullet_time
+	Engine.time_scale = bullet_time_scale if is_bullet_time_active else 1.0
+	_apply_audio_pitch_scale_to_subtree(self)
+	_update_bullet_time_overlay()
+
+
+func _exit_tree():
+	ActManager.end_act_attempt()
+	Engine.time_scale = 1.0
+	is_bullet_time_active = false
+	_apply_audio_pitch_scale_to_subtree(self)
+	_set_bullet_time_overlay_intensity(0.0)
+
+func _emit_level_changed() -> void:
+	if current_level == null:
+		return
+
+	if current_level.scene_file_path == CREDITS_SCENE.resource_path:
+		_game_music_enabled = false
+		if is_instance_valid(music_player):
+			music_player.stop()
+		MusicManager.play_music(MENU_MUSIC, -10.0)
+	elif is_gameplay_level_path(current_level.scene_file_path) or is_tutorial_level_path(current_level.scene_file_path):
+		_game_music_enabled = true
+		MusicManager.stop_music()
+		if is_instance_valid(music_player) and not music_player.playing:
+			music_player.play()
+
+	_apply_audio_pitch_scale_to_subtree(current_level)
+	BulletBus.player_key_changed.emit(false, false, 0)
+	ActManager.begin_level(current_level.scene_file_path)
+	ScoreBus.begin_level_attempt()
+	level_changed.emit(current_level.scene_file_path)
+
+func configure_audio_player_for_bullet_time(audio_player: AudioStreamPlayer) -> void:
+	if not is_instance_valid(audio_player):
+		return
+
+	audio_player.pitch_scale = _get_pitch_scale_for_bus(audio_player.bus)
+
+func _apply_audio_pitch_scale_to_subtree(root: Node) -> void:
+	if root == null or not is_instance_valid(root):
+		return
+
+	if root is AudioStreamPlayer:
+		configure_audio_player_for_bullet_time(root as AudioStreamPlayer)
+
+	for child in root.get_children():
+		_apply_audio_pitch_scale_to_subtree(child)
+
+func _get_pitch_scale_for_bus(bus_name: StringName) -> float:
+	if not is_bullet_time_active:
+		return 1.0
+
+	if bus_name == &"music":
+		return bullet_time_music_scale
+	if bus_name == &"sfx":
+		return bullet_time_sfx_scale
+	return 1.0
+
+func _configure_bullet_time_overlay() -> void:
+	if not is_instance_valid(bullet_time_overlay):
+		return
+
+	var overlay_material := bullet_time_overlay.material as ShaderMaterial
+	if overlay_material == null:
+		return
+
+	overlay_material.set_shader_parameter("contrast", bullet_time_overlay_contrast)
+	overlay_material.set_shader_parameter("intensity", 0.0)
+
+func _update_bullet_time_overlay() -> void:
+	if not is_instance_valid(bullet_time_overlay):
+		return
+
+	var target_intensity := bullet_time_overlay_intensity if is_bullet_time_active else 0.0
+	if is_instance_valid(bullet_time_overlay_tween):
+		bullet_time_overlay_tween.kill()
+
+	if is_zero_approx(bullet_time_overlay_fade_duration):
+		_set_bullet_time_overlay_intensity(target_intensity)
+		return
+
+	bullet_time_overlay_tween = create_tween()
+	bullet_time_overlay_tween.tween_method(_set_bullet_time_overlay_intensity, _get_bullet_time_overlay_intensity(), target_intensity, bullet_time_overlay_fade_duration)
+
+func _set_bullet_time_overlay_intensity(value: float) -> void:
+	if not is_instance_valid(bullet_time_overlay):
+		return
+
+	var overlay_material := bullet_time_overlay.material as ShaderMaterial
+	if overlay_material == null:
+		return
+
+	overlay_material.set_shader_parameter("intensity", value)
+
+func _get_bullet_time_overlay_intensity() -> float:
+	if not is_instance_valid(bullet_time_overlay):
+		return 0.0
+
+	var overlay_material := bullet_time_overlay.material as ShaderMaterial
+	if overlay_material == null:
+		return 0.0
+
+	return float(overlay_material.get_shader_parameter("intensity"))
+
+func _on_music_finished() -> void:
+	if _game_music_enabled and is_instance_valid(music_player):
+		music_player.play()
+
+func _run_level_transition(level: PackedScene, fade_out_duration: float) -> void:
+	if level == null:
+		is_level_transition_active = false
+		return
+
+	var fade_out_time: float = max(fade_out_duration, 0.01)
+	if is_instance_valid(transition_overlay):
+		transition_overlay.show()
+		transition_overlay.modulate.a = 0.0
+		var fade_out_tween: Tween = create_tween()
+		fade_out_tween.tween_property(transition_overlay, "modulate:a", 1.0, fade_out_time)
+		await fade_out_tween.finished
+	elif fade_out_duration > 0.0:
+		await get_tree().create_timer(fade_out_duration).timeout
+
+	change_level(level)
+	await get_tree().process_frame
+
+	if level == END_ACT_SCENE or level == CREDITS_SCENE:
+		if is_instance_valid(transition_overlay):
+			transition_overlay.hide()
+		if is_instance_valid(transition_text):
+			transition_text.hide()
+	else:
+		await _play_transition_fade_in(level.resource_path)
+
+	is_level_transition_active = false
+
+func _update_transition_text() -> void:
+	if not is_instance_valid(transition_text) or current_level == null:
+		return
+
+	_update_transition_text_for_path(current_level.scene_file_path)
+
+func _update_transition_text_for_path(level_path: String) -> void:
+	if not is_instance_valid(transition_text):
+		return
+
+	var level_name: String = level_path.get_file()
+	if level_name == "tut_01.tscn":
+		transition_text.text = "Tutorial 1"
+		transition_text.show()
+		return
+	if level_name == "tut_02.tscn":
+		transition_text.text = "Tutorial 2"
+		transition_text.show()
+		return
+	if level_name == "tut_03.tscn":
+		transition_text.text = "Tutorial 3"
+		transition_text.show()
+		return
+	if not is_gameplay_level_path(level_path):
+		transition_text.hide()
+		return
+
+	var level_pattern := RegEx.new()
+	level_pattern.compile("^act([0-9]+)_lvl([0-9]+)$")
+	var level_match := level_pattern.search(level_name.get_basename())
+	if level_match == null:
+		transition_text.hide()
+		return
+
+	transition_text.text = "Act %d Level %d" % [int(level_match.get_string(1)), int(level_match.get_string(2))]
+	transition_text.show()
+
+func _play_initial_level_intro() -> void:
+	if current_level == null:
+		return
+	if is_level_transition_active:
+		return
+
+	await _play_transition_fade_in(current_level.scene_file_path)
+
+func _play_transition_fade_in(level_path: String) -> void:
+	if not is_instance_valid(transition_overlay):
+		return
+
+	transition_overlay.show()
+	_update_transition_text_for_path(level_path)
+	transition_overlay.modulate.a = 1.0
+	if is_instance_valid(transition_text) and transition_text.visible:
+		var text_size: Vector2 = transition_text.size
+		if text_size == Vector2.ZERO:
+			text_size = transition_text.get_combined_minimum_size()
+		transition_text.pivot_offset = text_size * 0.5
+		transition_text.scale = transition_text_start_scale
+
+	var fade_in_tween: Tween = create_tween()
+	if is_instance_valid(transition_text) and transition_text.visible:
+		fade_in_tween.set_parallel(true)
+		fade_in_tween.tween_property(transition_text, "scale", transition_text_end_scale, level_fade_in_duration)
+	fade_in_tween.tween_property(transition_overlay, "modulate:a", 0.0, level_fade_in_duration)
+	await fade_in_tween.finished
+	transition_overlay.hide()
+	if is_instance_valid(transition_text):
+		transition_text.hide()
+
+func is_tutorial_level_path(level_path: String) -> bool:
+	return level_path.begins_with(TUTORIAL_LEVEL_DIRECTORY)
+
+func is_gameplay_level_path(level_path: String) -> bool:
+	return level_path.begins_with(GAME_LEVEL_DIRECTORY) and not is_tutorial_level_path(level_path)
+
+func is_first_gameplay_level_path(level_path: String) -> bool:
+	return first_level_scene != null and level_path == first_level_scene.resource_path
+
+func _get_next_level_path_for_scene(level_path: String) -> String:
+	var scene := load(level_path) as PackedScene
+	if scene == null:
+		return ""
+
+	var level_instance := scene.instantiate()
+	if level_instance == null:
+		return ""
+
+	var next_path := ""
+	if level_instance is LevelRoot:
+		next_path = (level_instance as LevelRoot).next_level_path
+	elif level_instance.has_method("get"):
+		next_path = str(level_instance.get("next_level_path"))
+
+	level_instance.free()
+	return next_path
+
+func _debug_change_relative_level(direction: int) -> void:
+	if current_level == null or current_level.scene_file_path.is_empty():
+		return
+
+	var target_path := ""
+	if direction > 0:
+		target_path = _get_next_level_path_for_scene(current_level.scene_file_path)
+	elif direction < 0:
+		target_path = _get_previous_level_path_for_scene(current_level.scene_file_path)
+
+	if target_path.is_empty():
+		return
+
+	var target_scene := load(target_path) as PackedScene
+	if target_scene == null:
+		return
+
+	change_level(target_scene)
+
+func _get_previous_level_path_for_scene(level_path: String) -> String:
+	for candidate_path: String in _get_debug_level_scene_paths():
+		if candidate_path == level_path:
+			continue
+		if _get_next_level_path_for_scene(candidate_path) == level_path:
+			return candidate_path
+
+	return ""
+
+func _get_debug_level_scene_paths() -> Array[String]:
+	var paths: Array[String] = []
+	_collect_debug_level_scene_paths(TUTORIAL_LEVEL_DIRECTORY, paths)
+	_collect_debug_level_scene_paths(GAME_LEVEL_DIRECTORY, paths)
+	return paths
+
+func _collect_debug_level_scene_paths(directory_path: String, paths: Array[String]) -> void:
+	var directory := DirAccess.open(directory_path)
+	if directory == null:
+		return
+
+	directory.list_dir_begin()
+	var file_name := directory.get_next()
+	while not file_name.is_empty():
+		if directory.current_is_dir():
+			if not file_name.begins_with("."):
+				_collect_debug_level_scene_paths(directory_path.path_join(file_name), paths)
+		elif file_name.ends_with(".tscn"):
+			var scene_path := directory_path.path_join(file_name)
+			if not paths.has(scene_path):
+				paths.append(scene_path)
+		file_name = directory.get_next()
+	directory.list_dir_end()

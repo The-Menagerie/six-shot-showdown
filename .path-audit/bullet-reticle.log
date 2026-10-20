@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+IMAGE_CHECK_PASS chamber icons=9
+IMAGE_CHECK_PASS normal and clicked cursors
+IMAGE_CHECK_PASS res://Scenes/Objects/MouseReticle.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Enemies/EnemyBullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/bullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/fire_bullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/fly_bullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/ice_bullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/key_bullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/piercing_bullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/rubber_bullet.tscn
+IMAGE_CHECK_PASS res://Scenes/Objects/Bullets/swap_bullet.tscn

@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://dm3c6ocn11jl7"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_0ipho"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="3_xboe1"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="2_0ipho"]
 [ext_resource type="PackedScene" uid="uid://cjv7soqfoej7" path="res://Scenes/Objects/Rope.tscn" id="4_yhr2o"]
 [ext_resource type="PackedScene" uid="uid://gs71ss565tgx" path="res://Scenes/Objects/LockBox.tscn" id="5_nycpa"]
 [ext_resource type="PackedScene" uid="uid://by50mcyw2bh82" path="res://Scenes/Objects/Enemies/outlaw.tscn" id="6_hd41i"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="7_gapij"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="7_gapij"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="8_uh28i"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="9_21yea"]
 [ext_resource type="PackedScene" uid="uid://c05ebcchwffnk" path="res://Scenes/Objects/PowerUps/BulletSwap.tscn" id="10_0ipho"]
@@ -20,57 +20,12 @@ metadata/_custom_type_script = "uid://dw8thabw4ialp"
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 position = Vector2(0, -16)
 
-[node name="Sprite2D4" type="Sprite2D" parent="Decorations" unique_id=2104142843]
-position = Vector2(-198, 0)
-texture = ExtResource("3_xboe1")
-hframes = 4
-vframes = 3
-frame = 9
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
+[node name="DecorationLayer" parent="Decorations" unique_id=510406546 instance=ExtResource("2_0ipho")]
+tile_map_data = PackedByteArray("AAD3/wgAAAACAAgAAAD4/wgAAAADAAgAAADu/wcAAAACAAgAAADv/wcAAAADAAgAAAAIAAUAAAACAAgAAAAJAAUAAAADAAgAAAD6/wkAAAAAAAgAAAD6/woAAAAAAAkAAAD7/wkAAAABAAgAAAD7/woAAAABAAkAAAAMAAkAAAAAAAgAAAAMAAoAAAAAAAkAAAANAAkAAAABAAgAAAANAAoAAAABAAkAAADu/wkAAAAAAAgAAADu/woAAAAAAAkAAADv/wkAAAABAAgAAADv/woAAAABAAkAAAABAP3/AAAGAAAAABAAAP3/AAAHAAAAABD///3/AAAIAAAAABABAP7/AAAGAAEAABAAAP7/AAAHAAEAABD///7/AAAIAAEAABD+//7/AAAJAAEAABABAP//AAAGAAIAABAAAP//AAAHAAIAABD/////AAAIAAIAABD+////AAAJAAIAABABAAAAAAAGAAMAABAAAAAAAAAHAAMAABD//wAAAAAIAAMAABD+/wAAAAAJAAMAABA=")
 
-[node name="Sprite2D8" type="Sprite2D" parent="Decorations" unique_id=381150691]
-position = Vector2(-72, 0)
-texture = ExtResource("3_xboe1")
-hframes = 4
-vframes = 3
-frame = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=913544977]
-z_index = -1
-position = Vector2(-62, 95)
-rotation = -3.1415925
-texture = ExtResource("3_xboe1")
-hframes = 4
-vframes = 3
-frame = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D9" type="Sprite2D" parent="Decorations" unique_id=1811461474]
-position = Vector2(142, 1)
-texture = ExtResource("3_xboe1")
-hframes = 4
-vframes = 3
-frame = 6
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=1672493909]
-position = Vector2(-88, 160)
-texture = ExtResource("3_xboe1")
-hframes = 4
-vframes = 3
-frame = 6
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
+[node name="DecorationLayer2" parent="Decorations" unique_id=2032676070 instance=ExtResource("2_0ipho")]
+position = Vector2(-5, 8)
+tile_map_data = PackedByteArray("AADu/wkAAAAGAA0AAADv/wkAAAAHAA0AAAA=")
 
 [node name="Rope1" parent="." unique_id=602890189 instance=ExtResource("4_yhr2o")]
 tile_map_data = PackedByteArray("AAALAPT/AAABAAMAAAALAPb/AAABAAIAAAALAPf/AAABAAIAAAALAPj/AAABAAIAAAALAPn/AAABAAIAAAALAPr/AAABAAIAAAALAPv/AAABAAIAAAALAPz/AAABAAIAAAALAP3/AAABAAIAAAALAP7/AAABAAIAAAALAP//AAABAAIAAAALAAAAAAABAAIAAAALAAEAAAABAAIAAAALAAIAAAABAAIAAAALAAMAAAADAAEAAAAJAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAFAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAADAAMAAAAAAAEAAAACAAMAAAAAAAEAAAABAAMAAAAAAAEAAAAAAAMAAAAAAAEAAAD//wMAAAAAAAEAAAD+/wMAAAABAAEAAAD+/wUAAAADAAAAAAA=")

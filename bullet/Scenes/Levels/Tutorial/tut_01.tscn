@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_cdlr6"]
 [ext_resource type="PackedScene" uid="uid://cji6hd7veljn5" path="res://Scenes/Objects/Breakables/target.tscn" id="2_7gc1o"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="3_iopnk"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="4_8wgbi"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="3_iopnk"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="5_ssgps"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="6_ojy3o"]
 [ext_resource type="PackedScene" uid="uid://dteab80jwc6fh" path="res://Scenes/UI/Controls/Full Controls.tscn" id="7_t5ps5"]
@@ -28,6 +27,7 @@ zoom = Vector2(3, 3)
 limit_left = -416
 limit_top = -175
 limit_right = 432
+limit_bottom = 223
 
 [node name="AbyssLayer" type="TileMapLayer" parent="." unique_id=818189208]
 z_index = 5
@@ -46,27 +46,6 @@ tile_set = ExtResource("3_iopnk")
 [node name="Decorations" type="Node2D" parent="." unique_id=1476831950]
 z_index = -1
 position = Vector2(0, -16)
-
-[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=1012383127]
-position = Vector2(-139, 32)
-texture = ExtResource("4_8wgbi")
-hframes = 4
-vframes = 3
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=560340560]
-position = Vector2(189, -48)
-rotation = 3.1415927
-texture = ExtResource("4_8wgbi")
-hframes = 4
-vframes = 3
-frame = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("5_ssgps")]
 position = Vector2(65, 10)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2xn2lqrmwgak"]
 
-[ext_resource type="Texture2D" uid="uid://df05whyqa3ncq" path="res://Assets/Tilesets/StrangeCowboy/Player/RevolverSheetAnimated.png" id="1_yoho7"]
+[ext_resource type="Texture2D" uid="uid://df05whyqa3ncq" path="res://Assets/TO BE REPLACED/StrangeCowboy/Player/RevolverSheetAnimated.png" id="1_yoho7"]
 
 [node name="Revolver" type="Node2D" unique_id=1451355002]
 

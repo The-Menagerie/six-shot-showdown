@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://by50mcyw2bh82"]
 
 [ext_resource type="PackedScene" uid="uid://bw83wbblp7r8p" path="res://Scenes/Components/Enemy_Component.tscn" id="1_jgnmy"]
-[ext_resource type="Texture2D" uid="uid://8wn8cxdio353" path="res://Assets/Tilesets/StrangeCowboy/Character/Outlaw/OutlawFullSheet.png" id="2_6agwo"]
+[ext_resource type="Texture2D" uid="uid://8wn8cxdio353" path="res://Assets/TO BE REPLACED/StrangeCowboy/Character/Outlaw/OutlawFullSheet.png" id="2_6agwo"]
 [ext_resource type="PackedScene" uid="uid://cr812kit1c5dp" path="res://Scenes/Objects/Enemies/EnemyShotgun.tscn" id="4_ohpq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luu1d"]

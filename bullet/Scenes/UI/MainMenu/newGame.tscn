@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7u322xrxlapv"]
 
-[ext_resource type="Script" uid="uid://s4yejtxjejiq" path="res://Scripts/MainMenu/menu.gd" id="1_82lwv"]
+[ext_resource type="Script" uid="uid://s4yejtxjejiq" path="res://Scripts/Menus/MainMenu/menu.gd" id="1_82lwv"]
 [ext_resource type="FontFile" uid="uid://fw83hosruxpq" path="res://Assets/Fonts/Rye-Regular.ttf" id="2_cyuuh"]
 [ext_resource type="AudioStream" uid="uid://bv3is2xrfaykc" path="res://Assets/SoundEffects/WoodenBlock.wav" id="3_14gu4"]
 

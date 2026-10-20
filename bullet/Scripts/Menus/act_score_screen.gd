@@ -2,7 +2,7 @@ extends Control
 
 signal back_requested
 
-const SCORE_SUMMARY = preload("res://Scripts/score_summary.gd")
+const SCORE_SUMMARY = preload("res://Scripts/UI/Score/score_summary.gd")
 const COLUMN_TITLES := ["Reputation", "Shots", "Resets", "Deaths", "Time"]
 const COLUMN_KEYS := ["reputation", "shots", "resets", "deaths", "time_msec"]
 const ACT_LEVEL_PATHS := [
@@ -116,4 +116,4 @@ func _on_replay_pressed() -> void:
 	ActManager.SelectedAct = load(ACT_LEVEL_PATHS[selected_act - 1])
 	ScoreBus.reset_run_stats()
 	MusicManager.stop_music()
-	get_tree().change_scene_to_file("res://Scenes/main_game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/main_game.tscn")

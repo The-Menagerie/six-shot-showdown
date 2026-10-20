@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://jgsl341undrv"]
+
+[ext_resource type="TileSet" uid="uid://c8esqd5sedgtp" path="res://Assets/Images/Tilemap/Object/decoration_tileset.tres" id="1_decorations"]
+[ext_resource type="Shader" uid="uid://j05duqf60ide" path="res://Assets/Shaders/decoration_depth.gdshader" id="2_depth"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_depth"]
+resource_local_to_scene = true
+shader = ExtResource("2_depth")
+shader_parameter/darken_amount = 0.3999999910592
+
+[node name="DecorationLayer" type="TileMapLayer" unique_id=1670577930]
+z_index = -2
+texture_filter = 1
+material = SubResource("ShaderMaterial_depth")
+tile_set = ExtResource("1_decorations")
+collision_enabled = false
+navigation_enabled = false

@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://b8xsg505p8w83"]
 
 [ext_resource type="Script" uid="uid://dw8thabw4ialp" path="res://Scripts/Classes/level_root.gd" id="1_xjca2"]
-[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Tilesets/desert_tileset.tres" id="2_xpi8q"]
-[ext_resource type="Texture2D" uid="uid://053bcm4syd57" path="res://Assets/Tilesets/StrangeCowboy/Decorations/DecorationSheet.png" id="3_iha81"]
+[ext_resource type="TileSet" uid="uid://i28d0rfrfnfq" path="res://Assets/Images/Tilemap/Terrain/desert_tileset.tres" id="2_xpi8q"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Decorations/DecorationLayer.tscn" id="3_xjca2"]
 [ext_resource type="PackedScene" uid="uid://bq1sofkymsr0h" path="res://Scenes/Objects/Player/player.tscn" id="4_r0snq"]
 [ext_resource type="PackedScene" uid="uid://bgt5m6c8pbwnf" path="res://Scenes/UI/Chamber/chamber.tscn" id="5_ums2l"]
 [ext_resource type="PackedScene" uid="uid://dwigns85xyesy" path="res://Scenes/Objects/Spikes.tscn" id="6_pn8ci"]
@@ -32,50 +32,9 @@ tile_set = ExtResource("2_xpi8q")
 z_index = -1
 position = Vector2(1, -18)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=990161335]
-position = Vector2(-80, -190)
-rotation = 3.1415927
-texture = ExtResource("3_iha81")
-hframes = 4
-vframes = 3
-frame = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D3" type="Sprite2D" parent="Decorations" unique_id=390730604]
-position = Vector2(119, -191)
-rotation = 3.1415927
-texture = ExtResource("3_iha81")
-hframes = 4
-vframes = 3
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D4" type="Sprite2D" parent="Decorations" unique_id=776989367]
-position = Vector2(47, -11)
-rotation = 0.76096356
-texture = ExtResource("3_iha81")
-hframes = 4
-vframes = 3
-frame = 8
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
-
-[node name="Sprite2D5" type="Sprite2D" parent="Decorations" unique_id=166056424]
-position = Vector2(-47, -15)
-rotation = -0.53407073
-texture = ExtResource("3_iha81")
-flip_h = true
-hframes = 4
-vframes = 3
-frame = 8
-region_enabled = true
-region_rect = Rect2(0, 0, 128, 96)
-region_filter_clip_enabled = true
+[node name="DecorationLayer" parent="Decorations" unique_id=462566093 instance=ExtResource("3_xjca2")]
+position = Vector2(-1, 18)
+tile_map_data = PackedByteArray("AAD1//7/AAAEAAYAAGD1//3/AAAFAAYAAGD2//7/AAAEAAcAAGD2//3/AAAFAAcAAGD7//3/AAAFAAYAAHD6//3/AAAFAAcAAHD7//7/AAAEAAYAAHD6//7/AAAEAAcAAHAKAP3/AAAFAAYAAHAKAP7/AAAEAAYAAHAJAP3/AAAFAAcAAHAJAP7/AAAEAAcAAHAFAP3/AAAFAAcAAGAEAP3/AAAFAAYAAGAFAP7/AAAEAAcAAGAEAP7/AAAEAAYAAGDz//L/AAAKAAAAAADz//P/AAAKAAEAAADz//T/AAAKAAIAAADz//X/AAAKAAMAAAD0//L/AAALAAAAAAD0//P/AAALAAEAAAD0//T/AAALAAIAAAD0//X/AAALAAMAAAD3//L/AAAKAAAAABD2//L/AAALAAAAABD3//P/AAAKAAEAABD2//P/AAALAAEAABD3//T/AAAKAAIAABD2//T/AAALAAIAABD3//X/AAAKAAMAABD2//X/AAALAAMAABD5//L/AAAMAAAAAAD5//P/AAAMAAEAAAD6//L/AAANAAAAAAD6//P/AAANAAEAAAAGAPP/AAADAAQAADAGAPL/AAADAAUAADAHAPP/AAACAAQAADAHAPL/AAACAAUAADALAPX/AAAOAAwAACAMAPX/AAAPAAwAACALAPT/AAAOAA0AACAMAPT/AAAPAA0AACALAPP/AAAOAA4AACAMAPP/AAAPAA4AACALAPL/AAAOAA8AACAMAPL/AAAPAA8AACD+//v/AAAGAAAAAAD+//z/AAAGAAEAAAD+//3/AAAGAAIAAAD+//7/AAAGAAMAAAD///v/AAAHAAAAAAD///z/AAAHAAEAAAD///3/AAAHAAIAAAD///7/AAAHAAMAAAAAAPv/AAAIAAAAAAAAAPz/AAAIAAEAAAAAAP3/AAAIAAIAAAAAAP7/AAAIAAMAAAABAPz/AAAJAAEAAAABAP3/AAAJAAIAAAABAP7/AAAJAAMAAAA=")
 
 [node name="Player" parent="." unique_id=430874862 instance=ExtResource("4_r0snq")]
 position = Vector2(-1, -47)
