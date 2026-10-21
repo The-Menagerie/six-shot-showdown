@@ -30,3 +30,6 @@ stream = ExtResource("4_shoot")
 stream = ExtResource("5_frq5r")
 max_polyphony = 6
 bus = &"sfx"
+
+[node name="BulletTrail" parent="." index="6" unique_id=1731350984]
+trail_color = Color(0.49979234, 0.8485948, 0.91724044, 0.9019608)

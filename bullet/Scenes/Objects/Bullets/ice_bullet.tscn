@@ -9,3 +9,7 @@ script = ExtResource("2_script")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1359081898]
 texture = ExtResource("3_texture")
+
+[node name="BulletTrail" parent="." index="5" unique_id=1731350984]
+trail_color = Color(0.1151985, 0.8974514, 0.85375106, 0.9019608)
+additive_blend = true

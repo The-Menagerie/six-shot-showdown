@@ -39,3 +39,8 @@ volume_db = -5.0
 [node name="ShootAudio" parent="." index="4" unique_id=633659628]
 stream = ExtResource("5_g36af")
 volume_db = 5.0
+
+[node name="BulletTrail" parent="." index="5" unique_id=1731350984]
+trail_color = Color(0.16528133, 0.577571, 0.24346599, 0.9019608)
+additive_blend = false
+follow_offset = Vector2(-6, 0)

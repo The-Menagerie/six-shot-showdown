@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c24ggrv1ogvql" path="res://Assets/Images/Bullets/Bullet.png" id="2_s73nt"]
 [ext_resource type="AudioStream" uid="uid://gey7ps3en5cw" path="res://Assets/SoundEffects/BulletSounds/NormalRicochet.wav" id="3_8gx20"]
 [ext_resource type="AudioStream" uid="uid://10tjwdbys5jj" path="res://Assets/SoundEffects/BulletSounds/NormalShoot.wav" id="4_shoot"]
+[ext_resource type="Script" uid="uid://ds6ormqlbp3px" path="res://Scripts/Bullets/bullet_trail.gd" id="5_8gx20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ps"]
 size = Vector2(4, 2)
@@ -36,3 +37,8 @@ bus = &"sfx"
 stream = ExtResource("4_shoot")
 max_polyphony = 6
 bus = &"sfx"
+
+[node name="BulletTrail" type="Node2D" parent="." unique_id=1731350984]
+script = ExtResource("5_8gx20")
+additive_blend = false
+follow_offset = Vector2(-2, 0)

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dfn8vv4g1yfgm" path="res://Scripts/Bullets/swap_bullet.gd" id="2_script"]
 [ext_resource type="Texture2D" uid="uid://bvc0ypmun6a5x" path="res://Assets/Images/Bullets/SwapBullet.png" id="3_dwm2n"]
 [ext_resource type="AudioStream" uid="uid://btfnl4vhqsr8n" path="res://Assets/SoundEffects/BulletSounds/SwapRicochet.wav" id="4_dwm2n"]
-[ext_resource type="AudioStream" uid="uid://2an0eup8y0pv" path="res://Assets/SoundEffects/BulletSounds/SwapShoot.wav" id="4_shoot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uluv7"]
 size = Vector2(4, 4)
@@ -34,3 +33,7 @@ shape = SubResource("RectangleShape2D_k73gj")
 
 [node name="RicochetAudio" parent="." index="3" unique_id=91885689]
 stream = ExtResource("4_dwm2n")
+
+[node name="BulletTrail" parent="." index="5" unique_id=1731350984]
+trail_color = Color(0.9203359, 0.58401424, 0.9384532, 0.9019608)
+additive_blend = true

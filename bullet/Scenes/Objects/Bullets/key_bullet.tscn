@@ -18,3 +18,6 @@ volume_db = -10.0
 
 [node name="ShootAudio" parent="." index="4" unique_id=633659628]
 stream = ExtResource("4_wolui")
+
+[node name="BulletTrail" parent="." index="5" unique_id=1731350984]
+trail_color = Color(0.92011875, 0.89583385, 0, 0.9019608)
